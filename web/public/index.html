@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homeo-Magic | Homeopathic Repertorization</title>
+  <meta name="description" content="Find matching homeopathic remedies by selecting symptoms. 74,000+ symptoms, 2,400+ remedies.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .dropdown { max-height: 320px; overflow-y: auto; }
+    .symptom-tag { animation: fadeIn 0.2s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-800 min-h-screen">
+  <div class="max-w-3xl mx-auto px-4 py-8">
+    <!-- Header -->
+    <header class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-purple-800 dark:text-purple-300 flex items-center justify-center gap-3">
+        <span class="text-5xl">🔮</span> Homeo-Magic
+      </h1>
+      <p id="status" class="text-purple-600 dark:text-purple-400 mt-2">Loading repertory data...</p>
+    </header>
+
+    <!-- Search Box -->
+    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 mb-6 border border-purple-200 dark:border-purple-800">
+      <label for="search" class="block text-sm font-medium text-purple-700 dark:text-purple-300 mb-2">
+        Enter symptoms:
+      </label>
+      <div class="relative">
+        <input type="text" id="search" 
+          placeholder="Type to search (e.g., headache, morning, irritability)..."
+          class="w-full px-4 py-3 rounded-lg border-2 border-purple-300 dark:border-purple-600 
+                 bg-purple-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100
+                 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-800
+                 outline-none transition-all text-lg disabled:opacity-50"
+          autocomplete="off" disabled>
+        <div id="dropdown" class="dropdown hidden absolute z-50 w-full mt-1 bg-white dark:bg-gray-900 
+             border-2 border-purple-300 dark:border-purple-600 rounded-lg shadow-xl"></div>
+      </div>
+    </div>
+
+    <!-- Selected Symptoms -->
+    <div id="selected" class="flex flex-wrap gap-2 mb-6"></div>
+
+    <!-- Results -->
+    <div id="results" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden 
+         border border-purple-200 dark:border-purple-800"></div>
+  </div>
+
+  <script>
+    let symptoms = null;
+    let remedies = null;
+    let selectedSymptoms = [];
+
+    // Load data
+    async function loadData() {
+      const status = document.getElementById('status');
+      const search = document.getElementById('search');
+      
+      try {
+        status.textContent = 'Loading remedies...';
+        const remediesRes = await fetch('/data/remedies.json');
+        if (!remediesRes.ok) throw new Error('Failed to load remedies: ' + remediesRes.status);
+        remedies = await remediesRes.json();
+        
+        status.textContent = 'Loading symptoms (this may take a moment)...';
+        const symptomsRes = await fetch('/data/symptoms.json');
+        if (!symptomsRes.ok) throw new Error('Failed to load symptoms: ' + symptomsRes.status);
+        symptoms = await symptomsRes.json();
+        
+        const symCount = Object.keys(symptoms).length.toLocaleString();
+        const remCount = Object.keys(remedies).length.toLocaleString();
+        status.textContent = `${symCount} symptoms • ${remCount} remedies`;
+        
+        search.disabled = false;
+        search.focus();
+      } catch (e) {
+        status.textContent = 'Error: ' + e.message;
+        status.className = 'text-red-600 dark:text-red-400 mt-2';
+        console.error('Load error:', e);
+      }
+    }
+
+    // Search symptoms
+    function searchSymptoms(query) {
+      if (!symptoms || query.length < 2) return [];
+      const q = query.toLowerCase();
+      const matches = [];
+      for (const symptom of Object.keys(symptoms)) {
+        if (symptom.toLowerCase().includes(q) && !selectedSymptoms.includes(symptom)) {
+          matches.push(symptom);
+          if (matches.length >= 50) break;
+        }
+      }
+      return matches;
+    }
+
+    // Show dropdown
+    function showDropdown(matches) {
+      const dropdown = document.getElementById('dropdown');
+      if (matches.length === 0) {
+        dropdown.classList.add('hidden');
+        return;
+      }
+      dropdown.innerHTML = matches.map((m, i) => `
+        <button onclick="selectSymptom('${m.replace(/'/g, "\\'")}')" 
+          class="w-full text-left px-4 py-2 text-sm hover:bg-purple-100 dark:hover:bg-purple-900
+                 text-gray-800 dark:text-gray-200 border-b border-purple-100 dark:border-purple-800
+                 last:border-0 focus:bg-purple-100 dark:focus:bg-purple-900 outline-none">
+          ${highlightMatch(m, document.getElementById('search').value)}
+        </button>
+      `).join('');
+      dropdown.classList.remove('hidden');
+    }
+
+    // Highlight matching text
+    function highlightMatch(text, query) {
+      const idx = text.toLowerCase().indexOf(query.toLowerCase());
+      if (idx === -1) return text;
+      return text.slice(0, idx) + 
+        '<mark class="bg-yellow-200 dark:bg-yellow-700">' + 
+        text.slice(idx, idx + query.length) + '</mark>' + 
+        text.slice(idx + query.length);
+    }
+
+    // Select symptom
+    function selectSymptom(symptom) {
+      if (!selectedSymptoms.includes(symptom)) {
+        selectedSymptoms.push(symptom);
+        renderSelected();
+        updateResults();
+      }
+      document.getElementById('search').value = '';
+      document.getElementById('dropdown').classList.add('hidden');
+      document.getElementById('search').focus();
+    }
+
+    // Remove symptom
+    function removeSymptom(symptom) {
+      selectedSymptoms = selectedSymptoms.filter(s => s !== symptom);
+      renderSelected();
+      updateResults();
+    }
+
+    // Render selected symptoms
+    function renderSelected() {
+      const el = document.getElementById('selected');
+      if (selectedSymptoms.length === 0) {
+        el.innerHTML = '';
+        return;
+      }
+      el.innerHTML = selectedSymptoms.map(s => `
+        <span class="symptom-tag inline-flex items-center gap-1 bg-purple-200 dark:bg-purple-800 
+              text-purple-800 dark:text-purple-200 px-3 py-1.5 rounded-full text-sm font-medium">
+          ${s}
+          <button onclick="removeSymptom('${s.replace(/'/g, "\\'")}')" 
+            class="ml-1 text-purple-600 dark:text-purple-400 hover:text-purple-900 dark:hover:text-white
+                   font-bold text-lg leading-none">&times;</button>
+        </span>
+      `).join('');
+    }
+
+    // Calculate and display results
+    function updateResults() {
+      const resultsEl = document.getElementById('results');
+      
+      if (selectedSymptoms.length === 0) {
+        resultsEl.innerHTML = '';
+        return;
+      }
+
+      // Calculate intersection with scores
+      const scores = {};
+      const presence = {};
+      
+      for (const symptom of selectedSymptoms) {
+        const data = symptoms[symptom];
+        if (!data) continue;
+        for (const [remedy, weight] of Object.entries(data.remedies)) {
+          if (!scores[remedy]) {
+            scores[remedy] = { total: 0, breakdown: {} };
+            presence[remedy] = new Set();
+          }
+          scores[remedy].total += weight;
+          scores[remedy].breakdown[symptom] = weight;
+          presence[remedy].add(symptom);
+        }
+      }
+
+      // Filter to only remedies in ALL symptoms
+      const numSymptoms = selectedSymptoms.length;
+      const results = Object.entries(scores)
+        .filter(([r]) => presence[r].size === numSymptoms)
+        .sort((a, b) => b[1].total - a[1].total)
+        .slice(0, 100);
+
+      if (results.length === 0) {
+        resultsEl.innerHTML = `
+          <div class="p-6 text-center text-gray-500 dark:text-gray-400">
+            <p class="text-lg">No remedies match all ${numSymptoms} symptoms</p>
+            <p class="text-sm mt-2">Try removing some symptoms to find matches</p>
+          </div>`;
+        return;
+      }
+
+      resultsEl.innerHTML = `
+        <div class="p-4 bg-purple-50 dark:bg-purple-900/50 border-b border-purple-200 dark:border-purple-800">
+          <strong class="text-purple-800 dark:text-purple-200">${results.length} remedies</strong>
+          <span class="text-purple-600 dark:text-purple-400">match all ${numSymptoms} symptom${numSymptoms > 1 ? 's' : ''}</span>
+        </div>
+        <div class="divide-y divide-purple-100 dark:divide-purple-800">
+          ${results.map(([abbrev, data], i) => `
+            <div class="px-6 py-4 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3 min-w-0">
+                  <span class="text-purple-400 dark:text-purple-500 w-8 text-right font-mono">${i + 1}.</span>
+                  <div class="min-w-0">
+                    <span class="font-semibold text-purple-800 dark:text-purple-200">${abbrev}</span>
+                    <span class="text-purple-500 dark:text-purple-400 text-sm ml-2">(${remedies[abbrev] || abbrev})</span>
+                  </div>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <span class="text-2xl font-bold text-purple-700 dark:text-purple-300">${data.total}</span>
+                  <span class="text-sm text-purple-500 dark:text-purple-400 ml-1">pts</span>
+                </div>
+              </div>
+              <div class="mt-2 ml-11 text-sm text-purple-600 dark:text-purple-400">
+                ${Object.entries(data.breakdown).map(([s, w]) => {
+                  const shortName = s.split(',').slice(0, 2).join(',');
+                  return `<span class="inline-block mr-2">${shortName}(${w})</span>`;
+                }).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // Event listeners
+    const searchInput = document.getElementById('search');
+    
+    searchInput.addEventListener('input', (e) => {
+      showDropdown(searchSymptoms(e.target.value));
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('dropdown').classList.add('hidden');
+      }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#search') && !e.target.closest('#dropdown')) {
+        document.getElementById('dropdown').classList.add('hidden');
+      }
+    });
+
+    // Start
+    loadData();
+  </script>
+</body>
+</html>

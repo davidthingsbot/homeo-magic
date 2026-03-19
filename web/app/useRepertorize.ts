@@ -70,10 +70,15 @@ export function useRepertorize() {
   // Search symptoms
   const searchSymptoms = useCallback(
     (query: string, limit: number = 50): string[] => {
-      if (!symptoms || !query.trim()) return [];
+      console.log(`searchSymptoms called: query="${query}", symptoms loaded: ${!!symptoms}`);
+      if (!symptoms || !query.trim()) {
+        console.log("Returning empty - no symptoms or empty query");
+        return [];
+      }
 
       const q = query.toLowerCase();
       const allSymptomNames = Object.keys(symptoms);
+      console.log(`Searching ${allSymptomNames.length} symptoms for "${q}"`);
       const matches: string[] = [];
 
       // First: recent symptoms that match
@@ -94,7 +99,9 @@ export function useRepertorize() {
         }
       }
 
-      return [...recentMatches, ...matches];
+      const result = [...recentMatches, ...matches];
+      console.log(`Found ${result.length} matches`);
+      return result;
     },
     [symptoms, selectedSymptoms, recentSymptoms]
   );
