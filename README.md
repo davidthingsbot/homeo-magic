@@ -21,20 +21,35 @@ Patient symptoms:
   3. "worse from cold"
 
 Lookup results:
-  Symptom 1: [Nux-v(3), Bry(2), Puls(1), Nat-m(2), Calc(1)]
-  Symptom 2: [Nux-v(3), Cham(3), Bry(2), Sep(2), Lyc(1)]
-  Symptom 3: [Nux-v(2), Ars(3), Hep(2), Sil(1), Psor(1)]
+  Symptom 1: [Nux-v(3), Bry(2), Sulph(1), Nat-m(2), Calc(1)]
+  Symptom 2: [Nux-v(3), Bry(1), Sulph(2), Sep(2), Lyc(1)]
+  Symptom 3: [Nux-v(2), Bry(2), Sulph(3), Ars(3), Hep(2)]
 
-Intersection:
-  Nux-v — appears in all three (score: 3+3+2 = 8)
+Step 1 — Find intersection (remedies appearing in ALL lists):
+  Nux-v, Bry, Sulph
 
-Recommendation: Nux vomica
+Step 2 — Sum grades across symptoms:
+  Nux-v:  3 + 3 + 2 = 8  ← highest
+  Sulph:  1 + 2 + 3 = 6
+  Bry:    2 + 1 + 2 = 5  ← lowest
+
+Step 3 — Rank by total score:
+  1. Nux vomica (8)
+  2. Sulphur (6)
+  3. Bryonia (5)
 ```
 
-The grade (1-3) indicates remedy strength for that symptom:
-- **Grade 3** (bold): Primary/strongly indicated
+**Key insight:** It's not just "appears in all lists" — it's "appears *strongly* in all lists." The remedy with the highest **total grade score** is the best match.
+
+### Grading System
+
+The grade (1-3) indicates how strongly a remedy is associated with that symptom:
+
+- **Grade 3** (bold in original texts): Primary/strongly indicated
 - **Grade 2** (italic): Secondary indication  
 - **Grade 1** (plain): Minor/occasional indication
+
+A remedy scoring grade 3 across multiple symptoms is a much stronger match than one scoring grade 1 everywhere.
 
 ---
 
@@ -89,8 +104,9 @@ The grade (1-3) indicates remedy strength for that symptom:
 ├─────────────────────────────────────────────────┤
 │  3. LOOKUP ENGINE                                │
 │     - Input: list of symptoms                    │
-│     - Output: ranked intersection                │
-│     - Score = sum of grades across symptoms      │
+│     - Find intersection: remedies in ALL lists   │
+│     - Score each: sum of grades across symptoms  │
+│     - Output: remedies ranked by total score     │
 ├─────────────────────────────────────────────────┤
 │  4. WEB UI (static site)                         │
 │     - Search/browse symptoms                     │
