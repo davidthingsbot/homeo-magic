@@ -108,10 +108,10 @@ A remedy scoring grade 3 across multiple symptoms is a much stronger match than 
 │     - Score each: sum of grades across symptoms  │
 │     - Output: remedies ranked by total score     │
 ├─────────────────────────────────────────────────┤
-│  4. WEB UI (static site)                         │
-│     - Search/browse symptoms                     │
-│     - Select multiple                            │
-│     - Show intersection with scores              │
+│  4. WEB UI                                       │
+│     - Next.js + Vite + React + Tailwind CSS      │
+│     - Symptom autocomplete input                 │
+│     - Multi-select with ranked results           │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -150,10 +150,12 @@ homeo-magic/
 │   └── utils.py            # Parsing utilities
 ├── engine/
 │   └── repertorize.py      # Intersection + scoring logic
-├── web/
-│   ├── index.html          # Lookup UI
-│   ├── app.js
-│   └── styles.css
+├── web/                      # Next.js + Vite + React + Tailwind
+│   ├── src/
+│   │   ├── components/
+│   │   └── pages/
+│   ├── package.json
+│   └── tailwind.config.js
 └── README.md
 ```
 
@@ -173,10 +175,53 @@ homeo-magic/
 - [ ] Build intersection algorithm with grade-based scoring
 
 ### Phase 3: Web UI
-- [ ] Static site (GitHub Pages)
-- [ ] Symptom search/autocomplete
-- [ ] Multi-select symptoms
-- [ ] Show ranked remedy intersection
+
+**Tech Stack:** Next.js + Vite + React + Tailwind CSS
+
+**UI Behavior:**
+
+1. **Symptom Input** — Single text field with autocomplete
+2. **Autocomplete Priority:**
+   - First: symptoms already selected in this session (for quick re-entry)
+   - Then: matching symptoms from the repertory database
+3. **Selection** — Click to add symptom to list, shows as tag/chip
+4. **Results** — Live-updating ranked remedy list as symptoms are added/removed
+5. **Remedy Display** — Show total score, breakdown per symptom
+
+**Deployment:** GitHub Pages or Vercel (static export)
+
+**Mockup:**
+```
+┌─────────────────────────────────────────────────┐
+│  🔮 Homeo-Magic                                  │
+├─────────────────────────────────────────────────┤
+│  Enter symptoms:                                 │
+│  ┌─────────────────────────────────────────┐    │
+│  │ headache morning ▼                      │    │
+│  └─────────────────────────────────────────┘    │
+│    ┌──────────────────────────────────┐         │
+│    │ • head, pain, morning (prev)     │         │
+│    │ • head, pain, morning agg        │         │
+│    │ • head, pain, waking on          │         │
+│    └──────────────────────────────────┘         │
+│                                                  │
+│  Selected: [head, pain, morning ×]              │
+│            [irritability ×]                     │
+│            [cold, agg ×]                        │
+│                                                  │
+├─────────────────────────────────────────────────┤
+│  Remedies (3 found):                            │
+│                                                  │
+│  1. Nux vomica ............ 8 pts              │
+│     morning(3) + irritable(3) + cold(2)        │
+│                                                  │
+│  2. Sulphur ............... 6 pts              │
+│     morning(1) + irritable(2) + cold(3)        │
+│                                                  │
+│  3. Bryonia ............... 5 pts              │
+│     morning(2) + irritable(1) + cold(2)        │
+└─────────────────────────────────────────────────┘
+```
 
 ---
 
