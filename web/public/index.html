@@ -5,47 +5,256 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homeo-Magic | Homeopathic Repertorization</title>
   <meta name="description" content="Find matching homeopathic remedies by selecting symptoms. 74,000+ symptoms, 2,400+ remedies.">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .dropdown { max-height: 320px; overflow-y: auto; }
-    .symptom-tag { animation: fadeIn 0.2s ease-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+      color: white;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    #status {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    
+    /* Search */
+    .search-box {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    .search-box label {
+      display: block;
+      font-weight: 600;
+      color: #4c1d95;
+      margin-bottom: 8px;
+    }
+    .search-wrapper { position: relative; }
+    #search {
+      width: 100%;
+      padding: 14px 18px;
+      font-size: 16px;
+      border: 2px solid #e9d5ff;
+      border-radius: 10px;
+      outline: none;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    #search:focus { border-color: #8b5cf6; box-shadow: 0 0 0 3px rgba(139,92,246,0.2); }
+    #search:disabled { background: #f5f3ff; cursor: not-allowed; }
+    
+    /* Dropdown */
+    #dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border: 2px solid #8b5cf6;
+      border-radius: 10px;
+      margin-top: 4px;
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 100;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      display: none;
+    }
+    #dropdown.show { display: block; }
+    .dropdown-item {
+      padding: 12px 16px;
+      cursor: pointer;
+      border-bottom: 1px solid #f3e8ff;
+      font-size: 14px;
+      transition: background 0.15s;
+    }
+    .dropdown-item:hover { background: #f5f3ff; }
+    .dropdown-item:last-child { border-bottom: none; }
+    .dropdown-item mark { background: #fef08a; padding: 1px 2px; border-radius: 2px; }
+    
+    /* Selected symptoms */
+    #selected {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .symptom-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      color: #5b21b6;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      animation: fadeIn 0.2s ease-out;
+    }
+    .symptom-tag button {
+      background: #dc2626;
+      color: white;
+      border: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .symptom-tag button:hover { background: #b91c1c; }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } }
+    
+    /* Results table */
+    .results-box {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .results-header {
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+      color: white;
+      padding: 16px 20px;
+      font-weight: 600;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      max-height: 70vh;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 10px 8px;
+      text-align: center;
+      border-bottom: 1px solid #f3e8ff;
+    }
+    th {
+      background: #faf5ff;
+      font-weight: 600;
+      color: #5b21b6;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    th.symptom-header {
+      text-align: left;
+      min-width: 250px;
+      background: #f3e8ff;
+    }
+    .remedy-header {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      height: 100px;
+      vertical-align: bottom;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .score-row td {
+      background: linear-gradient(180deg, #faf5ff 0%, #ede9fe 100%);
+      font-weight: 700;
+      color: #5b21b6;
+      font-size: 14px;
+      border-bottom: 2px solid #c4b5fd;
+    }
+    .score-row td:first-child {
+      text-align: left;
+      font-weight: 600;
+    }
+    .symptom-row td:first-child {
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .symptom-row td:first-child:hover {
+      background: #fef2f2;
+      color: #dc2626;
+    }
+    .symptom-row td:first-child::before {
+      content: '×';
+      color: #dc2626;
+      margin-right: 8px;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .symptom-row td:first-child:hover::before {
+      opacity: 1;
+    }
+    
+    /* Grade cells */
+    .grade { 
+      width: 28px; 
+      height: 28px; 
+      border-radius: 4px; 
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 12px;
+    }
+    .grade-1 { background: #fef3c7; color: #92400e; }
+    .grade-2 { background: #fed7aa; color: #9a3412; }
+    .grade-3 { background: #fca5a5; color: #991b1b; }
+    .grade-4 { background: #f87171; color: #7f1d1d; }
+    
+    /* Empty state */
+    .empty-state {
+      padding: 60px 20px;
+      text-align: center;
+      color: #6b7280;
+    }
+    .empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+    
+    /* Loading */
+    .loading { animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
   </style>
 </head>
-<body class="bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-800 min-h-screen">
-  <div class="max-w-3xl mx-auto px-4 py-8">
-    <!-- Header -->
-    <header class="text-center mb-8">
-      <h1 class="text-4xl font-bold text-purple-800 dark:text-purple-300 flex items-center justify-center gap-3">
-        <span class="text-5xl">🔮</span> Homeo-Magic
-      </h1>
-      <p id="status" class="text-purple-600 dark:text-purple-400 mt-2">Loading repertory data...</p>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔮 Homeo-Magic</h1>
+      <p id="status" class="loading">Loading repertory data...</p>
     </header>
 
-    <!-- Search Box -->
-    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 mb-6 border border-purple-200 dark:border-purple-800">
-      <label for="search" class="block text-sm font-medium text-purple-700 dark:text-purple-300 mb-2">
-        Enter symptoms:
-      </label>
-      <div class="relative">
-        <input type="text" id="search" 
-          placeholder="Type to search (e.g., headache, morning, irritability)..."
-          class="w-full px-4 py-3 rounded-lg border-2 border-purple-300 dark:border-purple-600 
-                 bg-purple-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100
-                 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-800
-                 outline-none transition-all text-lg disabled:opacity-50"
-          autocomplete="off" disabled>
-        <div id="dropdown" class="dropdown hidden absolute z-50 w-full mt-1 bg-white dark:bg-gray-900 
-             border-2 border-purple-300 dark:border-purple-600 rounded-lg shadow-xl"></div>
+    <div class="search-box">
+      <label for="search">Add symptoms:</label>
+      <div class="search-wrapper">
+        <input type="text" id="search" placeholder="Type to search (e.g., headache, anxiety, burning)..." autocomplete="off" disabled>
+        <div id="dropdown"></div>
       </div>
     </div>
 
-    <!-- Selected Symptoms -->
-    <div id="selected" class="flex flex-wrap gap-2 mb-6"></div>
+    <div id="selected"></div>
 
-    <!-- Results -->
-    <div id="results" class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden 
-         border border-purple-200 dark:border-purple-800"></div>
+    <div id="results" class="results-box"></div>
   </div>
 
   <script>
@@ -59,206 +268,191 @@
       const search = document.getElementById('search');
       
       try {
-        status.textContent = 'Loading remedies...';
         const remediesRes = await fetch('/data/remedies.json');
-        if (!remediesRes.ok) throw new Error('Failed to load remedies: ' + remediesRes.status);
+        if (!remediesRes.ok) throw new Error('Failed to load remedies');
         remedies = await remediesRes.json();
         
-        status.textContent = 'Loading symptoms (this may take a moment)...';
+        status.textContent = 'Loading symptoms...';
         const symptomsRes = await fetch('/data/symptoms.json');
-        if (!symptomsRes.ok) throw new Error('Failed to load symptoms: ' + symptomsRes.status);
+        if (!symptomsRes.ok) throw new Error('Failed to load symptoms');
         symptoms = await symptomsRes.json();
         
-        const symCount = Object.keys(symptoms).length.toLocaleString();
-        const remCount = Object.keys(remedies).length.toLocaleString();
-        status.textContent = `${symCount} symptoms • ${remCount} remedies`;
-        
+        status.textContent = `${Object.keys(symptoms).length.toLocaleString()} symptoms • ${Object.keys(remedies).length.toLocaleString()} remedies`;
+        status.classList.remove('loading');
         search.disabled = false;
         search.focus();
       } catch (e) {
         status.textContent = 'Error: ' + e.message;
-        status.className = 'text-red-600 dark:text-red-400 mt-2';
-        console.error('Load error:', e);
+        status.style.color = '#fca5a5';
+        console.error(e);
       }
     }
 
-    // Search symptoms
+    // Search
     function searchSymptoms(query) {
       if (!symptoms || query.length < 2) return [];
       const q = query.toLowerCase();
       const matches = [];
-      for (const symptom of Object.keys(symptoms)) {
-        if (symptom.toLowerCase().includes(q) && !selectedSymptoms.includes(symptom)) {
-          matches.push(symptom);
+      for (const sym of Object.keys(symptoms)) {
+        if (sym.toLowerCase().includes(q) && !selectedSymptoms.includes(sym)) {
+          matches.push(sym);
           if (matches.length >= 50) break;
         }
       }
       return matches;
     }
 
-    // Show dropdown
-    function showDropdown(matches) {
-      const dropdown = document.getElementById('dropdown');
-      if (matches.length === 0) {
-        dropdown.classList.add('hidden');
-        return;
-      }
-      dropdown.innerHTML = matches.map((m, i) => `
-        <button onclick="selectSymptom('${m.replace(/'/g, "\\'")}')" 
-          class="w-full text-left px-4 py-2 text-sm hover:bg-purple-100 dark:hover:bg-purple-900
-                 text-gray-800 dark:text-gray-200 border-b border-purple-100 dark:border-purple-800
-                 last:border-0 focus:bg-purple-100 dark:focus:bg-purple-900 outline-none">
-          ${highlightMatch(m, document.getElementById('search').value)}
-        </button>
-      `).join('');
-      dropdown.classList.remove('hidden');
-    }
-
-    // Highlight matching text
     function highlightMatch(text, query) {
       const idx = text.toLowerCase().indexOf(query.toLowerCase());
       if (idx === -1) return text;
-      return text.slice(0, idx) + 
-        '<mark class="bg-yellow-200 dark:bg-yellow-700">' + 
-        text.slice(idx, idx + query.length) + '</mark>' + 
-        text.slice(idx + query.length);
+      return text.slice(0, idx) + '<mark>' + text.slice(idx, idx + query.length) + '</mark>' + text.slice(idx + query.length);
     }
 
-    // Select symptom
-    function selectSymptom(symptom) {
-      if (!selectedSymptoms.includes(symptom)) {
-        selectedSymptoms.push(symptom);
+    function showDropdown(matches) {
+      const dd = document.getElementById('dropdown');
+      if (!matches.length) {
+        dd.classList.remove('show');
+        return;
+      }
+      const query = document.getElementById('search').value;
+      dd.innerHTML = matches.map(m => 
+        `<div class="dropdown-item" onclick="addSymptom('${m.replace(/'/g, "\\'")}')">${highlightMatch(m, query)}</div>`
+      ).join('');
+      dd.classList.add('show');
+    }
+
+    // Symptom management
+    function addSymptom(sym) {
+      if (!selectedSymptoms.includes(sym)) {
+        selectedSymptoms.push(sym);
         renderSelected();
-        updateResults();
+        renderResults();
       }
       document.getElementById('search').value = '';
-      document.getElementById('dropdown').classList.add('hidden');
+      document.getElementById('dropdown').classList.remove('show');
       document.getElementById('search').focus();
     }
 
-    // Remove symptom
-    function removeSymptom(symptom) {
-      selectedSymptoms = selectedSymptoms.filter(s => s !== symptom);
+    function removeSymptom(sym) {
+      selectedSymptoms = selectedSymptoms.filter(s => s !== sym);
       renderSelected();
-      updateResults();
+      renderResults();
     }
 
-    // Render selected symptoms
     function renderSelected() {
       const el = document.getElementById('selected');
-      if (selectedSymptoms.length === 0) {
-        el.innerHTML = '';
-        return;
-      }
       el.innerHTML = selectedSymptoms.map(s => `
-        <span class="symptom-tag inline-flex items-center gap-1 bg-purple-200 dark:bg-purple-800 
-              text-purple-800 dark:text-purple-200 px-3 py-1.5 rounded-full text-sm font-medium">
+        <span class="symptom-tag">
           ${s}
-          <button onclick="removeSymptom('${s.replace(/'/g, "\\'")}')" 
-            class="ml-1 text-purple-600 dark:text-purple-400 hover:text-purple-900 dark:hover:text-white
-                   font-bold text-lg leading-none">&times;</button>
+          <button onclick="removeSymptom('${s.replace(/'/g, "\\'")}')">×</button>
         </span>
       `).join('');
     }
 
-    // Calculate and display results
-    function updateResults() {
-      const resultsEl = document.getElementById('results');
+    // Calculate and render results
+    function renderResults() {
+      const container = document.getElementById('results');
       
-      if (selectedSymptoms.length === 0) {
-        resultsEl.innerHTML = '';
-        return;
-      }
-
-      // Calculate intersection with scores
-      const scores = {};
-      const presence = {};
-      
-      for (const symptom of selectedSymptoms) {
-        const data = symptoms[symptom];
-        if (!data) continue;
-        for (const [remedy, weight] of Object.entries(data.remedies)) {
-          if (!scores[remedy]) {
-            scores[remedy] = { total: 0, breakdown: {} };
-            presence[remedy] = new Set();
-          }
-          scores[remedy].total += weight;
-          scores[remedy].breakdown[symptom] = weight;
-          presence[remedy].add(symptom);
-        }
-      }
-
-      // Filter to only remedies in ALL symptoms
-      const numSymptoms = selectedSymptoms.length;
-      const results = Object.entries(scores)
-        .filter(([r]) => presence[r].size === numSymptoms)
-        .sort((a, b) => b[1].total - a[1].total)
-        .slice(0, 100);
-
-      if (results.length === 0) {
-        resultsEl.innerHTML = `
-          <div class="p-6 text-center text-gray-500 dark:text-gray-400">
-            <p class="text-lg">No remedies match all ${numSymptoms} symptoms</p>
-            <p class="text-sm mt-2">Try removing some symptoms to find matches</p>
+      if (!selectedSymptoms.length) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="icon">🔍</div>
+            <p>Search and select symptoms above to find matching remedies</p>
           </div>`;
         return;
       }
 
-      resultsEl.innerHTML = `
-        <div class="p-4 bg-purple-50 dark:bg-purple-900/50 border-b border-purple-200 dark:border-purple-800">
-          <strong class="text-purple-800 dark:text-purple-200">${results.length} remedies</strong>
-          <span class="text-purple-600 dark:text-purple-400">match all ${numSymptoms} symptom${numSymptoms > 1 ? 's' : ''}</span>
-        </div>
-        <div class="divide-y divide-purple-100 dark:divide-purple-800">
-          ${results.map(([abbrev, data], i) => `
-            <div class="px-6 py-4 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors">
-              <div class="flex items-center justify-between gap-4">
-                <div class="flex items-center gap-3 min-w-0">
-                  <span class="text-purple-400 dark:text-purple-500 w-8 text-right font-mono">${i + 1}.</span>
-                  <div class="min-w-0">
-                    <span class="font-semibold text-purple-800 dark:text-purple-200">${abbrev}</span>
-                    <span class="text-purple-500 dark:text-purple-400 text-sm ml-2">(${remedies[abbrev] || abbrev})</span>
-                  </div>
-                </div>
-                <div class="text-right flex-shrink-0">
-                  <span class="text-2xl font-bold text-purple-700 dark:text-purple-300">${data.total}</span>
-                  <span class="text-sm text-purple-500 dark:text-purple-400 ml-1">pts</span>
-                </div>
-              </div>
-              <div class="mt-2 ml-11 text-sm text-purple-600 dark:text-purple-400">
-                ${Object.entries(data.breakdown).map(([s, w]) => {
-                  const shortName = s.split(',').slice(0, 2).join(',');
-                  return `<span class="inline-block mr-2">${shortName}(${w})</span>`;
-                }).join('')}
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      `;
+      // Calculate scores
+      const scores = {};
+      const gradeMap = {}; // remedy -> symptom -> grade
+      
+      for (const sym of selectedSymptoms) {
+        const data = symptoms[sym];
+        if (!data) continue;
+        for (const [rem, grade] of Object.entries(data.remedies)) {
+          if (!scores[rem]) {
+            scores[rem] = 0;
+            gradeMap[rem] = {};
+          }
+          scores[rem] += grade;
+          gradeMap[rem][sym] = grade;
+        }
+      }
+
+      // Sort by score, take top 30
+      const sorted = Object.entries(scores)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 30);
+
+      if (!sorted.length) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="icon">😔</div>
+            <p>No remedies found for these symptoms</p>
+          </div>`;
+        return;
+      }
+
+      // Normalize to 100 (top remedy = 100)
+      const maxScore = sorted[0][1];
+      const normalizedScores = sorted.map(([rem, score]) => [rem, Math.round((score / maxScore) * 100)]);
+
+      // Build table
+      let html = `
+        <div class="results-header">${sorted.length} Remedies Found</div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th class="symptom-header">Analysis</th>
+                ${sorted.map(([rem]) => `<th class="remedy-header">${rem}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="score-row">
+                <td>Score</td>
+                ${normalizedScores.map(([rem, score]) => `<td>${score}</td>`).join('')}
+              </tr>
+              ${selectedSymptoms.map(sym => {
+                const symData = symptoms[sym];
+                const symCount = symData ? Object.keys(symData.remedies).length : 0;
+                return `
+                  <tr class="symptom-row">
+                    <td onclick="removeSymptom('${sym.replace(/'/g, "\\'")}')">${sym} (${symCount})</td>
+                    ${sorted.map(([rem]) => {
+                      const grade = gradeMap[rem]?.[sym];
+                      if (!grade) return '<td></td>';
+                      return `<td><span class="grade grade-${grade}">${grade}</span></td>`;
+                    }).join('')}
+                  </tr>`;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>`;
+
+      container.innerHTML = html;
     }
 
     // Event listeners
-    const searchInput = document.getElementById('search');
-    
-    searchInput.addEventListener('input', (e) => {
+    document.getElementById('search').addEventListener('input', e => {
       showDropdown(searchSymptoms(e.target.value));
     });
 
-    searchInput.addEventListener('keydown', (e) => {
+    document.getElementById('search').addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        document.getElementById('dropdown').classList.add('hidden');
+        document.getElementById('dropdown').classList.remove('show');
       }
     });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('#search') && !e.target.closest('#dropdown')) {
-        document.getElementById('dropdown').classList.add('hidden');
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.search-wrapper')) {
+        document.getElementById('dropdown').classList.remove('show');
       }
     });
 
-    // Start
+    // Initialize
     loadData();
+    renderResults();
   </script>
 </body>
 </html>

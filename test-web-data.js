@@ -123,15 +123,16 @@ async function main() {
     failed = true;
   }
   
-  // Test 5: Page has Tailwind CSS
-  console.log('\n5. Testing page uses Tailwind...');
+  // Test 5: Page has CSS styles
+  console.log('\n5. Testing page has styles...');
   try {
     const res = await fetch(`${SERVER_URL}/`);
-    if (!res.data.includes('tailwindcss')) {
-      console.log(`   ❌ FAIL: Tailwind not found`);
+    // Check for either Tailwind CDN or custom styles
+    if (!res.data.includes('<style>') && !res.data.includes('tailwindcss')) {
+      console.log(`   ❌ FAIL: No styles found`);
       failed = true;
     } else {
-      console.log(`   ✅ PASS: Tailwind CSS included`);
+      console.log(`   ✅ PASS: CSS styles included`);
     }
   } catch (e) {
     console.log(`   ❌ FAIL: ${e.message}`);
