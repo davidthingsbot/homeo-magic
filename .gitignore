@@ -1,0 +1,6 @@
+# Large files
+oorep.sql
+oorep.sql.gz
+__pycache__/
+*.pyc
+node_modules/
