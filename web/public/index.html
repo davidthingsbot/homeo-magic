@@ -256,20 +256,40 @@
       text-align: left;
       cursor: pointer;
       transition: background 0.15s;
+      position: relative;
     }
     .symptom-row td:first-child:hover {
-      background: #fef2f2;
-      color: #dc2626;
+      background: #f5f3ff;
     }
-    .symptom-row td:first-child::before {
-      content: '×';
-      color: #dc2626;
-      margin-right: 8px;
+    .symptom-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .symptom-cell .remove-btn {
+      background: #dc2626;
+      color: white;
+      border: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 12px;
+      cursor: pointer;
       opacity: 0;
       transition: opacity 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
-    .symptom-row td:first-child:hover::before {
+    .symptom-row td:first-child:hover .remove-btn {
       opacity: 1;
+    }
+    .symptom-cell .remove-btn:hover {
+      background: #b91c1c;
+    }
+    .symptom-cell .symptom-name {
+      flex: 1;
     }
     
     /* Grade cells */
@@ -299,6 +319,89 @@
     /* Loading */
     .loading { animation: pulse 1.5s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    
+    /* Detail panel */
+    .detail-panel {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      margin-top: 20px;
+      overflow: hidden;
+      animation: slideUp 0.2s ease-out;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+      color: white;
+      font-weight: 600;
+    }
+    .detail-header button {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .detail-header button:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    #detail-content {
+      padding: 20px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #374151;
+    }
+    #detail-content .remedy-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #5b21b6;
+      margin-bottom: 8px;
+    }
+    #detail-content .remedy-abbrev {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+    #detail-content .symptom-text {
+      font-size: 18px;
+      color: #1f2937;
+    }
+    #detail-content .symptom-info {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 14px;
+      color: #6b7280;
+    }
+    #detail-content .remedy-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    #detail-content .remedy-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    #detail-content .remedy-badge.grade-1 { background: #fef3c7; color: #92400e; }
+    #detail-content .remedy-badge.grade-2 { background: #fed7aa; color: #9a3412; }
+    #detail-content .remedy-badge.grade-3 { background: #fca5a5; color: #991b1b; }
   </style>
 </head>
 <body>
@@ -319,6 +422,14 @@
     <div id="selected"></div>
 
     <div id="results" class="results-box"></div>
+    
+    <div id="detail-panel" class="detail-panel" style="display: none;">
+      <div class="detail-header">
+        <span id="detail-type"></span>
+        <button onclick="closeDetail()">×</button>
+      </div>
+      <div id="detail-content"></div>
+    </div>
   </div>
 
   <script>
@@ -488,7 +599,7 @@
             <thead>
               <tr>
                 <th class="symptom-header">Analysis</th>
-                ${sorted.map(([rem]) => `<th class="remedy-header" onclick="filterToRemedy('${rem.replace(/'/g, "\\'")}')" title="Click to filter: show only this remedy and higher">${rem}</th>`).join('')}
+                ${sorted.map(([rem]) => `<th class="remedy-header" onclick="showRemedyDetail('${rem.replace(/'/g, "\\'")}')" title="Click to see remedy details">${rem}</th>`).join('')}
               </tr>
             </thead>
             <tbody>
@@ -501,7 +612,13 @@
                 const symCount = symData ? Object.keys(symData.remedies).length : 0;
                 return `
                   <tr class="symptom-row">
-                    <td onclick="removeSymptom('${sym.replace(/'/g, "\\'")}')">${sym} (${symCount})</td>
+                    <td onclick="showSymptomDetail('${sym.replace(/'/g, "\\'")}')">
+                      <div class="symptom-cell">
+                        <button class="remove-btn" onclick="event.stopPropagation(); removeSymptom('${sym.replace(/'/g, "\\'")}')">×</button>
+                        <span class="symptom-name">${sym}</span>
+                        <span style="color:#9ca3af;font-size:11px">(${symCount})</span>
+                      </div>
+                    </td>
                     ${sorted.map(([rem]) => {
                       const grade = gradeMap[rem]?.[sym];
                       if (!grade) return '<td></td>';
@@ -514,6 +631,60 @@
         </div>`;
 
       container.innerHTML = html;
+    }
+
+    // Detail panel functions
+    function showRemedyDetail(abbrev) {
+      const fullName = remedies[abbrev] || abbrev;
+      const panel = document.getElementById('detail-panel');
+      const typeEl = document.getElementById('detail-type');
+      const contentEl = document.getElementById('detail-content');
+      
+      typeEl.textContent = 'Remedy';
+      contentEl.innerHTML = `
+        <div class="remedy-name">${fullName}</div>
+        <div class="remedy-abbrev">Abbreviation: ${abbrev}</div>
+      `;
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    
+    function showSymptomDetail(symptomName) {
+      const symData = symptoms[symptomName];
+      const panel = document.getElementById('detail-panel');
+      const typeEl = document.getElementById('detail-type');
+      const contentEl = document.getElementById('detail-content');
+      
+      if (!symData) {
+        typeEl.textContent = 'Symptom';
+        contentEl.innerHTML = `<div class="symptom-text">${symptomName}</div>`;
+      } else {
+        const remedyCount = Object.keys(symData.remedies).length;
+        // Get top remedies for this symptom
+        const topRemedies = Object.entries(symData.remedies)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 20);
+        
+        typeEl.textContent = 'Symptom';
+        contentEl.innerHTML = `
+          <div class="symptom-text">${symptomName}</div>
+          <div class="symptom-info">
+            <strong>${remedyCount}</strong> remedies cover this symptom
+            <div class="remedy-list">
+              ${topRemedies.map(([rem, grade]) => 
+                `<span class="remedy-badge grade-${grade}" onclick="showRemedyDetail('${rem.replace(/'/g, "\\'")}')" style="cursor:pointer">${rem} (${grade})</span>`
+              ).join('')}
+              ${remedyCount > 20 ? `<span style="color:#6b7280">...and ${remedyCount - 20} more</span>` : ''}
+            </div>
+          </div>
+        `;
+      }
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    
+    function closeDetail() {
+      document.getElementById('detail-panel').style.display = 'none';
     }
 
     // Filter functions
