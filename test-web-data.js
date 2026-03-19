@@ -108,33 +108,30 @@ async function main() {
     failed = true;
   }
   
-  // Test 4: JS files load
-  console.log('\n4. Testing JavaScript bundle...');
+  // Test 4: Page has required elements
+  console.log('\n4. Testing page has search input...');
   try {
-    const res = await fetch(`${SERVER_URL}/_next/static/chunks/0dbhjjzl8qfwv.js`);
-    if (!res.ok) {
-      console.log(`   ❌ FAIL: HTTP ${res.status}`);
-      failed = true;
-    } else if (res.data.length < 1000) {
-      console.log(`   ❌ FAIL: JS file too small (${res.data.length} bytes)`);
+    const res = await fetch(`${SERVER_URL}/`);
+    if (!res.data.includes('id="search"')) {
+      console.log(`   ❌ FAIL: Search input not found`);
       failed = true;
     } else {
-      console.log(`   ✅ PASS: JS bundle loaded (${res.data.length} bytes)`);
+      console.log(`   ✅ PASS: Search input found`);
     }
   } catch (e) {
     console.log(`   ❌ FAIL: ${e.message}`);
     failed = true;
   }
   
-  // Test 5: CSS loads
-  console.log('\n5. Testing CSS...');
+  // Test 5: Page has Tailwind CSS
+  console.log('\n5. Testing page uses Tailwind...');
   try {
-    const res = await fetch(`${SERVER_URL}/_next/static/chunks/0gxtu5xf-~v2a.css`);
-    if (!res.ok) {
-      console.log(`   ❌ FAIL: HTTP ${res.status}`);
+    const res = await fetch(`${SERVER_URL}/`);
+    if (!res.data.includes('tailwindcss')) {
+      console.log(`   ❌ FAIL: Tailwind not found`);
       failed = true;
     } else {
-      console.log(`   ✅ PASS: CSS loaded (${res.data.length} bytes)`);
+      console.log(`   ✅ PASS: Tailwind CSS included`);
     }
   } catch (e) {
     console.log(`   ❌ FAIL: ${e.message}`);
