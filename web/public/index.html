@@ -176,6 +176,62 @@
       vertical-align: bottom;
       font-size: 11px;
       white-space: nowrap;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .remedy-header:hover {
+      background: #ede9fe;
+    }
+    
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 20px;
+      background: #f5f3ff;
+      border-bottom: 1px solid #e9d5ff;
+      flex-wrap: wrap;
+    }
+    .filter-bar label {
+      font-weight: 500;
+      color: #5b21b6;
+      font-size: 13px;
+    }
+    .filter-bar input[type="range"] {
+      width: 150px;
+      accent-color: #7c3aed;
+    }
+    .filter-bar .score-display {
+      font-weight: 700;
+      color: #7c3aed;
+      min-width: 35px;
+    }
+    .filter-bar button {
+      padding: 6px 12px;
+      background: #7c3aed;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .filter-bar button:hover {
+      background: #6d28d9;
+    }
+    .filter-bar button.secondary {
+      background: #e9d5ff;
+      color: #5b21b6;
+    }
+    .filter-bar button.secondary:hover {
+      background: #ddd6fe;
+    }
+    .filter-info {
+      font-size: 12px;
+      color: #6b7280;
+      margin-left: auto;
     }
     .score-row td {
       background: linear-gradient(180deg, #faf5ff 0%, #ede9fe 100%);
@@ -187,6 +243,14 @@
     .score-row td:first-child {
       text-align: left;
       font-weight: 600;
+    }
+    .score-row td:not(:first-child) {
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .score-row td:not(:first-child):hover {
+      background: #ddd6fe;
+      transform: scale(1.1);
     }
     .symptom-row td:first-child {
       text-align: left;
@@ -261,6 +325,7 @@
     let symptoms = null;
     let remedies = null;
     let selectedSymptoms = [];
+    let minScore = 0; // Minimum score threshold
 
     // Load data
     async function loadData() {
@@ -379,12 +444,11 @@
         }
       }
 
-      // Sort by score, take top 30
-      const sorted = Object.entries(scores)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 30);
+      // Sort by score
+      const allSorted = Object.entries(scores)
+        .sort((a, b) => b[1] - a[1]);
 
-      if (!sorted.length) {
+      if (!allSorted.length) {
         container.innerHTML = `
           <div class="empty-state">
             <div class="icon">😔</div>
@@ -394,24 +458,43 @@
       }
 
       // Normalize to 100 (top remedy = 100)
-      const maxScore = sorted[0][1];
-      const normalizedScores = sorted.map(([rem, score]) => [rem, Math.round((score / maxScore) * 100)]);
+      const maxScore = allSorted[0][1];
+      const allNormalized = allSorted.map(([rem, score]) => [rem, Math.round((score / maxScore) * 100), score]);
+      
+      // Filter by minScore and limit to 40
+      const filtered = allNormalized.filter(([_, normScore]) => normScore >= minScore);
+      const sorted = filtered.slice(0, 40);
+      const normalizedScores = sorted.map(([rem, normScore]) => [rem, normScore]);
 
       // Build table
+      const totalRemedies = allNormalized.length;
+      const shownRemedies = sorted.length;
+      const hiddenRemedies = filtered.length - shownRemedies;
+      
       let html = `
-        <div class="results-header">${sorted.length} Remedies Found</div>
+        <div class="results-header">${totalRemedies} Remedies Found</div>
+        <div class="filter-bar">
+          <label>Min score:</label>
+          <input type="range" id="scoreSlider" min="0" max="100" value="${minScore}" oninput="updateMinScore(this.value)">
+          <span class="score-display" id="scoreDisplay">${minScore}</span>
+          ${minScore > 0 ? `<button class="secondary" onclick="resetFilter()">Reset</button>` : ''}
+          <span class="filter-info">
+            Showing ${shownRemedies} of ${filtered.length} remedies (≥${minScore})
+            ${hiddenRemedies > 0 ? ` • ${hiddenRemedies} more below` : ''}
+          </span>
+        </div>
         <div class="table-wrapper">
           <table>
             <thead>
               <tr>
                 <th class="symptom-header">Analysis</th>
-                ${sorted.map(([rem]) => `<th class="remedy-header">${rem}</th>`).join('')}
+                ${sorted.map(([rem]) => `<th class="remedy-header" onclick="filterToRemedy('${rem.replace(/'/g, "\\'")}')" title="Click to filter: show only this remedy and higher">${rem}</th>`).join('')}
               </tr>
             </thead>
             <tbody>
               <tr class="score-row">
                 <td>Score</td>
-                ${normalizedScores.map(([rem, score]) => `<td>${score}</td>`).join('')}
+                ${normalizedScores.map(([rem, score]) => `<td onclick="setMinScore(${score})" title="Click to set minimum score to ${score}">${score}</td>`).join('')}
               </tr>
               ${selectedSymptoms.map(sym => {
                 const symData = symptoms[sym];
@@ -431,6 +514,38 @@
         </div>`;
 
       container.innerHTML = html;
+    }
+
+    // Filter functions
+    function setMinScore(score) {
+      minScore = score;
+      renderResults();
+    }
+    
+    function updateMinScore(value) {
+      minScore = parseInt(value);
+      document.getElementById('scoreDisplay').textContent = minScore;
+      renderResults();
+    }
+    
+    function resetFilter() {
+      minScore = 0;
+      renderResults();
+    }
+    
+    function filterToRemedy(remedyName) {
+      // Find the score of this remedy and set minScore to it
+      const container = document.getElementById('results');
+      const headers = container.querySelectorAll('.remedy-header');
+      const scores = container.querySelectorAll('.score-row td:not(:first-child)');
+      
+      for (let i = 0; i < headers.length; i++) {
+        if (headers[i].textContent === remedyName) {
+          const score = parseInt(scores[i].textContent);
+          setMinScore(score);
+          break;
+        }
+      }
     }
 
     // Event listeners
