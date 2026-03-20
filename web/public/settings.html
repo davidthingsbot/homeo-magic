@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Homeo-Magic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="settings-style.css">
+  <script src="https://unpkg.com/chroma-js"></script>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Repertorization
+    </a>
+
+    <header>
+      <h1>Color Scale Settings</h1>
+      <p>Configure the grade colors used in the results matrix</p>
+    </header>
+
+    <!-- Presets -->
+    <div class="card">
+      <h2>Presets</h2>
+      <div id="presets" class="presets"></div>
+    </div>
+
+    <!-- Color stops -->
+    <div class="card">
+      <h2>Scale Endpoints</h2>
+      <div id="colorStops" class="color-stops"></div>
+      <div class="add-stop-row">
+        <button class="icon-btn add" onclick="addStop()" title="Add color stop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Interpolation & Steps -->
+    <div class="card">
+      <h2>Interpolation</h2>
+      <div class="row">
+        <div>
+          <label class="field-label" for="interpMode">Color space</label>
+          <select id="interpMode" onchange="onModeChange(this.value)">
+            <option value="lch">LCH (perceptual)</option>
+            <option value="lab">LAB (perceptual)</option>
+            <option value="hsl">HSL</option>
+            <option value="rgb">RGB</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label" for="stepsCount">Number of grades</label>
+          <input type="number" id="stepsCount" min="3" max="10" value="4" onchange="onStepsChange(this.value)">
+        </div>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="card">
+      <h2>Preview</h2>
+      <div class="preview-section">
+        <div class="preview-label">Gradient</div>
+        <div id="gradientBar" class="gradient-bar"></div>
+
+        <div class="preview-label">Discrete Swatches</div>
+        <div id="swatches" class="swatches"></div>
+
+        <div class="preview-label" style="margin-top: 16px;">Grade Cells (as in results matrix)</div>
+        <div id="gradePreview" class="grade-preview"></div>
+      </div>
+    </div>
+
+    <!-- Export -->
+    <div class="card">
+      <h2>Export</h2>
+      <div class="preview-label">JSON Hex Array</div>
+      <div class="json-output" id="jsonOutputWrap">
+        <button class="copy-btn" onclick="copyJSON()">Copy</button>
+        <code id="jsonOutput"></code>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" onclick="saveToStorage()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save
+        </button>
+        <button class="btn btn-secondary" onclick="copyJSON()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy JSON
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="settings-app.js"></script>
+</body>
+</html>
