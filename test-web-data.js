@@ -127,8 +127,8 @@ async function main() {
   console.log('\n5. Testing page has styles...');
   try {
     const res = await fetch(`${SERVER_URL}/`);
-    // Check for either Tailwind CDN or custom styles
-    if (!res.data.includes('<style>') && !res.data.includes('tailwindcss')) {
+    // Check for inline styles, Tailwind CDN, or linked stylesheets
+    if (!res.data.includes('<style>') && !res.data.includes('tailwindcss') && !res.data.includes('.css')) {
       console.log(`   ❌ FAIL: No styles found`);
       failed = true;
     } else {
