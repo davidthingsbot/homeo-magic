@@ -6,9 +6,9 @@ import chroma from "chroma-js";
 
 // Color scale for score heat-mapping
 function useColorScale() {
-  const [scale, setScale] = useState(() =>
-    chroma.scale(["#fef3c7", "#fca5a5"]).mode("lab")
-  );
+  const [scaleRef, setScaleRef] = useState(() => ({
+    fn: chroma.scale(["#fef3c7", "#fca5a5"]).mode("lab"),
+  }));
 
   useEffect(() => {
     try {
@@ -16,7 +16,7 @@ function useColorScale() {
       if (!raw) return;
       const data = JSON.parse(raw);
       if (Array.isArray(data.scale) && data.scale.length >= 3) {
-        setScale(chroma.scale(data.scale).mode(data.mode || "lab"));
+        setScaleRef({ fn: chroma.scale(data.scale).mode(data.mode || "lab") });
       }
     } catch {
       /* ignore */
@@ -24,8 +24,8 @@ function useColorScale() {
   }, []);
 
   const getScoreColor = useCallback(
-    (t: number) => scale(t).hex(),
-    [scale]
+    (t: number) => scaleRef.fn(t).hex(),
+    [scaleRef]
   );
 
   return { getScoreColor };

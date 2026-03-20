@@ -51,9 +51,30 @@ function formatBytes(bytes: number): string {
 export function useRepertorize() {
   const [symptoms, setSymptoms] = useState<SymptomsData | null>(null);
   const [remedies, setRemedies] = useState<RemediesData | null>(null);
-  const [selectedSymptoms, setSelectedSymptoms] = useState<string[]>([]);
-  const [hiddenSymptoms, setHiddenSymptoms] = useState<Set<string>>(new Set());
-  const [minScore, setMinScore] = useState(0);
+  const [selectedSymptoms, setSelectedSymptoms] = useState<string[]>(() => {
+    try {
+      const raw = sessionStorage.getItem("homeo-magic-state");
+      if (raw) return JSON.parse(raw).selectedSymptoms || [];
+    } catch {}
+    return [];
+  });
+  const [hiddenSymptoms, setHiddenSymptoms] = useState<Set<string>>(() => {
+    try {
+      const raw = sessionStorage.getItem("homeo-magic-state");
+      if (raw) {
+        const arr = JSON.parse(raw).hiddenSymptoms;
+        if (Array.isArray(arr)) return new Set(arr);
+      }
+    } catch {}
+    return new Set();
+  });
+  const [minScore, setMinScore] = useState(() => {
+    try {
+      const raw = sessionStorage.getItem("homeo-magic-state");
+      if (raw) return JSON.parse(raw).minScore || 0;
+    } catch {}
+    return 0;
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [loadProgress, setLoadProgress] = useState<LoadProgress>({
@@ -61,6 +82,18 @@ export function useRepertorize() {
     message: "Loading repertory data...",
     percent: 0,
   });
+
+  // Persist state to sessionStorage so it survives navigation to settings
+  useEffect(() => {
+    sessionStorage.setItem(
+      "homeo-magic-state",
+      JSON.stringify({
+        selectedSymptoms,
+        hiddenSymptoms: [...hiddenSymptoms],
+        minScore,
+      })
+    );
+  }, [selectedSymptoms, hiddenSymptoms, minScore]);
 
   // Load data on mount
   useEffect(() => {
