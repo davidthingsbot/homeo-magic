@@ -1,6 +1,8 @@
 # Large files
 oorep.sql
 oorep.sql.gz
+data/kent/materia_medica/raw_text.txt
+data/kent/materia_medica/page_numbers.json
 __pycache__/
 *.pyc
 node_modules/

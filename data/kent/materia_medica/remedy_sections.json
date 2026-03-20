@@ -1,0 +1,875 @@
+{
+  "remedies": [
+    {
+      "name": "Abrotanum",
+      "start_line": 128,
+      "text_length": 1946
+    },
+    {
+      "name": "Acetic Acidum",
+      "start_line": 175,
+      "text_length": 2919
+    },
+    {
+      "name": "Aconitum Napellus",
+      "start_line": 241,
+      "text_length": 36172
+    },
+    {
+      "name": "Actea Racemosa",
+      "start_line": 1097,
+      "text_length": 13840
+    },
+    {
+      "name": "Aesculus Hippocastanum",
+      "start_line": 1436,
+      "text_length": 13958
+    },
+    {
+      "name": "Aethusa Cynapium",
+      "start_line": 1757,
+      "text_length": 6094
+    },
+    {
+      "name": "Agaricus Muscarius",
+      "start_line": 1900,
+      "text_length": 18551
+    },
+    {
+      "name": "Agnus Castus",
+      "start_line": 2301,
+      "text_length": 2467
+    },
+    {
+      "name": "Ailanthus Glandulosa",
+      "start_line": 2369,
+      "text_length": 11990
+    },
+    {
+      "name": "Allium Cepa",
+      "start_line": 2606,
+      "text_length": 10324
+    },
+    {
+      "name": "Aloe",
+      "start_line": 2835,
+      "text_length": 12534
+    },
+    {
+      "name": "Alumen",
+      "start_line": 3105,
+      "text_length": 13398
+    },
+    {
+      "name": "Alumina",
+      "start_line": 3422,
+      "text_length": 37136
+    },
+    {
+      "name": "Ambra Grisea",
+      "start_line": 4273,
+      "text_length": 14959
+    },
+    {
+      "name": "Ammonium Carbonicum",
+      "start_line": 4661,
+      "text_length": 14625
+    },
+    {
+      "name": "Ammonium Muriaticum",
+      "start_line": 5022,
+      "text_length": 4477
+    },
+    {
+      "name": "Anacardium Orientale",
+      "start_line": 5127,
+      "text_length": 6337
+    },
+    {
+      "name": "Antimonium Crudum",
+      "start_line": 5287,
+      "text_length": 12665
+    },
+    {
+      "name": "Antimonium Tartaricum",
+      "start_line": 5571,
+      "text_length": 17430
+    },
+    {
+      "name": "Apis Mellifica",
+      "start_line": 5960,
+      "text_length": 23893
+    },
+    {
+      "name": "Apocynum Cannabinum",
+      "start_line": 6467,
+      "text_length": 17081
+    },
+    {
+      "name": "Argentum Metallicum",
+      "start_line": 6829,
+      "text_length": 22873
+    },
+    {
+      "name": "Argentum Nitricum",
+      "start_line": 7330,
+      "text_length": 19520
+    },
+    {
+      "name": "Arnica Montana",
+      "start_line": 7813,
+      "text_length": 18728
+    },
+    {
+      "name": "Arsenicum Album",
+      "start_line": 8216,
+      "text_length": 53696
+    },
+    {
+      "name": "Arsenicum Iodatum",
+      "start_line": 9279,
+      "text_length": 15943
+    },
+    {
+      "name": "Arum Triphyllum",
+      "start_line": 9619,
+      "text_length": 13134
+    },
+    {
+      "name": "Asa Foetida",
+      "start_line": 9895,
+      "text_length": 11816
+    },
+    {
+      "name": "Aurum Metallicum",
+      "start_line": 10184,
+      "text_length": 23285
+    },
+    {
+      "name": "Aurum Muriaticum",
+      "start_line": 10741,
+      "text_length": 9190
+    },
+    {
+      "name": "Baptisia",
+      "start_line": 10947,
+      "text_length": 15534
+    },
+    {
+      "name": "Baryta Carbonica",
+      "start_line": 11306,
+      "text_length": 25419
+    },
+    {
+      "name": "Baryta Muriatica",
+      "start_line": 11912,
+      "text_length": 12233
+    },
+    {
+      "name": "Belladonna",
+      "start_line": 12195,
+      "text_length": 71431
+    },
+    {
+      "name": "Benzoicum Acidum",
+      "start_line": 13815,
+      "text_length": 13258
+    },
+    {
+      "name": "Berberis",
+      "start_line": 14202,
+      "text_length": 14404
+    },
+    {
+      "name": "Borax",
+      "start_line": 14535,
+      "text_length": 14520
+    },
+    {
+      "name": "Bromium",
+      "start_line": 14914,
+      "text_length": 16137
+    },
+    {
+      "name": "Bryonia Alba",
+      "start_line": 15350,
+      "text_length": 48757
+    },
+    {
+      "name": "Bufo",
+      "start_line": 16416,
+      "text_length": 17384
+    },
+    {
+      "name": "Cactus Grandiflorus",
+      "start_line": 16847,
+      "text_length": 19094
+    },
+    {
+      "name": "Cadmium Sulphuricum",
+      "start_line": 17246,
+      "text_length": 7464
+    },
+    {
+      "name": "Caladium",
+      "start_line": 17388,
+      "text_length": 8746
+    },
+    {
+      "name": "Calcarea Arsenicosa",
+      "start_line": 17574,
+      "text_length": 4919
+    },
+    {
+      "name": "Calcarea Carbonica",
+      "start_line": 17702,
+      "text_length": 56940
+    },
+    {
+      "name": "Calcarea Fluorica",
+      "start_line": 18823,
+      "text_length": 3018
+    },
+    {
+      "name": "Calcarea Phosphorica",
+      "start_line": 18901,
+      "text_length": 10248
+    },
+    {
+      "name": "Calcarea Sulphurica",
+      "start_line": 19114,
+      "text_length": 21125
+    },
+    {
+      "name": "Camphor",
+      "start_line": 19534,
+      "text_length": 10295
+    },
+    {
+      "name": "Cannabis Indica",
+      "start_line": 19738,
+      "text_length": 3728
+    },
+    {
+      "name": "Cannabis Sativa",
+      "start_line": 19825,
+      "text_length": 2966
+    },
+    {
+      "name": "Cantharis",
+      "start_line": 19896,
+      "text_length": 8670
+    },
+    {
+      "name": "Capsicum",
+      "start_line": 20074,
+      "text_length": 11431
+    },
+    {
+      "name": "Carbo Animalis",
+      "start_line": 20296,
+      "text_length": 7758
+    },
+    {
+      "name": "Carbo Vegetabilis",
+      "start_line": 20454,
+      "text_length": 49681
+    },
+    {
+      "name": "Carboneum Sulphuratum",
+      "start_line": 21405,
+      "text_length": 29231
+    },
+    {
+      "name": "Carduus Marianus",
+      "start_line": 21928,
+      "text_length": 2868
+    },
+    {
+      "name": "Causticum",
+      "start_line": 22000,
+      "text_length": 18203
+    },
+    {
+      "name": "Chamomilla",
+      "start_line": 22362,
+      "text_length": 29124
+    },
+    {
+      "name": "Chelidonium",
+      "start_line": 22999,
+      "text_length": 10929
+    },
+    {
+      "name": "Chininum Arsenicosum",
+      "start_line": 23291,
+      "text_length": 14576
+    },
+    {
+      "name": "Cicuta Virosa",
+      "start_line": 23589,
+      "text_length": 8734
+    },
+    {
+      "name": "Cina",
+      "start_line": 23750,
+      "text_length": 7323
+    },
+    {
+      "name": "Cinchona (China)",
+      "start_line": 23895,
+      "text_length": 14834
+    },
+    {
+      "name": "Cinnabaris",
+      "start_line": 24231,
+      "text_length": 3598
+    },
+    {
+      "name": "Cistus Canadensis",
+      "start_line": 24327,
+      "text_length": 7222
+    },
+    {
+      "name": "Clematis Erecta",
+      "start_line": 24474,
+      "text_length": 7707
+    },
+    {
+      "name": "Cocculus Indicus",
+      "start_line": 24646,
+      "text_length": 13098
+    },
+    {
+      "name": "Coccus Cacti",
+      "start_line": 24900,
+      "text_length": 8964
+    },
+    {
+      "name": "Coffea",
+      "start_line": 25075,
+      "text_length": 11716
+    },
+    {
+      "name": "Colchicum",
+      "start_line": 25336,
+      "text_length": 14432
+    },
+    {
+      "name": "Colocynthis",
+      "start_line": 25629,
+      "text_length": 8509
+    },
+    {
+      "name": "Conium Maculatum",
+      "start_line": 25817,
+      "text_length": 17395
+    },
+    {
+      "name": "Crotalus Horridus",
+      "start_line": 26199,
+      "text_length": 15781
+    },
+    {
+      "name": "Croton Tiglium",
+      "start_line": 26532,
+      "text_length": 13442
+    },
+    {
+      "name": "Cuprum Metallicum",
+      "start_line": 26779,
+      "text_length": 22678
+    },
+    {
+      "name": "Cyclamen",
+      "start_line": 27209,
+      "text_length": 18748
+    },
+    {
+      "name": "Drosera Rotundifolia",
+      "start_line": 27647,
+      "text_length": 6364
+    },
+    {
+      "name": "Dulcamara",
+      "start_line": 27761,
+      "text_length": 39205
+    },
+    {
+      "name": "Euphrasia",
+      "start_line": 28459,
+      "text_length": 4958
+    },
+    {
+      "name": "Ferrum Metallicum",
+      "start_line": 28549,
+      "text_length": 15514
+    },
+    {
+      "name": "Ferrum Phosphoricum",
+      "start_line": 28833,
+      "text_length": 16864
+    },
+    {
+      "name": "Fluoricum Acidum",
+      "start_line": 29202,
+      "text_length": 18073
+    },
+    {
+      "name": "Gelsemium",
+      "start_line": 29560,
+      "text_length": 14377
+    },
+    {
+      "name": "Glonoinum",
+      "start_line": 29793,
+      "text_length": 15691
+    },
+    {
+      "name": "Graphites",
+      "start_line": 30079,
+      "text_length": 20611
+    },
+    {
+      "name": "Gratiola",
+      "start_line": 30468,
+      "text_length": 4788
+    },
+    {
+      "name": "Guaiacum",
+      "start_line": 30564,
+      "text_length": 5365
+    },
+    {
+      "name": "Helleborus Niger",
+      "start_line": 30695,
+      "text_length": 13042
+    },
+    {
+      "name": "Hepar Sulphur",
+      "start_line": 30945,
+      "text_length": 23406
+    },
+    {
+      "name": "Hydrastis Canadensis",
+      "start_line": 31363,
+      "text_length": 6844
+    },
+    {
+      "name": "Hyoscyamus",
+      "start_line": 31504,
+      "text_length": 23529
+    },
+    {
+      "name": "Hypericum",
+      "start_line": 32075,
+      "text_length": 13449
+    },
+    {
+      "name": "Ignatia",
+      "start_line": 32302,
+      "text_length": 15527
+    },
+    {
+      "name": "Iodum (Iodine)",
+      "start_line": 32656,
+      "text_length": 19878
+    },
+    {
+      "name": "Ipecac",
+      "start_line": 33045,
+      "text_length": 16019
+    },
+    {
+      "name": "Kalium Bichromicum",
+      "start_line": 33314,
+      "text_length": 19373
+    },
+    {
+      "name": "Kalium Carbonicum",
+      "start_line": 33648,
+      "text_length": 38376
+    },
+    {
+      "name": "Kalium Iodatum",
+      "start_line": 34363,
+      "text_length": 12660
+    },
+    {
+      "name": "Kalium Phosphoricum",
+      "start_line": 34605,
+      "text_length": 24692
+    },
+    {
+      "name": "Kalium Sulphuricum",
+      "start_line": 35051,
+      "text_length": 19358
+    },
+    {
+      "name": "Kalmia Latifolia",
+      "start_line": 35478,
+      "text_length": 11521
+    },
+    {
+      "name": "Kreosotum",
+      "start_line": 35698,
+      "text_length": 10546
+    },
+    {
+      "name": "Lac Caninum",
+      "start_line": 35882,
+      "text_length": 10096
+    },
+    {
+      "name": "Lac Vaccinum Defloratum",
+      "start_line": 36069,
+      "text_length": 11559
+    },
+    {
+      "name": "Lachesis",
+      "start_line": 36283,
+      "text_length": 36208
+    },
+    {
+      "name": "Laurocerasus",
+      "start_line": 36878,
+      "text_length": 4282
+    },
+    {
+      "name": "Ledum Palustre",
+      "start_line": 36991,
+      "text_length": 19656
+    },
+    {
+      "name": "Lycopodium",
+      "start_line": 37356,
+      "text_length": 36296
+    },
+    {
+      "name": "Magnesia Carbonica",
+      "start_line": 38039,
+      "text_length": 10268
+    },
+    {
+      "name": "Magnesia Muriatica",
+      "start_line": 38236,
+      "text_length": 7933
+    },
+    {
+      "name": "Magnesia Phosphorica",
+      "start_line": 38377,
+      "text_length": 5279
+    },
+    {
+      "name": "Manganum",
+      "start_line": 38477,
+      "text_length": 15125
+    },
+    {
+      "name": "Medorrhinum",
+      "start_line": 38814,
+      "text_length": 13801
+    },
+    {
+      "name": "Mercurius",
+      "start_line": 39116,
+      "text_length": 33099
+    },
+    {
+      "name": "Mercurius Corrosivus",
+      "start_line": 39698,
+      "text_length": 2299
+    },
+    {
+      "name": "Mercurius Cyanatus",
+      "start_line": 39748,
+      "text_length": 311
+    },
+    {
+      "name": "Mercurius Iodatus Flavus",
+      "start_line": 39761,
+      "text_length": 1236
+    },
+    {
+      "name": "Mercurius Sulphuricus",
+      "start_line": 39800,
+      "text_length": 365
+    },
+    {
+      "name": "Mezereum",
+      "start_line": 39814,
+      "text_length": 7841
+    },
+    {
+      "name": "Millefolium",
+      "start_line": 39961,
+      "text_length": 3308
+    },
+    {
+      "name": "Moschus",
+      "start_line": 40052,
+      "text_length": 6031
+    },
+    {
+      "name": "Muriaticum Acidum",
+      "start_line": 40194,
+      "text_length": 12963
+    },
+    {
+      "name": "Natrum Arsenicosum",
+      "start_line": 40472,
+      "text_length": 17103
+    },
+    {
+      "name": "Natrum Carbonicum",
+      "start_line": 40837,
+      "text_length": 10082
+    },
+    {
+      "name": "Natrum Muriaticum",
+      "start_line": 41054,
+      "text_length": 19712
+    },
+    {
+      "name": "Natrum Phosphoricum",
+      "start_line": 41472,
+      "text_length": 18439
+    },
+    {
+      "name": "Natrum Sulphuricum",
+      "start_line": 41907,
+      "text_length": 16092
+    },
+    {
+      "name": "Nitricum Acidum",
+      "start_line": 42259,
+      "text_length": 16879
+    },
+    {
+      "name": "Nux Moschata",
+      "start_line": 42618,
+      "text_length": 5106
+    },
+    {
+      "name": "Nux Vomica",
+      "start_line": 42732,
+      "text_length": 17753
+    },
+    {
+      "name": "Opium",
+      "start_line": 43065,
+      "text_length": 10088
+    },
+    {
+      "name": "Oxalicum Acidum",
+      "start_line": 43253,
+      "text_length": 7970
+    },
+    {
+      "name": "Petroleum",
+      "start_line": 43408,
+      "text_length": 11922
+    },
+    {
+      "name": "Phosphoricum Acidum",
+      "start_line": 43656,
+      "text_length": 12639
+    },
+    {
+      "name": "Phosphorus",
+      "start_line": 43909,
+      "text_length": 37283
+    },
+    {
+      "name": "Phytolacca",
+      "start_line": 44582,
+      "text_length": 8748
+    },
+    {
+      "name": "Picricum Acidum",
+      "start_line": 44776,
+      "text_length": 5305
+    },
+    {
+      "name": "Platinum",
+      "start_line": 44887,
+      "text_length": 8783
+    },
+    {
+      "name": "Plumbum Metallicum",
+      "start_line": 45056,
+      "text_length": 12126
+    },
+    {
+      "name": "Podophyllum",
+      "start_line": 45306,
+      "text_length": 9785
+    },
+    {
+      "name": "Psorinum",
+      "start_line": 45484,
+      "text_length": 16224
+    },
+    {
+      "name": "Pulsatilla",
+      "start_line": 45794,
+      "text_length": 44350
+    },
+    {
+      "name": "Pyrogenium",
+      "start_line": 46584,
+      "text_length": 7155
+    },
+    {
+      "name": "Ranunculus Bulbosus",
+      "start_line": 46809,
+      "text_length": 7467
+    },
+    {
+      "name": "Rhododendron",
+      "start_line": 46963,
+      "text_length": 3939
+    },
+    {
+      "name": "Rhus Toxicodendron",
+      "start_line": 47067,
+      "text_length": 20136
+    },
+    {
+      "name": "Rumex Crispus",
+      "start_line": 47452,
+      "text_length": 12676
+    },
+    {
+      "name": "Ruta Graveolens",
+      "start_line": 47729,
+      "text_length": 8948
+    },
+    {
+      "name": "Sabadilla",
+      "start_line": 47928,
+      "text_length": 11056
+    },
+    {
+      "name": "Sabina",
+      "start_line": 48150,
+      "text_length": 10622
+    },
+    {
+      "name": "Sanguinaria",
+      "start_line": 48349,
+      "text_length": 12922
+    },
+    {
+      "name": "Sarsaparilla",
+      "start_line": 48624,
+      "text_length": 8197
+    },
+    {
+      "name": "Secale Cornutum",
+      "start_line": 48782,
+      "text_length": 8163
+    },
+    {
+      "name": "Selenium",
+      "start_line": 48957,
+      "text_length": 6227
+    },
+    {
+      "name": "Senecio Aureus",
+      "start_line": 49109,
+      "text_length": 4007
+    },
+    {
+      "name": "Senega",
+      "start_line": 49198,
+      "text_length": 8805
+    },
+    {
+      "name": "Sepia",
+      "start_line": 49388,
+      "text_length": 26479
+    },
+    {
+      "name": "Silicea",
+      "start_line": 49921,
+      "text_length": 27618
+    },
+    {
+      "name": "Spigelia Anthelmintica",
+      "start_line": 50501,
+      "text_length": 16897
+    },
+    {
+      "name": "Squilla",
+      "start_line": 50878,
+      "text_length": 3302
+    },
+    {
+      "name": "Stannum Metallicum",
+      "start_line": 50951,
+      "text_length": 7790
+    },
+    {
+      "name": "Staphysagria",
+      "start_line": 51122,
+      "text_length": 10229
+    },
+    {
+      "name": "Stramonium",
+      "start_line": 51357,
+      "text_length": 7489
+    },
+    {
+      "name": "Sulphur",
+      "start_line": 51514,
+      "text_length": 76562
+    },
+    {
+      "name": "Sulphuricum Acidum",
+      "start_line": 52926,
+      "text_length": 10407
+    },
+    {
+      "name": "Syphilinum",
+      "start_line": 53166,
+      "text_length": 12228
+    },
+    {
+      "name": "Tarentula Hispanica",
+      "start_line": 53411,
+      "text_length": 13331
+    },
+    {
+      "name": "Theridion",
+      "start_line": 53719,
+      "text_length": 4496
+    },
+    {
+      "name": "Thuja Occidentalis",
+      "start_line": 53819,
+      "text_length": 12912
+    },
+    {
+      "name": "Tuberculinum Bovinum",
+      "start_line": 54072,
+      "text_length": 20384
+    },
+    {
+      "name": "Valeriana",
+      "start_line": 54487,
+      "text_length": 5173
+    },
+    {
+      "name": "Veratrum Album",
+      "start_line": 54600,
+      "text_length": 6805
+    },
+    {
+      "name": "Zincum Metallicum",
+      "start_line": 54756,
+      "text_length": 10132
+    }
+  ],
+  "count": 174
+}
