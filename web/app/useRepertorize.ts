@@ -72,7 +72,7 @@ export function useRepertorize() {
           percent: 0,
         });
         const remediesData = (await fetchWithProgress(
-          "/data/remedies.json",
+          `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/data/remedies.json`,
           (received, total) => {
             setLoadProgress({
               phase: "remedies",
@@ -90,7 +90,7 @@ export function useRepertorize() {
           percent: 0,
         });
         const symptomsData = (await fetchWithProgress(
-          "/data/symptoms.json",
+          `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/data/symptoms.json`,
           (received, total) => {
             const pct = total ? Math.round((received / total) * 100) : 0;
             setLoadProgress({
