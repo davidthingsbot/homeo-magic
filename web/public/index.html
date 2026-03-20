@@ -851,20 +851,18 @@
       } else {
         const remedyCount = Object.keys(symData.remedies).length;
         // Get top remedies for this symptom
-        const topRemedies = Object.entries(symData.remedies)
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 20);
-        
+        const allRemedies = Object.entries(symData.remedies)
+          .sort((a, b) => b[1] - a[1]);
+
         typeEl.textContent = 'Symptom';
         contentEl.innerHTML = `
           <div class="symptom-text">${symptomName}</div>
           <div class="symptom-info">
             <strong>${remedyCount}</strong> remedies cover this symptom
             <div class="remedy-list">
-              ${topRemedies.map(([rem, grade]) => 
+              ${allRemedies.map(([rem, grade]) =>
                 `<span class="remedy-badge grade-${grade}" onclick="showRemedyDetail('${rem.replace(/'/g, "\\'")}')" style="cursor:pointer">${rem} (${grade})</span>`
               ).join('')}
-              ${remedyCount > 20 ? `<span style="color:#6b7280">...and ${remedyCount - 20} more</span>` : ''}
             </div>
           </div>
         `;

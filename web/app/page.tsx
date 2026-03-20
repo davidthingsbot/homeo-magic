@@ -561,7 +561,6 @@ function DetailPanel({
                 <div className="flex flex-wrap gap-2 mt-3">
                   {Object.entries(symptoms[name].remedies)
                     .sort((a, b) => b[1] - a[1])
-                    .slice(0, 20)
                     .map(([rem, grade]) => (
                       <span
                         key={rem}
@@ -571,13 +570,6 @@ function DetailPanel({
                         {rem} ({grade})
                       </span>
                     ))}
-                  {Object.keys(symptoms[name].remedies).length > 20 && (
-                    <span className="text-[#6b7280]">
-                      ...and{" "}
-                      {Object.keys(symptoms[name].remedies).length - 20}{" "}
-                      more
-                    </span>
-                  )}
                 </div>
               </div>
             )}
