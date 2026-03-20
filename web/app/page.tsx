@@ -78,6 +78,7 @@ export default function Home() {
   const dragRef = useRef<{ index: number } | null>(null);
   const [symColWidth, setSymColWidth] = useState(420);
   const [hoveredRemedy, setHoveredRemedy] = useState<string | null>(null);
+  const [hoveredSymRow, setHoveredSymRow] = useState<string | null>(null);
   const resizeRef = useRef<{ startX: number; startWidth: number } | null>(null);
 
   const [query, setQuery] = useState("");
@@ -449,7 +450,6 @@ export default function Home() {
                     return (
                       <tr
                         key={sym}
-                        className="symptom-row"
                         draggable
                         onDragStart={(e) => {
                           dragRef.current = { index: symIndex };
@@ -467,6 +467,8 @@ export default function Home() {
                           }
                         }}
                         onDragEnd={() => { dragRef.current = null; }}
+                        onMouseEnter={() => setHoveredSymRow(sym)}
+                        onMouseLeave={() => setHoveredSymRow(null)}
                       >
                         <td
                           onClick={() =>
@@ -476,7 +478,8 @@ export default function Home() {
                         >
                           <div className="flex items-center gap-2">
                             <span
-                              className="hover-action flex-shrink-0 cursor-grab text-[#9ca3af]"
+                              className="flex-shrink-0 cursor-grab text-[#9ca3af]"
+                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
                               title="Drag to reorder"
                               onMouseDown={(e) => e.stopPropagation()}
                             >
@@ -487,7 +490,8 @@ export default function Home() {
                                 e.stopPropagation();
                                 hideSymptom(sym);
                               }}
-                              className="hover-action border-none w-[22px] h-[22px] rounded bg-[#e5e7eb] text-[#374151] text-xs cursor-pointer flex items-center justify-center hover:bg-[#d1d5db] flex-shrink-0"
+                              className="border-none w-[22px] h-[22px] rounded bg-[#e5e7eb] text-[#374151] text-xs cursor-pointer flex items-center justify-center hover:bg-[#d1d5db] flex-shrink-0"
+                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
                               title="Hide symptom"
                             >
                               <EyeIcon />
@@ -501,7 +505,8 @@ export default function Home() {
                                 e.stopPropagation();
                                 removeSymptom(sym);
                               }}
-                              className="hover-action border-none w-[22px] h-[22px] rounded bg-[#D3DCDE] text-[#065774] text-xs cursor-pointer flex items-center justify-center hover:bg-[#065774] hover:text-white flex-shrink-0 ml-auto"
+                              className="border-none w-[22px] h-[22px] rounded bg-[#D3DCDE] text-[#065774] text-xs cursor-pointer flex items-center justify-center hover:bg-[#065774] hover:text-white flex-shrink-0 ml-auto"
+                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
                               title="Remove symptom"
                             >
                               <TrashIcon />
