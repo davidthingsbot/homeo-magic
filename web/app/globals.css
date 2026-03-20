@@ -27,6 +27,7 @@
 }
 
 body {
+  font-family: 'Host Grotesk', system-ui, sans-serif;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
   color: #1f2937;
   min-height: 100vh;
