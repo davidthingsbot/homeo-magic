@@ -5,14 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homeo-Magic | Homeopathic Repertorization</title>
   <meta name="description" content="Find matching homeopathic remedies by selecting symptoms. 74,000+ symptoms, 2,400+ remedies.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
   <style>
+    @font-face {
+      font-family: 'Host Grotesk';
+      src: url('fonts/HostGrotesk-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Host Grotesk';
+      src: url('fonts/HostGrotesk-Italic-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: italic;
+      font-display: swap;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      font-family: 'Unica One', sans-serif;
+    body {
+      font-family: 'Host Grotesk', sans-serif;
       background: linear-gradient(135deg, #065774 0%, #042B58 100%);
       min-height: 100vh;
       padding: 20px;
@@ -487,6 +498,25 @@
     let hiddenSymptoms = new Set(); // Symptoms hidden from table but not removed
     let minScore = 0; // Minimum score threshold
 
+    // Persist state to sessionStorage so it survives navigation to settings
+    function saveState() {
+      sessionStorage.setItem('homeo-magic-state', JSON.stringify({
+        selectedSymptoms,
+        hiddenSymptoms: [...hiddenSymptoms],
+        minScore
+      }));
+    }
+    function restoreState() {
+      try {
+        const raw = sessionStorage.getItem('homeo-magic-state');
+        if (!raw) return;
+        const data = JSON.parse(raw);
+        if (Array.isArray(data.selectedSymptoms)) selectedSymptoms = data.selectedSymptoms;
+        if (Array.isArray(data.hiddenSymptoms)) hiddenSymptoms = new Set(data.hiddenSymptoms);
+        if (typeof data.minScore === 'number') minScore = data.minScore;
+      } catch (e) { /* ignore */ }
+    }
+
     // Fetch with progress
     async function fetchWithProgress(url, onProgress) {
       const response = await fetch(url);
@@ -553,6 +583,13 @@
         status.innerHTML = `${Object.keys(symptoms).length.toLocaleString()} symptoms • ${Object.keys(remedies).length.toLocaleString()} remedies`;
         status.classList.remove('loading');
         search.disabled = false;
+
+        // Restore previous state (selected symptoms, filters) if returning from settings
+        restoreState();
+        if (selectedSymptoms.length) {
+          renderSelected();
+          renderResults();
+        }
         search.focus();
       } catch (e) {
         status.innerHTML = '❌ Error: ' + e.message;
@@ -598,6 +635,7 @@
     function addSymptom(sym) {
       if (!selectedSymptoms.includes(sym)) {
         selectedSymptoms.push(sym);
+        saveState();
         renderSelected();
         renderResults();
       }
@@ -609,18 +647,21 @@
     function removeSymptom(sym) {
       selectedSymptoms = selectedSymptoms.filter(s => s !== sym);
       hiddenSymptoms.delete(sym);
+      saveState();
       renderSelected();
       renderResults();
     }
-    
+
     function hideSymptom(sym) {
       hiddenSymptoms.add(sym);
+      saveState();
       renderSelected();
       renderResults();
     }
-    
+
     function showSymptom(sym) {
       hiddenSymptoms.delete(sym);
+      saveState();
       renderSelected();
       renderResults();
     }
@@ -839,17 +880,20 @@
     // Filter functions
     function setMinScore(score) {
       minScore = score;
+      saveState();
       renderResults();
     }
-    
+
     function updateMinScore(value) {
       minScore = parseInt(value);
       document.getElementById('scoreDisplay').textContent = minScore;
+      saveState();
       renderResults();
     }
-    
+
     function resetFilter() {
       minScore = 0;
+      saveState();
       renderResults();
     }
     

@@ -1,7 +1,22 @@
+@font-face {
+  font-family: 'Host Grotesk';
+  src: url('fonts/HostGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Host Grotesk';
+  src: url('fonts/HostGrotesk-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Unica One', sans-serif;
+  font-family: 'Host Grotesk', sans-serif;
   background: linear-gradient(135deg, #065774 0%, #042B58 100%);
   min-height: 100vh;
   padding: 20px;
@@ -120,7 +135,7 @@ select:focus, input[type="number"]:focus {
   flex: 1;
   padding: 8px 12px;
   font-size: 14px;
-  font-family: 'Unica One', monospace;
+  font-family: 'Host Grotesk', monospace;
   border: 2px solid #D3DCDE;
   border-radius: 10px;
   outline: none;
