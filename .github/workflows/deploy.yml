@@ -22,19 +22,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Prepare Data
-        run: |
-          mkdir -p web/public/data
-          cp data/symptoms.json web/public/data/
-          cp data/remedies.json web/public/data/
+      - name: Install dependencies
+        run: npm ci
+        working-directory: web
+
+      - name: Build
+        run: npm run build
+        working-directory: web
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './web/public'
+          path: './web/out'
 
       - name: Deploy to GitHub Pages
         id: deployment
