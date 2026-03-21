@@ -55,22 +55,34 @@ export function useRepertorize() {
   const [hiddenSymptoms, setHiddenSymptoms] = useState<Set<string>>(new Set());
   const [minScore, setMinScore] = useState(0);
 
-  // Restore persisted state after hydration to avoid SSR mismatch
+  // Restore persisted state after hydration, or load defaults on first visit
   useEffect(() => {
     try {
       const raw = sessionStorage.getItem("homeo-magic-state");
-      if (!raw) return;
-      const saved = JSON.parse(raw);
-      if (Array.isArray(saved.selectedSymptoms) && saved.selectedSymptoms.length > 0) {
-        setSelectedSymptoms(saved.selectedSymptoms);
-      }
-      if (Array.isArray(saved.hiddenSymptoms) && saved.hiddenSymptoms.length > 0) {
-        setHiddenSymptoms(new Set(saved.hiddenSymptoms));
-      }
-      if (typeof saved.minScore === "number" && saved.minScore > 0) {
-        setMinScore(saved.minScore);
+      if (raw) {
+        const saved = JSON.parse(raw);
+        if (Array.isArray(saved.selectedSymptoms) && saved.selectedSymptoms.length > 0) {
+          setSelectedSymptoms(saved.selectedSymptoms);
+        }
+        if (Array.isArray(saved.hiddenSymptoms) && saved.hiddenSymptoms.length > 0) {
+          setHiddenSymptoms(new Set(saved.hiddenSymptoms));
+        }
+        if (typeof saved.minScore === "number" && saved.minScore > 0) {
+          setMinScore(saved.minScore);
+        }
+        return; // Had persisted state, skip defaults
       }
     } catch {}
+
+    // No persisted state -- try loading default symptoms
+    fetch("data/default-symptoms.json")
+      .then((res) => res.ok ? res.json() : null)
+      .then((defaults) => {
+        if (Array.isArray(defaults) && defaults.length > 0) {
+          setSelectedSymptoms(defaults);
+        }
+      })
+      .catch(() => {}); // No defaults file, that's fine
   }, []);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
