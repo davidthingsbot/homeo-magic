@@ -6,12 +6,14 @@ import type { ProfilesData, SymptomIndexData, MateriaProfile } from "./types";
 let cachedProfiles: ProfilesData | null = null;
 let cachedSymptomIndex: SymptomIndexData | null = null;
 let cachedArchiveLinks: Record<string, { leaf: number; url: string }> | null = null;
+let cachedPassageIndex: Record<string, Array<{ keywords: string[]; passage: string }>> | null = null;
 
 /** Reset the module-level cache (for testing) */
 export function resetMateriaCache() {
   cachedProfiles = null;
   cachedSymptomIndex = null;
   cachedArchiveLinks = null;
+  cachedPassageIndex = null;
 }
 
 async function loadMateriaData(): Promise<{
@@ -23,18 +25,21 @@ async function loadMateriaData(): Promise<{
     return { profiles: cachedProfiles, symptomIndex: cachedSymptomIndex, archiveLinks: cachedArchiveLinks };
   }
   try {
-    const [profilesRes, indexRes, linksRes] = await Promise.all([
+    const [profilesRes, indexRes, linksRes, passagesRes] = await Promise.all([
       fetch("/data/kent/profiles.json"),
       fetch("/data/kent/symptom_index.json"),
       fetch("/data/kent/archive_links.json"),
+      fetch("/data/kent/passage_index.json"),
     ]);
     if (!profilesRes.ok || !indexRes.ok) throw new Error("Failed to load");
     const profiles = (await profilesRes.json()) as ProfilesData;
     const symptomIndex = (await indexRes.json()) as SymptomIndexData;
     const archiveLinks = linksRes.ok ? await linksRes.json() : null;
+    const passageIndex = passagesRes.ok ? await passagesRes.json() : null;
     cachedProfiles = profiles;
     cachedSymptomIndex = symptomIndex;
     cachedArchiveLinks = archiveLinks;
+    cachedPassageIndex = passageIndex;
     return { profiles, symptomIndex, archiveLinks };
   } catch {
     return { profiles: null, symptomIndex: null, archiveLinks: null };
@@ -42,61 +47,48 @@ async function loadMateriaData(): Promise<{
 }
 
 /**
- * Search remedy markdown text for passages matching the selected symptoms.
- * Extracts ~200 chars of surrounding context for each match.
+ * Match selected symptoms against the pre-extracted passage index.
+ * Each passage has keywords; we score how well each passage matches each symptom.
  */
-function findPassagesInText(text: string, symptoms: string[]): Record<string, string> {
+function matchPassagesFromIndex(
+  passages: Array<{ keywords: string[]; passage: string }>,
+  symptoms: string[]
+): Record<string, string> {
   const results: Record<string, string> = {};
-  const textLower = text.toLowerCase();
 
   for (const sym of symptoms) {
-    // Extract search keywords from the symptom path
+    // Extract search terms from the symptom path
     const parts = sym.split(",").map(s => s.trim().toLowerCase());
-    // Use the most specific parts (skip very generic ones)
-    const keywords = parts
+    const searchTerms = parts
       .filter(p => p.length > 2)
       .flatMap(p => p.replace(/[()]/g, "").split(/\s+/))
       .filter(w => w.length > 3 && !["with", "from", "morbid", "desire"].includes(w));
 
-    if (keywords.length === 0) continue;
+    if (searchTerms.length === 0) continue;
 
-    // Search for the best matching passage
-    let bestIdx = -1;
+    // Score each passage against this symptom
+    let bestPassage = "";
     let bestScore = 0;
 
-    for (let i = 0; i < textLower.length - 50; i += 20) {
-      const window = textLower.slice(i, i + 300);
+    for (const p of passages) {
+      if (!p.keywords || !p.passage) continue;
+      const kwStr = p.keywords.join(" ").toLowerCase();
+      const passageLower = p.passage.toLowerCase();
+
       let score = 0;
-      for (const kw of keywords) {
-        if (window.includes(kw)) score++;
+      for (const term of searchTerms) {
+        if (kwStr.includes(term)) score += 2; // keyword match worth more
+        if (passageLower.includes(term)) score += 1;
       }
+
       if (score > bestScore) {
         bestScore = score;
-        bestIdx = i;
+        bestPassage = p.passage;
       }
     }
 
-    if (bestScore >= 1 && bestIdx >= 0) {
-      // Extract context around the match
-      const start = Math.max(0, bestIdx - 50);
-      const end = Math.min(text.length, bestIdx + 250);
-      let passage = text.slice(start, end).trim();
-
-      // Clean up: start at a word boundary
-      const firstSpace = passage.indexOf(" ");
-      if (start > 0 && firstSpace > 0 && firstSpace < 20) {
-        passage = passage.slice(firstSpace + 1);
-      }
-      // End at a sentence boundary if possible
-      const lastPeriod = passage.lastIndexOf(".");
-      if (lastPeriod > passage.length * 0.5) {
-        passage = passage.slice(0, lastPeriod + 1);
-      }
-
-      // Strip markdown formatting
-      passage = passage.replace(/^#+\s*/gm, "").replace(/\*\*/g, "").replace(/\*/g, "");
-
-      results[sym] = passage;
+    if (bestScore >= 2 && bestPassage) {
+      results[sym] = bestPassage;
     }
   }
 
@@ -131,43 +123,22 @@ export function MateriaPanel({
       const prof = profiles[remedyAbbrev];
       setProfile(prof);
 
-      // Start with pre-computed passages
+      // Match symptoms against the pre-extracted passage index
+      const remedyPassages = cachedPassageIndex?.[remedyAbbrev] ?? [];
+      const matched = matchPassagesFromIndex(remedyPassages, selectedSymptoms);
+
+      // Also check the old pre-computed symptom index as fallback
       const preComputed = symptomIndex?.[remedyAbbrev] ?? {};
-
-      // Load the remedy markdown for live keyword matching
-      let liveMatches: Record<string, string> = {};
-      try {
-        const mdRes = await fetch(`/data/kent/remedy_markdown/${prof.file}`);
-        if (mdRes.ok) {
-          const mdText = await mdRes.text();
-          liveMatches = findPassagesInText(mdText, selectedSymptoms);
-        }
-      } catch { /* ignore */ }
-
-      // Merge: pre-computed takes priority, then live keyword matches
+      
+      // Merge: passage index first, then old pre-computed
       const merged: Record<string, string> = {};
       for (const sym of selectedSymptoms) {
-        if (preComputed[sym]) {
+        if (matched[sym]) {
+          merged[sym] = matched[sym];
+        } else if (preComputed[sym]) {
           merged[sym] = preComputed[sym];
-        } else if (liveMatches[sym]) {
-          merged[sym] = liveMatches[sym];
         } else {
-          // Try fuzzy match on pre-computed keys
-          const symParts = sym.toLowerCase().split(",").map(s => s.trim());
-          let found = false;
-          for (const [key, val] of Object.entries(preComputed)) {
-            const keyParts = key.toLowerCase().split(",").map(s => s.trim());
-            const shorter = symParts.length <= keyParts.length ? symParts : keyParts;
-            const longer = symParts.length <= keyParts.length ? keyParts : symParts;
-            if (shorter.every(p => longer.some(lp => lp.includes(p) || p.includes(lp)))) {
-              merged[sym] = val;
-              found = true;
-              break;
-            }
-          }
-          if (!found) {
-            merged[sym] = "";
-          }
+          merged[sym] = "";
         }
       }
       setPassages(merged);

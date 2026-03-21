@@ -1,0 +1,5463 @@
+{
+  "mercurius_iodatus_flavus": {
+    "remedy": "Mercurius Iodatus Flavus",
+    "passages": [
+      {
+        "keywords": [
+          "throat",
+          "sore throat",
+          "right side",
+          "inflammation",
+          "pain"
+        ],
+        "passage": "There are sore throats that especially call for the proto-iodide. When in sore throats the inflammation and pain predominantly affect the right side, and there is a tendency to remain on the right side, it is the proto-iodide you want."
+      },
+      {
+        "keywords": [
+          "throat",
+          "sore throat",
+          "right to left",
+          "laterality"
+        ],
+        "passage": "If the Merc. state is present and the sore throat goes from right to left, it is the proto-iodide you want."
+      },
+      {
+        "keywords": [
+          "constitutional",
+          "rest",
+          "warm room",
+          "open air",
+          "modalities"
+        ],
+        "passage": "The patient that needs this remedy for constitutional troubles will be worse during rest and from a warm room and better in the open air."
+      },
+      {
+        "keywords": [
+          "neuritis",
+          "right arm",
+          "writers",
+          "writing",
+          "occupation"
+        ],
+        "passage": "This is especially true when the patient needs Merc. prot. in neuritis of the right arm that comes on in writers."
+      },
+      {
+        "keywords": [
+          "arm",
+          "pain",
+          "writing",
+          "passive motion",
+          "rubbing",
+          "pressure",
+          "heat",
+          "cold",
+          "open air",
+          "modalities"
+        ],
+        "passage": "The arm then is very painful when writing, from passive motion, from rubbing, from pressure, from both heat and cold, but better from walking in the open air."
+      },
+      {
+        "keywords": [
+          "right side",
+          "laterality",
+          "generalities"
+        ],
+        "passage": "Complaints are nearly all worse on the right side of the body."
+      },
+      {
+        "keywords": [
+          "throat",
+          "diphtheria",
+          "tonsillitis",
+          "left side",
+          "left to right",
+          "laterality",
+          "mercurius iodatus ruber"
+        ],
+        "passage": "If in a Merc. patient with diphtheria, tonsillitis, etc., the inflammation and pain begin on the left side, and incline to remain there or spread to the right, the bin-iodide is indicated."
+      },
+      {
+        "keywords": [
+          "induration",
+          "ulcers",
+          "chancres",
+          "syphilis",
+          "iodides"
+        ],
+        "passage": "These two iodides have more rapid and greater induration beneath ulcers and chancres than Merc., and in old syphilitics the iodides are sometimes more useful."
+      }
+    ],
+    "count": 8
+  },
+  "mercurius_sulphuricus": {
+    "remedy": "Mercurius Sulphuricus",
+    "passages": [
+      {
+        "keywords": [
+          "hydrothorax",
+          "breathing",
+          "dyspnoea",
+          "chest",
+          "burning",
+          "respiratory"
+        ],
+        "passage": "Merc. sulph. will sometimes help, when you have a case of hydrothorax with quick, short breathing, and burning of the chest."
+      },
+      {
+        "keywords": [
+          "hydrothorax",
+          "hypostatic congestion",
+          "dropsy",
+          "dyspnoea",
+          "chest"
+        ],
+        "passage": "If you go to an old case of hypostatic congestion, with dropsy, or a case of dyspnoea from hydrothorax, when the Merc. base is present, you will be astonished at the action of this sulphate."
+      }
+    ],
+    "count": 2
+  },
+  "phosphorus": {
+    "remedy": "Phosphorus",
+    "passages": [
+      {
+        "keywords": [
+          "constitution",
+          "emaciation",
+          "marasmus",
+          "consumption",
+          "children"
+        ],
+        "passage": "The complaints of Phosphorus are most likely to arise in the feeble constitutions, such as have been born sick, grown up slender, and grown too rapidly. Its complaints are found in such as are emaciated, and in those who are rapidly emaciating; in children who are going into marasmus."
+      },
+      {
+        "keywords": [
+          "constitution",
+          "anemia",
+          "irritability",
+          "temperament"
+        ],
+        "passage": "Delicate, waxy, anemic and emaciated subjects. In persons who are vehement, irascible."
+      },
+      {
+        "keywords": [
+          "palpitation",
+          "electric",
+          "atmosphere",
+          "modalities"
+        ],
+        "passage": "Subject to violent pulsations, complaints from electric changes in the atmosphere; violent palpitations and orgasms."
+      },
+      {
+        "keywords": [
+          "chlorosis",
+          "menstrual",
+          "weakness",
+          "pallor",
+          "girls"
+        ],
+        "passage": "In chlorotic girls who have grown too rapidly and have suddenly taken on weakness, pallor, green sickness, with menstrual difficulties."
+      },
+      {
+        "keywords": [
+          "hemorrhage",
+          "blood",
+          "wounds",
+          "bleeding"
+        ],
+        "passage": "Small wounds bleed much; the prick of the needle will bubble forth much bright red blood. Hemorrhage from small wounds, from the nose, from the lungs, from the stomach, from the bladder and from the uterus."
+      },
+      {
+        "keywords": [
+          "bleeding",
+          "ulceration",
+          "granulations",
+          "purpura"
+        ],
+        "passage": "Bleeding from ulcerations. False granulations that bleed. Purpura haemorrhagica. Black and blue spots."
+      },
+      {
+        "keywords": [
+          "blood",
+          "conjunctiva",
+          "skin",
+          "bruises"
+        ],
+        "passage": "Blood settles beneath the conjunctiva, or beneath the skin anywhere. Small bruises take on broad blue spots."
+      },
+      {
+        "keywords": [
+          "blood",
+          "saliva",
+          "petechiae",
+          "typhoid fever"
+        ],
+        "passage": "Bloody saliva; evidences of disorganized blood, or that the blood seems to become fluid. Petechiae all over the body, such as are found in typhoid fever, low forms of continued fever with hemorrhages."
+      },
+      {
+        "keywords": [
+          "fatty degeneration",
+          "liver",
+          "heart",
+          "kidneys"
+        ],
+        "passage": "Fatty degeneration is a marked feature of Phosphorus, and can be found in the liver, heart or kidneys."
+      },
+      {
+        "keywords": [
+          "dropsy",
+          "scarlet fever",
+          "hands",
+          "feet",
+          "edema"
+        ],
+        "passage": "General dropsical condition. Bloating of the hands and feet, especially dropsical conditions after scarlet fever."
+      },
+      {
+        "keywords": [
+          "anemia",
+          "mucous membranes",
+          "muscles",
+          "flabby"
+        ],
+        "passage": "The mucous membranes are all pale, such as is found after bleeding or in low forms of disease. A marked state of anemia and relaxed condition of the muscles. Muscles flabby. Fatty degeneration of the muscles."
+      },
+      {
+        "keywords": [
+          "genitals",
+          "prolapsus",
+          "pelvic organs",
+          "relaxation",
+          "women"
+        ],
+        "passage": "The genitals hang down. In the woman, relaxation of the pelvic organs, prolapsus and other displacements."
+      },
+      {
+        "keywords": [
+          "stiffness",
+          "morning",
+          "rheumatic",
+          "limbs",
+          "motion"
+        ],
+        "passage": "Stiffness on beginning to move. Limbs stiff like a foundered horse, especially in the morning. Rheumatic stiffness in all the limbs."
+      },
+      {
+        "keywords": [
+          "tearing pains",
+          "drawing pains",
+          "limbs",
+          "cold",
+          "modalities"
+        ],
+        "passage": "Phosphorus has tearing, drawing pains in the limbs. Phosphorus complaints are worse in cold weather. The patient himself is sensitive to cold, all his complaints are worse from cold and cold applications, and better from heat and warm applications, except the complaints of the head and stomach, which are ameliorated from cold."
+      },
+      {
+        "keywords": [
+          "joints",
+          "sprains",
+          "weakness",
+          "relaxation"
+        ],
+        "passage": "Phosphorus has been very useful in weak, relaxed conditions of the joints following sprains, when the symptoms agree."
+      },
+      {
+        "keywords": [
+          "necrosis",
+          "lower jaw",
+          "bones",
+          "exostoses",
+          "skull"
+        ],
+        "passage": "Necrosis is another feature of Phosphorus, especially of the lower jaw, but may be useful in necrosis of any of the bones. Exostoses of the skull with tearing pains. Tearing, boring pains, especially at night."
+      },
+      {
+        "keywords": [
+          "polypi",
+          "nose",
+          "ears"
+        ],
+        "passage": "Phosphorus has cured polypi of the nose and ears."
+      },
+      {
+        "keywords": [
+          "glands",
+          "swelling",
+          "contusions",
+          "scrofulous"
+        ],
+        "passage": "Scrofulous and glandular swellings. Glands enlarge, especially after contusions like Bellis."
+      },
+      {
+        "keywords": [
+          "glands",
+          "diarrhea",
+          "abscesses",
+          "fistula",
+          "hectic fever"
+        ],
+        "passage": "Glandular affections of weak, pale, sickly individuals, such as suffer from diarrhea, such as suffer from exhaustive conditions, abscesses, fistulous openings, with hectic fever. Abscesses with copious discharge of yellow pus."
+      },
+      {
+        "keywords": [
+          "malignant growths",
+          "cancer"
+        ],
+        "passage": "Malignant growths are greatly restrained by the use of Phosphorus, when the symptoms agree."
+      },
+      {
+        "keywords": [
+          "burning",
+          "brain",
+          "skin",
+          "stomach",
+          "chest"
+        ],
+        "passage": "Burning pains are observed everywhere. Burning in the brain, burning in the skin. Burning in the stomach, in the chest, and in various parts."
+      },
+      {
+        "keywords": [
+          "sensitivity",
+          "odors",
+          "noises",
+          "touch",
+          "external impressions"
+        ],
+        "passage": "The Phosphorus patient is very sensitive to all external impressions; slight odors, noises, touch."
+      },
+      {
+        "keywords": [
+          "trembling",
+          "weakness",
+          "exertion",
+          "debility",
+          "cough"
+        ],
+        "passage": "Trembling throughout the body from slight causes, using the hands, from slight exertion, from debility, from coughing."
+      },
+      {
+        "keywords": [
+          "paralysis",
+          "typhoid fever",
+          "weakness",
+          "sliding down"
+        ],
+        "passage": "Weakness prevails in a marked degree, finally becoming paralysis or paralytic weakness such as occurs in most forms of typhoid fever, with sliding down in bed, trembling and jerking of the muscles."
+      },
+      {
+        "keywords": [
+          "paralysis",
+          "formication",
+          "tearing",
+          "limbs",
+          "apoplexy"
+        ],
+        "passage": "Paralysis with formication and tearing in the limbs. Paralysis that comes with apoplexy. Jerking and twitching of the muscles such as has been found in paralysis. Spasms of the paralyzed parts."
+      },
+      {
+        "keywords": [
+          "rubbing",
+          "sleep",
+          "rest",
+          "amelioration"
+        ],
+        "passage": "The Phosphorus patient wants to be rubbed. He is generally better after sleep. Always wants to rest. Always tired."
+      },
+      {
+        "keywords": [
+          "excitement",
+          "tremulousness",
+          "insomnia",
+          "imaginations"
+        ],
+        "passage": "The Phosphorus patient undergoes great excitement. Tremulousness. Wild thoughts. Excitability, keeping him awake at night. Violent imaginations."
+      },
+      {
+        "keywords": [
+          "mind",
+          "ecstasy",
+          "clairvoyance",
+          "excitability"
+        ],
+        "passage": "Excitability even to ecstasy and clairvoyance. The mind may be overactive or may be extremely passive with loss of memory."
+      },
+      {
+        "keywords": [
+          "irritability",
+          "prostration",
+          "mental effort",
+          "physical exertion"
+        ],
+        "passage": "Irritability of mind and body and great prostration of mind after slight mental effort, and of the body after slight physical exertion."
+      },
+      {
+        "keywords": [
+          "anxiety",
+          "fear",
+          "twilight",
+          "alone",
+          "apprehensiveness"
+        ],
+        "passage": "Anxiety, gloomy forebodings. Fear that something will happen. Anxious at twilight. Anxious when alone. Apprehensiveness."
+      },
+      {
+        "keywords": [
+          "thunderstorms",
+          "palpitation",
+          "diarrhea",
+          "trembling",
+          "fear"
+        ],
+        "passage": "Apprehensive during thunder storms, which brings on many complaints; palpitation, diarrhea and trembling. Trembling of the whole body."
+      },
+      {
+        "keywords": [
+          "indigestion",
+          "fear",
+          "death",
+          "evening",
+          "imaginations"
+        ],
+        "passage": "Attacks of indigestion from fear. Fear in the evening, fear of death. Fear of strange old faces looking at him from the corner. Full of strange, insane imaginations. On the border land of insanity."
+      },
+      {
+        "keywords": [
+          "mental effort",
+          "headache",
+          "breathing",
+          "stomach",
+          "sinking"
+        ],
+        "passage": "Inability to sustain a mental effort. Reflecting brings on headache and difficult breathing associated with apprehensiveness or sinking at the pit of the stomach. His fear seems to begin at the pit of the stomach."
+      },
+      {
+        "keywords": [
+          "apathy",
+          "indifference",
+          "children",
+          "family",
+          "stupor"
+        ],
+        "passage": "Apathy or indifference; indifferent to his friends and surroundings. Indifferent to his children. Answers no questions, takes no notice of his family, answers slowly, thinks sluggishly, seems dazed or in a stupor."
+      },
+      {
+        "keywords": [
+          "dejection",
+          "hypochondriasis",
+          "weeping",
+          "sadness",
+          "hysteria"
+        ],
+        "passage": "Dejected; a most marked case of hypochondriasis. Weeping, sad, hysterical; will uncover the body and expose his person."
+      },
+      {
+        "keywords": [
+          "delirium",
+          "mania",
+          "violence",
+          "loquacity",
+          "fever"
+        ],
+        "passage": "Violent, loquacious; delirium. Delirium of low forms of fever, or delirium of mania a potu."
+      },
+      {
+        "keywords": [
+          "mania",
+          "sleep",
+          "fury",
+          "violence",
+          "imbecility",
+          "idiocy"
+        ],
+        "passage": "Maniacal attacks come on during sleep with fury and extreme violence, so that no one dares approach him, and this progresses to imbecility, silliness, weak brain, idiocy."
+      },
+      {
+        "keywords": [
+          "brain fag",
+          "mental overwork",
+          "eyes",
+          "strain"
+        ],
+        "passage": "Brain fag from mental overwork and constant strain of eyes."
+      },
+      {
+        "keywords": [
+          "vertigo",
+          "staggering",
+          "walking",
+          "open air",
+          "eating",
+          "evening"
+        ],
+        "passage": "Vertigo is a very common symptom. Staggering while walking as if intoxicated. Vertigo when in the open air; vertigo after eating; vertigo in the evening."
+      },
+      {
+        "keywords": [
+          "mental symptoms",
+          "dark",
+          "alone",
+          "music",
+          "excitement",
+          "modalities"
+        ],
+        "passage": "All of these mental symptoms are worse in the dark; worse when alone; sometimes worse from music; worse from excitement; worse from playing the piano."
+      },
+      {
+        "keywords": [
+          "headache",
+          "congestion",
+          "throbbing",
+          "cold ameliorates",
+          "heat aggravates"
+        ],
+        "passage": "The headaches of Phosphorus are congestive and throbbing. The blood mounts to the head. The headaches are ameliorated from cold and worse from heat, worse from motion, and better from rest, worse lying down."
+      },
+      {
+        "keywords": [
+          "headache",
+          "warm room",
+          "warm food",
+          "cold ameliorates",
+          "modalities"
+        ],
+        "passage": "The warm room, warm surroundings, warm food, putting the hands into warm water will increase the headache. The complaints of the head like the complaints of the stomach are worse from heat and better from cold things; while the complaints of the body are better from warmth and worse from cold."
+      },
+      {
+        "keywords": [
+          "headache",
+          "hunger",
+          "vomiting",
+          "red face",
+          "uremia",
+          "neuralgia"
+        ],
+        "passage": "The headaches are most violent and are often attended with hunger or preceded by hunger; headaches with vomiting, red face, and scanty urine; uraemic headaches; violent neuralgic pains darting, tearing, shooting through the head."
+      },
+      {
+        "keywords": [
+          "headache",
+          "periodical",
+          "mental exertion",
+          "face",
+          "jaws",
+          "stiffness"
+        ],
+        "passage": "Periodical headaches, headaches brought on from mental exertion. Great heat in the head and stiffness in the muscles of the face and jaws, sometimes attended with coldness in the back of the head."
+      },
+      {
+        "keywords": [
+          "hydrocephalus",
+          "meninges",
+          "brain softening",
+          "insanity"
+        ],
+        "passage": "It has cured acute hydrocephalus and hydrocephaloid symptoms. Chronic inflammation of the meninges of the brain; softening of the brain; imbecility; insanity."
+      },
+      {
+        "keywords": [
+          "scalp",
+          "dandruff",
+          "hair loss",
+          "bald patches",
+          "heat"
+        ],
+        "passage": "The scalp is covered with dandruff; the hair falls out in patches, leaving bald places here and there. Great heat in the scalp; tension in the scalp and face and forehead as if bound by a bandage."
+      },
+      {
+        "keywords": [
+          "scalp",
+          "overheating",
+          "hair",
+          "soreness",
+          "headache"
+        ],
+        "passage": "The complaints of the head are brought on from becoming overheated. Sensation as if the hair were pulled; great soreness of the scalp; must let the hair hang down during headaches."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "burning",
+          "redness",
+          "congestion",
+          "blood vessels"
+        ],
+        "passage": "The eye symptoms are very numerous; burning, redness, congestion, enlargement of the blood-vessels."
+      },
+      {
+        "keywords": [
+          "vision",
+          "colors",
+          "red",
+          "blue",
+          "green",
+          "gray",
+          "cataract"
+        ],
+        "passage": "Objects look red and often blue in the field of vision, or objects sometimes look green and gray as is observed in incipient cataract. Colors also appear black before the eyes."
+      },
+      {
+        "keywords": [
+          "vision",
+          "reading",
+          "twilight",
+          "morning",
+          "rest ameliorates"
+        ],
+        "passage": "Vision is vague; the eyes give out while reading; sees better in the morning, in the twilight. The eye symptoms have amelioration after rest."
+      },
+      {
+        "keywords": [
+          "blindness",
+          "fainting",
+          "optic nerve",
+          "paralysis",
+          "lightning"
+        ],
+        "passage": "Momentary blindness like fainting; seems to suddenly become blind; paralysis of the optic nerve; blindness after electric shocks, or after a stroke of lightning."
+      },
+      {
+        "keywords": [
+          "glaucoma",
+          "retina",
+          "bright's disease",
+          "vitreous humor"
+        ],
+        "passage": "It has cured glaucoma. It has cured inflammation of the retina in Bright's disease. It has cured opacity of the vitreous humor."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "muscles",
+          "paralysis",
+          "third nerve",
+          "ptosis"
+        ],
+        "passage": "It has cured paralytic weakness of the various muscles of the eyes. It has cured paralysis of the third pair of nerves where there is falling of the lids."
+      },
+      {
+        "keywords": [
+          "eyelids",
+          "twitching",
+          "trembling",
+          "swelling",
+          "dropsy",
+          "dark circles"
+        ],
+        "passage": "The eyelids twitch and tremble; swelling of the eyelids; dropsical swelling of the eyelids; great darkness around the eyes; great circles around the eyes."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "malignant growths",
+          "cancer"
+        ],
+        "passage": "It is a very useful remedy in malignant growths involving the eye, restraining very much the progress of the disease."
+      },
+      {
+        "keywords": [
+          "deafness",
+          "hearing",
+          "human voice",
+          "ears covered"
+        ],
+        "passage": "One of the most striking features of Phosphorus is inability to understand the articulations of the human voice. Hearing is difficult. He sometimes feels as if there were something over the ears; as if the ears were covered, obstructing the waves of sound."
+      },
+      {
+        "keywords": [
+          "ears",
+          "itching",
+          "congestion",
+          "tearing",
+          "throbbing",
+          "burning",
+          "polypi"
+        ],
+        "passage": "Violent itching in the ears; congestion of the external ear; itching, tearing, throbbing, burning pains within the ear. It has cured polypi in the ears."
+      },
+      {
+        "keywords": [
+          "nose",
+          "catarrh",
+          "coryza",
+          "chest",
+          "cold"
+        ],
+        "passage": "Inveterate nasal catarrh. He takes cold in the nose, but the most common seat of the Phosphorus cold is in the chest, and most of his difficulties begin in the chest."
+      },
+      {
+        "keywords": [
+          "nose",
+          "dryness",
+          "sneezing",
+          "bloody water",
+          "fluent coryza"
+        ],
+        "passage": "There is painful dryness in the nose; constant sneezing and running from the nose of bloody water. Frequent alternations of fluent and stopped-up conditions of the nose."
+      },
+      {
+        "keywords": [
+          "nose",
+          "sore throat",
+          "scarlet fever",
+          "green mucus"
+        ],
+        "passage": "Coryza with sore throat; stoppage of the nostrils; much sneezing and stopping of the nose alternating with dryness of the nose in scarlet fever; nostrils filled with green mucus."
+      },
+      {
+        "keywords": [
+          "nose",
+          "discharge",
+          "greenish-yellow",
+          "blood-streaked",
+          "morning",
+          "odor"
+        ],
+        "passage": "A copious nasal discharge of greenish-yellow, blood-streaked mucus, worse in the morning; bad odor from the nose."
+      },
+      {
+        "keywords": [
+          "nose",
+          "hemorrhage",
+          "bright red blood",
+          "swelling",
+          "redness",
+          "touch sensitive"
+        ],
+        "passage": "Copious hemorrhage from the nose of bright red blood; swelling of the nose, redness and shining; very sensitive to touch."
+      },
+      {
+        "keywords": [
+          "nose",
+          "necrosis",
+          "bones",
+          "polypi",
+          "bleeding polypi",
+          "fan-like motion"
+        ],
+        "passage": "Necrosis of the bones of the nose. It has cured polypi of the nose, especially bleeding polypi. Fan-like motion of the nose, like Lycopodium."
+      },
+      {
+        "keywords": [
+          "face",
+          "sickly",
+          "earthy",
+          "sunken",
+          "pale",
+          "consumption",
+          "anemia"
+        ],
+        "passage": "The Phosphorus patient presents a sickly face, earthy, sunken and pale, such as we find in consumption and those about to go into consumption; haggard, anemic."
+      },
+      {
+        "keywords": [
+          "face",
+          "edema",
+          "swelling",
+          "puffed",
+          "eyes",
+          "lips"
+        ],
+        "passage": "Swollen, oedematous face; puffed under the eyes; lips and eyelids swollen."
+      },
+      {
+        "keywords": [
+          "face",
+          "hectic fever",
+          "red spots",
+          "cheeks"
+        ],
+        "passage": "Red spots upon the cheeks, which appear in hectic fever; the hectic blush."
+      },
+      {
+        "keywords": [
+          "face",
+          "neuralgia",
+          "tearing",
+          "shooting pains",
+          "temples",
+          "zygoma"
+        ],
+        "passage": "Tearing, shooting pains all through the face and about the eyes, from the temples and vertex down to the zygoma."
+      },
+      {
+        "keywords": [
+          "teeth",
+          "warmth ameliorates",
+          "talking aggravates",
+          "eating aggravates"
+        ],
+        "passage": "The pains of the teeth are often ameliorated by warmth. The pains of the teeth are worse when talking and eating, and worse after eating."
+      },
+      {
+        "keywords": [
+          "face",
+          "neuralgia",
+          "jaw",
+          "temples",
+          "hot",
+          "bloated",
+          "talking",
+          "eating"
+        ],
+        "passage": "It has violent neuralgias of the face involving the jaw and temples, with hot, bloated face, worse from talking and from eating."
+      },
+      {
+        "keywords": [
+          "lower jaw",
+          "caries",
+          "heat",
+          "burning",
+          "fistula"
+        ],
+        "passage": "It has caries of the lower jaw, with great heat, burning and fistulous openings."
+      },
+      {
+        "keywords": [
+          "neuralgia",
+          "face",
+          "teeth",
+          "wind",
+          "night",
+          "wrapped up"
+        ],
+        "passage": "Neuralgia of the face and teeth; has to be wrapped up at night; worse in windy weather."
+      },
+      {
+        "keywords": [
+          "lips",
+          "parched",
+          "dry",
+          "bleeding",
+          "cracked",
+          "fever"
+        ],
+        "passage": "The lips are parched, dry and bleeding. The lips become black, brown and cracked as in low forms of fever, and with necrosis of the lower jaw."
+      },
+      {
+        "keywords": [
+          "parotid gland",
+          "inflammation",
+          "suppuration",
+          "fistula"
+        ],
+        "passage": "Inflammation of the parotid gland, especially when it suppurates or there are fistulous openings."
+      },
+      {
+        "keywords": [
+          "teeth",
+          "decay",
+          "gums",
+          "bleeding",
+          "hemorrhage",
+          "extraction"
+        ],
+        "passage": "Rapid decay of the teeth. The gums bleed and settle away from the teeth. Phosphorus is very useful for the bright red hemorrhage after the extraction of teeth."
+      },
+      {
+        "keywords": [
+          "tongue",
+          "swollen",
+          "speech",
+          "difficult",
+          "articulation"
+        ],
+        "passage": "The tongue is swollen and speech is difficult. It is difficult to articulate."
+      },
+      {
+        "keywords": [
+          "taste",
+          "bitter",
+          "sour",
+          "milk",
+          "salty",
+          "sweetish"
+        ],
+        "passage": "The taste in the mouth is bitter or sour, especially sour after taking milk; sometimes salty or sweetish; bitter after eating."
+      },
+      {
+        "keywords": [
+          "tongue",
+          "coated",
+          "chalky-white",
+          "yellow",
+          "dry",
+          "cracked",
+          "sordes"
+        ],
+        "passage": "Taste of hydrogen sulphide in the morning. The tongue is coated like fur; sometimes chalky-white, sometimes yellow; dry, cracked and bleeding; sordes on the teeth."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "crusts",
+          "mucous membranes",
+          "tongue",
+          "papillae"
+        ],
+        "passage": "Crusts form upon the mucous membranes of the mouth, gums, lips and tongue. The tongue is swollen and the papillae are engorged."
+      },
+      {
+        "keywords": [
+          "throat",
+          "dryness",
+          "rawness",
+          "excoriation",
+          "bleeding",
+          "tonsils"
+        ],
+        "passage": "Dryness of the mouth and throat; sore, excoriated mucous membranes of the mouth and throat. Great dryness, roughness, rawness, excoriation, bleeding, and inflammation of the tonsils."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "thrush",
+          "nursing sore mouth",
+          "bloody erosions",
+          "saliva"
+        ],
+        "passage": "The mouth may be covered with thrush, as in nursing sore mouth; bloody erosions of the mouth. Much watery saliva and bloody saliva flows from the mouth."
+      },
+      {
+        "keywords": [
+          "throat",
+          "cotton sensation",
+          "velvet sensation",
+          "tonsils",
+          "swollen"
+        ],
+        "passage": "Sensation of cotton in the throat; sensation of velvet in the throat. The tonsils are much swollen."
+      },
+      {
+        "keywords": [
+          "throat",
+          "burning",
+          "esophagus",
+          "swallowing",
+          "paralysis",
+          "constriction"
+        ],
+        "passage": "Intense pain in the throat and burning in the throat that extends into the oesophagus. Inability to swallow any nourishment because of paralysis of the oesophagus or acute inflammation of the mucous membranes of the throat and oesophagus; constriction of the oesophagus."
+      },
+      {
+        "keywords": [
+          "hunger",
+          "violent",
+          "eating",
+          "night",
+          "faintness",
+          "headache"
+        ],
+        "passage": "In Phosphorus there is violent hunger and very soon after eating the hunger returns again. Must eat during the chill. Must get up in the night to eat. Feels faint and is driven to eat. Ravenous hunger during headache."
+      },
+      {
+        "keywords": [
+          "hunger",
+          "spasmodic",
+          "aversion to food"
+        ],
+        "passage": "The hunger is often spasmodic, because at times there is aversion to food. Again, he wants to eat and as soon as the food is offered he does not want it."
+      },
+      {
+        "keywords": [
+          "thirst",
+          "ice-cold water",
+          "cold drinks",
+          "vomiting",
+          "warm water"
+        ],
+        "passage": "Thirst is one of the most constant features of Phosphorus. Violent thirst; thirst for ice-cold drinks. Is ameliorated momentarily by drinking cold things, but the thirst appears as soon as the water gets warm in the stomach. Vomiting comes on as soon as the water becomes warm in the stomach."
+      },
+      {
+        "keywords": [
+          "desires",
+          "cold food",
+          "cold drinks",
+          "juicy",
+          "sour",
+          "wine",
+          "spicy"
+        ],
+        "passage": "He wants cold food as well as cold drinks; refreshing, spicy things, juicy things; desire for wines and sour things."
+      },
+      {
+        "keywords": [
+          "alcohol",
+          "craving",
+          "inebriates"
+        ],
+        "passage": "Phosphorus often cures the violent longing in inebriates for alcohol."
+      },
+      {
+        "keywords": [
+          "aversions",
+          "sweets",
+          "meat",
+          "boiled milk",
+          "salt fish",
+          "beer",
+          "puddings",
+          "tea",
+          "coffee"
+        ],
+        "passage": "Aversion to sweets, to meat, to boiled milk, to salt fish, to beer, to puddings, to tea and coffee."
+      },
+      {
+        "keywords": [
+          "eating ameliorates",
+          "nervous symptoms",
+          "sleep",
+          "eating"
+        ],
+        "passage": "Many of the complaints of Phosphorus are ameliorated by eating. The nervous symptoms drive the patient to eat and he feels better for a little while. Often he can sleep better after eating and cannot go to sleep until he eats something."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "nausea",
+          "vomiting",
+          "burning",
+          "cold ameliorates",
+          "warm aggravates"
+        ],
+        "passage": "The stomach symptoms are ameliorated by cold things and aggravated by warm things. The nausea and vomiting are brought on by putting the hands into warm water, from being in a warm room, and from taking warm things into the stomach."
+      },
+      {
+        "keywords": [
+          "nausea",
+          "pregnancy",
+          "warm water",
+          "hands",
+          "vomiting"
+        ],
+        "passage": "The nausea of pregnancy is cured when the woman cannot put the hands into warm water without bringing on vomiting."
+      },
+      {
+        "keywords": [
+          "eructations",
+          "food",
+          "stomach emptied"
+        ],
+        "passage": "Another marked feature of Phosphorus is eructations of food. The food is eructated by mouthful until the stomach is emptied of the last meal."
+      },
+      {
+        "keywords": [
+          "nausea",
+          "cold water",
+          "chloroform",
+          "antidote"
+        ],
+        "passage": "Constant nausea except when something cold is in the stomach. As soon as water becomes warm in the stomach it comes up. Phosphorus is a great friend to the surgeon because he can nearly always antidote the stomach affections of Chloroform by Phosphorus."
+      },
+      {
+        "keywords": [
+          "vomiting",
+          "blood",
+          "sour",
+          "bile",
+          "mucus",
+          "coffee-ground"
+        ],
+        "passage": "Vomiting of blood and violent vomiting of sour fluids; vomiting of bile and mucus; vomiting of black substances, coffee-ground substances."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "sinking",
+          "gone feeling",
+          "eleven o'clock"
+        ],
+        "passage": "Awful sinking, gone feeling in the stomach. This sometimes comes at 11 o'clock like Sulphur."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "burning",
+          "pressing",
+          "tearing",
+          "eating aggravates",
+          "inflammation"
+        ],
+        "passage": "Pressing pains, burning pains, tearing pains in the stomach; pain in the stomach after eating; sensitiveness in the pit of the stomach; inflammation of the stomach."
+      },
+      {
+        "keywords": [
+          "cancer",
+          "stomach",
+          "coffee-ground vomiting",
+          "burning",
+          "coldness",
+          "freezing"
+        ],
+        "passage": "It has been a very useful remedy in cancer of the stomach, with coffee-ground vomiting and burning; coldness, as if freezing, in the pit of the stomach; paroxysms of knife-like pains in the stomach."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "ice-cold ameliorates",
+          "spasmodic",
+          "hemorrhage",
+          "clotted blood"
+        ],
+        "passage": "The pains in the stomach are ameliorated by ice-cold things for a moment; spasmodic contractions of the stomach; hemorrhage from the stomach; vomiting of great quantities of clotted blood."
+      },
+      {
+        "keywords": [
+          "dyspepsia",
+          "flatulence",
+          "regurgitation",
+          "distension",
+          "ulceration"
+        ],
+        "passage": "Long-standing dyspepsia; much flatulence; regurgitation of food; distended stomach and abdomen; ulceration of the stomach."
+      },
+      {
+        "keywords": [
+          "liver",
+          "congestion",
+          "fatty degeneration",
+          "hyperemia",
+          "hardness",
+          "jaundice"
+        ],
+        "passage": "Congestion of the liver, fullness, pain, hardness, fatty degeneration of the liver, hyperemia of the liver. Phosphorus is one of the most useful liver remedies; hard, large liver. With the stomach and liver symptoms there is commonly jaundice."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "sensitive",
+          "touch",
+          "rumbling",
+          "emptiness",
+          "relaxed"
+        ],
+        "passage": "Very sensitive abdomen, painful to touch, rolling and rumbling. Sensation of emptiness in the abdomen; sunken feeling in the abdomen. The abdomen feels as if relaxed; hanging down sensation and sensation of great weight in the abdomen."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "tympanitic",
+          "typhoid fever"
+        ],
+        "passage": "Tympanitic abdomen such as occurs in typhoid fever."
+      },
+      {
+        "keywords": [
+          "gurgling",
+          "stomach",
+          "intestines",
+          "involuntary stool",
+          "typhoid"
+        ],
+        "passage": "A marked feature in Phosphorus is the peculiar gurgling which begins in the stomach and gurgles along down through the intestines, attended with involuntary stool. This occurs in typhoid fever."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "flatulence",
+          "colic",
+          "tearing",
+          "cutting",
+          "stitching",
+          "peritoneum",
+          "appendicitis"
+        ],
+        "passage": "Flatulence; colic; rending, tearing, cutting pains throughout the abdomen; stitching pains in the abdomen; inflammation of the bowels, of the peritoneum; appendicitis."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "petechiae",
+          "yellow spots",
+          "brown spots",
+          "typhoid"
+        ],
+        "passage": "Yellow, brown spots on the abdomen; petechiae over the abdomen during typhoid fever."
+      },
+      {
+        "keywords": [
+          "rectum",
+          "stool",
+          "involuntary",
+          "copious",
+          "foetid",
+          "gushing",
+          "yellow",
+          "watery"
+        ],
+        "passage": "Involuntary discharges from the bowels; copious emission of fluids; foetid, gushing stools; horribly offensive, yellow, watery stools. The patient lies as if dying, the stools passing involuntarily."
+      },
+      {
+        "keywords": [
+          "stool",
+          "white mucus",
+          "tallow",
+          "anus",
+          "wide open",
+          "oozing"
+        ],
+        "passage": "Stools of white mucus; stools of slime intermingled with little specks like tallow; involuntary oozings from the constantly wide open anus."
+      },
+      {
+        "keywords": [
+          "hemorrhage",
+          "bowels",
+          "typhoid",
+          "bloody",
+          "meat washings",
+          "involuntary"
+        ],
+        "passage": "Hemorrhage from the bowels in typhoids, in low forms of disease; bloody discharges like meat washings, involuntary, on every motion."
+      },
+      {
+        "keywords": [
+          "rectum",
+          "burning",
+          "stool",
+          "protrusion",
+          "hemorrhoids"
+        ],
+        "passage": "Burning in the rectum during stool. Protrusion of the rectum; protrusion of haemorrhoidal tumors."
+      },
+      {
+        "keywords": [
+          "coccyx",
+          "spine",
+          "brain",
+          "neck",
+          "stool",
+          "stitching pains"
+        ],
+        "passage": "Sharp, stitching pains from the coccyx up the spine to the base of the brain drawing the neck backward, and this symptom occurs during stool."
+      },
+      {
+        "keywords": [
+          "rectum",
+          "cramps",
+          "burning",
+          "anus",
+          "tenesmus",
+          "sinking",
+          "exhaustion",
+          "fainting"
+        ],
+        "passage": "After stool painful cramps in the rectum; burning in the anus; violent tenesmus; sinking feeling in the abdomen; obliged to lie down; exhaustion and fainting."
+      },
+      {
+        "keywords": [
+          "diarrhea",
+          "copious",
+          "cholera",
+          "cholera morbus",
+          "cholera infantum"
+        ],
+        "passage": "The copious diarrhea is like the profuse flow of water from a hydrant. It is useful in cholera times and in cholera morbus. It has been a very useful remedy in cholera infantum."
+      },
+      {
+        "keywords": [
+          "dysentery",
+          "bloody mucus",
+          "tenesmus",
+          "scanty stool"
+        ],
+        "passage": "It has also cured dysentery with bloody mucus, scanty stools with violent tenesmus."
+      },
+      {
+        "keywords": [
+          "constipation",
+          "hard stool",
+          "slender",
+          "dog-like",
+          "alternating diarrhea",
+          "old people"
+        ],
+        "passage": "It also cures inveterate constipation. The stool is hard, long, and slender, described in the books as like that of a dog. Alternating diarrhea and constipation in old people."
+      },
+      {
+        "keywords": [
+          "rectum",
+          "spasms",
+          "paralysis",
+          "bowel",
+          "hemorrhage",
+          "polypi",
+          "fissures"
+        ],
+        "passage": "Spasms of the rectum. Paralysis of the bowel, so that it is impossible to strain at stool. It has cured polypi of the rectum; inflammation of the rectum. It has cured bleeding, protruding hemorrhoids; hemorrhoids that burn. It has cured fissures of the anus."
+      },
+      {
+        "keywords": [
+          "kidneys",
+          "diabetes",
+          "sugar",
+          "urine",
+          "thirst",
+          "ice-cold water",
+          "emaciation"
+        ],
+        "passage": "Phosphorus is a useful remedy in diseases of the kidneys, especially diabetes, with sugar in the urine when there is great thirst for ice-cold things. Gradual emaciation; gradual weakness; considerable heat of the head; coldness of the extremities, and sugar in the urine."
+      },
+      {
+        "keywords": [
+          "kidneys",
+          "fatty degeneration",
+          "renal calculi"
+        ],
+        "passage": "Phosphorus will cure fatty degeneration of the kidneys. Renal calculi."
+      },
+      {
+        "keywords": [
+          "bladder",
+          "paralysis",
+          "urination",
+          "no desire",
+          "straining"
+        ],
+        "passage": "No desire to pass urine though the bladder is full. There is a paralytic weakness. He is unable to strain to pass the urine because such straining increases pain in the region of the bladder."
+      },
+      {
+        "keywords": [
+          "urine",
+          "pale",
+          "watery",
+          "scanty",
+          "suppressed",
+          "turbid",
+          "albuminous",
+          "involuntary"
+        ],
+        "passage": "Profuse, pale, watery urine; frequent and scanty or completely suppressed urine. Turbid, whitish urine; curdled like milk. Albuminous urine. Involuntary urination during sleep."
+      },
+      {
+        "keywords": [
+          "urethra",
+          "tearing",
+          "twitching",
+          "burning"
+        ],
+        "passage": "Tearing in the urethra; twitching and burning in the urethra."
+      },
+      {
+        "keywords": [
+          "headache",
+          "periodical",
+          "urine",
+          "scanty",
+          "copious"
+        ],
+        "passage": "Periodical sick headaches sometimes are preceded by scanty urine and sometimes by a copious watery flow of urine."
+      },
+      {
+        "keywords": [
+          "male",
+          "sexual desire",
+          "violent",
+          "erections",
+          "painful",
+          "frequent"
+        ],
+        "passage": "Violent sexual desire driving him frantic. Erections frequent and painful day and night."
+      },
+      {
+        "keywords": [
+          "seminal emissions",
+          "night",
+          "sexual debility",
+          "salt",
+          "impotence"
+        ],
+        "passage": "Seminal emissions at night even without lascivious dreams. Sexual debility from the inordinate use of table salt. Impotence after excessive excitement and secret vice, preceded by over-excitement of the sexual organs."
+      },
+      {
+        "keywords": [
+          "urethra",
+          "discharge",
+          "slimy",
+          "colorless",
+          "prostatic fluid",
+          "prostate"
+        ],
+        "passage": "Frequent discharges day and night of thin, slimy, colorless fluid from the urethra. Discharges of prostatic fluid during a hard stool. Chronic urethral discharges due to hypertrophy of the prostate gland."
+      },
+      {
+        "keywords": [
+          "testes",
+          "swelling",
+          "soreness",
+          "inflammation",
+          "cord",
+          "hydrocele",
+          "gonorrhea"
+        ],
+        "passage": "Swelling and soreness of the testes and cord; inflammation of the testes and cord. It has cured hydrocele following gonorrhea."
+      },
+      {
+        "keywords": [
+          "sterility",
+          "sexual excitement",
+          "aversion to coition",
+          "women"
+        ],
+        "passage": "Phosphorus has cured many cases of sterility supposed to depend upon violent sexual excitement. Violent sexual excitement with aversion to coition."
+      },
+      {
+        "keywords": [
+          "ovaries",
+          "pain",
+          "thighs",
+          "menstruation",
+          "inflammation"
+        ],
+        "passage": "Violent pain in the ovaries extending down the inner side of the thighs during menstruation caused by inflammation of the ovaries."
+      },
+      {
+        "keywords": [
+          "uterus",
+          "inflammation",
+          "menstruation",
+          "pregnancy",
+          "pyemia"
+        ],
+        "passage": "Inflammation of the uterus during menstruation and during pregnancy or during pyoemia."
+      },
+      {
+        "keywords": [
+          "uterus",
+          "hemorrhage",
+          "bright red",
+          "clotted",
+          "confinement",
+          "climacteric",
+          "cancer"
+        ],
+        "passage": "Copious hemorrhages from uterus, bright red, clotted blood after confinement, during menstruation or during the climacteric period. Frequent and profuse hemorrhages from the uterus caused from cancerous affections."
+      },
+      {
+        "keywords": [
+          "menses",
+          "early",
+          "bright red",
+          "copious",
+          "ice-cold feet",
+          "hands",
+          "nausea",
+          "back pain",
+          "fearfulness"
+        ],
+        "passage": "The menstrual period is too early, flow bright red, lasting too long, is copious; during the menstrual period ice-cold feet and hands; nausea; pain in the back, as if broken; blue rings around eyes; loss of flesh; much fearfulness."
+      },
+      {
+        "keywords": [
+          "menstrual suppression",
+          "consumption",
+          "cough",
+          "nosebleed",
+          "spitting blood"
+        ],
+        "passage": "It has also menstrual suppression in consumptives with cough, bleeding from the nose, and spitting of blood."
+      },
+      {
+        "keywords": [
+          "leucorrhoea",
+          "yellow",
+          "weakness",
+          "white",
+          "watery",
+          "acrid",
+          "excoriating",
+          "milky",
+          "walking"
+        ],
+        "passage": "Copious yellow leucorrhoea with great weakness; leucorrhoea instead of menses; white, watery leucorrhoea, acrid, excoriating; milky leucorrhoea, copious when walking. The leucorrhoea is so excoriating that blisters form upon the genitals."
+      },
+      {
+        "keywords": [
+          "vagina",
+          "burning",
+          "smarting",
+          "stitching",
+          "pelvis",
+          "numbness",
+          "sensation"
+        ],
+        "passage": "Burning and smarting in the vagina. Stitching pains upward from the vagina into the pelvis. While there is violent sexual excitement during coition there is lack of sensation in the vagina, as if it were numb."
+      },
+      {
+        "keywords": [
+          "condylomata",
+          "fig warts",
+          "genitals",
+          "vagina",
+          "bleeding warts",
+          "erectile tumors"
+        ],
+        "passage": "Condylomata appear like fig warts and excrescences about the genitals and in the vagina. Bleeding warts. Erectile tumors on the external genitals."
+      },
+      {
+        "keywords": [
+          "labia",
+          "dropsy",
+          "cauliflower",
+          "excrescences",
+          "bleeding"
+        ],
+        "passage": "Dropsical swelling of the labia. Cauliflower excrescences with much bleeding."
+      },
+      {
+        "keywords": [
+          "breast",
+          "nodosities",
+          "fibroid tumors",
+          "uterus",
+          "hemorrhage"
+        ],
+        "passage": "Painful, hard, large nodosities in the female mammary glands. Fibroid tumors of the breast. Fibroid tumors of the uterus with copious hemorrhages."
+      },
+      {
+        "keywords": [
+          "pregnancy",
+          "lactation",
+          "sexual desire",
+          "vomiting",
+          "prostration",
+          "puerperal convulsions"
+        ],
+        "passage": "During pregnancy and lactation violent sexual desire; vomiting of pregnancy. Much prostration, sinking, and trembling, puerperal convulsions; pain in the back, as if it would break."
+      },
+      {
+        "keywords": [
+          "milk",
+          "increased secretion",
+          "mammary glands",
+          "inflammation",
+          "suppuration",
+          "erysipelas"
+        ],
+        "passage": "Increased secretion of milk out of season. Inflammation of the mammary glands with much heat, weight, and suppuration. Erysipelas of the breasts or of the genitals."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "hoarseness",
+          "morning",
+          "husky voice",
+          "sensitiveness",
+          "touch",
+          "cold air"
+        ],
+        "passage": "Inflammation of the larynx with hoarseness in the morning; husky voice; great sensitiveness of the larynx to touch and cold air; pain and burning in the larynx on talking."
+      },
+      {
+        "keywords": [
+          "vocal cords",
+          "weakness",
+          "tickling",
+          "larynx",
+          "talking",
+          "spasms",
+          "constriction"
+        ],
+        "passage": "Weakness in the vocal cords; violent tickling of the larynx while talking; constriction and spasms of the larynx; constant irritation to cough in the larynx."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "tuberculosis",
+          "bleeding",
+          "loss of voice",
+          "velvet sensation",
+          "rawness"
+        ],
+        "passage": "Tuberculous condition of the larynx; bleeding; loss of voice; cannot speak a word on account of pain in the larynx; sensation of velvet in the larynx; rawness and smarting in the larynx."
+      },
+      {
+        "keywords": [
+          "croup",
+          "membranous croup"
+        ],
+        "passage": "Phosphorus has cured many cases of croup, membranous croup, when all the symptoms were present."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "weather changes",
+          "overheating",
+          "loss of voice",
+          "hoarseness",
+          "singers",
+          "speakers"
+        ],
+        "passage": "Every change of weather, from becoming overheated, and colds settle in the larynx, producing loss of voice and hoarseness, especially in public speakers and singers."
+      },
+      {
+        "keywords": [
+          "cough",
+          "hard",
+          "dry",
+          "rasping",
+          "larynx",
+          "air passages",
+          "dryness"
+        ],
+        "passage": "Hard, dry, rasping cough that shakes the whole body from irritation in the larynx. Hoarseness and loss of voice; great dryness in the larynx and all of the air passages."
+      },
+      {
+        "keywords": [
+          "trachea",
+          "respiration",
+          "asthmatic",
+          "dyspnea",
+          "suffocation",
+          "chest constriction"
+        ],
+        "passage": "The irritation travels down the air passages, affecting the trachea, along with difficult respiration; asthmatic breathing; clutching in the larynx; suffocation; dyspnoea; spasms and constrictions of the chest."
+      },
+      {
+        "keywords": [
+          "inspiration",
+          "stridulous",
+          "evening",
+          "falling asleep",
+          "suffocation",
+          "labored breathing"
+        ],
+        "passage": "Violent, stridulous inspiration in the evening on falling asleep; fear of suffocation; labored breathing."
+      },
+      {
+        "keywords": [
+          "lungs",
+          "paralysis",
+          "fullness",
+          "chest",
+          "eating",
+          "larynx",
+          "mucus"
+        ],
+        "passage": "Paralysis of the lungs; fullness in the chest after eating, much irritation in the larynx; difficult breathing; scraping of mucus from the larynx after eating."
+      },
+      {
+        "keywords": [
+          "chest",
+          "oppression",
+          "anxiety",
+          "weakness",
+          "constriction",
+          "weight"
+        ],
+        "passage": "In the chest, Phosphorus produces oppression; anxiety, weakness and constriction. Heaviness as if a great weight were lying upon the chest."
+      },
+      {
+        "keywords": [
+          "chest",
+          "constriction",
+          "bound",
+          "bandaged",
+          "tightness",
+          "sternum"
+        ],
+        "passage": "With the cough, bronchitis, pneumonia and cardiac symptoms there is always more or less constriction of the chest as if bound, or as if bandaged, or as if tied tight with a string. Tightness felt over the sternum."
+      },
+      {
+        "keywords": [
+          "chest",
+          "rush of blood",
+          "pulsations",
+          "heat",
+          "head",
+          "flushes"
+        ],
+        "passage": "Feeling of a rush of blood to the chest with or without violent pulsations. Sensation of heat in the chest mounting to the head; flushes of heat in the chest extending upward."
+      },
+      {
+        "keywords": [
+          "chest",
+          "stitching pain",
+          "left side",
+          "pleurisy",
+          "lying on right side ameliorates"
+        ],
+        "passage": "Stitching pain in the chest; violent stitching pains in the left side of the chest better by lying on the right side. These are pains likely to occur in pleurisy or in pleurisy with pneumonia."
+      },
+      {
+        "keywords": [
+          "chest",
+          "cold air",
+          "rawness",
+          "trachea",
+          "burning",
+          "lungs",
+          "coughing"
+        ],
+        "passage": "Complaints of chest, worse in cold air. Rawness in the trachea extending into the lungs; burning in the chest; acute pain in the lower part of the lungs; violent pain in the chest with coughing. The patient is compelled to hold the chest with the hand."
+      },
+      {
+        "keywords": [
+          "lungs",
+          "inflammation",
+          "pneumonia",
+          "anxiety",
+          "oppression",
+          "bright red blood"
+        ],
+        "passage": "Inflammation of the lungs with anxiety, oppression, and expectoration of bright red blood."
+      },
+      {
+        "keywords": [
+          "hemorrhage",
+          "lungs",
+          "phthisis",
+          "bronchial tubes",
+          "fever",
+          "shaking cough"
+        ],
+        "passage": "The Phosphorus patient suffers from copious hemorrhages from the lungs in phthisical conditions. Inflammation of the bronchial tubes with intense fever and violent shaking cough; the body trembles with the cough."
+      },
+      {
+        "keywords": [
+          "expectoration",
+          "blood-streaked",
+          "rust-colored",
+          "pneumonia",
+          "purulent",
+          "yellow",
+          "sweetish"
+        ],
+        "passage": "The expectoration may be blood-streaked or rust-colored as it is in pneumonia. It may be purulent. In the later stages it becomes thick, yellow, sweetish."
+      },
+      {
+        "keywords": [
+          "bronchial catarrh",
+          "chest",
+          "cold settles",
+          "lungs",
+          "weak"
+        ],
+        "passage": "Phosphorus is a useful remedy in old bronchial catarrhs, in complaints that date from pneumonia or from bronchitis. Every cold settles in the chest. The lungs seem to be weak."
+      },
+      {
+        "keywords": [
+          "hepatization",
+          "pneumonia",
+          "dry",
+          "hacking cough",
+          "sulphur",
+          "lycopodium"
+        ],
+        "passage": "In hepatization during pneumonia with hard, dry, hacking cough; in hepatization of the lungs during pneumonia Phosphorus, Sulphur and Lycopodium are the most frequently indicated medicines."
+      },
+      {
+        "keywords": [
+          "arsenic",
+          "hepatization",
+          "thirst",
+          "ice-cold water",
+          "dry cough",
+          "paralytic weakness"
+        ],
+        "passage": "Phosphorus is often the remedy to follow Arsenic when Arsenic has been suited to the restlessness, prostration, and anxiety. If the patient has thirst for ice-cold water, constriction of the chest, dry, hacking cough, paralytic weakness of the lungs, and expectoration of blood or frothy mucus, Phosphorus is the best remedy."
+      },
+      {
+        "keywords": [
+          "pneumonia",
+          "burning",
+          "chest",
+          "head",
+          "delirium",
+          "thirst",
+          "ice-cold water",
+          "fan-like motion",
+          "nose"
+        ],
+        "passage": "In pneumonia, there may be burning in the chest, burning in the head, hot cheeks, and fever; gesticulation and delirium; violent thirst for ice-cold water; fan-like motion of the nose; difficult breathing; catchy inspiration; lying on the back with the head thrown far back; short, dry cough."
+      },
+      {
+        "keywords": [
+          "chest",
+          "rawness",
+          "bruised",
+          "cutting",
+          "burning",
+          "tearing",
+          "lungs",
+          "coughing"
+        ],
+        "passage": "Rawness in the chest; bruised feeling in the chest; pains are cutting; burning or sharp and tearing in the lungs when coughing."
+      },
+      {
+        "keywords": [
+          "suffocation",
+          "hepatization",
+          "livid face",
+          "cold sweat",
+          "hard pulse",
+          "inspiration impossible"
+        ],
+        "passage": "Suffocation, or inspiration almost impossible, especially at the beginning of hepatization when the face becomes livid and the features pointed with cold sweat and quick, hard pulse."
+      },
+      {
+        "keywords": [
+          "pneumonia",
+          "typhoid pneumonia",
+          "frothy expectoration",
+          "paralysis",
+          "lungs"
+        ],
+        "passage": "Frothy expectoration in low forms of pneumonia known as typhoid pneumonia. Threatened paralysis of the lungs."
+      },
+      {
+        "keywords": [
+          "tuberculosis",
+          "narrow-chested",
+          "slender",
+          "feeble",
+          "colds",
+          "chest",
+          "hemorrhage",
+          "rattling",
+          "cough"
+        ],
+        "passage": "Phosphorus is a useful remedy when tuberculosis is about to make its appearance, in persons who are narrow-chested, slender, and of feeble vitality. All colds settle in the chest. After each cold, much rattling, hard cough that shakes the whole body."
+      },
+      {
+        "keywords": [
+          "emaciation",
+          "chest",
+          "neck",
+          "hectic fever",
+          "phthisis",
+          "night sweats",
+          "afternoon fever"
+        ],
+        "passage": "Emaciation of the chest and neck. Along with these conditions comes hectic fever in the last stages of phthisis; intense fever, red face, and night sweats; fever coming on in the afternoon and lasting until after midnight."
+      },
+      {
+        "keywords": [
+          "phthisis",
+          "high potency",
+          "danger",
+          "fever",
+          "incurable",
+          "crisis",
+          "sweat",
+          "diarrhea"
+        ],
+        "passage": "Phosphorus is a dangerous medicine to give very high in some cases of phthisis, in the last stages. A powder of Phosphorus very high will reduce the fever and make the patient comfortable until death. In all incurable cases after the fever has been reduced, Phosphorus should not be given, as it will intensify the fever."
+      },
+      {
+        "keywords": [
+          "phthisis",
+          "potency",
+          "thirtieth",
+          "two-hundredth",
+          "reaction",
+          "advanced cases"
+        ],
+        "passage": "In far advanced phthisical cases it is better not to go higher than the 30th or 200th. Phosphorus very low will act as a poison in really Phosphorus cases."
+      },
+      {
+        "keywords": [
+          "palpitation",
+          "motion aggravates",
+          "left side aggravates",
+          "evening",
+          "night",
+          "waking",
+          "suffocation"
+        ],
+        "passage": "Phosphorus has violent palpitation; worse from motion, and from lying on the left side especially in the evening; worse at night on waking, with orgasms of blood in the chest, accompanied by much suffocation."
+      },
+      {
+        "keywords": [
+          "heart",
+          "endocarditis",
+          "enlargement",
+          "dilatation",
+          "fatty degeneration"
+        ],
+        "passage": "Phosphorus has cured endocarditis. Phosphorus has cured enlargement of the heart and dilatation and also fatty degeneration."
+      },
+      {
+        "keywords": [
+          "heart",
+          "fatty degeneration",
+          "venous stagnation",
+          "puffiness",
+          "face",
+          "eyelids"
+        ],
+        "passage": "With fatty degeneration where there is much venous stagnation, puffiness of the face, particularly under the eyelids, Phosphorus is often the remedy."
+      },
+      {
+        "keywords": [
+          "heart",
+          "thirst",
+          "cold water",
+          "internal heat"
+        ],
+        "passage": "In all of these cardiac affections thirst for very cold water will always be present. Internal heat; he wants something cold to cool his insides."
+      },
+      {
+        "keywords": [
+          "orgasms",
+          "blood",
+          "chest",
+          "excitement",
+          "worry",
+          "anticipation"
+        ],
+        "passage": "Violent orgasms of blood in the chest from every excitement, from worry, and from anticipation."
+      },
+      {
+        "keywords": [
+          "back",
+          "stiffness",
+          "neck",
+          "shoulders",
+          "small of back",
+          "rising"
+        ],
+        "passage": "There are many symptoms in the back; stiffness in the back and in the back of the neck, between the shoulders, and in the small of the back. Stiffness on rising from a seat."
+      },
+      {
+        "keywords": [
+          "back",
+          "heat",
+          "spine",
+          "hot spine"
+        ],
+        "passage": "Sensation of intense heat in the back running up the back. The patient complains of a hot spine."
+      },
+      {
+        "keywords": [
+          "spine",
+          "soreness",
+          "touch",
+          "shoulders",
+          "pulsations"
+        ],
+        "passage": "Soreness in places up and down the spine; soreness to touch between the shoulders; pulsations in various places in the back and in the whole spine."
+      },
+      {
+        "keywords": [
+          "coccyx",
+          "sensitive",
+          "pressure",
+          "ulcerated",
+          "motion prevented"
+        ],
+        "passage": "The coccyx is sensitive to pressure; pain in the coccyx as if ulcerated, preventing motion."
+      },
+      {
+        "keywords": [
+          "back",
+          "menstruation",
+          "confinement",
+          "breaking sensation",
+          "spinal inflammation"
+        ],
+        "passage": "Pain in the back during menstruation and during confinement as if the back would break. Spinal affections and inflammations."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "weakness",
+          "mental exertion",
+          "physical exertion",
+          "overheating",
+          "sunstroke",
+          "sexual excesses",
+          "paralysis"
+        ],
+        "passage": "Weakness of the limbs after mental exertion, prolonged physical exertion, being overheated, sunstroke and sexual excesses; paralytic weakness."
+      },
+      {
+        "keywords": [
+          "myelitis",
+          "spine",
+          "softening",
+          "progressive spinal paralysis"
+        ],
+        "passage": "Myelitis; softening of the spine; progressive spinal paralysis."
+      },
+      {
+        "keywords": [
+          "locomotor ataxia",
+          "pains",
+          "reflexes",
+          "multiple sclerosis",
+          "trembling"
+        ],
+        "passage": "Phosphorus has been a useful remedy in locomotor ataxia, palliating many of the symptoms; the pains; restoring the reflexes. Phosphorus is often suitable and restrains the progress in multiple sclerosis where there is much weakness and trembling of the extremities."
+      },
+      {
+        "keywords": [
+          "caries",
+          "vertebrae",
+          "scrofulous",
+          "children",
+          "spine"
+        ],
+        "passage": "Phosphorus has cured caries of the vertebrae in scrofulous children."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "paralytic weakness",
+          "arms",
+          "legs",
+          "trembling",
+          "numbness"
+        ],
+        "passage": "In the limbs we have paralytic weakness extending to both arms and legs, with trembling and numbness; paralysis of one or of both lower extremities or of the upper extremities with trembling and numbness."
+      },
+      {
+        "keywords": [
+          "hands",
+          "arms",
+          "cold",
+          "emaciation",
+          "veins",
+          "distended",
+          "burning"
+        ],
+        "passage": "The hands and arms become very cold. The limbs emaciate and the veins become distended; the arms burn."
+      },
+      {
+        "keywords": [
+          "fingers",
+          "constriction",
+          "numbness",
+          "insensibility",
+          "finger tips"
+        ],
+        "passage": "Periodical constriction of the fingers; numbness increasing to complete insensibility of the fingers; finger tips feel numb and insensible."
+      },
+      {
+        "keywords": [
+          "lower limbs",
+          "restlessness",
+          "weariness",
+          "weakness",
+          "walking",
+          "unsteady",
+          "trembling gait",
+          "paralysis"
+        ],
+        "passage": "Great restlessness in the lower limbs; weariness in the lower limbs; weakness in the lower limbs, especially observed on walking, unsteady and trembling gait; paralysis of the lower limbs."
+      },
+      {
+        "keywords": [
+          "joints",
+          "knees",
+          "hip",
+          "inflammation",
+          "acute"
+        ],
+        "passage": "Acute inflammation of the joints of the knees and hip joint."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "burning",
+          "tearing",
+          "cold exposure",
+          "rheumatism",
+          "stiffness",
+          "joints"
+        ],
+        "passage": "Burning, tearing pains in the limbs from exposure to cold. Rheumatism of the joints and muscles; stiffness of the joints on becoming cold."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "heat ameliorates",
+          "head",
+          "stomach",
+          "cold ameliorates",
+          "modalities"
+        ],
+        "passage": "All complaints of the limbs are ameliorated by heat, while complaints of the head and stomach are ameliorated by cold. The complaints of the chest are ameliorated by heat."
+      },
+      {
+        "keywords": [
+          "lower limbs",
+          "foetid sweat",
+          "gangrenous",
+          "periosteum",
+          "tibia",
+          "ulcers",
+          "icy-cold feet"
+        ],
+        "passage": "The lower limbs are covered with foetid sweat. The lower limbs are gangrenous. Inflammation of the periosteum of the tibia. Ulcers upon the lower limbs; feet icy-cold."
+      },
+      {
+        "keywords": [
+          "exhaustion",
+          "walking",
+          "staggering",
+          "weakness",
+          "vertigo",
+          "progressive weakness"
+        ],
+        "passage": "The Phosphorus patient wants to lie down; exhausted; he is unable to walk; staggers when walking from weakness and from vertigo. A gradual progressing weakness creeps over him."
+      },
+      {
+        "keywords": [
+          "epilepsy",
+          "convulsions",
+          "neuralgia",
+          "heat ameliorates",
+          "multiple neuritis"
+        ],
+        "passage": "Epilepsy; convulsions; neuralgic pains of the various parts of the body and of the limbs especially, ameliorated by heat. It has cured multiple neuritis."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "restless",
+          "starts",
+          "morning",
+          "unrefreshed",
+          "sleep ameliorates"
+        ],
+        "passage": "Restless sleep; starts in sleep; feels in the morning as if he has not slept enough, yet most of the complaints and aches are ameliorated by sleep, especially the head symptoms."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "right side",
+          "left side aggravates",
+          "anxiety",
+          "heart",
+          "palpitation"
+        ],
+        "passage": "He sleeps on the right side. Lying on the left side causes anxiety and pain in the heart and palpitation."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "late falling asleep",
+          "evening",
+          "awake",
+          "thinking",
+          "worrying"
+        ],
+        "passage": "Late falling to sleep in the evening; lies awake thinking about the affairs of the day and borrowing trouble."
+      },
+      {
+        "keywords": [
+          "sleepwalking"
+        ],
+        "passage": "Walks in his sleep."
+      },
+      {
+        "keywords": [
+          "typhoid fever",
+          "low forms"
+        ],
+        "passage": "Phosphorus is a usual remedy in low forms of typhoid fever on the symptoms previously mentioned."
+      },
+      {
+        "keywords": [
+          "skin",
+          "eruptions",
+          "dry",
+          "scaly",
+          "herpes",
+          "blood blisters",
+          "purple spots",
+          "yellow spots"
+        ],
+        "passage": "The eruptions are dry and scaly; dry furfuraceous herpes; blood blisters; purple spots; yellow spots on the chest and abdomen."
+      },
+      {
+        "keywords": [
+          "skin",
+          "formication",
+          "itching",
+          "paralyzed parts",
+          "numbness",
+          "brown spots",
+          "psoriasis"
+        ],
+        "passage": "Formication and itching in the paralyzed parts; numbness of the skin; irregular brown spots upon the body; psoriasis of the knees, legs, elbows, and eyebrows."
+      },
+      {
+        "keywords": [
+          "skin",
+          "hives",
+          "boils",
+          "phlegmonous inflammation"
+        ],
+        "passage": "Hives and blood boils; phlegmonous inflammation."
+      },
+      {
+        "keywords": [
+          "skin",
+          "suppuration",
+          "hectic fever",
+          "fistula",
+          "ulcers",
+          "bleeding",
+          "menses"
+        ],
+        "passage": "Chronic suppurating openings with hectic fever; fistulous openings; ulcers bleed on appearance of the menses; deep eating ulcers; indolent ulcers; malignant ulcers."
+      },
+      {
+        "keywords": [
+          "cancer",
+          "ulcers",
+          "fungous",
+          "bleeding",
+          "scarlet fever",
+          "rash",
+          "suppuration",
+          "thirst",
+          "cold water",
+          "cough"
+        ],
+        "passage": "Very useful in cancerous ulcers that bleed and take on fungous appearance and in low forms of scarlet fever where the rash is very dusky or disappears and suppuration begins in various places about the neck or upon the extremities, and there is violent thirst for cold water, purple appearance in the throat, and dry, hacking, shaking cough."
+      }
+    ],
+    "count": 200
+  },
+  "pulsatilla": {
+    "remedy": "Pulsatilla",
+    "passages": [
+      {
+        "keywords": [
+          "constitution",
+          "female",
+          "blonde",
+          "temperament"
+        ],
+        "passage": "It is said to be a very good medicine for women, for blondes, especially for tearful blondes."
+      },
+      {
+        "keywords": [
+          "mind",
+          "temperament",
+          "nervous",
+          "changeable",
+          "irritable",
+          "sensitive"
+        ],
+        "passage": "She is tearful, plethoric, and generally has little credit for being sick from her appearances; yet she is most nervous, fidgety, changeable, easily led and easily persuaded. While she is mild, gentle and tearful, yet she is remarkably irritable, not in the sense of pugnacity, but easily irritated, extremely touchy, always feels slighted or fears she will be slighted."
+      },
+      {
+        "keywords": [
+          "mind",
+          "melancholia",
+          "sadness",
+          "weeping",
+          "despair",
+          "religious",
+          "excitable"
+        ],
+        "passage": "Melancholia, sadness, weeping, despair, religious despair, fanatical; full of notions and whims; imaginative; extremely excitable."
+      },
+      {
+        "keywords": [
+          "mind",
+          "imagination",
+          "aversion",
+          "marriage",
+          "sexual"
+        ],
+        "passage": "She imagines the company of the opposite sex a dangerous thing to cultivate. Aversion to marriage is a strong symptom. A man takes it into his head that it is an evil thing to have sexual intercourse with his wife and abstains from it."
+      },
+      {
+        "keywords": [
+          "mind",
+          "imagination",
+          "aversion",
+          "milk",
+          "diet"
+        ],
+        "passage": "They imagine that milk is not good to drink, so they will not take it. They imagine that certain articles of diet are not good for the human race."
+      },
+      {
+        "keywords": [
+          "mind",
+          "religious",
+          "insanity",
+          "fixed ideas",
+          "fanatical"
+        ],
+        "passage": "Religious freaks; an especial tendency to dwell on religious notions; fixed ideas concerning the Scripture; he misuses and misapplies the Scriptures to his own detriment; dwells on sanctification until he becomes fanatical and insane."
+      },
+      {
+        "keywords": [
+          "mind",
+          "taciturn",
+          "insanity",
+          "puerperal"
+        ],
+        "passage": "Puerperal insanity in a woman who was mild, gentle and tearful, later sad and taciturn, and then she sits in her chair all day answering nothing or merely nodding her head for Yes or No."
+      },
+      {
+        "keywords": [
+          "mind",
+          "stomach",
+          "menstrual",
+          "uterine",
+          "ovarian"
+        ],
+        "passage": "Many of the complaints are associated with weakness of the stomach and indigestion, or with menstrual disorders. The mental symptoms are often associated with the ovarian and uterine difficulties."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "warm room",
+          "worse",
+          "motion",
+          "better",
+          "open air"
+        ],
+        "passage": "The general state of the body is worse in a warm room and relieved by motion. Tearful, sad and despondent, ameliorated walking in the open air, especially when it is crisp, cool, fresh and bright."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "warm room",
+          "suffocation",
+          "chilliness",
+          "perspiration"
+        ],
+        "passage": "Suffocation and an increase of the pains, and even chilliness in a warm room; a nervous chilliness when the patient perspires from the heat of a room."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "cold",
+          "amelioration",
+          "cold drinks",
+          "cold applications",
+          "thirstless"
+        ],
+        "passage": "The inflammatory symptoms, neuralgias and rheumatisms are relieved by cold, by eating and drinking cold things, by cold applications, or cold hands. Cold drinks relieve, even though the patient is not thirsty. Ice cold water feels good going down the oesophagus, and is retained in the stomach, though there is no thirst."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "worse after eating",
+          "morning",
+          "evening",
+          "fats",
+          "rich food"
+        ],
+        "passage": "Many symptoms worse after eating. The stomach symptoms are worse in the morning, the mental symptoms worse in the evening. Aggravation from fats and rich foods."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "digestion",
+          "fullness",
+          "fat",
+          "pork",
+          "pastries",
+          "rich food"
+        ],
+        "passage": "Complaints brought on by eating fat, pork, greasy things, cakes, pastries and rich things. The Pulsatilla stomach is slow to digest. Hours after eating there is a sense of fullness in the stomach, a lump in the stomach, ameliorated by slow walking in the open air."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "motion",
+          "slow",
+          "open air",
+          "rest",
+          "worse"
+        ],
+        "passage": "The patient is commonly relieved from slow motion in the open air, becomes frantic when trying to keep still, worse during rest, ameliorated by doing something, generally slow, moderate motion."
+      },
+      {
+        "keywords": [
+          "skin",
+          "feverish",
+          "hot",
+          "clothing",
+          "aggravation",
+          "wool",
+          "itching"
+        ],
+        "passage": "The skin feels feverish and hot, while the temperature of the body is normal. There is aggravation from much clothing; she wants to wear a thin dress even in moderately cold weather. Often he cannot wear flannels or woolen clothing because they irritate the skin, causing itching and eruptions like Sulphur."
+      },
+      {
+        "keywords": [
+          "skin",
+          "sulphur",
+          "antidote",
+          "psoriasis"
+        ],
+        "passage": "There is no remedy like Pulsatilla to antidote Sulphur when it has been used every Spring to cleanse the blood. Old cases of psoriasis; little flat, brownish patches about the size of the thumb nail, which itch tremendously, in old Sulphur patients are cured by Pulsatilla."
+      },
+      {
+        "keywords": [
+          "skin",
+          "mottled",
+          "erysipelas",
+          "purplish",
+          "veins",
+          "vasomotor"
+        ],
+        "passage": "The skin is mottled, erysipelatous; spotted, purplish in spots; veins engorged; capillaries tumid; a vasomotor paralysis of the capillaries or veins producing a mottled appearance. Pulsatilla has an unusually venous constitution."
+      },
+      {
+        "keywords": [
+          "veins",
+          "stasis",
+          "face",
+          "puffiness",
+          "swelling",
+          "menstrual"
+        ],
+        "passage": "The veins are engorged, in a state of stasis. This unusual fullness, redness and purple aspect of the face is a false plethora. It often goes on to a puffiness and swelling, especially at the menstrual periods. Feet puffed so that she cannot wear shoes, feet red and swollen at the menstrual period, ameliorated by the menstrual flow."
+      },
+      {
+        "keywords": [
+          "menstrual",
+          "late",
+          "bloating",
+          "face",
+          "abdomen",
+          "dyspnoea",
+          "ameliorated by flow"
+        ],
+        "passage": "Many women are late and are preparing for a week or ten days; face purple, red, puffed and bloated; abdomen distended; dyspnoea; and all this is relieved by the menstrual flow. Cannot breathe in a warm room; wants the windows open; chokes and suffocates in a warm bed at night."
+      },
+      {
+        "keywords": [
+          "veins",
+          "ulcers",
+          "varicose",
+          "bleeding",
+          "black blood",
+          "clots"
+        ],
+        "passage": "With the engorgement of veins ulcers surrounded by varicose veins are common. Ulcers bleed black blood which coagulates early; little black clots; bleeding is not copious; clots easily, dark, tarry, offensive."
+      },
+      {
+        "keywords": [
+          "catarrh",
+          "mucous membrane",
+          "purple",
+          "inflammation",
+          "venous congestion"
+        ],
+        "passage": "Wherever there is mucous membrane there is catarrh. Wherever there is inflammation of the mucous membrane it looks purple; a venous congestion."
+      },
+      {
+        "keywords": [
+          "catarrh",
+          "discharge",
+          "thick",
+          "green",
+          "yellow",
+          "bland",
+          "leucorrhoea",
+          "excoriating"
+        ],
+        "passage": "Thick, green, yellow catarrhal discharges are most characteristic. From the eyes, ears, nose and chest there are thick, yellow, green, bland discharges, but there is thick yellow green excoriating leucorrhoea. The catarrhal discharges are bland with the exception of that from the vagina, which is excoriating."
+      },
+      {
+        "keywords": [
+          "vertigo",
+          "eyes",
+          "nausea",
+          "glasses",
+          "warm room",
+          "cold air"
+        ],
+        "passage": "The Pulsatilla patient suffers from vertigo from affections of the eyes, ameliorated by wearing well-adjusted glasses; attended by nausea which is worse lying down, worse from motion of the eyes, and ameliorated in a cold room and by riding in a carriage in the cold air. As soon as she enters a warm room she has nausea, even to vomiting."
+      },
+      {
+        "keywords": [
+          "head",
+          "headache",
+          "menstrual",
+          "school girls",
+          "suppressed menses"
+        ],
+        "passage": "Pulsatilla has violent headaches. Headaches in school girls who are about to menstruate. Headache accompanying menstruation. Headache associated with suppressed menses, with menstrual disorders."
+      },
+      {
+        "keywords": [
+          "head",
+          "headache",
+          "temples",
+          "congestion",
+          "menses",
+          "ameliorated by flow"
+        ],
+        "passage": "Pains through the temples and sides of the head are common Pulsatilla headaches. Headaches before, during and after menstruation; but more commonly before, when there is a general state of congestion, stasis, and tumefaction of the veins, and amelioration of the headache when the menses set in."
+      },
+      {
+        "keywords": [
+          "head",
+          "scanty menses",
+          "leucorrhoea",
+          "nervous symptoms"
+        ],
+        "passage": "It is common to have the head and nervous symptoms through the menses, because the flow is so scanty, often little more than a leucorrhoea, and for a single day a little clot of dark blood."
+      },
+      {
+        "keywords": [
+          "head",
+          "one-sided",
+          "perspiration",
+          "fever",
+          "laterality"
+        ],
+        "passage": "One-sided headaches and one-sided complaints are peculiar to Pulsatilla. Perspiration on one side of head and face; fever on one side of the body; one side cool and normal and the other side hot."
+      },
+      {
+        "keywords": [
+          "head",
+          "puerperal fever",
+          "one-sided",
+          "sweat"
+        ],
+        "passage": "I remember a case of puerperal fever with sweat on one side of the body and dry heat on the other and confusion of other symptoms. Pulsatilla was given and the patient recovered."
+      },
+      {
+        "keywords": [
+          "head",
+          "headache",
+          "throbbing",
+          "congestive",
+          "cold",
+          "pressure",
+          "motion",
+          "evening",
+          "worse"
+        ],
+        "passage": "The Pulsatilla headache is a throbbing congestive headache; much heat in the head, ameliorated by the application of cold, by external pressure, and sometimes by slow motion, aggravated by lying and sitting quiet, ameliorated by walking slowly in the air; becomes worse towards evening and gradually increases through the evening and night."
+      },
+      {
+        "keywords": [
+          "head",
+          "headache",
+          "periodic",
+          "sick headache",
+          "vomiting",
+          "sour food",
+          "ice cream"
+        ],
+        "passage": "Periodic sick headaches, with vomiting of sour food. Headache when he overeats. Though he likes ice cream, he has headache and congestion of the stomach after eating ice cream."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "pustules",
+          "lids",
+          "granular",
+          "inflammation",
+          "yellow-green pus"
+        ],
+        "passage": "Pustules about the lids and over the ball; on the cornea. Thick, yellow-green pus. Granular lids. Continued formation of little pustules. Eyelids inflamed and bleed easily."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "catarrh",
+          "cold",
+          "nose",
+          "infants",
+          "ophthalmia neonatorum",
+          "gonorrheal"
+        ],
+        "passage": "Every time he catches cold it settles in the eyes and nose. In infants catarrhal diseases of the eyes of a gonorrheal character; ophthalmia neonatorum. Yellow green discharge from the eyes; eyes are ameliorated by washing in warm water."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "styes",
+          "recurrent",
+          "pustules",
+          "nodosities"
+        ],
+        "passage": "Pulsatilla causes a tendency to the formation of styes; recurrent styes; always having styes. Pustules, papules and little nodosities on the lids."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "vision",
+          "gauze",
+          "veil",
+          "menstruation",
+          "blindness",
+          "fainting"
+        ],
+        "passage": "Prior to menstruation, in young girls especially, things get black before the eyes, like a gauze or a veil. Nervous manifestations, twitchings, spells of blindness and fainting."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "optic nerve",
+          "paralysis",
+          "cataract",
+          "rubbing"
+        ],
+        "passage": "In the early stages of paralysis of the optic nerve Pulsatilla is a great remedy. The patient is always rubbing the eyes; it is a sensation of gauze before the eyes, ameliorated by rubbing. Pulsatilla has cured incipient cataract."
+      },
+      {
+        "keywords": [
+          "ears",
+          "catarrh",
+          "discharge",
+          "thick",
+          "yellow",
+          "offensive",
+          "purulent",
+          "bland"
+        ],
+        "passage": "Thick, yellow, offensive, purulent, bland discharge from the ears; very foetid, sometimes bloody."
+      },
+      {
+        "keywords": [
+          "ears",
+          "earache",
+          "children",
+          "plump",
+          "crying",
+          "evening",
+          "night",
+          "motion"
+        ],
+        "passage": "Pulsatilla is commonly indicated in earache of children; when the child is a gentle, fat, plump, vascular red-faced child always pitifully crying. Pains in the ears in the evening or in the night, ameliorated by walking slowly about the room."
+      },
+      {
+        "keywords": [
+          "ears",
+          "chamomilla",
+          "comparison",
+          "irritability",
+          "crying",
+          "children"
+        ],
+        "passage": "In Chamomilla you have a snapping and snarling child, never pleased; the irritability decides for Chamomilla. The Pulsatilla child when not amused has a pitiful cry and the Chamomilla child a snarling cry. You will want to caress the one and spank the other."
+      },
+      {
+        "keywords": [
+          "ears",
+          "otitis media",
+          "abscess",
+          "ruptured drum",
+          "discharge"
+        ],
+        "passage": "Ear troubles with a ruptured drum and no healing; otitis media. Abscess in the middle ear; inflammation of the middle ear; copious thick bloody discharge, then yellow-green."
+      },
+      {
+        "keywords": [
+          "ears",
+          "eruptive diseases",
+          "scarlet fever",
+          "measles",
+          "catarrh"
+        ],
+        "passage": "Ear troubles following eruptive diseases. Offensive catarrhal discharge dating back to scarlet fever or measles; badly treated and drugged patients. Inflammation and swelling of the external ear; erysipelatous purple conditions."
+      },
+      {
+        "keywords": [
+          "nose",
+          "coryza",
+          "sneezing",
+          "stuffing",
+          "febrile"
+        ],
+        "passage": "The patient is subject to repeated attacks of coryza, with sneezing and stuffing up of the nose; a febrile state; sometimes with chills, fever and sweat."
+      },
+      {
+        "keywords": [
+          "nose",
+          "catarrh",
+          "evening",
+          "morning",
+          "watery",
+          "thick",
+          "yellow-green"
+        ],
+        "passage": "In the evening considerable watery discharge with sneezing; in the morning stuffing up of the nose with thick yellow-green discharge."
+      },
+      {
+        "keywords": [
+          "nose",
+          "chronic catarrh",
+          "smell",
+          "offensive",
+          "bland discharge"
+        ],
+        "passage": "Pulsatilla is suitable to chronic catarrhs, with thick yellow-green discharge which is bland; patient has a bad smell in the nose; smells various offensive things, sometimes like manure."
+      },
+      {
+        "keywords": [
+          "nose",
+          "crusts",
+          "pus",
+          "loss of smell",
+          "loss of taste",
+          "ulcers"
+        ],
+        "passage": "Large bloody, thick, yellow crusts accumulate in the nose, harden down and are blown out in the morning, accompanied by thick yellow pus. In old lingering cases, loss of smell and taste. The mucous membrane is in a state of thickening and suppuration, with the formation of crusts and ulcers."
+      },
+      {
+        "keywords": [
+          "nose",
+          "clinkers",
+          "crusts",
+          "offensive smell",
+          "relief"
+        ],
+        "passage": "Thick clinkers of dried up pus or dried mucus and pus accumulate for several days and this terrible catarrhal smell comes on; but as soon as he blows out these clinkers the odor goes away and he has relief until they form again in a few days."
+      },
+      {
+        "keywords": [
+          "nose",
+          "warm room",
+          "worse",
+          "open air",
+          "better",
+          "stuffing"
+        ],
+        "passage": "The patient himself feels better in the open air, and worse in a warm room. He breathes better in the open air; feels stuffy in a warm room. His nose stuffs up more in a warm room, where he sneezes more."
+      },
+      {
+        "keywords": [
+          "nose",
+          "evening",
+          "stuffing",
+          "morning",
+          "mouth",
+          "tongue",
+          "coated",
+          "taste"
+        ],
+        "passage": "Much stuffing up of the nose occurring in the evening; he blows the nose easily during the day, but it stuffs up in the evening and he cannot clear it out. He gets up in the morning with a stuffed up nose; his mouth is foul, tongue coated, rancid taste."
+      },
+      {
+        "keywords": [
+          "cough",
+          "dry",
+          "evening",
+          "loose",
+          "morning",
+          "expectoration",
+          "chest"
+        ],
+        "passage": "There is a dry evening cough in Pulsatilla and a loose morning cough. Copious expectoration in the morning, but a dry, tight, constricted feeling in the chest in the evening."
+      },
+      {
+        "keywords": [
+          "nose",
+          "chronic catarrh",
+          "loss of smell",
+          "yellow discharge",
+          "open air",
+          "timid"
+        ],
+        "passage": "Pulsatilla is one of our sheet anchors in old catarrhs with loss of smell, thick yellow discharge, and amelioration in the open air; in the nervous, timid, yielding, with stuffing up of the nose at night and copious flow in the morning."
+      },
+      {
+        "keywords": [
+          "nose",
+          "epistaxis",
+          "bleeding",
+          "menstrual",
+          "suppressed menses",
+          "dark blood",
+          "venous"
+        ],
+        "passage": "The nose bleeds easily, subject to epistaxis. Nose-bleed during the menstrual period; nose-bleed before the menstrual period; nose-bleed with suppressed menses; bleeding dark, thick, clotted, almost black, venous blood."
+      },
+      {
+        "keywords": [
+          "nose",
+          "catarrh",
+          "chlorotic",
+          "late menses",
+          "scanty menses",
+          "leucorrhoea"
+        ],
+        "passage": "We find catarrhal subjects in women who have late, scanty, light colored menses; scarcely more than a leucorrhoea. Chlorotic patients who have their menses once every two or three months; chlorotic girls who are irregular, and are subject to these catarrhal states."
+      },
+      {
+        "keywords": [
+          "nose",
+          "hay fever",
+          "constitution",
+          "whole patient"
+        ],
+        "passage": "Pulsatilla is very useful in hay fever. The management of hay fever requires considerable study because you have to deal with the troublesome imaginations of the patient. The hay fever will hardly ever reveal the indications for a remedy for the patient."
+      },
+      {
+        "keywords": [
+          "hay fever",
+          "primitive symptoms",
+          "spine",
+          "back",
+          "soreness",
+          "lying on something hard"
+        ],
+        "passage": "You will find the symptoms by getting the state of the patient before he was taken with hay fever. These primitive symptoms are of more importance. At times you will find spinal symptoms; great soreness in the back relieved by lying on something hard."
+      },
+      {
+        "keywords": [
+          "hay fever",
+          "menstrual",
+          "prolapsus",
+          "symptoms interweave"
+        ],
+        "passage": "In Pulsatilla the menstrual symptoms and the prolapsus come in. When the hay fever comes on, all the other symptoms are better, she feels nothing except the hay fever; however, all the symptoms interweave with each other."
+      },
+      {
+        "keywords": [
+          "hay fever",
+          "evening",
+          "worse",
+          "thick mucus",
+          "ropy",
+          "burning",
+          "warm room",
+          "sleep"
+        ],
+        "passage": "In Pulsatilla the symptoms are worse in the evening, the nose filling up with thick, yellowish-green, ropy mucus, and when the nose has been cleared, a dry, burning, smarting feeling remains; if the room is warm at night, she cannot sleep."
+      },
+      {
+        "keywords": [
+          "face",
+          "mottled",
+          "purple",
+          "yellow",
+          "venous",
+          "puffing",
+          "sallow",
+          "chlorotic"
+        ],
+        "passage": "The face is sickly, often mottled, purple, intermixed with yellow and unhealthy colors; venous puffing; sensation of fullness; often a red face, like that of health, and the patient gets no sympathy. Dark rings about the eyes; sallow, green, chlorotic."
+      },
+      {
+        "keywords": [
+          "face",
+          "erysipelas",
+          "stinging",
+          "burning",
+          "sensitive to touch"
+        ],
+        "passage": "Subject to erysipelas; erysipelatous blotches on the face, spreading to the scalp, with stinging and burning; skin of face very sensitive to touch at such times."
+      },
+      {
+        "keywords": [
+          "mumps",
+          "parotid",
+          "breast",
+          "mammary gland",
+          "metastasis"
+        ],
+        "passage": "Mumps and inflammation of parotid glands. If a woman suffering with mumps takes a decided cold the breasts swell, and there is an inflammation of the mammary gland. Girls take cold, the swelling of the parotid subsides too soon, and the corresponding mammary gland swells."
+      },
+      {
+        "keywords": [
+          "mumps",
+          "testicle",
+          "orchitis",
+          "metastasis",
+          "boys"
+        ],
+        "passage": "In men it is the testicle. Pulsatilla is the common remedy for enormously swollen testicles from mumps in a boy. Pulsatilla is one of the most important remedies in this form of metastasis; it breaks up complaints that flit about."
+      },
+      {
+        "keywords": [
+          "pains",
+          "wandering",
+          "rheumatism",
+          "joints",
+          "neuralgia",
+          "metastasis"
+        ],
+        "passage": "Pulsatilla has wandering pains, rheumatism goes from joint to joint, jumps around here and there; neuralgic pains fly from place to place; inflammations go from gland to gland."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "eructations",
+          "sour",
+          "rancid",
+          "bitter",
+          "digestion",
+          "slow"
+        ],
+        "passage": "Hours after eating the patient eructates mouthfuls of sour, rancid, bitter fluid; liquids roll up from the stomach; always belching up rancid food. Digestion is slow, and the patient goes to the next meal hungry; eating does not satisfy; assimilation is bad."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "butter",
+          "olive oil",
+          "taste",
+          "bad",
+          "bilious",
+          "morning"
+        ],
+        "passage": "Some patients cannot digest butter; cannot use olive oil on their food. All sorts of bad tastes in the mouth. Always bilious. Mouth is slimy and the taste is bad. All these symptoms are worse in the morning."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "saliva",
+          "mucus",
+          "frothy"
+        ],
+        "passage": "Accumulation of saliva and much mucus in the mouth. Flow of sweetish or tenacious saliva. Constant spitting of frothy, cotton-like mucus."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "thirstless",
+          "dry mouth",
+          "fever"
+        ],
+        "passage": "A striking feature of the Pulsatilla patient is that he never wants water. Dryness of the mouth, but seldom thirsty. Even in many of the fevers he is thirstless, but there is at times an exception to this in high fevers there may be some thirst."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "desires",
+          "sour",
+          "refreshing",
+          "lemonade",
+          "herring",
+          "cheese",
+          "pungent"
+        ],
+        "passage": "Desire for sour, refreshing things. Often desires things he cannot digest; lemonade, herring, cheese, pungent things, highly-seasoned things, juicy things."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "aversion",
+          "meat",
+          "butter",
+          "fat",
+          "pork",
+          "bread",
+          "milk"
+        ],
+        "passage": "Aversion to meat, butter, fat food, pork, bread, milk, smoking."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "heartburn",
+          "scraping",
+          "oesophagus"
+        ],
+        "passage": "Scraping sensation in stomach and oesophagus like heartburn."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "bloating",
+          "gas",
+          "sour",
+          "gastric catarrh",
+          "ice cream",
+          "pastries"
+        ],
+        "passage": "The bloating, the gas and the sour stomach are most striking. Gastric catarrh. Craves ice cream; craves pastries, yet they will not digest, and make him worse. Craves things which make him sick."
+      },
+      {
+        "keywords": [
+          "liver",
+          "jaundice",
+          "hepatitis",
+          "bile",
+          "duodenal catarrh",
+          "quinine"
+        ],
+        "passage": "Pulsatilla produces and cures jaundice. Jaundice in consequence of chronic susceptibility to hepatitis and derangement of secretion of bile, with looseness of bowels, duodenal catarrh; disordered digestion, feverishness and thirstlessness after quinine."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "bloating",
+          "distension",
+          "flatulence",
+          "colic",
+          "fermentation"
+        ],
+        "passage": "Many troubles manifest themselves in the abdomen by bloating, distension, flatulence, colicky pains, rumbling, fermentation of food, and from disorders of menstruation or diarrhea."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "sensitive",
+          "tumefaction",
+          "tenderness",
+          "venous stasis",
+          "bloating after eating"
+        ],
+        "passage": "Great sensitiveness, tumefaction, tenderness; whole abdomen, stomach and pelvic organs sensitive to touch. Bloating after eating, especially after fats and rich foods. Fullness of the veins; general venous stasis."
+      },
+      {
+        "keywords": [
+          "women",
+          "menstrual",
+          "bloating",
+          "abdomen",
+          "clothing",
+          "puffed"
+        ],
+        "passage": "In a woman about to menstruate, there is bloating of the abdomen, stuffed feeling, has to throw off her clothes, cannot wear stays, wants to get into a loose dress or to go to bed, so extremely puffed is she."
+      },
+      {
+        "keywords": [
+          "women",
+          "face",
+          "lips",
+          "eyes",
+          "feet",
+          "bloated",
+          "puffed"
+        ],
+        "passage": "Associated with this abdominal tumefaction the face and lips become bloated and puffed, the eyes red, and the feet puffed so that she cannot wear her shoes."
+      },
+      {
+        "keywords": [
+          "women",
+          "prolapsus",
+          "uterus",
+          "dragging down",
+          "bearing down",
+          "weakness"
+        ],
+        "passage": "The dragging down is recognized as prolapsus uteri. It is felt in the whole abdomen and is described as a funneling sensation, as if the parts would push out into the world, a dragging down. She cannot stand on her feet or walk around much, because of the weight and dragging down."
+      },
+      {
+        "keywords": [
+          "women",
+          "uterus",
+          "labor-like pains",
+          "back",
+          "menses"
+        ],
+        "passage": "Labor-like pains in the uterus and back as if the menses would come on. It is not uncommon for the Pulsatilla patient to feel through the whole month as if she were about to menstruate."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "bowels",
+          "stool",
+          "cutting",
+          "flitting",
+          "changing",
+          "dysentery",
+          "diarrhea",
+          "green"
+        ],
+        "passage": "Cutting, flitting changing pains. Griping in the bowels associated with dysentery or diarrhoea; loose watery or green stools. A striking feature of the bowel symptoms is a loose, watery, green stool, continually changing; yellow, faecal, slimy."
+      },
+      {
+        "keywords": [
+          "stool",
+          "changeable",
+          "summer complaints",
+          "no two stools alike"
+        ],
+        "passage": "In summer complaints, when Pulsatilla is the indicated remedy, there will be hardly two stools alike; continually changing. This is characteristic of Pulsatilla in general; the pains wander; complaints change by metastases; the patient is scarcely ever twice alike."
+      },
+      {
+        "keywords": [
+          "stool",
+          "diarrhea",
+          "constipation",
+          "alternating",
+          "menstrual",
+          "intermittent"
+        ],
+        "passage": "Diarrhea alternating with constipation. Menstrual flow stops and starts, intermits and changes. In the Pulsatilla patient you never know what you will find next."
+      },
+      {
+        "keywords": [
+          "stool",
+          "dysentery",
+          "scanty",
+          "slimy",
+          "bloody",
+          "green",
+          "watery"
+        ],
+        "passage": "Dysentery; dysenteric stools; scanty, slimy, bloody, green, watery stool with a little spurt; next stool might be diarrheic, with quite a copious discharge; thus you have diarrhoea and dysentery together."
+      },
+      {
+        "keywords": [
+          "stool",
+          "constipation",
+          "hard",
+          "large",
+          "difficult",
+          "urging",
+          "frequent"
+        ],
+        "passage": "Troublesome chronic constipation; stool large, hard and difficult to expel. Frequent urging to stool without any stool, or frequent urging with only a scanty stool; goes many times before can pass a stool."
+      },
+      {
+        "keywords": [
+          "stool",
+          "diarrhea",
+          "worse evening",
+          "night",
+          "rest",
+          "motion",
+          "ameliorated"
+        ],
+        "passage": "The diarrhoea and bowel symptoms are worse in the evening and during the night. The bowel and stool symptoms are aggravated by keeping perfectly still, and ameliorated by gentle motion."
+      },
+      {
+        "keywords": [
+          "stool",
+          "green",
+          "mucus",
+          "no thirst",
+          "back pain"
+        ],
+        "passage": "Dysenteric stools of clear yellow, red or green slime; pain in the back, straining. Stools of deep green mucus; pain in the abdomen; no thirst."
+      },
+      {
+        "keywords": [
+          "rectum",
+          "hemorrhoids",
+          "constipation",
+          "worse lying",
+          "worse warmth",
+          "better motion",
+          "open air"
+        ],
+        "passage": "Most troublesome constipation with hemorrhoids; violent pains in the hemorrhoids, worse lying down, ameliorated from gentle motion, worse from the warmth of the bed, better moving about in the open air."
+      },
+      {
+        "keywords": [
+          "rectum",
+          "hemorrhoids",
+          "protruding",
+          "blind",
+          "itching",
+          "stitches"
+        ],
+        "passage": "Hemorrhoids; painful protruding, blind, with itching and stitches in anus."
+      },
+      {
+        "keywords": [
+          "urine",
+          "frequent",
+          "scanty",
+          "urging",
+          "tenesmus",
+          "painful",
+          "bloody",
+          "burning"
+        ],
+        "passage": "Frequent, scanty urine with urging; wonderful tenesmus; extremely painful, bloody, burning, smarting urine; there is scarcely a drop collects in the bladder but it must be expelled."
+      },
+      {
+        "keywords": [
+          "urine",
+          "lying on back",
+          "desire to urinate",
+          "position"
+        ],
+        "passage": "She cannot lie on the back without having a desire to urinate. She may go all night without urinating if she does not lie on the back, but the minute she turns on her back she is wakened by the desire to urinate."
+      },
+      {
+        "keywords": [
+          "urine",
+          "involuntary",
+          "coughing",
+          "sneezing",
+          "surprise",
+          "laughing"
+        ],
+        "passage": "Involuntary urination when coughing and sneezing, or from a sudden shock or surprise, or from sudden joy, or from laughing, or from the noise of the slam of a door or a pistol shot. Pulsatilla has dribbling of urine, dribbles on the slightest provocation."
+      },
+      {
+        "keywords": [
+          "urine",
+          "enuresis",
+          "nocturnal",
+          "girls",
+          "warm-blooded",
+          "covers off"
+        ],
+        "passage": "Little, mild, gentle, florid, plethoric, warm-blooded girls, who kick the covers off at night and have nocturnal enuresis. She must keep her mind continually on it, or she will lose her urine. As soon as she goes to sleep it flows away."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "slow motion",
+          "ferrum",
+          "comparison",
+          "bromine",
+          "arsenicum",
+          "fast motion"
+        ],
+        "passage": "A few remedies have relief from slow motion and of these Pulsatilla and Ferrum are the most striking. A few remedies are relieved by hurried motion; want to move fast. Such are Bromine and Arsenicum. The Pulsatilla baby is content with moderate motion."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "overheated",
+          "aggravation",
+          "cough",
+          "spasmodic"
+        ],
+        "passage": "Any motion that heats up the Pulsatilla patient aggravates all the complaints. A wood sawyer said his cough was relieved by moving about but when he became heated up from sawing he had to sit down and rest on account of the violent spasmodic cough."
+      },
+      {
+        "keywords": [
+          "urine",
+          "bladder",
+          "catarrh",
+          "chronic",
+          "cold",
+          "mucous discharge",
+          "purulent",
+          "green"
+        ],
+        "passage": "Pulsatilla has complaints from exposure to rain; getting feet wet. Pulsatilla establishes a chronic, inveterate catarrh of the bladder. Copious mucous discharge, bloody discharge, especially after taking cold. Thick, ropy, purulent, green, offensive discharge."
+      },
+      {
+        "keywords": [
+          "men",
+          "sexual desire",
+          "erection",
+          "headache",
+          "backache"
+        ],
+        "passage": "Sexual desire unusually strong. Long lasting morning erection. Sexual excesses resulting in headache, backache; limbs heavy."
+      },
+      {
+        "keywords": [
+          "men",
+          "testicles",
+          "orchitis",
+          "swelling",
+          "suppressed gonorrhea",
+          "mumps",
+          "cold"
+        ],
+        "passage": "Burning and aching of the testicles, with or without swelling. Orchitis; inflammation and swelling of the testicles from suppressed gonorrhea, from mumps, from catching cold, from sitting on damp ground, or on a cold stone when perspiring."
+      },
+      {
+        "keywords": [
+          "men",
+          "gonorrhea",
+          "thick",
+          "yellow",
+          "green",
+          "discharge",
+          "open air",
+          "heat"
+        ],
+        "passage": "Pulsatilla is the most frequently indicated remedy in gonorrhoea in which the discharge is thick yellow or thick yellow and green, in those who are sensitive to heat, ameliorated walking in the open air."
+      },
+      {
+        "keywords": [
+          "men",
+          "gleet",
+          "chronic",
+          "discharge",
+          "cold",
+          "coition",
+          "chordee"
+        ],
+        "passage": "Troublesome lingering discharges; an old gleet rouses into a thick yellow discharge, when he takes cold or after coition. Frequent tenesmus; chordee; urging to urinate; burning urination and yellow discharge."
+      },
+      {
+        "keywords": [
+          "men",
+          "prostate",
+          "enlarged",
+          "catheter",
+          "sexual excess"
+        ],
+        "passage": "Inflammation of the prostate. In old sinners with enlarged prostate, hard, flat, packed faeces, must always use a catheter; especially when the trouble has been brought on by sexual abuses, sexual excesses, vices."
+      },
+      {
+        "keywords": [
+          "men",
+          "testicles",
+          "cord",
+          "cutting",
+          "tearing",
+          "penis",
+          "foreskin",
+          "dropsical"
+        ],
+        "passage": "Pain in the testicles; tearing in the swollen testicles. Pain along the cord like cutting of knives; lacerating, tearing. Tumefaction about the penis. Foreskin dropsical."
+      },
+      {
+        "keywords": [
+          "women",
+          "nymphomania",
+          "sexual desire",
+          "uncontrollable"
+        ],
+        "passage": "Exaggerated sexual desire; nymphomania; wild, beside herself with sexual thoughts; uncontrollable sexual desire."
+      },
+      {
+        "keywords": [
+          "women",
+          "ovaries",
+          "uterus",
+          "inflammation",
+          "suppressed menses",
+          "feet wet"
+        ],
+        "passage": "Inflammation of ovaries and uterus. Suppression of menses from getting feet wet. Menses too late, scanty."
+      },
+      {
+        "keywords": [
+          "women",
+          "chlorotic",
+          "pale",
+          "sallow",
+          "green",
+          "miscarriage",
+          "fibroids"
+        ],
+        "passage": "Face pale, yellow, sallow, or green like a chlorotic patient. It overcomes the tendency to miscarriage, false conception, moles, etc., and stops the growth of fibroids, other symptoms agreeing."
+      },
+      {
+        "keywords": [
+          "women",
+          "labor",
+          "feeble pains",
+          "irregular",
+          "changeable",
+          "prolonged first stage"
+        ],
+        "passage": "Most often called for when the patient is not irritable and the pains are very feeble, lasting for several days, and doing nothing; irregular, flitting, changeable pains, now up the back, now down the limbs; a prolonged first stage or prolonged preparatory symptoms."
+      },
+      {
+        "keywords": [
+          "women",
+          "labor",
+          "weak pains",
+          "os dilated",
+          "inaction"
+        ],
+        "passage": "In a mild, gentle, mental state, when the pains are irregular, the os dilated and the contractions have let up, the pains too short, Pulsatilla will terminate that labor in a short time. The next pain after the dose will be a good one. For weak pains Pulsatilla stands high."
+      },
+      {
+        "keywords": [
+          "women",
+          "menstrual colic",
+          "bend double",
+          "uterus",
+          "ovaries",
+          "tearful"
+        ],
+        "passage": "Violent menstrual colic, causing her to bend double; soreness in the region of the uterus and ovaries; distended abdomen; throws the covers off; wants the windows open; tearful; weeps without a cause."
+      },
+      {
+        "keywords": [
+          "women",
+          "suppressed menses",
+          "feet wet",
+          "leucorrhoea"
+        ],
+        "passage": "Suppression of the menstrual flow from getting feet wet. Flow slow in being established and then scarcely more than a leucorrhoea."
+      },
+      {
+        "keywords": [
+          "women",
+          "puberty",
+          "painful menstruation",
+          "plethoric",
+          "swimming",
+          "undeveloped"
+        ],
+        "passage": "Menstruation that has been painful since puberty in plethoric girls. The mother comes saying her daughter has suffered since her first menses; she went in swimming, or got her feet wet, and has suffered since. Pulsatilla has established a normal flow in a few months."
+      },
+      {
+        "keywords": [
+          "women",
+          "puberty",
+          "delayed",
+          "pale",
+          "languid",
+          "headache",
+          "chilliness"
+        ],
+        "passage": "In girls of mild disposition, when puberty is unduly delayed, or menstrual function is defectively or irregularly performed; they are pale and languid, complain of headache, chilliness and lassitude. To develop these young girls Pulsatilla is a great remedy."
+      },
+      {
+        "keywords": [
+          "women",
+          "prolapsus",
+          "bearing down",
+          "relaxation"
+        ],
+        "passage": "Most troublesome cases of prolapsus. It competes with Sepia, Belladonna, Natrum mur., Nux vomica and Secale; all of these are remedies with great relaxation, bearing down; some have cured even procidentia."
+      },
+      {
+        "keywords": [
+          "women",
+          "gonorrhea",
+          "milk in breasts",
+          "menstrual",
+          "puberty"
+        ],
+        "passage": "Pulsatilla cures many cases of gonorrhoea in females. A striking feature is, when the menstrual flow is present there is milk in the breasts. In girls at puberty, milk in the breasts; a premature establishment of milk. In non-pregnant women, milk in the breasts."
+      },
+      {
+        "keywords": [
+          "chest",
+          "bronchitis",
+          "pneumonia",
+          "dry cough",
+          "dyspnoea",
+          "windows open",
+          "lying down"
+        ],
+        "passage": "Bronchitis; pneumonia. Dry, teasing cough and dyspnoea; wants the windows open, aggravated lying down. Cough gagging and choking. Copious expectoration in the morning, of thick yellow-green mucus."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "constriction",
+          "tickling",
+          "cough",
+          "warm room",
+          "night"
+        ],
+        "passage": "In the larynx constriction; tickling causing cough. Dry, teasing cough, worse lying and in a warm room. Cough worse at night. Bronchitis with loose morning and dry evening cough."
+      },
+      {
+        "keywords": [
+          "chest",
+          "dyspnoea",
+          "overheated",
+          "walking fast",
+          "emotions",
+          "nose",
+          "left side"
+        ],
+        "passage": "Dyspnoea; oppression from walking fast or becoming overheated, after eating; stopping up nose; after emotions. Tightness of chest; dyspnoea when lying on left side; suffocation in the evening and during the night."
+      },
+      {
+        "keywords": [
+          "chest",
+          "asthma",
+          "children",
+          "suppressed rash",
+          "suppressed menses",
+          "women"
+        ],
+        "passage": "Asthma of children from suppressed rash or in women from suppressed menses. Loud rattling in the chest when lying."
+      },
+      {
+        "keywords": [
+          "chest",
+          "measles",
+          "chronic cough",
+          "expectoration",
+          "thick",
+          "yellow-green",
+          "bloody",
+          "offensive"
+        ],
+        "passage": "Chronic loose cough after measles. Expectoration of copious, thick, yellow-green, or bloody mucus; salty; offensive. Chronic catarrh of chest."
+      },
+      {
+        "keywords": [
+          "chest",
+          "fullness",
+          "evening",
+          "pulsation",
+          "sleep",
+          "palpitation",
+          "left side"
+        ],
+        "passage": "Sensation of fullness in the chest in the evening with pulsation preventing sleep. Palpitation from lying on the left side."
+      },
+      {
+        "keywords": [
+          "chest",
+          "wandering pains",
+          "cutting",
+          "pleurisy",
+          "soreness"
+        ],
+        "passage": "Soreness in the walls of the chest. Pain in the chest sometimes relieved by lying on the opposite side; dryness and rawness in the chest. Wandering tearing pains in the chest; cutting pains in pleurisy."
+      },
+      {
+        "keywords": [
+          "chest",
+          "hemorrhage",
+          "lungs",
+          "dark blood",
+          "suppressed menses"
+        ],
+        "passage": "Haemorrhage of the lungs, dark blood. Hemorrhage with suppressed menses or instead of the menses. Pulsatilla is very useful in catarrhal phthisis in chlorotic girls."
+      },
+      {
+        "keywords": [
+          "back",
+          "curvature",
+          "spine",
+          "lumbar",
+          "sacral",
+          "wandering pains"
+        ],
+        "passage": "In curvature of the spine Pulsatilla is of great value. Pain in the back, lumbar and sacral regions; wandering pains; spinal irritation after sexual excesses."
+      },
+      {
+        "keywords": [
+          "back",
+          "rheumatic",
+          "spine",
+          "limbs",
+          "rest",
+          "worse",
+          "slow motion",
+          "better"
+        ],
+        "passage": "Rheumatic pains in the spine and limbs, worse during rest and better from slow motion. Pain in small of back as if sprained; sensation of cold water poured down back."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "drawing",
+          "tearing",
+          "motion",
+          "better",
+          "warm room",
+          "worse",
+          "cold applications"
+        ],
+        "passage": "All the limbs are painful; drawing, tearing pains in the limbs, better from motion and after motion; worse from a warm room and better from cold applications."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "veins",
+          "varicose",
+          "swelling",
+          "arms",
+          "hands"
+        ],
+        "passage": "Swelling of the veins in the arms and hands. Varicose veins of the limbs."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "rheumatism",
+          "joints",
+          "dislocated",
+          "sciatica",
+          "evening",
+          "worse",
+          "motion"
+        ],
+        "passage": "Rheumatism of joints; pain in joints as if dislocated. Sciatica worse in the evening and better from slowly moving about."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "tension",
+          "muscles",
+          "lower limbs",
+          "evening",
+          "bed",
+          "tearing",
+          "jerking",
+          "changing"
+        ],
+        "passage": "Drawing and tension of muscles in lower limbs in the evening in bed. Tearing, jerking pains in the limbs, changing place."
+      },
+      {
+        "keywords": [
+          "feet",
+          "burning",
+          "veins",
+          "itching",
+          "purple",
+          "swelling",
+          "frozen"
+        ],
+        "passage": "Burning in the veins. Purple swelling with violent itching of the feet as if they had been frozen. Feet burn, and he must put them out of bed. Soles burn and are bruised when walking."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "restlessness",
+          "twitching",
+          "numbness",
+          "wandering pains"
+        ],
+        "passage": "Marked restlessness and twitching of the limbs and feet; numbness of the limb lain on; wandering pains in all the limbs."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "back",
+          "hands over head",
+          "left side",
+          "palpitation",
+          "suffocation"
+        ],
+        "passage": "Sleeps on the back with hands over head. Cannot sleep on the left side as it increases the palpitation and suffocation."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "dreams",
+          "frightful",
+          "anxious",
+          "sleeplessness",
+          "flushes of heat"
+        ],
+        "passage": "Confused, frightful, anxious dreams. Late falling asleep; sleeplessness on account of flushes of heat."
+      },
+      {
+        "keywords": [
+          "fever",
+          "intermittent",
+          "chill",
+          "hands",
+          "feet",
+          "one-sided",
+          "thirst before chill"
+        ],
+        "passage": "Pulsatilla cures intermittent fever, coming on from disordered stomach. Chill morning and evening daily. The chill begins in the hands and feet; pains in the limbs during the chill; one sided coldness with numb feeling; fever one sided."
+      },
+      {
+        "keywords": [
+          "fever",
+          "thirst",
+          "heat",
+          "distended veins",
+          "sweat",
+          "one-sided",
+          "vomiting mucus"
+        ],
+        "passage": "Thirst before the chill and seldom during the heat; heat with distended veins; sweat profuse all over or only on one side of the body. Vomiting of mucus during the chill."
+      }
+    ],
+    "count": 128
+  },
+  "pyrogenium": {
+    "remedy": "Pyrogenium",
+    "passages": [
+      {
+        "keywords": [
+          "septic fever",
+          "potency",
+          "decomposed beef",
+          "sequelae"
+        ],
+        "passage": "The potencies prepared from Heath's 3d of decomposed beef have been used by the author for many years against all forms of septic fever and sequelae, when the symptoms agree."
+      },
+      {
+        "keywords": [
+          "chill",
+          "heat",
+          "sweat",
+          "aching",
+          "limbs",
+          "restlessness",
+          "motion",
+          "amelioration"
+        ],
+        "passage": "Violent chill intermingled with heat and sweat, or dry heat with marked aching in the limbs; restlessness, ameliorated by motion and heat."
+      },
+      {
+        "keywords": [
+          "soreness",
+          "bruised",
+          "bones",
+          "aching",
+          "restlessness",
+          "motion",
+          "heat"
+        ],
+        "passage": "The sore bruised condition is as marked as in Arnica and Baptisia; the aching in the bones like Eupatorium, the restlessness, ameliorated by motion and heat like Rhus."
+      },
+      {
+        "keywords": [
+          "aggravation",
+          "sitting",
+          "cold",
+          "damp weather"
+        ],
+        "passage": "Pains all aggravated sitting. Complaints come on from becoming cold, and from cold damp weather."
+      },
+      {
+        "keywords": [
+          "hectic fever",
+          "phthisis",
+          "septic fever"
+        ],
+        "passage": "These features are found in hectic fevers in the last stages of phthisis, as well as septic fevers."
+      },
+      {
+        "keywords": [
+          "puerperal fever",
+          "abortion"
+        ],
+        "passage": "It aborts puerperal fever in a few hours when clearly indicated."
+      },
+      {
+        "keywords": [
+          "typhoid",
+          "confusion",
+          "heat",
+          "high temperature"
+        ],
+        "passage": "In cases of typhoid where there is the confusion like that found in Baptisia and the heat is too intense for that remedy, Pyrogen should always be considered."
+      },
+      {
+        "keywords": [
+          "high temperature",
+          "soreness",
+          "aching",
+          "motion",
+          "heat",
+          "amelioration"
+        ],
+        "passage": "When the temperature reaches 106 and there is great soreness and aching this remedy will make great changes in a single day; but if the pains are ameliorated by motion and heat it will abort the fever."
+      },
+      {
+        "keywords": [
+          "pulse",
+          "temperature",
+          "septic",
+          "rhythm"
+        ],
+        "passage": "When the pulse is extremely high, and the temperature not correspondingly high this remedy will be useful. When the pulse and temperature are out of rhythm either way this remedy should be considered if the case is of septic origin."
+      },
+      {
+        "keywords": [
+          "abscess",
+          "pain",
+          "scanty flow"
+        ],
+        "passage": "Great pain when the flow from an open abscess becomes scanty."
+      },
+      {
+        "keywords": [
+          "abscess",
+          "burning"
+        ],
+        "passage": "Violent burning in an abscess."
+      },
+      {
+        "keywords": [
+          "offensiveness",
+          "putrid",
+          "cadaveric",
+          "odor",
+          "body",
+          "breath",
+          "sweat",
+          "discharges"
+        ],
+        "passage": "Offensiveness prevails extensively; even putrid and cadaveric odors of body, breath, sweat and discharges."
+      },
+      {
+        "keywords": [
+          "sewer gas",
+          "poisoning",
+          "erysipelas",
+          "infection",
+          "surgical fever"
+        ],
+        "passage": "Fevers from sewer gas poisoning; erysipelas from infection and surgical fevers."
+      },
+      {
+        "keywords": [
+          "chronic complaints",
+          "septic",
+          "puerperal fever",
+          "history"
+        ],
+        "passage": "It cures many chronic complaints that date back to septic conditions. She has not been well since a puerperal fever many years ago, is a good reason for thinking of Pyrogen."
+      },
+      {
+        "keywords": [
+          "blood poisoning",
+          "abscess",
+          "pale",
+          "sickly",
+          "rheumatic",
+          "stiff",
+          "recovery"
+        ],
+        "passage": "A young man of good inheritance suffered from blood poison and made a poor recovery, and for several years was affected with abscesses in various parts. He was pale and sickly, rheumatic and stiff; at this time there was an abscess of the calf slowly forming. He took Pyrogen and made a rapid and complete recovery."
+      },
+      {
+        "keywords": [
+          "bright's disease",
+          "kidney",
+          "septic origin"
+        ],
+        "passage": "It has cured Bright's disease that could be traced to septic origin."
+      },
+      {
+        "keywords": [
+          "heart failure",
+          "septic fever",
+          "zymotic fever"
+        ],
+        "passage": "It is a most useful remedy when there is threatening heart failure in septic and zymotic fevers."
+      },
+      {
+        "keywords": [
+          "hemorrhage",
+          "dark blood",
+          "septic"
+        ],
+        "passage": "Septic hemorrhage, when the blood is dark. It will often save life in the most dangerous and rapid septic fevers."
+      },
+      {
+        "keywords": [
+          "loquacity",
+          "mind",
+          "fever",
+          "thinking",
+          "talking"
+        ],
+        "passage": "Loquacity; can think and talk faster than ever before, especially during fever."
+      },
+      {
+        "keywords": [
+          "irritability",
+          "mind"
+        ],
+        "passage": "Irritable."
+      },
+      {
+        "keywords": [
+          "delirium",
+          "confusion",
+          "mind",
+          "body",
+          "limbs"
+        ],
+        "passage": "Delirium and confusion of mind about his body and limbs."
+      },
+      {
+        "keywords": [
+          "sensation",
+          "bed",
+          "delusion"
+        ],
+        "passage": "Sensation as though he covered the whole bed."
+      },
+      {
+        "keywords": [
+          "head",
+          "pillow",
+          "body",
+          "sensation",
+          "delusion"
+        ],
+        "passage": "Knew her head was on the pillow, but did not know where the rest of the body was."
+      },
+      {
+        "keywords": [
+          "sensation",
+          "identity",
+          "delusion",
+          "lying",
+          "turning"
+        ],
+        "passage": "Feels when lying on one side she is one person, and another when turning on the other side."
+      },
+      {
+        "keywords": [
+          "sensation",
+          "crowded",
+          "arms",
+          "legs",
+          "delusion"
+        ],
+        "passage": "Sensation as though crowded with arms and legs."
+      },
+      {
+        "keywords": [
+          "head",
+          "congestion",
+          "pressing pain",
+          "pulsation",
+          "pressure",
+          "amelioration"
+        ],
+        "passage": "Violent congestion of the head with pressing pain and pulsation, ameliorated by pressure."
+      },
+      {
+        "keywords": [
+          "head",
+          "sweat",
+          "copious"
+        ],
+        "passage": "Copious sweat on the head."
+      },
+      {
+        "keywords": [
+          "occiput",
+          "pain",
+          "coughing",
+          "morning",
+          "walking"
+        ],
+        "passage": "Pain in occiput on coughing; in the morning on walking."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "soreness",
+          "touch",
+          "motion"
+        ],
+        "passage": "The eyeballs are sore to touch, on turning them outwards or upwards."
+      },
+      {
+        "keywords": [
+          "nose",
+          "bleeding",
+          "septic"
+        ],
+        "passage": "Septic bleeding from nose."
+      },
+      {
+        "keywords": [
+          "nose",
+          "alae nasi",
+          "fan-like motion"
+        ],
+        "passage": "Fan-like motion of alae nasi."
+      },
+      {
+        "keywords": [
+          "face",
+          "pale",
+          "sunken",
+          "cold sweat"
+        ],
+        "passage": "Face pale, sunken, and covered with cold sweat."
+      },
+      {
+        "keywords": [
+          "cheeks",
+          "red",
+          "burning",
+          "hot"
+        ],
+        "passage": "Cheeks red and burning hot."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "foul",
+          "taste",
+          "putrid"
+        ],
+        "passage": "The mouth is foul, and the taste putrid."
+      },
+      {
+        "keywords": [
+          "tongue",
+          "coated",
+          "brown",
+          "brown streak"
+        ],
+        "passage": "The tongue is coated, and brown. Brown streak down the center."
+      },
+      {
+        "keywords": [
+          "teeth",
+          "sordes"
+        ],
+        "passage": "Sordes on the teeth."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "putrid odor"
+        ],
+        "passage": "Putrid odor from mouth."
+      },
+      {
+        "keywords": [
+          "vomiting",
+          "bile",
+          "blood",
+          "putrid"
+        ],
+        "passage": "Vomiting of bile, blood; of putrid masses."
+      },
+      {
+        "keywords": [
+          "vomiting",
+          "water",
+          "warm stomach"
+        ],
+        "passage": "Vomits water when it becomes warm in the stomach."
+      },
+      {
+        "keywords": [
+          "vomiting",
+          "stercoraceous"
+        ],
+        "passage": "Stercoraceous vomiting."
+      },
+      {
+        "keywords": [
+          "vomiting",
+          "coffee ground"
+        ],
+        "passage": "Coffee ground vomiting."
+      },
+      {
+        "keywords": [
+          "thirst",
+          "cold drinks",
+          "chill",
+          "heat"
+        ],
+        "passage": "Thirst for cold drinks during chill and heat."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "distension",
+          "sensitiveness"
+        ],
+        "passage": "Distension and great sensitiveness of abdomen."
+      },
+      {
+        "keywords": [
+          "peritoneum",
+          "intestines",
+          "uterus",
+          "inflammation",
+          "septic"
+        ],
+        "passage": "Inflammation of peritoneum, intestines and uterus, of septic origin."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "rumbling",
+          "bowels"
+        ],
+        "passage": "Rumbling in bowels."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "pain",
+          "deep breathing"
+        ],
+        "passage": "Pain on deep breathing."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "cutting",
+          "colicky pain"
+        ],
+        "passage": "Cutting, colicky pain."
+      },
+      {
+        "keywords": [
+          "right side",
+          "pain",
+          "back",
+          "motion",
+          "talking",
+          "breathing",
+          "aggravation",
+          "lying",
+          "amelioration"
+        ],
+        "passage": "Pain in right side going through to the back, aggravated on every motion, talking and breathing; ameliorated by lying on right side; groaning with every breath."
+      },
+      {
+        "keywords": [
+          "stool",
+          "copious",
+          "liquid",
+          "putrid"
+        ],
+        "passage": "Copious, liquid, putrid stools."
+      },
+      {
+        "keywords": [
+          "stool",
+          "involuntary"
+        ],
+        "passage": "Involuntary stool."
+      },
+      {
+        "keywords": [
+          "stool",
+          "profuse",
+          "watery",
+          "painless"
+        ],
+        "passage": "Profuse, watery, painless stool."
+      },
+      {
+        "keywords": [
+          "stool",
+          "carrion-like"
+        ],
+        "passage": "Stool carrion-like."
+      },
+      {
+        "keywords": [
+          "constipation",
+          "hard",
+          "dry",
+          "black",
+          "putrid",
+          "small balls"
+        ],
+        "passage": "Constipation with hard dry, black, putrid stools; small black balls like olives."
+      },
+      {
+        "keywords": [
+          "stool",
+          "putrid",
+          "bloody"
+        ],
+        "passage": "Putrid bloody stools."
+      },
+      {
+        "keywords": [
+          "stool",
+          "soft",
+          "narrow",
+          "straining"
+        ],
+        "passage": "Soft narrow stools with great straining."
+      },
+      {
+        "keywords": [
+          "hemorrhage",
+          "bowels"
+        ],
+        "passage": "Haemorrhage from bowels."
+      },
+      {
+        "keywords": [
+          "urine",
+          "scanty",
+          "suppressed"
+        ],
+        "passage": "Urine scanty or suppressed."
+      },
+      {
+        "keywords": [
+          "urine",
+          "red deposit"
+        ],
+        "passage": "Red deposit, hard to wash off."
+      },
+      {
+        "keywords": [
+          "urine",
+          "albuminous",
+          "casts"
+        ],
+        "passage": "Albuminous urine containing casts."
+      },
+      {
+        "keywords": [
+          "urine",
+          "putrid"
+        ],
+        "passage": "Putrid urine."
+      },
+      {
+        "keywords": [
+          "urination",
+          "frequent",
+          "fever"
+        ],
+        "passage": "Frequent calls to urinate as the fever comes on."
+      },
+      {
+        "keywords": [
+          "bladder",
+          "tenesmus",
+          "spasm",
+          "rectum",
+          "ovaries",
+          "broad ligaments"
+        ],
+        "passage": "Intolerable tenesmus of the bladder; spasmodic contractions, involving rectum, ovaries, and broad ligaments."
+      },
+      {
+        "keywords": [
+          "urine",
+          "stool",
+          "involuntary",
+          "septic fever"
+        ],
+        "passage": "Involuntary urine and stool in septic fevers."
+      },
+      {
+        "keywords": [
+          "uterus",
+          "hemorrhage"
+        ],
+        "passage": "Uterine haemorrhage."
+      },
+      {
+        "keywords": [
+          "lochia",
+          "putrid",
+          "scanty"
+        ],
+        "passage": "Putrid, scanty lochia."
+      },
+      {
+        "keywords": [
+          "lochia",
+          "suppressed"
+        ],
+        "passage": "Suppressed lochia."
+      },
+      {
+        "keywords": [
+          "chill",
+          "violent",
+          "puerperal fever"
+        ],
+        "passage": "Violent chill; puerperal fever."
+      },
+      {
+        "keywords": [
+          "menses",
+          "one day",
+          "bloody leucorrhea"
+        ],
+        "passage": "Menses lasting one day, then bloody leucorrhea."
+      },
+      {
+        "keywords": [
+          "septic fever",
+          "abortion"
+        ],
+        "passage": "Septic fever following abortion."
+      },
+      {
+        "keywords": [
+          "uterus",
+          "prolapsus"
+        ],
+        "passage": "Prolapsus of uterus."
+      },
+      {
+        "keywords": [
+          "chest",
+          "wheezing",
+          "expiration"
+        ],
+        "passage": "Wheezing when expiring."
+      },
+      {
+        "keywords": [
+          "voice",
+          "weak",
+          "husky",
+          "hoarseness"
+        ],
+        "passage": "Weak and husky voice, and hoarseness."
+      },
+      {
+        "keywords": [
+          "cough",
+          "mucus",
+          "larynx",
+          "motion",
+          "warm room",
+          "aggravation"
+        ],
+        "passage": "Cough with large masses of mucus from larynx, aggravated by motion, and in warm room."
+      },
+      {
+        "keywords": [
+          "cough",
+          "burning",
+          "larynx",
+          "bronchi"
+        ],
+        "passage": "Cough causes burning in larynx and bronchi."
+      },
+      {
+        "keywords": [
+          "expectoration",
+          "putrid",
+          "thick",
+          "purulent"
+        ],
+        "passage": "Putrid, thick, purulent expectoration."
+      },
+      {
+        "keywords": [
+          "cough",
+          "lying",
+          "aggravation",
+          "sitting",
+          "amelioration"
+        ],
+        "passage": "Cough aggravated by lying, ameliorated by sitting up."
+      },
+      {
+        "keywords": [
+          "expectoration",
+          "bloody",
+          "rusty"
+        ],
+        "passage": "Bloody or rusty expectoration."
+      },
+      {
+        "keywords": [
+          "cough",
+          "night sweats",
+          "offensive"
+        ],
+        "passage": "Cough, with copious, offensive night sweats."
+      },
+      {
+        "keywords": [
+          "consumption",
+          "palliative",
+          "phthisis"
+        ],
+        "passage": "It is a great palliative in the last weeks of consumption."
+      },
+      {
+        "keywords": [
+          "lung",
+          "abscess"
+        ],
+        "passage": "Abscesses in lung."
+      },
+      {
+        "keywords": [
+          "heart failure",
+          "septic fever",
+          "motion",
+          "aggravation"
+        ],
+        "passage": "Heart failure in septic fevers, aggravated by least motion."
+      },
+      {
+        "keywords": [
+          "heart",
+          "pulsation",
+          "distant parts"
+        ],
+        "passage": "Every pulsation felt in distant parts."
+      },
+      {
+        "keywords": [
+          "heart",
+          "anxiety",
+          "sinking sensation"
+        ],
+        "passage": "Anxiety and sinking sensation in region of heart."
+      },
+      {
+        "keywords": [
+          "heart",
+          "consciousness",
+          "awareness"
+        ],
+        "passage": "Distinct consciousness of the heart."
+      },
+      {
+        "keywords": [
+          "trachea",
+          "aching",
+          "bifurcation"
+        ],
+        "passage": "Aching at the bifurcation of the trachea."
+      },
+      {
+        "keywords": [
+          "chest",
+          "heart",
+          "oppression"
+        ],
+        "passage": "Oppression of chest and heart."
+      },
+      {
+        "keywords": [
+          "heart",
+          "fullness"
+        ],
+        "passage": "Fullness in region of heart."
+      },
+      {
+        "keywords": [
+          "heart",
+          "sensation",
+          "cold water",
+          "pumping"
+        ],
+        "passage": "Feels as if the heart were pumping cold water."
+      },
+      {
+        "keywords": [
+          "heart",
+          "palpitation",
+          "loud beats"
+        ],
+        "passage": "Palpitation. Loud heart beats."
+      },
+      {
+        "keywords": [
+          "heart",
+          "purring sensation"
+        ],
+        "passage": "Sensation of purring of the heart."
+      },
+      {
+        "keywords": [
+          "pulse",
+          "rapid",
+          "irregular",
+          "fluttering"
+        ],
+        "passage": "Rapid irregular fluttering pulse."
+      },
+      {
+        "keywords": [
+          "neck",
+          "pulsation"
+        ],
+        "passage": "Pulsation in the neck."
+      },
+      {
+        "keywords": [
+          "back",
+          "weakness"
+        ],
+        "passage": "Weak feeling in the back."
+      },
+      {
+        "keywords": [
+          "back",
+          "stitching",
+          "coughing"
+        ],
+        "passage": "Stitching in back on coughing."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "pain",
+          "restlessness"
+        ],
+        "passage": "Pain in all the limbs with great restlessness."
+      },
+      {
+        "keywords": [
+          "bones",
+          "aching",
+          "soreness",
+          "muscles",
+          "bed",
+          "hard",
+          "motion",
+          "amelioration"
+        ],
+        "passage": "Aching in bones all over the body. Soreness of the muscles and the bed feels hard, ameliorated by motion."
+      },
+      {
+        "keywords": [
+          "extremities",
+          "cold"
+        ],
+        "passage": "Cold extremities."
+      },
+      {
+        "keywords": [
+          "extremities",
+          "numbness",
+          "hands",
+          "arms"
+        ],
+        "passage": "Numbness of extremities. Hands and arms numb."
+      },
+      {
+        "keywords": [
+          "hands",
+          "cold",
+          "clammy"
+        ],
+        "passage": "Hands cold and clammy."
+      },
+      {
+        "keywords": [
+          "thighs",
+          "pain",
+          "chill",
+          "fever"
+        ],
+        "passage": "Pain in the thighs during chill and fever."
+      },
+      {
+        "keywords": [
+          "knees",
+          "legs",
+          "pain",
+          "chill",
+          "fever",
+          "walking",
+          "heat",
+          "amelioration"
+        ],
+        "passage": "Pain in the knees and legs during chill and fever, ameliorated from walking, and from heat."
+      },
+      {
+        "keywords": [
+          "legs",
+          "aching",
+          "sitting",
+          "walking",
+          "amelioration"
+        ],
+        "passage": "Aching in legs while sitting, ameliorated by walking."
+      },
+      {
+        "keywords": [
+          "knee",
+          "aching",
+          "bone",
+          "broken",
+          "stretching",
+          "motion",
+          "amelioration"
+        ],
+        "passage": "Aching above knee as if bone were broken, ameliorated by stretching of limbs and motion."
+      },
+      {
+        "keywords": [
+          "feet",
+          "legs",
+          "dropsical",
+          "edema"
+        ],
+        "passage": "Feet and legs dropsical."
+      },
+      {
+        "keywords": [
+          "feet",
+          "numbness"
+        ],
+        "passage": "Numbness of feet."
+      },
+      {
+        "keywords": [
+          "skin",
+          "pale",
+          "cold",
+          "ashy"
+        ],
+        "passage": "Skin pale, cold, of ashy hue."
+      },
+      {
+        "keywords": [
+          "varicose ulcers",
+          "offensive",
+          "old people"
+        ],
+        "passage": "Obstinate varicose offensive ulcers of old people."
+      },
+      {
+        "keywords": [
+          "fever sores",
+          "putrid",
+          "thin",
+          "bloody",
+          "discharges"
+        ],
+        "passage": "It has cured many old fever sores with putrid, thin, bloody discharges."
+      },
+      {
+        "keywords": [
+          "perspiration",
+          "carrion-like",
+          "putrid",
+          "body odor"
+        ],
+        "passage": "Carrion-like perspiration. Putrid odors of the body."
+      },
+      {
+        "keywords": [
+          "chilliness",
+          "covering",
+          "warmth"
+        ],
+        "passage": "Must be covered in all stages."
+      },
+      {
+        "keywords": [
+          "chill",
+          "warm bed",
+          "amelioration"
+        ],
+        "passage": "Chill ameliorated by warm bed."
+      },
+      {
+        "keywords": [
+          "chill",
+          "quotidian",
+          "evening",
+          "periodicity"
+        ],
+        "passage": "The chill is quotidian; it comes in the evening, generally at 7 P.M. The periodicity is regular."
+      },
+      {
+        "keywords": [
+          "sweat",
+          "cold"
+        ],
+        "passage": "Cold sweat on the body."
+      },
+      {
+        "keywords": [
+          "sweat",
+          "hot",
+          "high temperature"
+        ],
+        "passage": "Hot sweat with high temperature."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "frightful dreams"
+        ],
+        "passage": "The sleep is full of frightful dreams."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "insomnia",
+          "persistent thoughts"
+        ],
+        "passage": "Persistent thoughts prevent sleep."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "suffocation"
+        ],
+        "passage": "Suffocation in sleep."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "crying out",
+          "oppression",
+          "chest"
+        ],
+        "passage": "Cries out in sleep from oppression of chest."
+      },
+      {
+        "keywords": [
+          "constipation",
+          "carrion-like",
+          "odor"
+        ],
+        "passage": "The difficult constipated stool also like carrion in odor."
+      }
+    ],
+    "count": 119
+  },
+  "ranunculus_bulbosus": {
+    "remedy": "Ranunculus Bulbosus",
+    "passages": [
+      {
+        "keywords": [
+          "generals",
+          "skin",
+          "acrid",
+          "poisoning",
+          "rhus"
+        ],
+        "passage": "This buttercup gives off an acrid ethereal vapor very poisonous to such as are sensitive to it, and has been many times mistaken for Rhus poisoning."
+      },
+      {
+        "keywords": [
+          "chest",
+          "rheumatism",
+          "costal muscles",
+          "pleura",
+          "spinal nerves",
+          "soreness"
+        ],
+        "passage": "It is a rheumatic remedy of great usefulness when the chest muscles are involved. Pain in the spinal nerves, pleura and costal muscles always with extreme soreness."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "motion",
+          "cold",
+          "damp weather",
+          "bryonia",
+          "dulcamara"
+        ],
+        "passage": "It is as sensitive to motion as Bryonia, and to the cold, damp weather as Dulcamara."
+      },
+      {
+        "keywords": [
+          "generals",
+          "weakness",
+          "fainting",
+          "epilepsy"
+        ],
+        "passage": "It has sudden weakness even to fainting, and it has cured epilepsy."
+      },
+      {
+        "keywords": [
+          "mind",
+          "excitable",
+          "fright",
+          "vexation",
+          "sensitive"
+        ],
+        "passage": "It is extremely excitable, and resembles the much broken state of sensitive invalids; hence it has complaints from fright and vexation."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "evening",
+          "weather change",
+          "warm to cold"
+        ],
+        "passage": "Its complaints are worse in the evening and after any change in the weather, especially from warm to cold."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "evening aggravation",
+          "headache",
+          "ear pain",
+          "nasal symptoms",
+          "fever",
+          "short ribs",
+          "dyspnoea",
+          "oppression",
+          "chest",
+          "heart",
+          "tightness",
+          "pulsation",
+          "trembling",
+          "chilliness"
+        ],
+        "passage": "The evening aggravations are quite marked; the headache, ear pain, the nasal symptoms, the fever, soreness in the short ribs, dyspnoea, oppression of chest and heart, tightness of chest, increased pulsation, trembling, chilliness, are all worse in the evening."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "cold air",
+          "headache",
+          "rheumatism",
+          "neuralgia",
+          "chest",
+          "spine",
+          "ovaries",
+          "vertigo"
+        ],
+        "passage": "He is extremely sensitive to cold and cold, open air. Cold air brings on headaches, rheumatism, neuralgia of chest, spine and ovaries, vertigo."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "overheated",
+          "fever",
+          "pleurisy",
+          "pneumonia"
+        ],
+        "passage": "Sudden exposure while overheated will bring on febrile symptoms, pleurisy or pneumonia."
+      },
+      {
+        "keywords": [
+          "chest",
+          "soreness",
+          "bruised",
+          "cold air"
+        ],
+        "passage": "After exposure to cold air, his chest muscles are sore as if bruised."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "draft",
+          "cold air",
+          "soreness"
+        ],
+        "passage": "Draft of cold air causes sore pains in many parts."
+      },
+      {
+        "keywords": [
+          "modalities",
+          "rainy weather",
+          "stormy weather",
+          "soreness",
+          "bruised"
+        ],
+        "passage": "He is extremely sensitive to rainy and stormy weather. He is sore and bruised in many parts."
+      },
+      {
+        "keywords": [
+          "liver",
+          "ears",
+          "chest",
+          "abdomen",
+          "shoulder",
+          "joints",
+          "spine",
+          "lumbar",
+          "back",
+          "stitching pains"
+        ],
+        "passage": "Stitching pains in liver, ears, chest, abdomen, shoulder and other joints, spine, lumbar region to abdomen, between the shoulders in the back, stitching, burning pains radiating from the dorsal spine."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "burning",
+          "cardiac orifice",
+          "bladder",
+          "cornea",
+          "eruptions",
+          "ulcers"
+        ],
+        "passage": "Burning pains in cardiac orifice of stomach; in pit of stomach, neck of bladder, in cornea; in eruptions; in ulcers."
+      },
+      {
+        "keywords": [
+          "head",
+          "forehead",
+          "vertex",
+          "eyes",
+          "temples",
+          "nose",
+          "stomach",
+          "shoulder",
+          "chest",
+          "pressing pain"
+        ],
+        "passage": "Pressing pain in forehead; vertex; eyes; temples; root of nose; pit of stomach; shoulder; across the lower part of chest; middle of chest."
+      },
+      {
+        "keywords": [
+          "generals",
+          "creeping",
+          "crawling",
+          "tingling"
+        ],
+        "passage": "It has creeping crawling, tingling."
+      },
+      {
+        "keywords": [
+          "pleura",
+          "inflammation",
+          "dropsy",
+          "adhesion",
+          "pleural effusion",
+          "ribs",
+          "soreness"
+        ],
+        "passage": "Inflammation of the pleura with dropsy of adhesion. With pleural effusion it is a very useful remedy when there is extreme soreness along the ribs, especially the lower ribs."
+      },
+      {
+        "keywords": [
+          "skin",
+          "lupus",
+          "epithelioma",
+          "jaundice"
+        ],
+        "passage": "It has cured lupus and epithelioma. Jaundiced."
+      },
+      {
+        "keywords": [
+          "mind",
+          "depression",
+          "desire to die"
+        ],
+        "passage": "It has great depression of spirits and desire to die."
+      },
+      {
+        "keywords": [
+          "mind",
+          "fear",
+          "ghosts",
+          "irritable",
+          "quarrelsome"
+        ],
+        "passage": "Fear of ghosts and very irritable, even quarrelsome."
+      },
+      {
+        "keywords": [
+          "mind",
+          "confusion"
+        ],
+        "passage": "Confusion of mind."
+      },
+      {
+        "keywords": [
+          "vertigo",
+          "cold air"
+        ],
+        "passage": "Vertigo when going into the cold air."
+      },
+      {
+        "keywords": [
+          "head",
+          "enlargement",
+          "sensation"
+        ],
+        "passage": "Sensation of enlargement of the head."
+      },
+      {
+        "keywords": [
+          "head",
+          "cerebral hyperemia",
+          "face",
+          "heat"
+        ],
+        "passage": "Cerebral hyperemia with heat of the face."
+      },
+      {
+        "keywords": [
+          "head",
+          "headache",
+          "temperature change",
+          "forehead",
+          "vertex",
+          "pressing"
+        ],
+        "passage": "Headache with change of temperature, pressing headache in forehead and vertex worse when changing temperature, either to cold or warm room."
+      },
+      {
+        "keywords": [
+          "head",
+          "right eye",
+          "pain",
+          "worse lying",
+          "better walking",
+          "better standing"
+        ],
+        "passage": "Violent pains over right eye, worse lying, and better when walking and standing. All other pains worse from motion. This is a notable exception."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "pressure",
+          "burning"
+        ],
+        "passage": "Pressure and burning in the eyes."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "right eye",
+          "soreness",
+          "burning",
+          "lower lid",
+          "outer canthus"
+        ],
+        "passage": "Great pains in the eye, especially the right. Soreness and burning in right lower lid. Burning and soreness in outer canthus of the right eye."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "herpetic vesicles",
+          "bluish-black",
+          "hemiopia",
+          "pregnancy"
+        ],
+        "passage": "Bluish-black herpetic vesicles over the eye. It has cured hemiopia during pregnancy."
+      },
+      {
+        "keywords": [
+          "ears",
+          "stitching pains",
+          "right ear",
+          "evening"
+        ],
+        "passage": "Stitching pains in the ears, especially the right, worse in the evening."
+      },
+      {
+        "keywords": [
+          "nose",
+          "hay fever",
+          "burning",
+          "eyes",
+          "itching",
+          "soft palate",
+          "evening",
+          "pressing",
+          "root of nose",
+          "skin",
+          "redness"
+        ],
+        "passage": "It has cured hay fever with burning in eyes and itching of the soft palate, worse in the evening, pressing in the root of the nose. The skin of the nose is red much inflamed."
+      },
+      {
+        "keywords": [
+          "face",
+          "vesicular eruption",
+          "burning",
+          "epithelioma"
+        ],
+        "passage": "It has caused vesicular eruption on the face with great burning. It has caused epithelioma of the face."
+      },
+      {
+        "keywords": [
+          "face",
+          "prickling",
+          "nose",
+          "chin",
+          "twitching",
+          "lips"
+        ],
+        "passage": "Prickling of the face, nose and chin. Twitching of the lips."
+      },
+      {
+        "keywords": [
+          "throat",
+          "burning",
+          "soreness",
+          "redness",
+          "smarting",
+          "itching",
+          "soft palate"
+        ],
+        "passage": "Burning and soreness and redness in the throat, smarting and itching of the soft palate."
+      },
+      {
+        "keywords": [
+          "thirst",
+          "afternoon"
+        ],
+        "passage": "There is much thirst in the afternoon."
+      },
+      {
+        "keywords": [
+          "alcoholism",
+          "delirium tremens",
+          "weakness",
+          "stimulants",
+          "whisky",
+          "brandy"
+        ],
+        "passage": "It has cured many times the weak and tottering condition of patients suffering from prolonged use of stimulants, such as whisky and brandy."
+      },
+      {
+        "keywords": [
+          "delirium tremens",
+          "hiccough",
+          "convulsions",
+          "alcoholism",
+          "epileptiform"
+        ],
+        "passage": "It is a great remedy for delirium tremens when he is besotted, has hiccoughs and is more or less convulsive. Epileptiform convulsions from alcoholic liquors. The hiccough is violent and convulsive."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "eructations"
+        ],
+        "passage": "Frequent eructations."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "burning",
+          "cardiac orifice",
+          "sensitive",
+          "touch",
+          "neuralgia"
+        ],
+        "passage": "Burning in the stomach and especially in the region of the cardiac orifice. Stomach is very sensitive to touch. Paroxysms of neuralgia of the stomach."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "short ribs",
+          "soreness",
+          "bruised",
+          "liver",
+          "stitching pains",
+          "jaundice",
+          "evening"
+        ],
+        "passage": "Sore bruised feeling in the short ribs, stitching pains in the liver, jaundiced. Soreness in liver on deep pressure; symptoms worse in the evening."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "flatulence",
+          "colic",
+          "burning",
+          "soreness",
+          "pressure",
+          "stitching pains",
+          "right side",
+          "motion",
+          "breathing",
+          "walking"
+        ],
+        "passage": "In the abdomen there is much flatulence, colic, burning and great soreness on pressure. Stitching pain in right side of abdomen under the ribs. The pains are much worse from motion, breathing and walking."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "diarrhoea",
+          "dysentery"
+        ],
+        "passage": "It has a watery diarrhoea and dysentery."
+      },
+      {
+        "keywords": [
+          "skin",
+          "herpes zoster",
+          "pain"
+        ],
+        "passage": "It has herpes zoster with violent pains."
+      },
+      {
+        "keywords": [
+          "female",
+          "leucorrhoea",
+          "excoriating",
+          "ovaries",
+          "sharp pains",
+          "cold weather",
+          "motion",
+          "evening"
+        ],
+        "passage": "Excoriating leucorrhoea and sharp pains in the ovaries every cold change in the weather, from motion, and in the evening."
+      },
+      {
+        "keywords": [
+          "chest",
+          "breathing",
+          "heavy",
+          "short",
+          "oppression",
+          "evening",
+          "sighing"
+        ],
+        "passage": "Heavy, short breathing with oppression of chest in the evening. Sighing breathing."
+      },
+      {
+        "keywords": [
+          "chest",
+          "pressure",
+          "constriction",
+          "pressing pains",
+          "walls",
+          "stitching pains"
+        ],
+        "passage": "Pressure and constriction of the chest. Pressing pains in the walls of the chest. Violent stitching pains in the chest walls."
+      },
+      {
+        "keywords": [
+          "chest",
+          "fifth rib",
+          "sixth rib",
+          "stitching pains",
+          "floating ribs",
+          "soreness",
+          "touch",
+          "pressure"
+        ],
+        "passage": "Stitching pains in the region of fifth and sixth ribs. Painful soreness on touch or pressure on the floating ribs."
+      },
+      {
+        "keywords": [
+          "chest",
+          "rheumatism",
+          "costal",
+          "chronic"
+        ],
+        "passage": "Rheumatic pains in the chest. Chronic costal rheumatism."
+      },
+      {
+        "keywords": [
+          "diaphragm",
+          "soreness",
+          "inflammation",
+          "pleura"
+        ],
+        "passage": "Soreness describing the attachments of the diaphragm. Inflammation of the diaphragm and pleura."
+      },
+      {
+        "keywords": [
+          "chest",
+          "hydrothorax",
+          "adhesions",
+          "pleura",
+          "soreness"
+        ],
+        "passage": "Hydrothorax pains in chest from adhesions of the pleura. Sensitive as if inner parts were adhered."
+      },
+      {
+        "keywords": [
+          "chest",
+          "modalities",
+          "motion",
+          "cold air",
+          "inspiration",
+          "cold wet cloth sensation"
+        ],
+        "passage": "Pain worse from motion, in cold air, from becoming cold, on inspiration. Sensation of a cold wet cloth on going into cold air."
+      },
+      {
+        "keywords": [
+          "chest",
+          "stitching pains",
+          "weather change",
+          "warm to cold"
+        ],
+        "passage": "Stitching pains every change of the weather from warm to cold. Sore spots here and there on the ribs."
+      },
+      {
+        "keywords": [
+          "heart",
+          "pain",
+          "motion",
+          "inspiration",
+          "lying left side"
+        ],
+        "passage": "Pain in the region of heart from motion and inspiration and lying on left side."
+      },
+      {
+        "keywords": [
+          "chest",
+          "pectoral muscles",
+          "rheumatic swelling",
+          "soreness",
+          "touch"
+        ],
+        "passage": "Rheumatic swelling of pectoral muscles with extreme soreness to touch."
+      },
+      {
+        "keywords": [
+          "chest",
+          "pleurodynia",
+          "cutting pains",
+          "inspiration",
+          "pressure",
+          "turning body",
+          "cold air"
+        ],
+        "passage": "Pleurodynia with most violent cutting pains from inspiration, pressure, turning the body and cold air."
+      },
+      {
+        "keywords": [
+          "pulse",
+          "full",
+          "hard",
+          "rapid",
+          "evening",
+          "slow",
+          "morning"
+        ],
+        "passage": "Pulse full, hard and rapid in the evening and slow in the morning."
+      },
+      {
+        "keywords": [
+          "back",
+          "spine",
+          "sore spots"
+        ],
+        "passage": "Sore spots in the spine."
+      },
+      {
+        "keywords": [
+          "back",
+          "left scapula",
+          "inner margin",
+          "pain"
+        ],
+        "passage": "Pain along the inner margin of the left scapula."
+      },
+      {
+        "keywords": [
+          "back",
+          "spine",
+          "stitching pains",
+          "between scapulae"
+        ],
+        "passage": "Stitching pains in the spine between the scapulae."
+      },
+      {
+        "keywords": [
+          "back",
+          "scapula",
+          "pain",
+          "sitting bent",
+          "shoemakers",
+          "writers",
+          "adhesion",
+          "burning"
+        ],
+        "passage": "Pains in lower and inner margin of scapula in shoemakers, needle workers and writers from sitting bent. One scapula often becomes adhered to the back and it is immovable, and later burning pain comes on."
+      },
+      {
+        "keywords": [
+          "back",
+          "spine",
+          "weakness",
+          "lassitude"
+        ],
+        "passage": "Weak spine and great lassitude."
+      },
+      {
+        "keywords": [
+          "back",
+          "chest",
+          "vesicular eruption",
+          "blue contents",
+          "pain"
+        ],
+        "passage": "Vesicular eruptions form upon the back and chest with blue contents, with severe pain."
+      },
+      {
+        "keywords": [
+          "upper limbs",
+          "rheumatic pains",
+          "paroxysmal"
+        ],
+        "passage": "Rheumatic pains, paroxysmal in character in the upper limbs."
+      },
+      {
+        "keywords": [
+          "upper limbs",
+          "arms",
+          "hands",
+          "stitching pains",
+          "nerves",
+          "tearing pains",
+          "forearm",
+          "cold",
+          "motion"
+        ],
+        "passage": "Stitching pains along the nerves in arms and hands. Tearing pains in forearm and hand. The pains are worse from cold, and worse from motion."
+      },
+      {
+        "keywords": [
+          "hands",
+          "fingers",
+          "palms",
+          "bluish vesicles",
+          "warts",
+          "thumb"
+        ],
+        "passage": "Bluish vesicles in the palms and fingers. Seed warts on the thumb."
+      },
+      {
+        "keywords": [
+          "lower limbs",
+          "weakness",
+          "forenoon"
+        ],
+        "passage": "Great weakness in lower limbs in forenoon."
+      },
+      {
+        "keywords": [
+          "lower limbs",
+          "sciatica",
+          "sciatic nerve",
+          "stitching",
+          "burning",
+          "spine",
+          "cold wet weather",
+          "stormy weather",
+          "motion",
+          "cold air"
+        ],
+        "passage": "Stitching burning from the spine along the sciatic nerve in cold, wet weather and in stormy weather, worse from motion and in cold air."
+      },
+      {
+        "keywords": [
+          "lower limbs",
+          "thighs",
+          "drawing pain"
+        ],
+        "passage": "Drawing pain in the thighs."
+      },
+      {
+        "keywords": [
+          "lower limbs",
+          "knees",
+          "rheumatic pain",
+          "feet",
+          "toes",
+          "stinging",
+          "soreness"
+        ],
+        "passage": "Rheumatic pain in knees, stinging and soreness in foot and toes."
+      },
+      {
+        "keywords": [
+          "feet",
+          "corns",
+          "sore",
+          "touch",
+          "stinging",
+          "burning",
+          "chilblains"
+        ],
+        "passage": "Corns very painful, sore to touch, sting and burn. He suffers from complaints like chilblains."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "sleeplessness",
+          "difficult breathing",
+          "heat",
+          "orgasms of blood"
+        ],
+        "passage": "He is late falling asleep. Sleepless from difficult breathing, from heat, and orgasms of blood."
+      },
+      {
+        "keywords": [
+          "skin",
+          "vesicles",
+          "dark blue",
+          "horny scurf"
+        ],
+        "passage": "Dark blue vesicles upon the skin. Horny scurf forms after the vesicles have opened."
+      },
+      {
+        "keywords": [
+          "skin",
+          "vesicular eruption",
+          "burns",
+          "herpes zoster",
+          "pemphigus",
+          "eczema",
+          "ulcers",
+          "burning",
+          "stinging",
+          "horn-like excrescences"
+        ],
+        "passage": "It has been used for vesicular eruptions; for burns; for herpes zoster; for pemphigus; for eczema. Flat burning, stinging ulcers. Horn-like excrescences."
+      }
+    ],
+    "count": 73
+  }
+}
