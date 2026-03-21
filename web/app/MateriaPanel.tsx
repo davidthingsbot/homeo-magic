@@ -229,7 +229,8 @@ export function MateriaPanel({
                   {passage ? (
                     <a
                       href={buildRemedyUrl(profile.file, selectedSymptoms, passage)}
-                      className="block text-[13px] text-[#374151] leading-relaxed italic hover:bg-[#fefce8] rounded p-1 -m-1 transition-colors no-underline cursor-pointer"
+                      className="block text-[13px] text-[#374151] leading-relaxed hover:bg-[#fefce8] rounded p-1 -m-1 transition-colors no-underline cursor-pointer"
+                      style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                     >
                       &ldquo;{passage}&rdquo;
                       <span className="text-[11px] text-[#065774] not-italic ml-1">&rarr; view in context</span>

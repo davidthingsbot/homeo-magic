@@ -63,6 +63,12 @@ function mockFetchResponses(
         json: () => Promise.resolve(symptomIndex),
       });
     }
+    if (url.includes("archive_links.json") || url.includes("passage_index.json")) {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve({}),
+      });
+    }
     return Promise.reject(new Error("Unknown URL"));
   });
 }
@@ -166,7 +172,7 @@ describe("MateriaPanel", () => {
     const link = screen.getByRole("link", { name: /read full kent/i });
     expect(link).toHaveAttribute(
       "href",
-      "/data/kent/remedy_markdown/aconitum_napellus.md"
+      "/remedy/aconitum_napellus"
     );
   });
 

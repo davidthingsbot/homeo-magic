@@ -174,6 +174,134 @@ class TestConvertToMarkdown:
         assert isinstance(md, str)
         assert len(md) > 0
 
+    # --- Regression: paragraph handling (commit ee5ebf2) ---
+
+    def test_double_newline_paragraph_breaks_preserved(self):
+        """Regression: double-newline breaks between paragraphs must be kept."""
+        text = "First paragraph about the mind.\n\nSecond paragraph about the stomach."
+        md = convert_section_to_markdown("Test", text)
+        # After the heading, both paragraphs should appear separated by blank line
+        assert "First paragraph about the mind." in md
+        assert "Second paragraph about the stomach." in md
+        # Find the paragraphs and verify there's a blank line between them
+        idx1 = md.index("First paragraph about the mind.")
+        idx2 = md.index("Second paragraph about the stomach.")
+        between = md[idx1 + len("First paragraph about the mind."):idx2]
+        assert "\n\n" in between, f"No paragraph break between paragraphs: {repr(between)}"
+
+    def test_triple_newline_collapsed_to_double(self):
+        """Triple+ newlines should collapse to double (one blank line)."""
+        text = "Para one.\n\n\n\nPara two."
+        md = convert_section_to_markdown("Test", text)
+        assert "\n\n\n" not in md, "Triple newlines should be collapsed"
+        assert "Para one." in md
+        assert "Para two." in md
+
+    def test_wrapped_lines_within_paragraph_joined(self):
+        """Regression: wrapped lines within a single block should stay together."""
+        # OCR text often has hard line breaks within a paragraph
+        text = "The patient is very irritable and\noversensitive to noise and light."
+        md = convert_section_to_markdown("Test", text)
+        # Both lines should appear in the output (either joined or as separate lines,
+        # but NOT with a paragraph break between them)
+        assert "irritable" in md
+        assert "oversensitive" in md
+
+    def test_multiple_paragraphs_with_headers(self):
+        """Paragraphs around section headers should be properly separated."""
+        text = ("Some introductory text about the remedy.\n\n"
+                "Mind: The patient is anxious.\n\n"
+                "This anxiety is worse at night.\n\n"
+                "Head: Pain in the forehead.")
+        md = convert_section_to_markdown("Test", text)
+        assert "## Mind" in md
+        assert "## Head" in md
+        assert "anxious" in md
+        assert "forehead" in md
+
+    def test_single_blank_line_is_paragraph_break(self):
+        """A single blank line (\\n\\n) should create a paragraph break."""
+        text = "First thought.\n\nSecond thought."
+        md = convert_section_to_markdown("Test", text)
+        lines = md.split("\n")
+        # Find the content lines (skip heading)
+        content = "\n".join(lines[2:])  # skip "# Test" and blank line
+        assert "First thought." in content
+        assert "Second thought." in content
+
+    def test_no_spurious_blank_lines_at_start(self):
+        """Output should not start with extra blank lines."""
+        md = convert_section_to_markdown("Test", "Some text.")
+        assert md.startswith("# Test")
+        # After heading, at most one blank line before content
+        lines = md.split("\n")
+        assert lines[0] == "# Test"
+        assert lines[1] == ""
+        assert lines[2].strip() != "" or lines[3].strip() != ""
+
+
+# --- OCR Text Cleaning Regression Tests ---
+
+class TestCleanOcrTextRegression:
+    """Regression tests for OCR text cleaning issues."""
+
+    def test_tab_characters_collapsed(self):
+        result = clean_ocr_text("hello\tworld")
+        assert "hello world" == result
+
+    def test_mixed_tabs_and_spaces(self):
+        result = clean_ocr_text("hello \t  world")
+        assert "hello world" == result
+
+    def test_non_ascii_artifacts_removed(self):
+        result = clean_ocr_text("the patient\u2019s condition")
+        # Smart quote should be removed (non-ASCII)
+        assert "\u2019" not in result
+        assert "patient" in result
+
+    def test_ligature_fi_removed(self):
+        """Ligature ﬁ is non-ASCII and gets stripped by the cleanup regex."""
+        result = clean_ocr_text("the ﬁrst symptom")
+        # The ﬁ ligature is removed by non-ASCII strip (before replacement can run)
+        assert "ﬁ" not in result
+        assert "rst" in result  # rest of word survives
+
+    def test_ligature_fl_removed(self):
+        """Ligature ﬂ is non-ASCII and gets stripped by the cleanup regex."""
+        result = clean_ocr_text("ﬂuid discharge")
+        assert "ﬂ" not in result
+        assert "uid" in result
+
+    def test_carriage_return_only(self):
+        result = clean_ocr_text("line1\rline2")
+        assert "\r" not in result
+
+    def test_mixed_line_endings(self):
+        result = clean_ocr_text("line1\r\nline2\rline3\nline4")
+        assert "\r" not in result
+        assert "line1" in result
+        assert "line4" in result
+
+    def test_preserves_newlines(self):
+        result = clean_ocr_text("line1\nline2")
+        assert "\n" in result
+
+    def test_preserves_standard_punctuation(self):
+        text = "Dr. Kent says: 'The patient is worse from 10-11 a.m.'"
+        result = clean_ocr_text(text)
+        assert "Dr." in result
+        assert "10-11" in result
+
+    def test_empty_string(self):
+        assert clean_ocr_text("") == ""
+
+    def test_whitespace_only(self):
+        assert clean_ocr_text("   \t  ") == ""
+
+    def test_multiple_spaces_between_words(self):
+        result = clean_ocr_text("the     patient     is")
+        assert result == "the patient is"
+
 
 # --- Keyword Matcher Tests ---
 
@@ -219,6 +347,54 @@ class TestKeywordMatcher:
     def test_case_insensitive(self):
         matches = find_keyword_matches(self.SAMPLE_TEXT, ["IRRITABILITY"])
         assert len(matches) > 0
+
+    def test_partial_keyword_match(self):
+        """Regression: partial keywords should match (e.g. 'headach' matches 'headache')."""
+        matches = find_keyword_matches(self.SAMPLE_TEXT, ["headach"])
+        assert len(matches) > 0
+
+    def test_partial_path_match(self):
+        """Regression: fuzzy matching for partial symptom paths."""
+        matches = find_keyword_matches(self.SAMPLE_TEXT, ["cold air"])
+        assert len(matches) > 0
+        assert any("cold air" in m["context"].lower() for m in matches)
+
+    def test_multiple_occurrences_all_found(self):
+        """All occurrences of a keyword should be found, not just the first."""
+        text = "Pain in the head. More pain in the stomach. The pain is burning."
+        matches = find_keyword_matches(text, ["pain"])
+        assert len(matches) == 3, f"Expected 3 'pain' matches, got {len(matches)}"
+
+    def test_context_window_reasonable_size(self):
+        """Context should be roughly 200 chars around the match."""
+        long_text = "x " * 200 + "headache" + " y" * 200
+        matches = find_keyword_matches(long_text, ["headache"])
+        assert len(matches) == 1
+        ctx = matches[0]["context"]
+        assert len(ctx) < 500, f"Context too long: {len(ctx)} chars"
+        assert "headache" in ctx
+
+    def test_keyword_at_start_of_text(self):
+        matches = find_keyword_matches("Irritability is the keynote.", ["irritability"])
+        assert len(matches) == 1
+
+    def test_keyword_at_end_of_text(self):
+        matches = find_keyword_matches("The keynote is irritability", ["irritability"])
+        assert len(matches) == 1
+
+    def test_empty_text(self):
+        matches = find_keyword_matches("", ["headache"])
+        assert len(matches) == 0
+
+    def test_empty_keywords(self):
+        matches = find_keyword_matches("Some text here", [])
+        assert len(matches) == 0
+
+    def test_match_position_is_correct(self):
+        text = "The headache is severe."
+        matches = find_keyword_matches(text, ["headache"])
+        assert len(matches) == 1
+        assert matches[0]["position"] == 4  # "The " = 4 chars
 
 
 # --- Integration test with real data ---
