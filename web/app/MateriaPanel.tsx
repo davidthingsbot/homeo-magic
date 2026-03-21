@@ -115,7 +115,22 @@ export function MateriaPanel({
           </h3>
           <div className="space-y-3">
             {selectedSymptoms.map((sym) => {
-              const passage = passages?.[sym];
+              // Try exact match first, then fuzzy match on symptom path parts
+              let passage = passages?.[sym];
+              if (!passage && passages) {
+                // Try matching on key parts of the symptom path
+                const symParts = sym.toLowerCase().split(",").map(s => s.trim());
+                for (const [key, val] of Object.entries(passages)) {
+                  const keyParts = key.toLowerCase().split(",").map(s => s.trim());
+                  // Match if all parts of the shorter path are in the longer one
+                  const shorter = symParts.length <= keyParts.length ? symParts : keyParts;
+                  const longer = symParts.length <= keyParts.length ? keyParts : symParts;
+                  if (shorter.every(p => longer.some(lp => lp.includes(p) || p.includes(lp)))) {
+                    passage = val;
+                    break;
+                  }
+                }
+              }
               return (
                 <div
                   key={sym}
