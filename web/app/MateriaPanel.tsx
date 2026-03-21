@@ -115,9 +115,11 @@ function buildRemedyUrl(
 export function MateriaPanel({
   remedyAbbrev,
   selectedSymptoms,
+  grades,
 }: {
   remedyAbbrev: string;
   selectedSymptoms: string[];
+  grades?: Record<string, number>;
 }) {
   const [profile, setProfile] = useState<MateriaProfile | null>(null);
   const [passages, setPassages] = useState<Record<string, string> | null>(null);
@@ -208,20 +210,26 @@ export function MateriaPanel({
           <div className="space-y-3">
             {selectedSymptoms.map((sym) => {
               const passage = passages?.[sym];
+              const grade = grades?.[sym];
               return (
                 <div
                   key={sym}
                   className="rounded-lg border border-[#e5e7eb] bg-[#f9fafb] p-3"
                 >
-                  <div className="font-semibold text-[#1f2937] text-sm mb-1">
-                    {sym}
+                  <div className="flex items-center gap-2 mb-1">
+                    {grade && (
+                      <span className={`grade grade-${grade} inline-flex items-center justify-center w-6 h-6 rounded text-xs font-bold flex-shrink-0`}>
+                        {grade}
+                      </span>
+                    )}
+                    <span className="font-semibold text-[#1f2937] text-sm">
+                      {sym}
+                    </span>
                   </div>
                   {passage ? (
                     <a
                       href={buildRemedyUrl(profile.file, selectedSymptoms, passage)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-[13px] text-[#374151] leading-relaxed italic hover:bg-[#fefce8] rounded p-1 -m-1 transition-colors no-underline"
+                      className="block text-[13px] text-[#374151] leading-relaxed italic hover:bg-[#fefce8] rounded p-1 -m-1 transition-colors no-underline cursor-pointer"
                     >
                       &ldquo;{passage}&rdquo;
                       <span className="text-[11px] text-[#065774] not-italic ml-1">&rarr; view in context</span>

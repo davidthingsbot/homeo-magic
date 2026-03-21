@@ -617,18 +617,12 @@ function DetailPanel({
   return (
     <div className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] mt-5 overflow-hidden animate-slide-up">
       <div
-        className="flex justify-between items-center px-5 py-3.5 text-white font-semibold"
+        className="px-5 py-3.5 text-white font-semibold"
         style={{
           background: "linear-gradient(135deg, #065774 0%, #042B58 100%)",
         }}
       >
         <span>{type === "remedy" ? "Remedy" : "Symptom"}</span>
-        <button
-          onClick={onClose}
-          className="bg-white/20 border-none text-white w-7 h-7 rounded-full text-lg cursor-pointer flex items-center justify-center hover:bg-white/30 transition-colors"
-        >
-          &times;
-        </button>
       </div>
       <div className="p-5 text-[15px] leading-relaxed text-[#374151]">
         {type === "remedy" ? (
@@ -642,6 +636,19 @@ function DetailPanel({
             <MateriaPanel
               remedyAbbrev={name}
               selectedSymptoms={selectedSymptoms}
+              grades={(() => {
+                // Get grade breakdown from symptom data
+                const grades: Record<string, number> = {};
+                if (symptoms) {
+                  for (const sym of selectedSymptoms) {
+                    const symData = symptoms[sym];
+                    if (symData?.remedies?.[name]) {
+                      grades[sym] = symData.remedies[name];
+                    }
+                  }
+                }
+                return grades;
+              })()}
             />
           </>
         ) : (
