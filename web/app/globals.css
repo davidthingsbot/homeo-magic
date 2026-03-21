@@ -1,16 +1,30 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Host Grotesk';
-  src: url('./fonts/HostGrotesk-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
+  font-family: 'Carlito';
+  src: url('./fonts/Carlito/Carlito-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Host Grotesk';
-  src: url('./fonts/HostGrotesk-Italic-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
+  font-family: 'Carlito';
+  src: url('./fonts/Carlito/Carlito-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Carlito';
+  src: url('./fonts/Carlito/Carlito-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Carlito';
+  src: url('./fonts/Carlito/Carlito-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
@@ -27,7 +41,7 @@
 }
 
 body {
-  font-family: 'Host Grotesk', system-ui, sans-serif;
+  font-family: 'Carlito', system-ui, sans-serif;
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
   color: #1f2937;
   min-height: 100vh;
@@ -54,14 +68,14 @@ body {
 
 /* Grade cells */
 .grade {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 15px;
 }
 .grade-1 { background: #fef3c7; color: #92400e; }
 .grade-2 { background: #fed7aa; color: #9a3412; }
