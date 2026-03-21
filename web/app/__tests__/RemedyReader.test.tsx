@@ -359,6 +359,140 @@ describe("RemedyReader", () => {
       });
     });
   });
+
+  describe("BUG FIX: single-newline paragraph separation", () => {
+    it("splits single-newline-separated paragraphs into multiple <p> elements", async () => {
+      // Real markdown files use single newlines between paragraphs, not double
+      setupFetchMock({
+        markdown:
+          "# Title\n\nFirst paragraph ends here.\nSecond paragraph starts with capital.\nThird paragraph also separate.",
+      });
+      render(<RemedyReader slug="aconitum_napellus" />);
+      await waitFor(() => {
+        expect(screen.getByText("First paragraph ends here.")).toBeInTheDocument();
+      });
+
+      const paragraphs = document.querySelectorAll("p.my-3");
+      expect(paragraphs.length).toBe(3);
+    });
+
+    it("joins wrapped lines within a paragraph (continuation lines)", async () => {
+      // Lines that end mid-sentence (no terminal punctuation) should be joined
+      setupFetchMock({
+        markdown:
+          "# Title\n\nThis is a long sentence that\ncontinues on the next line without\nany break in the thought.",
+      });
+      render(<RemedyReader slug="aconitum_napellus" />);
+      await waitFor(() => {
+        expect(
+          screen.getByText(
+            "This is a long sentence that continues on the next line without any break in the thought."
+          )
+        ).toBeInTheDocument();
+      });
+
+      const paragraphs = document.querySelectorAll("p.my-3");
+      expect(paragraphs.length).toBe(1);
+    });
+
+    it("handles real-world markdown format with mixed wrapping and paragraph breaks", async () => {
+      // Mimics actual file format: some lines wrap mid-sentence, some are paragraph breaks
+      setupFetchMock({
+        markdown: [
+          "# Aconitum Napellus",
+          "",
+          "Aconite is a short-acting remedy. Its symptoms do not last long. It is a violent poison in",
+          "large doses, either destroying life or passing away in its effects quite soon.",
+          "Like a great storm, it comes and sweeps over and passes away.",
+          "Strong, robust people become sick from",
+          "violent exposure to cold.",
+        ].join("\n"),
+      });
+      render(<RemedyReader slug="aconitum_napellus" />);
+      await waitFor(() => {
+        // First paragraph: lines 3-4 joined (line 3 ends with "in" - continuation)
+        expect(
+          screen.getByText(/Aconite is a short-acting remedy.*quite soon\./)
+        ).toBeInTheDocument();
+      });
+
+      // Should have 3 paragraphs:
+      // 1. "Aconite...quite soon." (lines 3-4 joined)
+      // 2. "Like a great storm..." (line 5)
+      // 3. "Strong...cold." (lines 6-7 joined)
+      const paragraphs = document.querySelectorAll("p.my-3");
+      expect(paragraphs.length).toBe(3);
+    });
+  });
+
+  describe("FEATURE: scroll-to-highlight on load", () => {
+    it("scrolls to primary highlight element after loading", async () => {
+      const passage = "The anxiety that is found in Aconitum is overwhelming.";
+      setQueryParams({
+        symptoms: "Mind, anxiety",
+        highlight: passage,
+      });
+      setupFetchMock();
+
+      const scrollIntoViewMock = vi.fn();
+      // Mock scrollIntoView on any element that gets it called
+      Element.prototype.scrollIntoView = scrollIntoViewMock;
+
+      render(<RemedyReader slug="aconitum_napellus" />);
+
+      await waitFor(() => {
+        const primaryMark = document.querySelector('[data-highlight="primary"]');
+        expect(primaryMark).toBeTruthy();
+      });
+
+      // Wait for the 300ms setTimeout in the scroll effect
+      await waitFor(
+        () => {
+          expect(scrollIntoViewMock).toHaveBeenCalledWith({
+            behavior: "smooth",
+            block: "center",
+          });
+        },
+        { timeout: 1000 }
+      );
+    });
+
+    it("does not scroll when no highlight param is provided", async () => {
+      setQueryParams({ symptoms: "Mind, anxiety" });
+      setupFetchMock();
+
+      const scrollIntoViewMock = vi.fn();
+      Element.prototype.scrollIntoView = scrollIntoViewMock;
+
+      render(<RemedyReader slug="aconitum_napellus" />);
+
+      await waitFor(() => {
+        expect(screen.getByText(/matching passage/)).toBeInTheDocument();
+      });
+
+      // Give time for any potential scroll
+      await new Promise((r) => setTimeout(r, 500));
+      expect(scrollIntoViewMock).not.toHaveBeenCalled();
+    });
+  });
+
+  describe("FEATURE: MateriaPanel passage link includes highlight param", () => {
+    it("passage link href includes highlight query param with passage text", async () => {
+      const passage = "The anxiety that is found in Aconitum is overwhelming.";
+      setQueryParams({
+        symptoms: "Mind, anxiety",
+        highlight: passage,
+      });
+      setupFetchMock();
+      render(<RemedyReader slug="aconitum_napellus" />);
+
+      await waitFor(() => {
+        const primaryMark = document.querySelector('[data-highlight="primary"]');
+        expect(primaryMark).toBeTruthy();
+        expect(primaryMark!.textContent).toContain("anxiety");
+      });
+    });
+  });
 });
 
 // ---------- unit tests for exported helper functions ----------

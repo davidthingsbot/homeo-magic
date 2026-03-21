@@ -15,7 +15,7 @@ interface MateriaProfile {
 
 // ---------- markdown cleanup ----------
 function cleanMarkdown(raw: string): string {
-  // Split on double newlines to get real paragraphs
+  // Split on double newlines to get major blocks (around headings)
   const blocks = raw.split(/\n\n+/);
   const cleaned: string[] = [];
 
@@ -27,9 +27,39 @@ function cleanMarkdown(raw: string): string {
       // Headings and blockquotes: preserve as-is
       cleaned.push(trimmed);
     } else {
-      // Regular paragraph: join wrapped lines within the block into one paragraph
-      const joined = trimmed.replace(/\n/g, " ").replace(/\s+/g, " ");
-      cleaned.push(joined);
+      // The actual markdown files use single newlines between paragraphs.
+      // Detect paragraph breaks: a line ending with terminal punctuation
+      // followed by a line starting with a capital letter is a paragraph break.
+      // Lines ending mid-sentence are continuations and get joined.
+      const lines = trimmed.split("\n");
+      const paragraphs: string[] = [];
+      let current: string[] = [];
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+
+        current.push(line);
+
+        if (i < lines.length - 1) {
+          const nextLine = lines[i + 1].trim();
+          const endsWithTerminal = /[.!?"\u201d)']$/.test(line);
+          const nextStartsNewSentence = /^[A-Z\u201c"]/.test(nextLine);
+
+          if (endsWithTerminal && nextStartsNewSentence) {
+            // Paragraph boundary: flush current lines as one paragraph
+            paragraphs.push(current.join(" ").replace(/\s+/g, " "));
+            current = [];
+          }
+        }
+      }
+
+      // Flush remaining lines
+      if (current.length > 0) {
+        paragraphs.push(current.join(" ").replace(/\s+/g, " "));
+      }
+
+      cleaned.push(paragraphs.join("\n\n"));
     }
   }
 
