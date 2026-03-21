@@ -1,0 +1,1013 @@
+{
+  "sulphuricum_acidum": {
+    "remedy": "Sulphuricum Acidum",
+    "passages": [
+      {
+        "keywords": [
+          "quivering",
+          "trembling",
+          "weakness",
+          "exhaustion"
+        ],
+        "passage": "The sensation of quivering all over the body and in the limbs without visible trembling is a very strong symptom of Sulphuric acid, and especially if it is associated with weakness that has been of long standing. The exhaustion, excitability and hurried feeling are constant factors."
+      },
+      {
+        "keywords": [
+          "hemorrhage",
+          "purpura",
+          "black fluid blood"
+        ],
+        "passage": "The hemorrhagic disposition with many complaints. Black fluid blood from all the orifices of the body. Small red spots enlarging rapidly to resemble Purpura hoemorrhagica. Blue-black spots on the skin from slight injury."
+      },
+      {
+        "keywords": [
+          "ecchymoses",
+          "blood spots",
+          "skin",
+          "injuries"
+        ],
+        "passage": "Blood-red spots on the skin like those on a brook trout sometimes after injuries."
+      },
+      {
+        "keywords": [
+          "chafing",
+          "ulceration",
+          "boils",
+          "bedsores",
+          "old people"
+        ],
+        "passage": "Chafing easily, followed by ulceration. Boils and bedsores. It has many of the complaints found in old people."
+      },
+      {
+        "keywords": [
+          "morning aggravation",
+          "cold",
+          "emaciation"
+        ],
+        "passage": "The morning aggravation of symptoms is also a strong feature. Sensitive to cold and emaciation."
+      },
+      {
+        "keywords": [
+          "pains",
+          "bruised",
+          "burning",
+          "tearing",
+          "stitching"
+        ],
+        "passage": "The pains are bruised, burning, tearing, stitching, shooting and jerking. The pain comes on slowly and departs suddenly."
+      },
+      {
+        "keywords": [
+          "discharges",
+          "dark blood",
+          "excoriating"
+        ],
+        "passage": "The discharges are dark, thin blood or blood-streaked; or thin, yellow and bloody. The discharges are excoriating."
+      },
+      {
+        "keywords": [
+          "sweat",
+          "eating",
+          "right side"
+        ],
+        "passage": "General sweat after eating. The symptoms predominate on the right side."
+      },
+      {
+        "keywords": [
+          "sour",
+          "babies",
+          "sensitive",
+          "cold",
+          "Hepar",
+          "Pulsatilla"
+        ],
+        "passage": "It is often indicated in sour-smelling babies like Hepar, and it is as sensitive to touch and nearly as sensitive to cold. When it has cured the sensitiveness to cold the patient often becomes worse and requires Pulsatilla, which is the complement and antidote."
+      },
+      {
+        "keywords": [
+          "prostration",
+          "sadness",
+          "weeping",
+          "mind"
+        ],
+        "passage": "Prostration of mind and body, with extreme sadness, weeps continuously."
+      },
+      {
+        "keywords": [
+          "irritable",
+          "fretful",
+          "hurried",
+          "impatient"
+        ],
+        "passage": "Nothing can be done to please him. Fretful and irritable over the slightest cause. He cannot eat and work fast enough. No one does anything to please him; in such a hurry if doing anything or going anywhere. All things must be done at once."
+      },
+      {
+        "keywords": [
+          "irresolution",
+          "unwilling to answer"
+        ],
+        "passage": "Unwilling to answer. Irresolution."
+      },
+      {
+        "keywords": [
+          "vertigo",
+          "close room",
+          "open air",
+          "lying"
+        ],
+        "passage": "Vertigo in close room. Better walking in the open air. Better lying. Sometimes compelling him to keep his bed."
+      },
+      {
+        "keywords": [
+          "forehead",
+          "tension",
+          "coryza"
+        ],
+        "passage": "Tension in the forehead with coryza."
+      },
+      {
+        "keywords": [
+          "brain",
+          "loose",
+          "falling",
+          "sitting still",
+          "walking"
+        ],
+        "passage": "The brain seems loose and seems to fall to side lain on, better sitting perfectly still, worse walking."
+      },
+      {
+        "keywords": [
+          "congestion",
+          "head",
+          "cold feet"
+        ],
+        "passage": "The blood flows strongly to the head and the feet become cold."
+      },
+      {
+        "keywords": [
+          "electric shocks",
+          "forehead",
+          "temples"
+        ],
+        "passage": "Electric shocks in forehead and temples in forenoon and again in evening."
+      },
+      {
+        "keywords": [
+          "plug",
+          "skull",
+          "blows",
+          "headache"
+        ],
+        "passage": "Sensation as though a plug were being driven into the skull by strong blows."
+      },
+      {
+        "keywords": [
+          "headache",
+          "debilitated",
+          "pains slowly",
+          "cease suddenly"
+        ],
+        "passage": "The pains in the head come on slowly and cease suddenly. Violent headaches in debilitated people."
+      },
+      {
+        "keywords": [
+          "periosteum",
+          "soreness",
+          "syphilis"
+        ],
+        "passage": "Extreme soreness in the periosteum such as is found in syphilis."
+      },
+      {
+        "keywords": [
+          "hair",
+          "falling",
+          "gray",
+          "scalp",
+          "ulceration",
+          "eruptions"
+        ],
+        "passage": "The hair falls out or turns gray. Ulceration of the scalp. Extremely sensitive eruptions."
+      },
+      {
+        "keywords": [
+          "lachrymation",
+          "reading",
+          "eyes"
+        ],
+        "passage": "Lachrymation when reading."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "chronic inflammation",
+          "enlarged veins",
+          "ulceration"
+        ],
+        "passage": "Chronic inflammation of the eye, with enlarged veins and ulceration."
+      },
+      {
+        "keywords": [
+          "foreign body",
+          "canthus",
+          "right eye"
+        ],
+        "passage": "Sensation of foreign body in right outer canthus."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "soreness",
+          "coryza"
+        ],
+        "passage": "Soreness in the eyes with coryza."
+      },
+      {
+        "keywords": [
+          "ear",
+          "pains",
+          "gradually increase",
+          "cease suddenly"
+        ],
+        "passage": "Severe ear pains that increase gradually and cease suddenly."
+      },
+      {
+        "keywords": [
+          "hearing loss",
+          "gradual"
+        ],
+        "passage": "Gradual loss of hearing."
+      },
+      {
+        "keywords": [
+          "ear",
+          "bloody discharge",
+          "buzzing"
+        ],
+        "passage": "Bloody discharge from ear. Buzzing in the ear."
+      },
+      {
+        "keywords": [
+          "nose",
+          "epistaxis",
+          "dark blood",
+          "oozing",
+          "evening"
+        ],
+        "passage": "Slowly oozing, dark, thin blood from the nose in the evening."
+      },
+      {
+        "keywords": [
+          "nose",
+          "acrid",
+          "bloody discharge",
+          "feeble"
+        ],
+        "passage": "It cures acrid, bloody discharge from nose in feeble patients when the generals are covered by it."
+      },
+      {
+        "keywords": [
+          "coryza",
+          "loss of smell",
+          "loss of taste"
+        ],
+        "passage": "The coryza is dry or fluid with loss of smell and taste."
+      },
+      {
+        "keywords": [
+          "face",
+          "pale",
+          "sickly",
+          "jaundiced",
+          "suffering",
+          "emaciation"
+        ],
+        "passage": "The face of the Sulphuric acid patient is a most sickly one. Pale, sickly and sometimes jaundiced. The expression of long suffering is marked. The deep lines of pain, depletion and emaciation."
+      },
+      {
+        "keywords": [
+          "face",
+          "tension",
+          "egg white",
+          "dried"
+        ],
+        "passage": "Tension of the face or a sensation as though white of egg had dried on it."
+      },
+      {
+        "keywords": [
+          "neuralgia",
+          "face",
+          "gradually",
+          "suddenly",
+          "warmth",
+          "lying"
+        ],
+        "passage": "Violent neuralgic pains of the face coming on gradually and ceasing suddenly, ameliorated by warmth and lying on the painful side."
+      },
+      {
+        "keywords": [
+          "face",
+          "red spots",
+          "increasing",
+          "submaxillary gland"
+        ],
+        "passage": "Small red spots or specks on the face gradually increasing in size. Inflammation of the submaxillary gland."
+      },
+      {
+        "keywords": [
+          "teeth",
+          "decay",
+          "early"
+        ],
+        "passage": "The teeth decay early."
+      },
+      {
+        "keywords": [
+          "neuralgia",
+          "teeth",
+          "slowly",
+          "suddenly",
+          "cold",
+          "heat",
+          "evening"
+        ],
+        "passage": "Violent neuralgia of the teeth, coming on slowly and ceasing suddenly. Worse from cold and better from heat, worse in the evening in bed."
+      },
+      {
+        "keywords": [
+          "teeth",
+          "on edge"
+        ],
+        "passage": "The teeth are on edge."
+      },
+      {
+        "keywords": [
+          "taste",
+          "loss",
+          "coryza"
+        ],
+        "passage": "Loss of taste during coryza."
+      },
+      {
+        "keywords": [
+          "sore mouth",
+          "nursing",
+          "aphthous",
+          "ulcers"
+        ],
+        "passage": "The sore mouth is one of its most important features. It is our most frequently indicated remedy for nursing sore mouth. The aphthous mouth of infant or mother with yellowish or whitish ulcers."
+      },
+      {
+        "keywords": [
+          "saliva",
+          "bloody",
+          "vesicles",
+          "mouth"
+        ],
+        "passage": "Bloody saliva from mouth; vesicles in the mouth."
+      },
+      {
+        "keywords": [
+          "breath",
+          "offensive"
+        ],
+        "passage": "Breath very offensive."
+      },
+      {
+        "keywords": [
+          "bleeding",
+          "gums",
+          "mouth",
+          "purpura",
+          "ulcers spreading"
+        ],
+        "passage": "Bleeding from the mucous surfaces of mouth and gums with or without Purpura hoemorrhagica. Rapidly spreading ulcers in the mouth."
+      },
+      {
+        "keywords": [
+          "throat",
+          "aphthous",
+          "follicular",
+          "inflammation"
+        ],
+        "passage": "Inflammation of the throat that is aphthous or follicular. Denuded mucous membrane."
+      },
+      {
+        "keywords": [
+          "diphtheria",
+          "exudate",
+          "yellowish",
+          "bleeding",
+          "aphthous"
+        ],
+        "passage": "Diphtheritic exudate yellowish or white with aphthous surroundings and bleeding from nose, gums or other parts."
+      },
+      {
+        "keywords": [
+          "diphtheria",
+          "exhaustion",
+          "foetor"
+        ],
+        "passage": "Diphtheria with more than ordinary exhaustion and foetor."
+      },
+      {
+        "keywords": [
+          "uvula",
+          "oedematous",
+          "throat",
+          "ulcers",
+          "spreading"
+        ],
+        "passage": "The uvula is oedematous. The throat is full of spreading ulcers."
+      },
+      {
+        "keywords": [
+          "sore throat",
+          "swallowing",
+          "painful"
+        ],
+        "passage": "Painful sore throat with painful, difficult swallowing."
+      },
+      {
+        "keywords": [
+          "throat",
+          "fluids",
+          "nose",
+          "regurgitation"
+        ],
+        "passage": "During the throat troubles fluids drunk run out of nose."
+      },
+      {
+        "keywords": [
+          "salivation",
+          "tonsils",
+          "swollen",
+          "palate",
+          "throat"
+        ],
+        "passage": "Salivation, glands of throat swollen and there is great swelling of the tonsils, soft palate and throat in general. Dark fluid blood from throat and mouth."
+      },
+      {
+        "keywords": [
+          "craving",
+          "brandy",
+          "fruit"
+        ],
+        "passage": "He craves brandy and fruit."
+      },
+      {
+        "keywords": [
+          "appetite",
+          "loss",
+          "weakness",
+          "coffee aversion"
+        ],
+        "passage": "Loss of appetite and progressive weakness are strong features. Aversion to the smell of coffee."
+      },
+      {
+        "keywords": [
+          "cold water",
+          "stomach",
+          "chilly"
+        ],
+        "passage": "He cannot drink cold water, as it feels so cold in the stomach and makes him chilly."
+      },
+      {
+        "keywords": [
+          "hiccough",
+          "spasmodic",
+          "drunkards"
+        ],
+        "passage": "Violent, spasmodic hiccough, such as occurs in drunkards."
+      },
+      {
+        "keywords": [
+          "heartburn",
+          "sour",
+          "belching",
+          "vomiting",
+          "teeth on edge"
+        ],
+        "passage": "Chronic heart burn. Sour belching. Sour vomiting. The teeth are always on edge from sour eructations."
+      },
+      {
+        "keywords": [
+          "pregnancy",
+          "sour vomiting"
+        ],
+        "passage": "Sour vomiting during pregnancy."
+      },
+      {
+        "keywords": [
+          "drunkards",
+          "morning vomiting",
+          "sour",
+          "foul"
+        ],
+        "passage": "Vomiting of drunkards in the morning. Sour and very foul."
+      },
+      {
+        "keywords": [
+          "nausea",
+          "shivering",
+          "coughing",
+          "belching sour"
+        ],
+        "passage": "Nausea and shivering. Coughing and belching sour fluids."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "relaxed",
+          "hanging down"
+        ],
+        "passage": "The stomach seems to hang down as if relaxed."
+      },
+      {
+        "keywords": [
+          "vomiting",
+          "cold water",
+          "stomach pains",
+          "spasmodic"
+        ],
+        "passage": "Vomiting after drinking cold water. Violent, spasmodic pains in the stomach. The pains come gradually and cease suddenly."
+      },
+      {
+        "keywords": [
+          "vomiting",
+          "mucus",
+          "pain in stomach",
+          "cannot eat"
+        ],
+        "passage": "She does not vomit food, but cannot eat, as it causes pain in stomach and she vomits mucus."
+      },
+      {
+        "keywords": [
+          "spleen",
+          "enlarged",
+          "intermittent fever",
+          "coughing",
+          "sore"
+        ],
+        "passage": "After intermittent fever had existed some time the spleen enlarges, and is painful on coughing and sore to touch."
+      },
+      {
+        "keywords": [
+          "spleen",
+          "liver",
+          "stitching pains"
+        ],
+        "passage": "Stitching pains in spleen and liver."
+      },
+      {
+        "keywords": [
+          "lead poisoning",
+          "lead colic"
+        ],
+        "passage": "It has many times overcome the poison of lead and lead colic."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "sinking",
+          "weakness",
+          "after stool"
+        ],
+        "passage": "Sinking, weak feeling in abdomen after stool."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "weak",
+          "menses",
+          "labor-like pains",
+          "hips",
+          "back"
+        ],
+        "passage": "Weak feeling in abdomen, as though menses would come on. Labor-like pains in abdomen, extending to hips and back."
+      },
+      {
+        "keywords": [
+          "diarrhoea",
+          "weakness",
+          "trembling",
+          "sinking"
+        ],
+        "passage": "Diarrhoea with great general weakness and sensation of trembling. With weak, sinking sensation in the abdomen after stool. Chronic diarrhoea with much suffering."
+      },
+      {
+        "keywords": [
+          "stool",
+          "excoriating",
+          "burning",
+          "rectum"
+        ],
+        "passage": "Excoriating stools, burning in rectum during stool."
+      },
+      {
+        "keywords": [
+          "diarrhoea",
+          "indiscretion",
+          "fruit",
+          "unripe",
+          "oysters"
+        ],
+        "passage": "Diarrhoea brought on from the least indiscretion in eating, after fruit, especially if unripe, after oysters."
+      },
+      {
+        "keywords": [
+          "stool",
+          "watery",
+          "orange yellow",
+          "stringy",
+          "mucous",
+          "blood",
+          "greenish",
+          "black",
+          "spoiled eggs"
+        ],
+        "passage": "Stool watery orange yellow, stringy, mucous, mixed with blood, greenish, black, undigested smelling like spoiled eggs."
+      },
+      {
+        "keywords": [
+          "hemorrhoids",
+          "sore",
+          "itching",
+          "painful",
+          "drunkards"
+        ],
+        "passage": "Hemorrhoids very sore, itching, painful during stool, in drunkards."
+      },
+      {
+        "keywords": [
+          "constipation",
+          "small balls"
+        ],
+        "passage": "In constipation the stool is in small balls."
+      },
+      {
+        "keywords": [
+          "bladder",
+          "pain",
+          "desire postponed",
+          "urination"
+        ],
+        "passage": "Pain in the bladder if the desire to pass urine is postponed."
+      },
+      {
+        "keywords": [
+          "diabetes",
+          "scanty urine",
+          "bloody urine"
+        ],
+        "passage": "It has cured diabetes. Scanty urine. Bloody urine. Cuticle in the urine."
+      },
+      {
+        "keywords": [
+          "menses",
+          "frequent",
+          "copious",
+          "dark",
+          "thin"
+        ],
+        "passage": "The menses are too frequent and copious and the flow is dark and thin."
+      },
+      {
+        "keywords": [
+          "nightmare",
+          "before menses",
+          "close of menses"
+        ],
+        "passage": "Many symptoms come before the menses. Nightmare before menses. Has nightmare at the close of the menses."
+      },
+      {
+        "keywords": [
+          "vagina",
+          "prolapsed",
+          "gangrenous"
+        ],
+        "passage": "The vagina is prolapsed and gangrenous."
+      },
+      {
+        "keywords": [
+          "leucorrhoea",
+          "bloody",
+          "acrid",
+          "milky",
+          "albuminous",
+          "yellow"
+        ],
+        "passage": "Leucorrhoea bloody, acrid, milky or albuminous, yellow."
+      },
+      {
+        "keywords": [
+          "climacteric",
+          "flashes of heat",
+          "trembling",
+          "hurry",
+          "bleeding",
+          "constipation"
+        ],
+        "passage": "The woman at the climacteric period has many symptoms peculiar to Sulphuric acid. The flashes of heat, weakness, sensation of trembling, a nervous hurry in all her actions and feelings, bleeding from uterus and other parts of blood that does not coagulate, and constipation with small, hard balls like sheep's dung are symptoms common to the critical period."
+      },
+      {
+        "keywords": [
+          "vomiting",
+          "pregnancy",
+          "cough"
+        ],
+        "passage": "It often causes the vomiting of pregnancy. Vomiting preceded by cough."
+      },
+      {
+        "keywords": [
+          "sterility",
+          "menstrual flow",
+          "copious"
+        ],
+        "passage": "It has cured sterility when it was supposed to depend upon the copious and frequent menstrual flow."
+      },
+      {
+        "keywords": [
+          "vulva",
+          "itching",
+          "violent"
+        ],
+        "passage": "Violent itching of the vulva."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "pain",
+          "soreness",
+          "swallowing"
+        ],
+        "passage": "Pain and soreness in the larynx. Pain in the larynx on swallowing."
+      },
+      {
+        "keywords": [
+          "hoarseness",
+          "dry",
+          "roughness",
+          "larynx"
+        ],
+        "passage": "Hoarseness with a dry feeling and sensation of roughness in the larynx."
+      },
+      {
+        "keywords": [
+          "chest",
+          "weak",
+          "dyspnoea",
+          "nasal flaring"
+        ],
+        "passage": "Weak chest and great dyspnoea. Rapid movement of the wings of nose like Lycopodium. Rapid moving up and down of the larynx during the dyspnoea. Short of breath."
+      },
+      {
+        "keywords": [
+          "cough",
+          "dry",
+          "hacking",
+          "morning",
+          "open air",
+          "cold drinks",
+          "coffee odor"
+        ],
+        "passage": "Except in the morning the cough is dry and hacking. Sometimes in two coughs. He coughs in the open air, either walking or riding, worse from cold drinks and from the odor of coffee."
+      },
+      {
+        "keywords": [
+          "cough",
+          "itching",
+          "vomiting"
+        ],
+        "passage": "Cough followed by itching and vomiting."
+      },
+      {
+        "keywords": [
+          "expectoration",
+          "morning",
+          "dark blood",
+          "yellowish",
+          "blood-streaked",
+          "sour"
+        ],
+        "passage": "The expectoration is in the morning of dark, thin blood, or of thin, yellowish, blood-streaked mucus tasting sour."
+      },
+      {
+        "keywords": [
+          "chest",
+          "weakness",
+          "burning",
+          "stitching",
+          "pressure left side"
+        ],
+        "passage": "Weakness in the chest with burning and stitching pain. Pressure on left side of chest."
+      },
+      {
+        "keywords": [
+          "lung hemorrhage",
+          "dark blood",
+          "pneumonia",
+          "climacteric"
+        ],
+        "passage": "Profuse haemorrhage from the lungs of dark fluid blood, after pneumonia, and during the climacteric period."
+      },
+      {
+        "keywords": [
+          "lung ulceration",
+          "oppression",
+          "suffocation",
+          "legs hanging down"
+        ],
+        "passage": "Ulceration of lungs. Oppression of the chest and suffocation unless he lets the legs hang down."
+      },
+      {
+        "keywords": [
+          "phthisis",
+          "sweat",
+          "weakness",
+          "hemorrhage",
+          "last stage"
+        ],
+        "passage": "It has been a very useful remedy in the first steps of phthisis with profuse sweat and great weakness, but where given in the last stage it has appeared to bring on haemorrhage and increase of the inflammatory condition in the lungs."
+      },
+      {
+        "keywords": [
+          "heart",
+          "stitching",
+          "palpitation",
+          "pleurisy",
+          "exudation"
+        ],
+        "passage": "Stitching pains in the heart, palpitation. It has been useful in pleuritic exudation."
+      },
+      {
+        "keywords": [
+          "spine",
+          "weakness",
+          "standing",
+          "sitting"
+        ],
+        "passage": "Great weakness in the spine, felt mostly when standing and sitting."
+      },
+      {
+        "keywords": [
+          "lumbar",
+          "pain",
+          "shoulder blades",
+          "soreness",
+          "coughing"
+        ],
+        "passage": "Pain in the lumbar region. Soreness between shoulder blades when coughing."
+      },
+      {
+        "keywords": [
+          "back",
+          "stiffening",
+          "morning",
+          "rising",
+          "abscess",
+          "neck"
+        ],
+        "passage": "Stiffening of the back in the morning on rising. Large abscess on the right side of the neck."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "black and blue",
+          "ecchymoses"
+        ],
+        "passage": "Black and blue spots on the limbs."
+      },
+      {
+        "keywords": [
+          "shoulder",
+          "stitching",
+          "lifting arm",
+          "finger joints"
+        ],
+        "passage": "Stitching pain in the shoulder joint on lifting the arm. Stitches in finger joints."
+      },
+      {
+        "keywords": [
+          "thighs",
+          "chafing",
+          "knees",
+          "ankles",
+          "weakness"
+        ],
+        "passage": "Chafing of thighs after rising. Marked weakness in knees and ankles."
+      },
+      {
+        "keywords": [
+          "veins",
+          "swollen",
+          "feet",
+          "chilblains",
+          "frostbite"
+        ],
+        "passage": "Swollen veins of feet. Chilblains of frost-bitten parts."
+      },
+      {
+        "keywords": [
+          "twitching",
+          "fingers",
+          "sleep"
+        ],
+        "passage": "Twitching of fingers during sleep."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "late falling asleep",
+          "early waking",
+          "nightmare"
+        ],
+        "passage": "Late falling asleep and wakens too early. Nightmare before menses."
+      },
+      {
+        "keywords": [
+          "chilliness",
+          "flashes of heat",
+          "sweat",
+          "sour",
+          "cold",
+          "motion",
+          "eating"
+        ],
+        "passage": "It has chilliness, flashes of heat with sweat. Copious sweat, mostly on upper part of body, from motion, sour, cold, after eating warm food. Morning sweats. Night sweats."
+      },
+      {
+        "keywords": [
+          "typhoid",
+          "prostration",
+          "capillary bleeding",
+          "dark thin blood"
+        ],
+        "passage": "Typhoid fever with great prostration. Bleeding from capillaries. Dark, thin blood."
+      },
+      {
+        "keywords": [
+          "hemorrhage",
+          "bowels",
+          "putrid fever",
+          "cadaveric"
+        ],
+        "passage": "Haemorrhage of dark, thin blood from the bowels. Putrid forms of continued fever. Cadaveric countenance."
+      },
+      {
+        "keywords": [
+          "purpura",
+          "cicatrices",
+          "red",
+          "painful",
+          "old scars"
+        ],
+        "passage": "Ecchymoses, purpura haemorrhagica. Old cicatrices turn red and become painful."
+      },
+      {
+        "keywords": [
+          "eruptions",
+          "itching",
+          "prickling",
+          "pimples",
+          "red blotches",
+          "livid spots"
+        ],
+        "passage": "Itching and prickling with eruptions. Pimples. Red itching blotches on the skin. Livid spots."
+      },
+      {
+        "keywords": [
+          "contusions",
+          "bedsores",
+          "boils",
+          "abscesses",
+          "urticaria"
+        ],
+        "passage": "Contusions, bedsores. Boils and abscesses. Nodular urticarias."
+      },
+      {
+        "keywords": [
+          "ulcers",
+          "indolent",
+          "bleeding",
+          "dark blood",
+          "spreading",
+          "stinging",
+          "burning"
+        ],
+        "passage": "It cures old indolent ulcers that bleed easily dark blood. Sensitive painful spreading ulcers. Stinging burning pain in ulcers."
+      },
+      {
+        "keywords": [
+          "ulcers",
+          "putrid",
+          "legs",
+          "drunkards",
+          "fever",
+          "yellow discharge"
+        ],
+        "passage": "It has cured putrid ulcers on legs. It is useful in ulcers of drunkards, in ulcers following a low form of fever. Thin yellow or bloody discharge."
+      }
+    ],
+    "count": 110
+  }
+}

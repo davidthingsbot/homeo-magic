@@ -1,0 +1,4164 @@
+{
+  "carboneum_sulphuratum": {
+    "remedy": "Carboneum Sulphuratum",
+    "passages": [
+      {
+        "keywords": [
+          "morning",
+          "forenoon",
+          "afternoon",
+          "evening",
+          "night",
+          "modalities",
+          "aggravation"
+        ],
+        "passage": "The complaints and symptoms of Carbon bisulphide are worse in the morning, forenoon, afternoon, evening, night, before midnight."
+      },
+      {
+        "keywords": [
+          "depth of action",
+          "open air",
+          "draft"
+        ],
+        "passage": "It is a remedy of great depth of action, frequently indicated and long neglected. Strong desire for open air and the open window; better in the open air but worse from a draft."
+      },
+      {
+        "keywords": [
+          "alcoholism",
+          "drunkards",
+          "broken down"
+        ],
+        "passage": "It is our most useful remedy in patients broken down from the long use of alcoholic stimulants."
+      },
+      {
+        "keywords": [
+          "weakness",
+          "suffocation",
+          "ascending",
+          "stairs"
+        ],
+        "passage": "Weakness and suffocation from ascending stairs."
+      },
+      {
+        "keywords": [
+          "bathing",
+          "aggravation"
+        ],
+        "passage": "Bathing brings on many symptoms."
+      },
+      {
+        "keywords": [
+          "breakfast",
+          "aggravation"
+        ],
+        "passage": "Many symptoms are worse after breakfast."
+      },
+      {
+        "keywords": [
+          "cancer",
+          "lupus",
+          "graphites"
+        ],
+        "passage": "It is a most useful remedy to restrain the growth of cancer (like Graphites) and it has cured lupus."
+      },
+      {
+        "keywords": [
+          "weather",
+          "warm",
+          "damp",
+          "sensitivity"
+        ],
+        "passage": "He is extremely sensitive to every change of weather, especially to warm damp weather."
+      },
+      {
+        "keywords": [
+          "chlorosis"
+        ],
+        "passage": "A condition not unlike chlorosis is produced by this drug."
+      },
+      {
+        "keywords": [
+          "rheumatism",
+          "chronic",
+          "joints"
+        ],
+        "passage": "It is very useful in chronic rheumatism, especially of the joints."
+      },
+      {
+        "keywords": [
+          "clothing",
+          "sensitivity"
+        ],
+        "passage": "Extremely sensitive to the clothing."
+      },
+      {
+        "keywords": [
+          "cold",
+          "heat",
+          "sensitivity",
+          "aggravation"
+        ],
+        "passage": "It is sensitive to both cold and heat. Cold in general aggravates or brings on many symptoms."
+      },
+      {
+        "keywords": [
+          "cold",
+          "overheated",
+          "takes cold"
+        ],
+        "passage": "Worse from becoming cold; from cold air; after becoming cold; takes cold easily; takes cold from exposure to cold air when overheated."
+      },
+      {
+        "keywords": [
+          "collapse",
+          "carbo vegetabilis"
+        ],
+        "passage": "Like Carbo veg. it is a most useful remedy in collapse."
+      },
+      {
+        "keywords": [
+          "venous stasis",
+          "constriction",
+          "band"
+        ],
+        "passage": "Marked venous stasis in organs and parts. Constriction of any parts. Constriction like a band around parts."
+      },
+      {
+        "keywords": [
+          "heart",
+          "constriction"
+        ],
+        "passage": "Constriction of the heart."
+      },
+      {
+        "keywords": [
+          "epilepsy",
+          "spasms",
+          "clonic"
+        ],
+        "passage": "It is suitable in clonic and epileptic spasms."
+      },
+      {
+        "keywords": [
+          "dwarfishness",
+          "body",
+          "mind"
+        ],
+        "passage": "Dwarfishness of body and mind."
+      },
+      {
+        "keywords": [
+          "varicose veins",
+          "blood vessels",
+          "distension"
+        ],
+        "passage": "Distension of the blood vessels and varicose veins."
+      },
+      {
+        "keywords": [
+          "oedema",
+          "extremities"
+        ],
+        "passage": "Oedema of the extremities."
+      },
+      {
+        "keywords": [
+          "emaciation",
+          "muscles",
+          "shrinking"
+        ],
+        "passage": "Gradual shrinking of all the muscles, even to marked emaciation."
+      },
+      {
+        "keywords": [
+          "lymphatic",
+          "glands",
+          "enlarged"
+        ],
+        "passage": "The lymphatic glands are enlarged."
+      },
+      {
+        "keywords": [
+          "fainting",
+          "stupefaction",
+          "memory loss"
+        ],
+        "passage": "Fainting followed by stupefaction and loss of memory."
+      },
+      {
+        "keywords": [
+          "cold feet",
+          "fat food",
+          "milk",
+          "warm drinks"
+        ],
+        "passage": "Symptoms are worse from cold feet; fat food; milk; warm foods; warm drinks ameliorate."
+      },
+      {
+        "keywords": [
+          "fullness",
+          "venous engorgement"
+        ],
+        "passage": "Full feeling internally and general venous engorgement."
+      },
+      {
+        "keywords": [
+          "gout",
+          "joints"
+        ],
+        "passage": "Gouty condition of joints."
+      },
+      {
+        "keywords": [
+          "hemorrhage",
+          "passive"
+        ],
+        "passage": "Passive hemorrhage."
+      },
+      {
+        "keywords": [
+          "vital heat",
+          "lack"
+        ],
+        "passage": "Lack of vital heat."
+      },
+      {
+        "keywords": [
+          "heaviness",
+          "internal",
+          "external"
+        ],
+        "passage": "Internal and external heaviness."
+      },
+      {
+        "keywords": [
+          "induration",
+          "glands"
+        ],
+        "passage": "Induration of glands."
+      },
+      {
+        "keywords": [
+          "lassitude",
+          "desire to lie down"
+        ],
+        "passage": "Marked lassitude and constant desire to lie down."
+      },
+      {
+        "keywords": [
+          "jar",
+          "stepping",
+          "aggravation"
+        ],
+        "passage": "Many conditions are worse from a jar and from stepping."
+      },
+      {
+        "keywords": [
+          "anaesthesia",
+          "skin",
+          "mucous membranes"
+        ],
+        "passage": "Anaesthesia of the skin and mucous membranes."
+      },
+      {
+        "keywords": [
+          "straining",
+          "muscles",
+          "weakness"
+        ],
+        "passage": "Weakness follows straining of muscles."
+      },
+      {
+        "keywords": [
+          "lying",
+          "amelioration",
+          "respiration",
+          "head"
+        ],
+        "passage": "Lying ameliorates except respiration and head symptoms. Feels better while lying."
+      },
+      {
+        "keywords": [
+          "menses",
+          "aggravation",
+          "before",
+          "during",
+          "after"
+        ],
+        "passage": "Complaints worse before, DURING and after menses."
+      },
+      {
+        "keywords": [
+          "motion",
+          "aggravation",
+          "dreads"
+        ],
+        "passage": "Motion increases all symptoms and he dreads motion."
+      },
+      {
+        "keywords": [
+          "mucous",
+          "secretions",
+          "copious",
+          "thick",
+          "viscid"
+        ],
+        "passage": "Mucous secretions copious, thick and viscid."
+      },
+      {
+        "keywords": [
+          "numbness",
+          "single parts",
+          "lain on"
+        ],
+        "passage": "Numbness of single parts and parts lain on."
+      },
+      {
+        "keywords": [
+          "pain",
+          "bones",
+          "glands",
+          "paroxysmal"
+        ],
+        "passage": "Pain in bones and glands. Pains of many kinds in all parts of the body. Short and quick attacks and at regular intervals. Paroxysmal pains."
+      },
+      {
+        "keywords": [
+          "sore",
+          "bruised",
+          "burning",
+          "cutting",
+          "jerking",
+          "shooting"
+        ],
+        "passage": "Sore bruised pains in body and limbs. Burning pains internal and external. Cutting, JERKING and shooting pains."
+      },
+      {
+        "keywords": [
+          "pressing",
+          "stitching",
+          "tearing",
+          "wandering"
+        ],
+        "passage": "Pressing pains are very common in all parts. Stitching pains and itching stitching pains in all parts. Violent tearing pains; extending downwards. Wandering pains; wandering, jerking, stitching pains."
+      },
+      {
+        "keywords": [
+          "paralysis",
+          "one-sided",
+          "organs",
+          "painless"
+        ],
+        "passage": "Paralysis one sided; of organs; painless."
+      },
+      {
+        "keywords": [
+          "pressure",
+          "amelioration",
+          "pulsation"
+        ],
+        "passage": "Pressure helps most symptoms. Pulsation all over the body."
+      },
+      {
+        "keywords": [
+          "pulse",
+          "spasmodic",
+          "rapid",
+          "slow"
+        ],
+        "passage": "Pulse spasmodic and rapid; pulse slow: 52."
+      },
+      {
+        "keywords": [
+          "rheumatic",
+          "fever"
+        ],
+        "passage": "Rheumatic conditions with or without fever. Chronic rheumatic states."
+      },
+      {
+        "keywords": [
+          "sensitiveness",
+          "pain"
+        ],
+        "passage": "Extreme sensitiveness to pain. He is worse after pain and from standing."
+      },
+      {
+        "keywords": [
+          "stiffness",
+          "body",
+          "limbs"
+        ],
+        "passage": "Stiffness in body and limbs."
+      },
+      {
+        "keywords": [
+          "summer heat",
+          "complaints"
+        ],
+        "passage": "Complaints from summer heat."
+      },
+      {
+        "keywords": [
+          "dropsy",
+          "swelling",
+          "glands"
+        ],
+        "passage": "Dropsical swelling and swollen glands."
+      },
+      {
+        "keywords": [
+          "trembling",
+          "tubercular",
+          "lungs",
+          "bowels"
+        ],
+        "passage": "Trembling all over; tubercular tendency; lungs and bowels."
+      },
+      {
+        "keywords": [
+          "twitching",
+          "muscles"
+        ],
+        "passage": "Twitching of muscles."
+      },
+      {
+        "keywords": [
+          "wine",
+          "aggravation"
+        ],
+        "passage": "Wine increases all his sufferings and brings on many complaints."
+      },
+      {
+        "keywords": [
+          "walking",
+          "aggravation",
+          "open air"
+        ],
+        "passage": "Walking increases sufferings; walking in open air aggravates many symptoms."
+      },
+      {
+        "keywords": [
+          "summer",
+          "winter",
+          "warm",
+          "cold",
+          "aggravation"
+        ],
+        "passage": "He is worse from the heat of summer and from the cold of winter. Worse from warm wraps, warm room, warm bed and warmth in general, yet he is sensitive to cold."
+      },
+      {
+        "keywords": [
+          "weakness",
+          "morning",
+          "drunkards",
+          "summer",
+          "menses",
+          "stool"
+        ],
+        "passage": "EXTREME WEAKNESS in the morning; in old drunkards; in the heat of summer; during menses; after stool. Painful weariness in the morning."
+      },
+      {
+        "keywords": [
+          "absent minded",
+          "irascible",
+          "breaks things"
+        ],
+        "passage": "Very absent minded and so irascible that he breaks things that happen to be in his hands; when spoken to."
+      },
+      {
+        "keywords": [
+          "anxiety",
+          "morning",
+          "evening",
+          "conscience",
+          "fear",
+          "future",
+          "menses"
+        ],
+        "passage": "Anxiety in the morning; evening in bed; night; before midnight; of conscience, with fear; about the future; before menses."
+      },
+      {
+        "keywords": [
+          "delirium",
+          "biting",
+          "capricious"
+        ],
+        "passage": "Biting things in delirium. Capricious at times."
+      },
+      {
+        "keywords": [
+          "cheerful",
+          "flatus"
+        ],
+        "passage": "Cheerful in the morning after passing much flatus."
+      },
+      {
+        "keywords": [
+          "company",
+          "aversion"
+        ],
+        "passage": "Aversion to company."
+      },
+      {
+        "keywords": [
+          "concentration",
+          "difficulty",
+          "reading"
+        ],
+        "passage": "Concentration difficult when reading."
+      },
+      {
+        "keywords": [
+          "confusion",
+          "mind",
+          "morning",
+          "waking",
+          "intoxicated"
+        ],
+        "passage": "Confusion of mind in the morning on waking; from mental exertion; from pain in the head; as if intoxicated."
+      },
+      {
+        "keywords": [
+          "conscientious",
+          "small matters"
+        ],
+        "passage": "Very conscientious about small matters."
+      },
+      {
+        "keywords": [
+          "delirium",
+          "fantastic",
+          "night",
+          "raving",
+          "biting"
+        ],
+        "passage": "Fantastic delirium at night, raving and tries to bite."
+      },
+      {
+        "keywords": [
+          "visions",
+          "excitement",
+          "fancy",
+          "illusions"
+        ],
+        "passage": "Sees visions; excitement at night. Illusions of fancy."
+      },
+      {
+        "keywords": [
+          "despair",
+          "discontentment",
+          "discouragement",
+          "distraction"
+        ],
+        "passage": "There is despair, discontentment, discouragement and DISTRACTION."
+      },
+      {
+        "keywords": [
+          "dullness",
+          "mind",
+          "morning",
+          "thinking",
+          "difficult"
+        ],
+        "passage": "Dullness of mind, in the morning; thinking is very difficult."
+      },
+      {
+        "keywords": [
+          "excitable",
+          "exhilaration",
+          "drunkenness"
+        ],
+        "passage": "Very excitable. Exhilaration bordering on drunkenness."
+      },
+      {
+        "keywords": [
+          "fear",
+          "death",
+          "insanity",
+          "misfortune",
+          "people",
+          "darkness"
+        ],
+        "passage": "Fear; morning; night; of death; of insanity; of misfortune; of people; of walking in the dark."
+      },
+      {
+        "keywords": [
+          "forgetful",
+          "memory"
+        ],
+        "passage": "Forgetful; forgets what she was to do with the things and held them in her hand."
+      },
+      {
+        "keywords": [
+          "frightened",
+          "easily",
+          "hilarity",
+          "gaiety"
+        ],
+        "passage": "Frightened easily. Hilarity and extravagant gaiety."
+      },
+      {
+        "keywords": [
+          "hurried",
+          "hysterical"
+        ],
+        "passage": "Hurried feeling. Hysterical conduct."
+      },
+      {
+        "keywords": [
+          "irresolution",
+          "indifference",
+          "sluggishness",
+          "indolence"
+        ],
+        "passage": "Irresolution, indifference and mental sluggishness. Indolence. Worse in the morning."
+      },
+      {
+        "keywords": [
+          "imbecility",
+          "insanity"
+        ],
+        "passage": "Imbecility and insanity."
+      },
+      {
+        "keywords": [
+          "ideas",
+          "abundant",
+          "confusion",
+          "stupefaction"
+        ],
+        "passage": "Ideas abundant at first, later confusion and stupefaction."
+      },
+      {
+        "keywords": [
+          "irritability",
+          "morning"
+        ],
+        "passage": "Irritability in the morning."
+      },
+      {
+        "keywords": [
+          "memory",
+          "weak",
+          "wrong word",
+          "misplaces words"
+        ],
+        "passage": "Weak memory; cannot find the right word; misplaces words when writing."
+      },
+      {
+        "keywords": [
+          "mood",
+          "changing",
+          "morose",
+          "offended",
+          "rage",
+          "prostration"
+        ],
+        "passage": "His mood is constantly changing; morose; easily offended; rage; mental prostration."
+      },
+      {
+        "keywords": [
+          "religious",
+          "affections"
+        ],
+        "passage": "Religious affections."
+      },
+      {
+        "keywords": [
+          "restless",
+          "night",
+          "midnight"
+        ],
+        "passage": "Very restless during the night; worse before midnight."
+      },
+      {
+        "keywords": [
+          "sadness",
+          "evening",
+          "chill",
+          "fever",
+          "perspiration"
+        ],
+        "passage": "Sadness in the evening; during chill; during fever; during perspiration."
+      },
+      {
+        "keywords": [
+          "sings",
+          "whistles",
+          "silence",
+          "sits"
+        ],
+        "passage": "He sings and whistles. Inclination to sit in silence."
+      },
+      {
+        "keywords": [
+          "spoken to",
+          "aversion"
+        ],
+        "passage": "Averse to being spoken to."
+      },
+      {
+        "keywords": [
+          "mania",
+          "jumps",
+          "window"
+        ],
+        "passage": "Maniacal conduct. Jumps out of the window."
+      },
+      {
+        "keywords": [
+          "stares",
+          "hands",
+          "vacant"
+        ],
+        "passage": "Stares at her hands with a vacant look."
+      },
+      {
+        "keywords": [
+          "starting",
+          "sleep",
+          "suspicious"
+        ],
+        "passage": "Starting during sleep. Suspicious."
+      },
+      {
+        "keywords": [
+          "talkative",
+          "indisposed",
+          "talk"
+        ],
+        "passage": "Talkative at first, later indisposed to talk."
+      },
+      {
+        "keywords": [
+          "talking",
+          "sleep",
+          "thoughts",
+          "tormenting"
+        ],
+        "passage": "Talking in sleep. Persistent tormenting thoughts."
+      },
+      {
+        "keywords": [
+          "timidity",
+          "unconscious",
+          "violent"
+        ],
+        "passage": "Timidity. Unconscious. Violent actions."
+      },
+      {
+        "keywords": [
+          "weeping",
+          "laughing",
+          "alternating",
+          "sleep"
+        ],
+        "passage": "Weeping much; alternating with laughing; in sleep."
+      },
+      {
+        "keywords": [
+          "vertigo",
+          "morning",
+          "rising",
+          "intoxicated",
+          "menses",
+          "stooping",
+          "walking"
+        ],
+        "passage": "Vertigo, in the morning on rising; afternoon; evening; better in open air; as if intoxicated; during menses; while sitting; when stooping; a tendency to fall forward; when walking; when walking in open air."
+      },
+      {
+        "keywords": [
+          "head",
+          "coldness",
+          "forehead"
+        ],
+        "passage": "Coldness of the forehead."
+      },
+      {
+        "keywords": [
+          "head",
+          "constriction",
+          "band",
+          "forehead",
+          "occiput"
+        ],
+        "passage": "Constriction like a band; of forehead, of the occiput."
+      },
+      {
+        "keywords": [
+          "dandruff",
+          "scalp"
+        ],
+        "passage": "Dandruff on the scalp."
+      },
+      {
+        "keywords": [
+          "head",
+          "emptiness",
+          "sensation"
+        ],
+        "passage": "A sensation of emptiness in the head."
+      },
+      {
+        "keywords": [
+          "head",
+          "eruptions",
+          "crusts",
+          "eczema",
+          "moist",
+          "scaly",
+          "pimples"
+        ],
+        "passage": "ERUPTIONS; crusts; ECZEMA; itching; MOIST; Scaly, pimples, sore and painful."
+      },
+      {
+        "keywords": [
+          "erysipelas",
+          "scalp"
+        ],
+        "passage": "Erysipelas of the scalp."
+      },
+      {
+        "keywords": [
+          "head",
+          "falls forward",
+          "walking"
+        ],
+        "passage": "The head falls forward when walking."
+      },
+      {
+        "keywords": [
+          "head",
+          "fluctuation",
+          "sensation",
+          "moving"
+        ],
+        "passage": "A sensation of fluctuation in the head on moving the head."
+      },
+      {
+        "keywords": [
+          "head",
+          "fullness",
+          "forehead"
+        ],
+        "passage": "Fullness in the head; in the forehead."
+      },
+      {
+        "keywords": [
+          "hair",
+          "falls out"
+        ],
+        "passage": "The hair falls out."
+      },
+      {
+        "keywords": [
+          "head",
+          "heat",
+          "afternoon",
+          "forehead",
+          "vertex"
+        ],
+        "passage": "Heat in the afternoon; in forehead; IN VERTEX."
+      },
+      {
+        "keywords": [
+          "head",
+          "heaviness",
+          "breakfast"
+        ],
+        "passage": "Heaviness in the head; after breakfast."
+      },
+      {
+        "keywords": [
+          "hyperaemia",
+          "brain"
+        ],
+        "passage": "Hyperaemia of the brain."
+      },
+      {
+        "keywords": [
+          "scalp",
+          "itching"
+        ],
+        "passage": "The scalp itches violently."
+      },
+      {
+        "keywords": [
+          "head",
+          "nodules",
+          "scalp",
+          "sore"
+        ],
+        "passage": "Nodules in the scalp sore to touch."
+      },
+      {
+        "keywords": [
+          "vertex",
+          "numbness"
+        ],
+        "passage": "Numbness of the vertex."
+      },
+      {
+        "keywords": [
+          "headache",
+          "morning",
+          "waking",
+          "ascending",
+          "breakfast",
+          "dinner",
+          "jar",
+          "mental exertion",
+          "motion",
+          "warm room"
+        ],
+        "passage": "Pain in the head in the morning in bed; on waking; at 9 A.M.; in the afternoon; in the evening; at night; 10 P.M.; better in the open air; worse ascending steps, binding up the hair; after breakfast; after dinner; after eating; from becoming heated; from a jar; from heavy stepping; from mental exertion; from motion; from shaking the head; after sleep; after stool; in a warm room."
+      },
+      {
+        "keywords": [
+          "headache",
+          "cold",
+          "chill",
+          "fever",
+          "rheumatic",
+          "catarrhal"
+        ],
+        "passage": "Headache comes on from cold; during chill; during fever. Rheumatic headaches. Catarrhal headaches."
+      },
+      {
+        "keywords": [
+          "headache",
+          "neck",
+          "pulsating",
+          "motion",
+          "thinking",
+          "reading"
+        ],
+        "passage": "Headache with pain in back of the neck. Pulsating pain on motion of the head and when thinking or reading."
+      },
+      {
+        "keywords": [
+          "headache",
+          "violent",
+          "mind affected"
+        ],
+        "passage": "Violent headache, increased until the mind is affected."
+      },
+      {
+        "keywords": [
+          "headache",
+          "forehead",
+          "morning",
+          "waking",
+          "forenoon"
+        ],
+        "passage": "Pain in the forehead in the morning on waking, lasting all day, violent in the forenoon."
+      },
+      {
+        "keywords": [
+          "headache",
+          "occiput",
+          "evening",
+          "night"
+        ],
+        "passage": "Pain in occiput evening and night."
+      },
+      {
+        "keywords": [
+          "headache",
+          "one-sided",
+          "left"
+        ],
+        "passage": "One sided headache, worse left."
+      },
+      {
+        "keywords": [
+          "headache",
+          "temples",
+          "afternoon",
+          "stooping"
+        ],
+        "passage": "Pain in temples in the afternoon, worse shaking head and on stooping."
+      },
+      {
+        "keywords": [
+          "headache",
+          "pulsating",
+          "temples",
+          "morning",
+          "waking"
+        ],
+        "passage": "Pulsating pain in temples in the morning on waking 6 A.M."
+      },
+      {
+        "keywords": [
+          "headache",
+          "vertex"
+        ],
+        "passage": "Pain in vertex."
+      },
+      {
+        "keywords": [
+          "headache",
+          "boring",
+          "forehead",
+          "temples"
+        ],
+        "passage": "Boring pain in forehead and temples."
+      },
+      {
+        "keywords": [
+          "headache",
+          "burning",
+          "vertex"
+        ],
+        "passage": "Burning pain in vertex."
+      },
+      {
+        "keywords": [
+          "headache",
+          "cutting",
+          "temples",
+          "dinner"
+        ],
+        "passage": "Cutting in temples, worse after dinner."
+      },
+      {
+        "keywords": [
+          "headache",
+          "drawing",
+          "forehead",
+          "occiput",
+          "temples"
+        ],
+        "passage": "Drawing pain in forehead 10 P.M. in occiput; in temples."
+      },
+      {
+        "keywords": [
+          "headache",
+          "dull",
+          "evening"
+        ],
+        "passage": "Dull pain in head toward evening."
+      },
+      {
+        "keywords": [
+          "headache",
+          "jerking",
+          "forehead"
+        ],
+        "passage": "Jerking pain in forehead."
+      },
+      {
+        "keywords": [
+          "headache",
+          "pressing",
+          "forenoon",
+          "sleepiness",
+          "reading",
+          "stooping"
+        ],
+        "passage": "Pressing pain in the head in forenoon. Pressing pain in forehead with sleepiness, worse reading and stooping; over eyes; extending to eyes and temples."
+      },
+      {
+        "keywords": [
+          "headache",
+          "pressing",
+          "occiput",
+          "vertex",
+          "all day"
+        ],
+        "passage": "PRESSING PAIN IN OCCIPUT; in temples, extending to vertex; in VERTEX ALL DAY."
+      },
+      {
+        "keywords": [
+          "headache",
+          "sore",
+          "bruised"
+        ],
+        "passage": "Sore bruised pain in head."
+      },
+      {
+        "keywords": [
+          "headache",
+          "stitching",
+          "temples",
+          "left",
+          "occiput"
+        ],
+        "passage": "Stitching pain in temples worse on left side, extending to occiput."
+      },
+      {
+        "keywords": [
+          "headache",
+          "tearing",
+          "open air",
+          "forehead",
+          "occiput",
+          "temples",
+          "left"
+        ],
+        "passage": "Tearing pains better in open air and during rest; in forehead; occiput; sides; temples; worse on left side."
+      },
+      {
+        "keywords": [
+          "forehead",
+          "cold perspiration"
+        ],
+        "passage": "Cold perspiration on forehead."
+      },
+      {
+        "keywords": [
+          "scalp",
+          "sensitive",
+          "brush"
+        ],
+        "passage": "The scalp is sensitive to the brush."
+      },
+      {
+        "keywords": [
+          "head",
+          "pulsation",
+          "occiput",
+          "temples"
+        ],
+        "passage": "Pulsation in occiput and temples."
+      },
+      {
+        "keywords": [
+          "head",
+          "electric shock"
+        ],
+        "passage": "Electric shock in the head."
+      },
+      {
+        "keywords": [
+          "eyelids",
+          "stick together",
+          "night"
+        ],
+        "passage": "The eyelids stick together during the night."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "discharge",
+          "acrid",
+          "bloody",
+          "purulent",
+          "yellow"
+        ],
+        "passage": "The discharges are acrid, bloody, purulent and yellow."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "dullness"
+        ],
+        "passage": "Dulness of the eyes."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "eruptions",
+          "lids",
+          "pustules",
+          "itch",
+          "burn"
+        ],
+        "passage": "Eruptions about the eyes; on the lids, pustules on upper lids that itch and burn."
+      },
+      {
+        "keywords": [
+          "eyelids",
+          "falling",
+          "granular",
+          "heavy"
+        ],
+        "passage": "Falling lids. Granular lids."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "hot",
+          "heaviness",
+          "lids",
+          "sore"
+        ],
+        "passage": "The eyes feel hot. Heaviness of the lids and they are sore on moving them."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "catarrhal",
+          "inflammation",
+          "lids"
+        ],
+        "passage": "Catarrhal inflammation of eyes and lids."
+      },
+      {
+        "keywords": [
+          "conjunctiva",
+          "dark veins"
+        ],
+        "passage": "Conjunctiva full of dark veins."
+      },
+      {
+        "keywords": [
+          "cornea",
+          "insensibility"
+        ],
+        "passage": "Insensibility of the cornea."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "itching",
+          "lids",
+          "lachrymation",
+          "open air",
+          "reading"
+        ],
+        "passage": "Itching of the eyes and lids. Lachrymation in the open air and when reading."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "pain",
+          "moving",
+          "aching",
+          "burning",
+          "headache",
+          "reading"
+        ],
+        "passage": "Pain in eyes on moving them; aching; burning pain with headache, morning; when reading; evening; margin of lids when reading; in canthi. The pains are cutting, pressing; as from sand; sore, itching and tearing."
+      },
+      {
+        "keywords": [
+          "pupils",
+          "contracted",
+          "dilated",
+          "photophobia"
+        ],
+        "passage": "Pupils contracted, also dilated. Photophobia."
+      },
+      {
+        "keywords": [
+          "eyelids",
+          "quivering",
+          "twitching"
+        ],
+        "passage": "Quivering in lids. Twitching lids."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "redness",
+          "lids"
+        ],
+        "passage": "Redness of eyes, of lids; edges of lids."
+      },
+      {
+        "keywords": [
+          "styes",
+          "recurrent"
+        ],
+        "passage": "Recurrent styes."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "staring",
+          "sunken"
+        ],
+        "passage": "Staring and sunken eyes."
+      },
+      {
+        "keywords": [
+          "eyelids",
+          "swollen",
+          "thick"
+        ],
+        "passage": "Swollen lids. Thick lids."
+      },
+      {
+        "keywords": [
+          "cornea",
+          "ulceration",
+          "lids"
+        ],
+        "passage": "Ulceration of the cornea; of the lids."
+      },
+      {
+        "keywords": [
+          "eyes",
+          "weak",
+          "vision",
+          "dim",
+          "diplopia",
+          "myopia"
+        ],
+        "passage": "Weak eyes. Vision dim; objects seem too far off. Diplopia. Flickering. Loss of vision. Vanishing of sight. Myopia."
+      },
+      {
+        "keywords": [
+          "ears",
+          "discharge",
+          "bloody",
+          "foetid",
+          "offensive",
+          "purulent"
+        ],
+        "passage": "Discharge from ear; bloody, foetid, offensive, purulent."
+      },
+      {
+        "keywords": [
+          "ears",
+          "redness",
+          "eruption"
+        ],
+        "passage": "Redness of the ears. Eruption behind ears."
+      },
+      {
+        "keywords": [
+          "ears",
+          "flapping",
+          "sensation"
+        ],
+        "passage": "Sensation of flapping in ears."
+      },
+      {
+        "keywords": [
+          "ears",
+          "red",
+          "hot",
+          "inflammation",
+          "middle ear"
+        ],
+        "passage": "The ears are red and hot. Inflammation in middle ear and auditory canal."
+      },
+      {
+        "keywords": [
+          "ears",
+          "noises",
+          "buzzing",
+          "ringing",
+          "roaring",
+          "rushing"
+        ],
+        "passage": "Noises in ears; morning; evening; night; buzzing; cracking; chirping; fluttering; humming; reverberations; RINGING. ROARING; rushing sounds."
+      },
+      {
+        "keywords": [
+          "ears",
+          "pain",
+          "afternoon",
+          "evening",
+          "swallowing",
+          "stitching",
+          "tearing"
+        ],
+        "passage": "Pain in ears afternoon and evening; when swallowing. Pressing, STITCHING and tearing pains. Stitching after stool worse in right ear."
+      },
+      {
+        "keywords": [
+          "ears",
+          "pulsation",
+          "stopped"
+        ],
+        "passage": "Pulsation in ear. Stopped sensation in ear."
+      },
+      {
+        "keywords": [
+          "hearing",
+          "acute",
+          "impaired",
+          "lost"
+        ],
+        "passage": "Hearing at first acute, later impaired and finally lost."
+      },
+      {
+        "keywords": [
+          "ear cough",
+          "cured"
+        ],
+        "passage": "It has cured ear cough."
+      },
+      {
+        "keywords": [
+          "nose",
+          "catarrh",
+          "chronic"
+        ],
+        "passage": "It is a most useful remedy for chronic catarrh of the nose."
+      },
+      {
+        "keywords": [
+          "nose",
+          "cold"
+        ],
+        "passage": "The nose is cold."
+      },
+      {
+        "keywords": [
+          "coryza",
+          "open air",
+          "chill",
+          "cough",
+          "fluent",
+          "dry"
+        ],
+        "passage": "CORYZA in open air; with chill; constant; with cough; fluent; dry in evening."
+      },
+      {
+        "keywords": [
+          "nose",
+          "discharge",
+          "crusts",
+          "excoriating",
+          "greenish",
+          "offensive",
+          "purulent",
+          "viscid",
+          "yellow"
+        ],
+        "passage": "Discharges from nose of all kinds and consistency. Clear; copious; crusts and scabs; excoriating; greenish; hard chunks; offensive; purulent; thick; VISCID; water; thick yellow pus."
+      },
+      {
+        "keywords": [
+          "nose",
+          "redness",
+          "burning",
+          "tip"
+        ],
+        "passage": "Redness and burning of the tip of the nose."
+      },
+      {
+        "keywords": [
+          "nose",
+          "dryness"
+        ],
+        "passage": "DRYNESS IN NOSE."
+      },
+      {
+        "keywords": [
+          "epistaxis",
+          "morning",
+          "evening",
+          "dark blood",
+          "blowing"
+        ],
+        "passage": "Epistaxis morning and evening, dark blood; on blowing nose."
+      },
+      {
+        "keywords": [
+          "nose",
+          "obstruction"
+        ],
+        "passage": "OBSTRUCTION OF NOSE."
+      },
+      {
+        "keywords": [
+          "nose",
+          "foetid",
+          "odor",
+          "ozaena"
+        ],
+        "passage": "Foetid odor from nose. Ozaena."
+      },
+      {
+        "keywords": [
+          "nose",
+          "pain",
+          "soreness",
+          "burning",
+          "root"
+        ],
+        "passage": "Pain and soreness in nose. Burning in root of nose."
+      },
+      {
+        "keywords": [
+          "nose",
+          "polypus",
+          "cured"
+        ],
+        "passage": "It has cured polypus in nose."
+      },
+      {
+        "keywords": [
+          "smell",
+          "acute",
+          "wanting"
+        ],
+        "passage": "Smell acute for odors, later smell is wanting."
+      },
+      {
+        "keywords": [
+          "sneezing",
+          "frequent"
+        ],
+        "passage": "Frequent sneezing."
+      },
+      {
+        "keywords": [
+          "nose",
+          "swollen",
+          "ulcers"
+        ],
+        "passage": "The nose is swollen. Ulcers high up in nose."
+      },
+      {
+        "keywords": [
+          "face",
+          "bloated",
+          "chlorotic"
+        ],
+        "passage": "The face is bloated and chlorotic."
+      },
+      {
+        "keywords": [
+          "face",
+          "tension"
+        ],
+        "passage": "Sensation of tension in the face."
+      },
+      {
+        "keywords": [
+          "face",
+          "cold",
+          "lips",
+          "cracked"
+        ],
+        "passage": "The face is cold and the lips are cracked."
+      },
+      {
+        "keywords": [
+          "face",
+          "discolored",
+          "bluish",
+          "dark",
+          "pale",
+          "sickly",
+          "yellow"
+        ],
+        "passage": "The face is discolored; bluish; dark; PALE; sickly; yellow."
+      },
+      {
+        "keywords": [
+          "lips",
+          "dry",
+          "burning"
+        ],
+        "passage": "Dry burning lips."
+      },
+      {
+        "keywords": [
+          "face",
+          "eruptions",
+          "acne",
+          "rosacea",
+          "drunkards",
+          "comedones"
+        ],
+        "passage": "Eruptions on chin; lips; around mouth; on nose. Acne rosacea on face and forehead. Acne of drunkards. Comedones."
+      },
+      {
+        "keywords": [
+          "face",
+          "crusts",
+          "herpes",
+          "tearing",
+          "limbs"
+        ],
+        "passage": "Crusty eruptions on face and nose. Herpes on face with tearing pains in limbs."
+      },
+      {
+        "keywords": [
+          "face",
+          "eruptions",
+          "moist",
+          "itching",
+          "pimples",
+          "pustules",
+          "vesicles"
+        ],
+        "passage": "Moist itching eruptions. Pimples, pustules, rash. Red eruptions on cheeks and nose. Scurfy scaly eruptions. Tetter on left cheek. Vesicles on face."
+      },
+      {
+        "keywords": [
+          "erysipelas",
+          "phlegmonous",
+          "face"
+        ],
+        "passage": "Phlegmonous erysipelas."
+      },
+      {
+        "keywords": [
+          "face",
+          "expression",
+          "anxious",
+          "bewildered",
+          "sickly",
+          "vacant"
+        ],
+        "passage": "Expression is anxious; bewildered; sickly; suffering; vacant."
+      },
+      {
+        "keywords": [
+          "face",
+          "heat",
+          "evening",
+          "chill",
+          "flashes"
+        ],
+        "passage": "Heat of face evening; during chill FLASHES."
+      },
+      {
+        "keywords": [
+          "face",
+          "pain",
+          "cold air",
+          "lying",
+          "burning",
+          "drawing",
+          "stitching",
+          "tearing"
+        ],
+        "passage": "Pain in face in cold air; while lying. Burning face and lips. Drawing, sore, bruised, stitching and tearing pain in face."
+      },
+      {
+        "keywords": [
+          "face",
+          "cold sweat",
+          "stiffness",
+          "jaw"
+        ],
+        "passage": "Cold sweat on face. Stiffness of jaw."
+      },
+      {
+        "keywords": [
+          "face",
+          "sunken",
+          "swelling",
+          "oedematous",
+          "parotid",
+          "submaxillary"
+        ],
+        "passage": "Sunken look. Swelling of face; oedematous; glands; parotid; sub-maxillary."
+      },
+      {
+        "keywords": [
+          "jaw",
+          "tension",
+          "muscles"
+        ],
+        "passage": "Tension in muscles of lower jaw."
+      },
+      {
+        "keywords": [
+          "lips",
+          "ulceration"
+        ],
+        "passage": "Ulceration of lips."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "anaesthesia",
+          "tongue"
+        ],
+        "passage": "Anesthesia of mouth and tongue."
+      },
+      {
+        "keywords": [
+          "aphthae",
+          "mouth",
+          "tongue"
+        ],
+        "passage": "Aphthae of mouth and tongue."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "bleeding",
+          "gums"
+        ],
+        "passage": "Bleeding of mouth and gums."
+      },
+      {
+        "keywords": [
+          "tongue",
+          "cold",
+          "cracked"
+        ],
+        "passage": "The tongue feels cold. The tongue is cracked."
+      },
+      {
+        "keywords": [
+          "gums",
+          "detached",
+          "teeth"
+        ],
+        "passage": "The gums are detached from the teeth."
+      },
+      {
+        "keywords": [
+          "tongue",
+          "coated",
+          "white",
+          "dryness",
+          "morning",
+          "thirst"
+        ],
+        "passage": "The tongue is coated white; dryness of mouth and tongue in the morning with unquenchable thirst."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "odor",
+          "offensive",
+          "putrid"
+        ],
+        "passage": "Odor from mouth offensive; putrid."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "burning",
+          "tongue",
+          "saliva",
+          "bloody"
+        ],
+        "passage": "Burning mouth and tongue. Saliva is bloody."
+      },
+      {
+        "keywords": [
+          "saliva",
+          "copious"
+        ],
+        "passage": "Copious flow of saliva."
+      },
+      {
+        "keywords": [
+          "speech",
+          "difficult",
+          "stammering"
+        ],
+        "passage": "Speech difficult and stammering."
+      },
+      {
+        "keywords": [
+          "gums",
+          "swollen"
+        ],
+        "passage": "Gums swollen."
+      },
+      {
+        "keywords": [
+          "taste",
+          "bad",
+          "bitter",
+          "morning",
+          "foul",
+          "metallic",
+          "nauseous",
+          "sour",
+          "sweetish"
+        ],
+        "passage": "Taste is bad; BITTER in the morning; foul, metallic; nauseous; pasty; saltish; sour; sweetish."
+      },
+      {
+        "keywords": [
+          "palate",
+          "tickling",
+          "lying down"
+        ],
+        "passage": "Tickling of soft palate after lying down."
+      },
+      {
+        "keywords": [
+          "mouth",
+          "ulcers"
+        ],
+        "passage": "Ulcers in the mouth."
+      },
+      {
+        "keywords": [
+          "teeth",
+          "on edge",
+          "loose"
+        ],
+        "passage": "The teeth are on edge and loose."
+      },
+      {
+        "keywords": [
+          "toothache",
+          "evening",
+          "night",
+          "cold air",
+          "cold water",
+          "eating",
+          "masticating",
+          "warm food"
+        ],
+        "passage": "Pain in teeth evening and night; in cold air; from cold water; during and after eating; when masticating; from touch; from warm food and drink; from external warmth; from both warm and cold things."
+      },
+      {
+        "keywords": [
+          "toothache",
+          "drawing",
+          "jerking",
+          "stitching",
+          "pulsating",
+          "tearing"
+        ],
+        "passage": "The pains are drawing; jerking; jerking-stitching; pulsating; stitching; tearing; jerking-stitching at 9 A.M.; pulsating evening and night. Tearing in afternoon and in cold air."
+      },
+      {
+        "keywords": [
+          "throat",
+          "catarrh",
+          "cold weather",
+          "choking",
+          "dryness",
+          "redness",
+          "fullness"
+        ],
+        "passage": "Catarrh of the throat in cold weather with choking dryness, redness and sensation of fullness."
+      },
+      {
+        "keywords": [
+          "throat",
+          "hawking"
+        ],
+        "passage": "Constant desire to hawk."
+      },
+      {
+        "keywords": [
+          "throat",
+          "inflammation",
+          "gangrenous"
+        ],
+        "passage": "Inflammation of the throat with gangrenous tendency."
+      },
+      {
+        "keywords": [
+          "throat",
+          "lump",
+          "sensation"
+        ],
+        "passage": "Sensation of a lump in throat."
+      },
+      {
+        "keywords": [
+          "throat",
+          "mucus",
+          "morning",
+          "viscid",
+          "salty"
+        ],
+        "passage": "Mucus in throat in morning; viscid; tasting salty."
+      },
+      {
+        "keywords": [
+          "throat",
+          "pain",
+          "coughing",
+          "swallowing",
+          "burning",
+          "stomach"
+        ],
+        "passage": "Pain in throat on coughing; on swallowing; on empty swallowing. Burning in throat extending to stomach."
+      },
+      {
+        "keywords": [
+          "oesophagus",
+          "burning"
+        ],
+        "passage": "Burning in oesophagus."
+      },
+      {
+        "keywords": [
+          "throat",
+          "rawness",
+          "soreness"
+        ],
+        "passage": "Rawness and soreness."
+      },
+      {
+        "keywords": [
+          "throat",
+          "stitching",
+          "swallowing",
+          "oesophagus",
+          "bone lodged"
+        ],
+        "passage": "Stitching on swallowing; in oesophagus as if bone had lodged in throat."
+      },
+      {
+        "keywords": [
+          "throat",
+          "scraping",
+          "spasms",
+          "oesophagus"
+        ],
+        "passage": "Scraping the throat; spasms of the oesophagus."
+      },
+      {
+        "keywords": [
+          "swallowing",
+          "difficult",
+          "constant disposition"
+        ],
+        "passage": "Constant disposition to swallow. Difficult swallowing."
+      },
+      {
+        "keywords": [
+          "throat",
+          "swelling",
+          "tonsils",
+          "ulceration"
+        ],
+        "passage": "Swelling of throat and tonsils. Ulceration of throat."
+      },
+      {
+        "keywords": [
+          "throat",
+          "glands",
+          "induration",
+          "neck",
+          "swollen",
+          "thyroid"
+        ],
+        "passage": "Induration of glands of the external throat. The glands of neck are swollen. Enlarged thyroid gland."
+      },
+      {
+        "keywords": [
+          "appetite",
+          "diminished",
+          "wanting",
+          "satiety",
+          "ravenous"
+        ],
+        "passage": "Appetite diminished or wanting with easy satiety. Appetite is RAVENOUS without relish of food; with aversion to food."
+      },
+      {
+        "keywords": [
+          "aversion",
+          "fats",
+          "fish",
+          "food",
+          "meat",
+          "milk"
+        ],
+        "passage": "Aversion to fats; fish; food; MEAT; milk."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "cold",
+          "constriction"
+        ],
+        "passage": "Cold sensation in stomach. Sensation of constriction."
+      },
+      {
+        "keywords": [
+          "desire",
+          "beer",
+          "cold drinks",
+          "sour"
+        ],
+        "passage": "Desire for beer. Cold drinks; sour things."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "distension",
+          "eating",
+          "emptiness"
+        ],
+        "passage": "Distension after eating. Sensation of emptiness."
+      },
+      {
+        "keywords": [
+          "eructations",
+          "empty",
+          "eating",
+          "milk",
+          "walking",
+          "acrid",
+          "bitter",
+          "sour",
+          "waterbrash"
+        ],
+        "passage": "Eructations empty; after eating; ineffectual; after milk; while walking. Eructations ameliorate. Eructations acrid; bitter; EMPTY; of food; foul; loud; nauseous; rancid, sour; waterbrash."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "fullness",
+          "eating"
+        ],
+        "passage": "Fullness in stomach after eating."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "gnawing",
+          "heartburn",
+          "eating"
+        ],
+        "passage": "Gnawing in stomach. Heartburn after eating."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "heat",
+          "flushes",
+          "heaviness",
+          "hiccough"
+        ],
+        "passage": "Flushes of heat in stomach. Heaviness, hiccough and loathing of food."
+      },
+      {
+        "keywords": [
+          "nausea",
+          "morning",
+          "afternoon",
+          "night",
+          "eating",
+          "fainting",
+          "headache"
+        ],
+        "passage": "Nausea in morning; afternoon; night; after eating; with fainting; better after eructations; during headache; on entering a room or going into open air."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "pain",
+          "morning",
+          "night",
+          "breakfast",
+          "cold drinks",
+          "eating",
+          "menses"
+        ],
+        "passage": "Pain in stomach in the morning; in night; after breakfast; after cold drinks; after eating; during menses."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "burning",
+          "stool"
+        ],
+        "passage": "Burning after stool."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "cramping",
+          "pinching",
+          "pressing",
+          "eating"
+        ],
+        "passage": "Cramping and pinching. Pressing pain in stomach after eating and after stool."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "soreness",
+          "stabbing",
+          "back"
+        ],
+        "passage": "Soreness in stomach. Stabbing extending to back."
+      },
+      {
+        "keywords": [
+          "stomach",
+          "tied together",
+          "feeling"
+        ],
+        "passage": "A tied together feeling."
+      },
+      {
+        "keywords": [
+          "thirst",
+          "morning",
+          "burning",
+          "chill",
+          "extreme",
+          "heat",
+          "large quantities"
+        ],
+        "passage": "Thirst in the morning; burning thirst; during chill; extreme thirst; during heat; drinks large quantities of water."
+      },
+      {
+        "keywords": [
+          "vomiting",
+          "morning",
+          "coughing",
+          "eating",
+          "headache",
+          "menses",
+          "bile",
+          "blood",
+          "green",
+          "sour"
+        ],
+        "passage": "Vomiting in the morning; on coughing; after eating; with headache; during menses; vomiting bile; bitter water blood; food; green mucus; sour; watery."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "diarrhoea",
+          "sensation"
+        ],
+        "passage": "Sensation in abdomen as if diarrhoea would come on."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "distension",
+          "eating",
+          "tympanitic",
+          "effusion"
+        ],
+        "passage": "Distension after eating; tympanitic. Abdominal effusion."
+      },
+      {
+        "keywords": [
+          "flatulence",
+          "abdomen",
+          "obstructed",
+          "coecal"
+        ],
+        "passage": "Flatulence in abdomen; obstructed; in coecal region."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "fullness",
+          "breakfast",
+          "heaviness",
+          "gurgling"
+        ],
+        "passage": "Fullness after breakfast. Heaviness and gurgling."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "hardness",
+          "liver"
+        ],
+        "passage": "Hardness of the abdomen; of the liver."
+      },
+      {
+        "keywords": [
+          "liver",
+          "affections",
+          "dropsical",
+          "feet"
+        ],
+        "passage": "Liver affections with dropsical swelling of feet."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "pain",
+          "morning",
+          "afternoon",
+          "evening",
+          "night",
+          "diarrhoea",
+          "eating",
+          "menses",
+          "motion",
+          "liver"
+        ],
+        "passage": "Pain morning; afternoon; evening; night; as if diarrhoea would set in; after eating; on inspiration; before and during menses; on motion; on pressure; in coecal region; in hypochondria after sitting; in hypogastrium; in the inguinal region; in the liver; in the left lobe of liver; in umbilicus."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "burning",
+          "hypochondria",
+          "liver"
+        ],
+        "passage": "Burning pain in abdomen; in hypochondria; in liver."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "cramping",
+          "morning",
+          "afternoon",
+          "night",
+          "stool",
+          "umbilicus"
+        ],
+        "passage": "Cramping in abdomen; in the morning; 10 A.M.; afternoon; night; before stool; after stool; in umbilicus; in hypogastrium."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "cutting",
+          "stool",
+          "hypogastrium"
+        ],
+        "passage": "Cutting in abdomen; before stool; in hypogastrium."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "drawing",
+          "navel",
+          "dragging"
+        ],
+        "passage": "Drawing pain in abdomen; in navel. Dragging in abdomen."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "jerking",
+          "left hypochondrium"
+        ],
+        "passage": "Jerking pain in abdomen; in left hypochondrium."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "pressing",
+          "hypogastrium",
+          "liver"
+        ],
+        "passage": "Pressing pain in abdomen; in hypogastrium; in liver."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "sore",
+          "bruised",
+          "liver"
+        ],
+        "passage": "Sore bruised pain in abdomen; in liver."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "stitching",
+          "hypochondria",
+          "hypogastrium",
+          "inguinal",
+          "liver"
+        ],
+        "passage": "Stitching pains in abdomen; in hypochondria; in hypogastrium; in inguinal region; sides of abdomen; liver."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "tearing",
+          "umbilical",
+          "bladder"
+        ],
+        "passage": "Tearing in abdomen; in umbilical region extending to bladder."
+      },
+      {
+        "keywords": [
+          "navel",
+          "retraction",
+          "plumbum"
+        ],
+        "passage": "Retraction of navel (Plumbum)."
+      },
+      {
+        "keywords": [
+          "abdomen",
+          "rumbling",
+          "stool",
+          "tension",
+          "trembling"
+        ],
+        "passage": "Rumbling in abdomen; before stool. Tension. Trembling after stool. Weak feeling after stool."
+      },
+      {
+        "keywords": [
+          "constipation",
+          "belching",
+          "difficult",
+          "urging",
+          "insufficient"
+        ],
+        "passage": "Constipation with much belching; difficult stool; ineffectual urging, insufficient stool."
+      },
+      {
+        "keywords": [
+          "diarrhoea",
+          "morning",
+          "breakfast",
+          "night",
+          "eating",
+          "dinner",
+          "painless",
+          "rumbling",
+          "offensive",
+          "thin",
+          "watery",
+          "yellow",
+          "frothy"
+        ],
+        "passage": "Diarrhoea in the morning; 5 A.M.; after breakfast; night; noon; after eating; after dinner; painless; with much rumbling; chronic; pain in region of umbilicus with thin, yellow, frothy stools; STOOL OFFENSIVE; sour; pasty; THIN; WATERY."
+      },
+      {
+        "keywords": [
+          "carbon bisulphide",
+          "workers",
+          "constipation",
+          "diarrhoea"
+        ],
+        "passage": "Some workers in carbon bisulphide suffer from constipation and some from diarrhoea."
+      },
+      {
+        "keywords": [
+          "dysentery",
+          "bloody",
+          "mucous"
+        ],
+        "passage": "Dysentery with bloody mucous stools."
+      },
+      {
+        "keywords": [
+          "anus",
+          "eruptions",
+          "excoriation",
+          "nates"
+        ],
+        "passage": "Eruptions about the anus. Excoriations at anus and between the nates."
+      },
+      {
+        "keywords": [
+          "fistula",
+          "ano"
+        ],
+        "passage": "Fistula in ano."
+      },
+      {
+        "keywords": [
+          "flatus",
+          "copious",
+          "offensive",
+          "walking",
+          "ameliorates"
+        ],
+        "passage": "FLATUS COPIOUS, OFFENSIVE; while walking; ameliorates."
+      },
+      {
+        "keywords": [
+          "anus",
+          "formication"
+        ],
+        "passage": "Formication in the anus."
+      },
+      {
+        "keywords": [
+          "hemorrhage",
+          "bright red",
+          "blood"
+        ],
+        "passage": "Hemorrhage of bright red blood."
+      },
+      {
+        "keywords": [
+          "hemorrhoids",
+          "bluish",
+          "chronic",
+          "external",
+          "large",
+          "menses",
+          "sore"
+        ],
+        "passage": "HEMORRHOIDS; bluish; chronic; external; large; during menses; very sore; inactivity of the rectum."
+      },
+      {
+        "keywords": [
+          "stool",
+          "involuntary",
+          "urination"
+        ],
+        "passage": "Involuntary stool during urination."
+      },
+      {
+        "keywords": [
+          "anus",
+          "moisture",
+          "itching",
+          "burning"
+        ],
+        "passage": "Moisture at the anus, itching and burning. Itching in the morning."
+      },
+      {
+        "keywords": [
+          "rectum",
+          "pain",
+          "stool",
+          "burning",
+          "cramping",
+          "stitching",
+          "bladder",
+          "urination"
+        ],
+        "passage": "Pain in the rectum after stool; during stool. Burning and itching. Burning during stool; after stool. Cramping stitching in anus and neck of bladder during urination. Cutting and pressing outward."
+      },
+      {
+        "keywords": [
+          "anus",
+          "soreness",
+          "stool"
+        ],
+        "passage": "Soreness in anus; after stool."
+      },
+      {
+        "keywords": [
+          "anus",
+          "stitching",
+          "evening",
+          "stool",
+          "bladder",
+          "urethra"
+        ],
+        "passage": "Stitching pain in anus; evening; during stool; stitching in anus and neck of bladder to urethra during urination."
+      },
+      {
+        "keywords": [
+          "anus",
+          "tearing",
+          "tenesmus"
+        ],
+        "passage": "Tearing in anus. Tenesmus during stool."
+      },
+      {
+        "keywords": [
+          "rectum",
+          "prolapsus",
+          "constant"
+        ],
+        "passage": "Constant prolapsus of rectum."
+      },
+      {
+        "keywords": [
+          "stool",
+          "urging",
+          "morning",
+          "breakfast"
+        ],
+        "passage": "Urging to stool in the morning; after breakfast; 8 A.M.; 10 A.M.; during stool."
+      },
+      {
+        "keywords": [
+          "worms",
+          "ascarides",
+          "lumbricoides",
+          "taeniae"
+        ],
+        "passage": "Worms. Ascarides; lumbricoides; taeniae."
+      },
+      {
+        "keywords": [
+          "stool",
+          "acrid",
+          "black",
+          "bloody",
+          "brown",
+          "hard",
+          "knotty",
+          "lienteric",
+          "sheep dung"
+        ],
+        "passage": "The stool is acrid, black, bloody, brown, HARD, knotty, lienteric, light colored, like sheep dung."
+      },
+      {
+        "keywords": [
+          "bladder",
+          "catarrh",
+          "mucous",
+          "sediment"
+        ],
+        "passage": "Catarrh of the bladder with mucous sediment in the urine."
+      },
+      {
+        "keywords": [
+          "bladder",
+          "pain",
+          "aching",
+          "cramping",
+          "pressing",
+          "stitching"
+        ],
+        "passage": "Pain in the bladder; aching; cramping in the neck of the bladder; pressing pain; stitching in the anus and neck of the bladder to the urethra during urination."
+      },
+      {
+        "keywords": [
+          "bladder",
+          "paralysis"
+        ],
+        "passage": "Paralysis of the bladder."
+      },
+      {
+        "keywords": [
+          "urine",
+          "retention"
+        ],
+        "passage": "Retention of urine."
+      },
+      {
+        "keywords": [
+          "bladder",
+          "tenesmus"
+        ],
+        "passage": "Tenesmus of the bladder."
+      },
+      {
+        "keywords": [
+          "urination",
+          "urging",
+          "night",
+          "constant",
+          "ineffectual",
+          "painful"
+        ],
+        "passage": "Urging to urinate; at night; constant; ineffectual; painful."
+      },
+      {
+        "keywords": [
+          "urination",
+          "dribbling",
+          "dysuria",
+          "feeble",
+          "frequent",
+          "involuntary",
+          "night"
+        ],
+        "passage": "Urination; dribbling; dysuria; feeble stream; frequent, especially at night; involuntary at night, in sleep."
+      },
+      {
+        "keywords": [
+          "urine",
+          "suppression"
+        ],
+        "passage": "Suppression of urine."
+      },
+      {
+        "keywords": [
+          "urethra",
+          "gleety",
+          "discharge",
+          "bleeding"
+        ],
+        "passage": "Gleety discharge from urethra. Bleeding from urethra."
+      },
+      {
+        "keywords": [
+          "urethra",
+          "itching",
+          "drops",
+          "burning",
+          "cutting"
+        ],
+        "passage": "Itching in the urethra with a sensation of drops of urine. Burning in the urethra during urination and during stool. Cutting during urination."
+      },
+      {
+        "keywords": [
+          "urine",
+          "acrid",
+          "albuminous",
+          "bloody",
+          "burning",
+          "cloudy",
+          "dark",
+          "red",
+          "offensive",
+          "scanty"
+        ],
+        "passage": "Urine; acrid, albuminous; bloody; burning; cloudy on standing; dark; red copious; offensive; SCANTY."
+      },
+      {
+        "keywords": [
+          "urine",
+          "sediment",
+          "purulent",
+          "mucous",
+          "white"
+        ],
+        "passage": "Sediment purulent; mucous; white."
+      },
+      {
+        "keywords": [
+          "testes",
+          "atrophy"
+        ],
+        "passage": "Atrophy of testes."
+      },
+      {
+        "keywords": [
+          "erections",
+          "violent",
+          "absent",
+          "impotency"
+        ],
+        "passage": "Erections violent. Erections absent. Complete impotency."
+      },
+      {
+        "keywords": [
+          "hydrocele"
+        ],
+        "passage": "Hydrocele."
+      },
+      {
+        "keywords": [
+          "glans penis",
+          "inflammation"
+        ],
+        "passage": "Inflammation of glans penis."
+      },
+      {
+        "keywords": [
+          "genitals",
+          "itching",
+          "scrotum"
+        ],
+        "passage": "Itching of the genitals; scrotum."
+      },
+      {
+        "keywords": [
+          "testes",
+          "pain",
+          "rest",
+          "burning",
+          "spermatic cords",
+          "drawing",
+          "stitching"
+        ],
+        "passage": "Pain in testes; during rest. Burning in spermatic cords. Drawing in testes. Stitching pain in testes; in spermatic cords."
+      },
+      {
+        "keywords": [
+          "genitals",
+          "perspiration",
+          "evening",
+          "scrotum",
+          "relaxed"
+        ],
+        "passage": "Perspiration on genitals in evening; on scrotum. Relaxed genitals."
+      },
+      {
+        "keywords": [
+          "seminal",
+          "emission",
+          "premature",
+          "night"
+        ],
+        "passage": "Seminal discharge too soon during coition. Seminal emissions at night; shrunken organs."
+      },
+      {
+        "keywords": [
+          "sexual desire",
+          "wanting"
+        ],
+        "passage": "Sexual desire wanting."
+      },
+      {
+        "keywords": [
+          "prepuce",
+          "swelling",
+          "testes",
+          "epididymis",
+          "tuberculosis"
+        ],
+        "passage": "Swelling of the prepuce; of testes; of epididymis. Tuberculosis of testes."
+      },
+      {
+        "keywords": [
+          "ovaries",
+          "atrophy"
+        ],
+        "passage": "Atrophy of the ovaries."
+      },
+      {
+        "keywords": [
+          "uterus",
+          "cancer"
+        ],
+        "passage": "Cancer of the uterus."
+      },
+      {
+        "keywords": [
+          "coition",
+          "aversion"
+        ],
+        "passage": "Aversion to coition."
+      },
+      {
+        "keywords": [
+          "uterus",
+          "inflammation"
+        ],
+        "passage": "Inflammation of the uterus."
+      },
+      {
+        "keywords": [
+          "vulva",
+          "itching"
+        ],
+        "passage": "Itching of the vulva."
+      },
+      {
+        "keywords": [
+          "leucorrhoea",
+          "acrid",
+          "bloody",
+          "burning",
+          "copious",
+          "menses",
+          "milky",
+          "thin",
+          "white",
+          "watery"
+        ],
+        "passage": "LEUCORRHOEA ACRID bloody; burning; copious; before and after menses; milky thin white; watery."
+      },
+      {
+        "keywords": [
+          "menses",
+          "absent",
+          "excoriating",
+          "black",
+          "dark",
+          "delayed",
+          "irregular",
+          "late",
+          "offensive",
+          "scanty",
+          "suppressed"
+        ],
+        "passage": "Menses absent, excoriating; black; dark; delayed first menses; irregular; LATE or too soon; offensive painless; copious at first, later SCANTY, short; suppressed; slow passive hemorrhage from uterus."
+      },
+      {
+        "keywords": [
+          "uterus",
+          "pain",
+          "burning",
+          "soreness",
+          "labor pains",
+          "weak"
+        ],
+        "passage": "Pain in uterus; burning; soreness; weak labor pains."
+      },
+      {
+        "keywords": [
+          "carbon bisulphide",
+          "women",
+          "sterile"
+        ],
+        "passage": "Women who work in carbon bisulphide are often sterile."
+      },
+      {
+        "keywords": [
+          "vulva",
+          "encysted",
+          "tumor"
+        ],
+        "passage": "Encysted tumor on vulva."
+      },
+      {
+        "keywords": [
+          "air passages",
+          "catarrh"
+        ],
+        "passage": "Catarrh of air passages."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "constriction",
+          "cough"
+        ],
+        "passage": "Constriction of larynx causing cough."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "heat",
+          "inflammation"
+        ],
+        "passage": "Heat in larynx. Inflammation of larynx."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "trachea",
+          "irritation",
+          "mucus"
+        ],
+        "passage": "Irritation of larynx and trachea. Mucus in larynx."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "pain",
+          "burning",
+          "rawness",
+          "soreness",
+          "trachea"
+        ],
+        "passage": "Pain in larynx. Burning in larynx. Rawness in larynx and trachea. Soreness in larynx and trachea."
+      },
+      {
+        "keywords": [
+          "laryngeal",
+          "phthisis"
+        ],
+        "passage": "Laryngeal phthisis."
+      },
+      {
+        "keywords": [
+          "trachea",
+          "rattling"
+        ],
+        "passage": "Rattling in the trachea."
+      },
+      {
+        "keywords": [
+          "larynx",
+          "clears",
+          "sensitive",
+          "tickling"
+        ],
+        "passage": "He constantly clears the larynx. The larynx very sensitive. Tickling in larynx and trachea."
+      },
+      {
+        "keywords": [
+          "hoarseness",
+          "morning",
+          "evening",
+          "coryza",
+          "damp weather",
+          "voice lost"
+        ],
+        "passage": "Hoarseness morning and evening; with coryza; in damp weather. Voice is lost."
+      },
+      {
+        "keywords": [
+          "breathing",
+          "fast"
+        ],
+        "passage": "Fast breathing."
+      },
+      {
+        "keywords": [
+          "asthma"
+        ],
+        "passage": "It has served well in asthma."
+      },
+      {
+        "keywords": [
+          "asphyxia",
+          "alcohol",
+          "coal gas"
+        ],
+        "passage": "Asphyxia from alcohol and from coal gas."
+      },
+      {
+        "keywords": [
+          "breathing",
+          "difficult",
+          "evening",
+          "night",
+          "ascending",
+          "close room",
+          "coughing",
+          "eating",
+          "exertion",
+          "lying",
+          "windows open",
+          "waking"
+        ],
+        "passage": "Difficult breathing; evening; night ascending in a close room; when coughing; after eating; after slight exertion while lying; must have windows open, on falling asleep; on waking."
+      },
+      {
+        "keywords": [
+          "respiration",
+          "rattling",
+          "short",
+          "sighing"
+        ],
+        "passage": "Respiration rattling; short; sighing."
+      },
+      {
+        "keywords": [
+          "suffocation",
+          "night",
+          "warm room",
+          "wheezing",
+          "whistling"
+        ],
+        "passage": "Suffocation at night and in a warm room, wheezing whistling."
+      },
+      {
+        "keywords": [
+          "cough",
+          "morning",
+          "evening",
+          "night",
+          "midnight",
+          "cold air",
+          "asthmatic",
+          "dry",
+          "hacking",
+          "hoarse",
+          "larynx",
+          "paroxysmal",
+          "spasmodic",
+          "suffocative",
+          "whooping"
+        ],
+        "passage": "Cough in morning; evening NIGHT; before midnight; in cold air; asthmatic; on becoming cold; from constriction of larynx, dry; hacking hoarse, from irritation in larynx, bronchial tubes and trachea; loose morning cough; lying down in evening; paroxysmal; from rawness in larynx; from scraping larynx short; waking one from sleep; spasmodic; suffocative; from talking from tickling in larynx and trachea; whooping cough."
+      },
+      {
+        "keywords": [
+          "expectoration",
+          "morning",
+          "evening",
+          "night",
+          "bloody",
+          "copious",
+          "greenish",
+          "mucous",
+          "offensive",
+          "purulent",
+          "viscid",
+          "yellow"
+        ],
+        "passage": "Expectoration: in daytime; morning; evening; night; bloody; copious; GREENISH; mucous; offensive; purulent; tasting putrid and salty; viscid; yellow."
+      },
+      {
+        "keywords": [
+          "ear cough",
+          "paroxysmal",
+          "cured"
+        ],
+        "passage": "It has cured paroxysmal ear cough."
+      },
+      {
+        "keywords": [
+          "chest",
+          "anxiety",
+          "heart"
+        ],
+        "passage": "Anxiety in chest; in the heart."
+      },
+      {
+        "keywords": [
+          "cancer",
+          "mammae"
+        ],
+        "passage": "It has been of great service in cancer of mammae."
+      },
+      {
+        "keywords": [
+          "chest",
+          "catarrh",
+          "stubborn"
+        ],
+        "passage": "Very stubborn catarrh of chest."
+      },
+      {
+        "keywords": [
+          "chest",
+          "coldness"
+        ],
+        "passage": "A sensation of coldness in chest."
+      },
+      {
+        "keywords": [
+          "chest",
+          "constriction",
+          "evening",
+          "pleural",
+          "dropsy"
+        ],
+        "passage": "Constriction of chest in evening; pleural dropsy."
+      },
+      {
+        "keywords": [
+          "emphysema"
+        ],
+        "passage": "Emphysema."
+      },
+      {
+        "keywords": [
+          "chest",
+          "eruptions",
+          "vesicles"
+        ],
+        "passage": "Eruptions on the chest; vesicles."
+      },
+      {
+        "keywords": [
+          "mammae",
+          "erysipelas"
+        ],
+        "passage": "Erysipelas of the mammae."
+      },
+      {
+        "keywords": [
+          "chest",
+          "fullness",
+          "heat",
+          "lungs",
+          "bleeding"
+        ],
+        "passage": "Feeling of fullness in the chest. Heat in chest and bleeding from lungs."
+      },
+      {
+        "keywords": [
+          "mammae",
+          "indurated"
+        ],
+        "passage": "The mammae are indurated."
+      },
+      {
+        "keywords": [
+          "bronchial",
+          "inflammation",
+          "heart",
+          "lungs",
+          "pleurae",
+          "mammae"
+        ],
+        "passage": "Inflammation of bronchial tubes; heart; lungs; pleurae; mammae."
+      },
+      {
+        "keywords": [
+          "chest",
+          "itching",
+          "axilla",
+          "mammae"
+        ],
+        "passage": "Itching all over chest but especially in axilla and mammae."
+      },
+      {
+        "keywords": [
+          "chest",
+          "oppression",
+          "violent"
+        ],
+        "passage": "VIOLENT OPPRESSION OF CHEST."
+      },
+      {
+        "keywords": [
+          "chest",
+          "pain",
+          "coughing",
+          "motion",
+          "sides",
+          "heart",
+          "aching",
+          "burning"
+        ],
+        "passage": "Pain in chest on coughing; on motion; in sides of chest; in heart; aching; burning; burning in middle of chest and in left side."
+      },
+      {
+        "keywords": [
+          "chest",
+          "cutting",
+          "left",
+          "back",
+          "breathing"
+        ],
+        "passage": "Cutting pain in chest; in left lower chest to back in breathing."
+      },
+      {
+        "keywords": [
+          "chest",
+          "pressing",
+          "mammae",
+          "left"
+        ],
+        "passage": "Pressing pain in chest; in mammae; in left side."
+      },
+      {
+        "keywords": [
+          "chest",
+          "rawness",
+          "soreness",
+          "cough"
+        ],
+        "passage": "Rawness in chest with cough. Soreness in chest from coughing."
+      },
+      {
+        "keywords": [
+          "chest",
+          "stitching",
+          "deep breathing",
+          "left",
+          "back",
+          "sternum",
+          "heart"
+        ],
+        "passage": "Stitching pains on deep breathing, in left side of chest through to back; in the sternum extending upwards; in heart; flying burning stitches in chest."
+      },
+      {
+        "keywords": [
+          "chest",
+          "tearing"
+        ],
+        "passage": "Tearing pains in chest."
+      },
+      {
+        "keywords": [
+          "palpitation",
+          "evening",
+          "anaemic",
+          "anxiety",
+          "exertion",
+          "motion",
+          "visible",
+          "tumultuous"
+        ],
+        "passage": "Palpitation of heart in evening, in anaemic patients; with anxiety; from slight exertion; from motion; visible; tumultuous."
+      },
+      {
+        "keywords": [
+          "axilla",
+          "perspiration"
+        ],
+        "passage": "Perspiration in axilla."
+      },
+      {
+        "keywords": [
+          "phthisis",
+          "useful"
+        ],
+        "passage": "A very useful remedy in phthisis."
+      },
+      {
+        "keywords": [
+          "chest",
+          "weakness",
+          "continuous"
+        ],
+        "passage": "A continuous sensation of weakness in chest."
+      },
+      {
+        "keywords": [
+          "back",
+          "coldness",
+          "lumbar"
+        ],
+        "passage": "Coldness of the back; lumbar region."
+      },
+      {
+        "keywords": [
+          "back",
+          "eruptions"
+        ],
+        "passage": "Eruptions on the back."
+      },
+      {
+        "keywords": [
+          "back",
+          "heavy load",
+          "scapulae"
+        ],
+        "passage": "A heavy load between the scapulae."
+      },
+      {
+        "keywords": [
+          "back",
+          "itching"
+        ],
+        "passage": "Itching of the back."
+      },
+      {
+        "keywords": [
+          "back",
+          "pain",
+          "night",
+          "breathing",
+          "chill",
+          "menses",
+          "motion",
+          "sitting"
+        ],
+        "passage": "Pain in the back; night; on breathing; during chill; during menses; on motion, while sitting."
+      },
+      {
+        "keywords": [
+          "cervical",
+          "pain",
+          "scapulae"
+        ],
+        "passage": "Pain in cervical region; between scapulae."
+      },
+      {
+        "keywords": [
+          "lumbar",
+          "pain",
+          "morning",
+          "waking",
+          "menses",
+          "sitting"
+        ],
+        "passage": "Pain in lumbar region morning on waking; during menses; while sitting."
+      },
+      {
+        "keywords": [
+          "sacrum",
+          "pain",
+          "morning",
+          "waking",
+          "menses"
+        ],
+        "passage": "Pain in lumbar sacral region in morning on waking. Pain in sacrum in morning on waking; during menses."
+      },
+      {
+        "keywords": [
+          "coccyx",
+          "pain"
+        ],
+        "passage": "Pain in coccyx."
+      },
+      {
+        "keywords": [
+          "back",
+          "aching",
+          "lumbar",
+          "sacrum"
+        ],
+        "passage": "Aching in back; in lumbar region; in sacrum."
+      },
+      {
+        "keywords": [
+          "lumbar",
+          "bruised"
+        ],
+        "passage": "Bruised feeling in lumbar region."
+      },
+      {
+        "keywords": [
+          "back",
+          "burning",
+          "scapulae"
+        ],
+        "passage": "Burning in back; between scapulae."
+      },
+      {
+        "keywords": [
+          "cervical",
+          "drawing",
+          "lumbar"
+        ],
+        "passage": "Drawing in the cervical region; in lumbar region."
+      },
+      {
+        "keywords": [
+          "back",
+          "pressing",
+          "lumbar"
+        ],
+        "passage": "Pressing pains in the back; in lumbar region."
+      },
+      {
+        "keywords": [
+          "back",
+          "stitching",
+          "cervical",
+          "scapulae",
+          "lumbar"
+        ],
+        "passage": "Stitching pains in back; in cervical region; in scapulae; in lumbar region."
+      },
+      {
+        "keywords": [
+          "back",
+          "tearing",
+          "cervical",
+          "lumbar"
+        ],
+        "passage": "Tearing pain in cervical region; in lumbar region."
+      },
+      {
+        "keywords": [
+          "cervical",
+          "stiffness"
+        ],
+        "passage": "Stiffness in cervical region."
+      },
+      {
+        "keywords": [
+          "back",
+          "tension",
+          "cervical",
+          "lumbar",
+          "ascending",
+          "sacrum"
+        ],
+        "passage": "Tension in back; in cervical region; in lumbar region on ascending; in sacrum worse on ascending."
+      },
+      {
+        "keywords": [
+          "back",
+          "weakness",
+          "lumbar"
+        ],
+        "passage": "Weakness in back; in lumbar region."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "anaesthesia",
+          "arms",
+          "hands"
+        ],
+        "passage": "Anaesthesia of arms and hands."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "coldness",
+          "headache",
+          "feet",
+          "evening",
+          "bed"
+        ],
+        "passage": "Coldness of limbs; with headache. Upper arms; hands; fingers; lower limbs; knees; legs; FEET in evening in bed."
+      },
+      {
+        "keywords": [
+          "lower limbs",
+          "constriction"
+        ],
+        "passage": "Constriction of lower limbs."
+      },
+      {
+        "keywords": [
+          "contractions",
+          "muscles",
+          "tendons",
+          "hands",
+          "fingers"
+        ],
+        "passage": "Contractions of muscles and tendons; upper limbs; hands; fingers."
+      },
+      {
+        "keywords": [
+          "hands",
+          "cracked",
+          "skin"
+        ],
+        "passage": "Cracked skin of hands."
+      },
+      {
+        "keywords": [
+          "joints",
+          "cracking",
+          "shoulder"
+        ],
+        "passage": "Cracking in the joints; in the right shoulder."
+      },
+      {
+        "keywords": [
+          "cramps",
+          "limbs",
+          "calf",
+          "bed",
+          "foot",
+          "soles",
+          "toes"
+        ],
+        "passage": "Cramps in the limbs; upper limbs; thighs; legs; CALF IN BED; FOOT; SOLES; toes."
+      },
+      {
+        "keywords": [
+          "nails",
+          "blueness",
+          "chill"
+        ],
+        "passage": "Blueness of nails; during chill."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "emaciation"
+        ],
+        "passage": "Emaciation of limbs."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "eruptions",
+          "herpes",
+          "hands",
+          "pimples",
+          "impetigo",
+          "vesicles",
+          "fingers"
+        ],
+        "passage": "Eruptions on limbs; herpes on back of hands; pimples; impetigo; vesicles between fingers."
+      },
+      {
+        "keywords": [
+          "excoriation",
+          "nates",
+          "thighs"
+        ],
+        "passage": "Excoriations between nates; between thighs."
+      },
+      {
+        "keywords": [
+          "formication",
+          "limbs",
+          "forearms",
+          "hands",
+          "legs",
+          "feet"
+        ],
+        "passage": "Formication of limbs; upper limbs; forearms; hands; legs; feet."
+      },
+      {
+        "keywords": [
+          "hands",
+          "heat",
+          "palms",
+          "feet",
+          "soles"
+        ],
+        "passage": "Heat of hands; palms; feet; soles."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "heaviness",
+          "legs",
+          "feet"
+        ],
+        "passage": "Heaviness of limbs; upper limbs; lower limbs; legs; feet."
+      },
+      {
+        "keywords": [
+          "hip joint",
+          "disease"
+        ],
+        "passage": "Hip joint disease."
+      },
+      {
+        "keywords": [
+          "milk leg",
+          "cured"
+        ],
+        "passage": "Milk leg has been cured by this remedy."
+      },
+      {
+        "keywords": [
+          "chorea",
+          "convulsive",
+          "motion",
+          "limbs"
+        ],
+        "passage": "Convulsive motion of limbs like chorea."
+      },
+      {
+        "keywords": [
+          "numbness",
+          "upper limbs",
+          "lower limbs"
+        ],
+        "passage": "NUMBNESS OF UPPER LIMBS; lower limbs."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "pain",
+          "chill",
+          "paroxysmal",
+          "rheumatic",
+          "joints",
+          "gouty"
+        ],
+        "passage": "Pain in limbs; during chill; PAROXYSMAL; rheumatic; in joints; gouty."
+      },
+      {
+        "keywords": [
+          "upper limbs",
+          "pain",
+          "night",
+          "paralytic",
+          "left arm",
+          "rheumatic",
+          "shoulder",
+          "elbow",
+          "hand",
+          "gouty"
+        ],
+        "passage": "Pain in upper limbs; during the night paralytic in left arm; rheumatic in shoulder; in elbow on motion; rheumatism in elbow, in hand; gouty in hand."
+      },
+      {
+        "keywords": [
+          "lower limbs",
+          "pain",
+          "rheumatic",
+          "motion",
+          "sciatica",
+          "cold",
+          "thighs",
+          "knees",
+          "hips"
+        ],
+        "passage": "Pain in lower limbs; rheumatic; worse on motion; sciatica from taking cold; in thighs after dinner; neuralgia in thighs; in knees; in hips; in hollow of knee."
+      },
+      {
+        "keywords": [
+          "leg",
+          "pain",
+          "rheumatic",
+          "ankles",
+          "morning",
+          "os calcis",
+          "ascending"
+        ],
+        "passage": "Pain in leg; rheumatic; in ankles in morning; in os calcis on ascending steps; in feet after dinner and while walking."
+      },
+      {
+        "keywords": [
+          "forearm",
+          "aching"
+        ],
+        "passage": "Aching in forearm."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "burning",
+          "shoulder",
+          "upper arm",
+          "forearm",
+          "hand",
+          "palm",
+          "thighs",
+          "feet",
+          "soles",
+          "joints"
+        ],
+        "passage": "Burning pain in limbs; in shoulder; upper arm; forearm; hand palm; thighs; feet; soles; joints of feet."
+      },
+      {
+        "keywords": [
+          "limbs",
+          "drawing",
+          "shoulder",
+          "elbow",
+          "forearm",
+          "wrist",
+          "hands",
+          "fingers",
+          "hips",
+          "thighs",
+          "walking",
+          "knees",
+          "calf"
+        ],
+        "passage": "Drawing pains in limbs; shoulder, upper arm; elbow; forearm; wrist; hands fingers; lower limbs; hips thighs while walking; hollow of knees leg; calf."
+      },
+      {
+        "keywords": [
+          "deltoid",
+          "itching",
+          "stitching"
+        ],
+        "passage": "Itching, stitching pains deltoid muscle."
+      },
+      {
+        "keywords": [
+          "jerking",
+          "hip",
+          "ankles",
+          "ascending"
+        ],
+        "passage": "Jerking pains in hip and ankles on ascending."
+      },
+      {
+        "keywords": [
+          "jerking",
+          "stitching",
+          "limbs",
+          "biceps",
+          "fingers",
+          "thumb",
+          "thighs",
+          "legs",
+          "toes"
+        ],
+        "passage": "Jerking, stitching in all the limbs; in biceps; in fingers; in thumb; in thighs in legs; in toes."
+      },
+      {
+        "keywords": [
+          "pressing",
+          "forearm",
+          "left",
+          "heel"
+        ],
+        "passage": "Pressing pains in left forearm, worse leaning on it in left heel."
+      },
+      {
+        "keywords": [
+          "sore",
+          "bruised",
+          "limbs",
+          "joints",
+          "thighs",
+          "legs",
+          "soles",
+          "walking"
+        ],
+        "passage": "SORE, BRUISED LIMBS; joints; upper limbs; lower limbs; thighs; legs; soles when walking."
+      },
+      {
+        "keywords": [
+          "stitching",
+          "limbs",
+          "weather",
+          "joints",
+          "shoulder",
+          "cold",
+          "damp",
+          "arm",
+          "forearm",
+          "elbow",
+          "wrist",
+          "hand",
+          "fingers",
+          "hip",
+          "thighs",
+          "ankles",
+          "feet",
+          "toes",
+          "walking"
+        ],
+        "passage": "Stitching pains in limbs from every change of weather; in joints; in upper limbs; in right shoulder; in cold, damp weather, extending down arm; in upper arm; forearm; elbow; wrist; hand; fingers; lower limbs; hip; thighs ankles; feet; toes while walking."
+      },
+      {
+        "keywords": [
+          "tearing",
+          "limbs",
+          "wandering",
+          "sudden",
+          "joints",
+          "shoulder",
+          "elbow",
+          "forearm",
+          "wrist",
+          "hands",
+          "fingers",
+          "knee",
+          "calf",
+          "ankles",
+          "feet",
+          "toes"
+        ],
+        "passage": "Tearing in all the limbs, wandering about, sudden pains; in joints; upper limb; shoulder upper arm elbow forearm; wrist; hands; finger joints; lower limbs knee; calf ankles feet; toes; first toe."
+      },
+      {
+        "keywords": [
+          "paralysis",
+          "extensors",
+          "wrist",
+          "lower limbs"
+        ],
+        "passage": "Paralysis of extensors of wrist; of lower limbs."
+      },
+      {
+        "keywords": [
+          "perspiration",
+          "hands",
+          "feet",
+          "cold",
+          "offensive",
+          "profuse"
+        ],
+        "passage": "Perspiration of hands; OF FEET; cold; offensive; profuse."
+      },
+      {
+        "keywords": [
+          "restless",
+          "legs",
+          "feet"
+        ],
+        "passage": "Restless legs and feet."
+      },
+      {
+        "keywords": [
+          "stiffness",
+          "limbs",
+          "fingers",
+          "lower limbs",
+          "knees"
+        ],
+        "passage": "Stiffness of limbs; fingers; of lower limbs, of knees."
+      },
+      {
+        "keywords": [
+          "swelling",
+          "hands",
+          "lower limbs",
+          "legs",
+          "ankles",
+          "feet"
+        ],
+        "passage": "Swelling of hands; lower limbs; legs; ankles; feet."
+      },
+      {
+        "keywords": [
+          "dropsical",
+          "swelling",
+          "limbs",
+          "liver"
+        ],
+        "passage": "Dropsical swelling of limbs with liver affections."
+      },
+      {
+        "keywords": [
+          "tension",
+          "hollow",
+          "knee",
+          "legs"
+        ],
+        "passage": "Tension in hollow of knee and legs."
+      },
+      {
+        "keywords": [
+          "tingling",
+          "limbs",
+          "upper",
+          "lower",
+          "hands",
+          "feet"
+        ],
+        "passage": "Tingling of limbs; upper and lower hands and feet."
+      },
+      {
+        "keywords": [
+          "trembling",
+          "limbs",
+          "forearm",
+          "hands",
+          "lower limbs"
+        ],
+        "passage": "Trembling of limbs; upper limbs; forearm; hands; lower limbs."
+      },
+      {
+        "keywords": [
+          "twitching",
+          "limbs",
+          "hand",
+          "thighs",
+          "leg",
+          "feet"
+        ],
+        "passage": "Twitching of the limbs; upper limbs; hand; lower limbs; thighs; leg; feet."
+      },
+      {
+        "keywords": [
+          "ulcers",
+          "lower limbs",
+          "legs",
+          "feet",
+          "nails"
+        ],
+        "passage": "Ulcers on lower limbs; LEGS; feet; ABOUT THE NAILS."
+      },
+      {
+        "keywords": [
+          "varicose veins",
+          "lower limbs",
+          "thighs",
+          "knees",
+          "legs"
+        ],
+        "passage": "Varicose veins, lower limbs, thighs; knees; legs."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "deep",
+          "morning"
+        ],
+        "passage": "Deep morning sleep."
+      },
+      {
+        "keywords": [
+          "dreams",
+          "amorous",
+          "anxious",
+          "danger",
+          "death",
+          "frightful",
+          "ghosts",
+          "horrible",
+          "vexatious",
+          "vivid"
+        ],
+        "passage": "Dreams: amorous; ANXIOUS; of danger; Of death; distressing; of previous events; fantastic; frightful; of ghost horrible; unpleasant; VEXATIOUS; vivid."
+      },
+      {
+        "keywords": [
+          "falling asleep",
+          "late"
+        ],
+        "passage": "Late falling asleep."
+      },
+      {
+        "keywords": [
+          "restless",
+          "night"
+        ],
+        "passage": "Restless all night."
+      },
+      {
+        "keywords": [
+          "sleepiness",
+          "morning",
+          "afternoon",
+          "evening",
+          "dinner",
+          "eating",
+          "reading",
+          "sleepless",
+          "midnight"
+        ],
+        "passage": "SLEEPINESS IN MORNING; afternoon; after 3 P.M; evening; after dinner; after eating; while reading; sleepless before midnight; with sleepiness, from thinking; after waking."
+      },
+      {
+        "keywords": [
+          "sleep",
+          "unrefreshed"
+        ],
+        "passage": "He is not refreshed after sleep."
+      },
+      {
+        "keywords": [
+          "waking",
+          "difficult",
+          "early",
+          "late",
+          "frequent"
+        ],
+        "passage": "Waking difficult, early, or late; frequent."
+      },
+      {
+        "keywords": [
+          "coldness",
+          "morning",
+          "bed",
+          "afternoon",
+          "evening",
+          "icy"
+        ],
+        "passage": "Coldness in morning in bed; in afternoon; evening; 7 P.M.; 8 P.M. Icy coldness."
+      },
+      {
+        "keywords": [
+          "chilliness",
+          "menses"
+        ],
+        "passage": "Chilliness during menses."
+      },
+      {
+        "keywords": [
+          "chill",
+          "eating",
+          "evening",
+          "sweat",
+          "sleep"
+        ],
+        "passage": "Chill after eating; in evening; then sweat, during sleep."
+      },
+      {
+        "keywords": [
+          "fever",
+          "evening",
+          "night",
+          "chilliness",
+          "burning",
+          "heat"
+        ],
+        "passage": "Fever in the evening and during the night. NIGHTLY FEVER; with chilliness; burning heat at night. Fever without chill. Dry heat at night. Extreme heat."
+      },
+      {
+        "keywords": [
+          "heat",
+          "flashes"
+        ],
+        "passage": "Flashes of heat."
+      },
+      {
+        "keywords": [
+          "fever",
+          "without perspiration"
+        ],
+        "passage": "Fever without perspiration."
+      },
+      {
+        "keywords": [
+          "septic",
+          "fevers"
+        ],
+        "passage": "SEPTIC FEVERS."
+      },
+      {
+        "keywords": [
+          "fever",
+          "shivering"
+        ],
+        "passage": "Fever with shivering."
+      },
+      {
+        "keywords": [
+          "perspiration",
+          "morning",
+          "evening",
+          "night",
+          "anxiety",
+          "cold",
+          "coughing",
+          "eating",
+          "exertion",
+          "motion"
+        ],
+        "passage": "Perspiration in daytime; morning evening; night; during anxiety. Cold; on coughing; WHILE EATING; AFTER EATING; on slight exertion or motion."
+      },
+      {
+        "keywords": [
+          "sweat",
+          "profuse",
+          "night",
+          "sleep",
+          "offensive",
+          "sour"
+        ],
+        "passage": "Profuse sweat during the night. Sweat during and after sleep; offensive; sour at night."
+      },
+      {
+        "keywords": [
+          "sweating",
+          "exposure",
+          "complaints"
+        ],
+        "passage": "Complaints come on if exposed while sweating."
+      },
+      {
+        "keywords": [
+          "skin",
+          "anaesthesia"
+        ],
+        "passage": "Anaesthesia of the skin."
+      },
+      {
+        "keywords": [
+          "skin",
+          "biting",
+          "burning",
+          "scratching"
+        ],
+        "passage": "Biting after scratching. Burning of the skin after scratching."
+      },
+      {
+        "keywords": [
+          "skin",
+          "coldness"
+        ],
+        "passage": "Coldness of skin."
+      },
+      {
+        "keywords": [
+          "skin",
+          "chapping",
+          "cracks",
+          "winter"
+        ],
+        "passage": "Chapping and cracks in winter."
+      },
+      {
+        "keywords": [
+          "skin",
+          "discoloration",
+          "blueness",
+          "liver spots",
+          "red spots",
+          "yellow"
+        ],
+        "passage": "Discoloration. Blueness, liver spots; red spots; yellow."
+      },
+      {
+        "keywords": [
+          "skin",
+          "dryness",
+          "burning"
+        ],
+        "passage": "Dryness with burning."
+      },
+      {
+        "keywords": [
+          "skin",
+          "eruptions",
+          "blisters",
+          "boils",
+          "burning",
+          "eczema",
+          "corrosive",
+          "glutinous",
+          "yellow"
+        ],
+        "passage": "Eruptions. Biting; blisters; boils; burning; discharges, corrosive, glutinous, yellow fluid; dry; eczema."
+      },
+      {
+        "keywords": [
+          "herpes",
+          "scabby",
+          "scaly",
+          "tearing",
+          "zoster"
+        ],
+        "passage": "Herpetic eruptions; scabby; scaly; tearing pain; zoster."
+      },
+      {
+        "keywords": [
+          "skin",
+          "eruptions",
+          "measles",
+          "phagedenic",
+          "pimples",
+          "pustules",
+          "rash"
+        ],
+        "passage": "Eruptions; itching; like measles; phagedenic; pimples; pustules; rash after scratching."
+      },
+      {
+        "keywords": [
+          "scabies"
+        ],
+        "passage": "SCABIES."
+      },
+      {
+        "keywords": [
+          "skin",
+          "eruptions",
+          "scabby",
+          "moist",
+          "scratching",
+          "smarting",
+          "suppurative",
+          "tubercles",
+          "urticaria",
+          "nodular"
+        ],
+        "passage": "Scabby eruptions, moist, worse after scratching. Smarting eruptions. Eruptions worse after scratching. Suppurative eruptions; tubercles; urticaria, nodular worse after scratching."
+      },
+      {
+        "keywords": [
+          "vesicles",
+          "yellow fluid",
+          "erysipelas",
+          "swelling"
+        ],
+        "passage": "Vesicles filled with yellow fluid. Erysipelas with much swelling and covered with vesicles."
+      },
+      {
+        "keywords": [
+          "skin",
+          "excoriation",
+          "scratching"
+        ],
+        "passage": "EXCORIATION; after scratching."
+      },
+      {
+        "keywords": [
+          "skin",
+          "excrescences",
+          "formication"
+        ],
+        "passage": "Excrescences. Formication all over body."
+      },
+      {
+        "keywords": [
+          "skin",
+          "induration"
+        ],
+        "passage": "Indurations in skin."
+      },
+      {
+        "keywords": [
+          "skin",
+          "itching",
+          "jerking"
+        ],
+        "passage": "Itching-jerking all over body."
+      },
+      {
+        "keywords": [
+          "skin",
+          "itching",
+          "night",
+          "warm bed",
+          "pricking"
+        ],
+        "passage": "ITCHING AT NIGHT; in a warm bed. Itching-pricking here and there all over."
+      },
+      {
+        "keywords": [
+          "skin",
+          "sticking",
+          "scratching"
+        ],
+        "passage": "Sticking in the skin; after scratching."
+      },
+      {
+        "keywords": [
+          "skin",
+          "ulcerative",
+          "pain"
+        ],
+        "passage": "Ulcerative pains in skin."
+      },
+      {
+        "keywords": [
+          "ulcers",
+          "black",
+          "bleeding",
+          "burning",
+          "cancerous",
+          "deep",
+          "bloody",
+          "ichorous",
+          "offensive",
+          "yellow pus",
+          "fistulous",
+          "indolent",
+          "indurated",
+          "phagedenic",
+          "fungous",
+          "spongy"
+        ],
+        "passage": "ULCERS; black; bleeding; burning; cancerous; deep, discharging; bloody; copious; ichorous; OFFENSIVE, YELLOW PUS; fistulous, indolent; indurated; painful; phagedenic; fungous; sensitive, SPONGY. Stinging; suppurating."
+      },
+      {
+        "keywords": [
+          "skin",
+          "unhealthy",
+          "wounds",
+          "fester"
+        ],
+        "passage": "Unhealthy skin; small wounds fester."
+      }
+    ],
+    "count": 451
+  }
+}

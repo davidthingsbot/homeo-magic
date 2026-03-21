@@ -82,6 +82,13 @@ export default function Home() {
     type: "remedy" | "symptom";
     name: string;
   } | null>(null);
+
+  // Auto-select top remedy when results first appear
+  useEffect(() => {
+    if (results.items.length > 0 && !detailPanel) {
+      setDetailPanel({ type: "remedy", name: results.items[0].abbrev });
+    }
+  }, [results.items.length > 0]);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { getScoreColor } = useColorScale();
