@@ -15,43 +15,25 @@ interface MateriaProfile {
 
 // ---------- markdown cleanup ----------
 function cleanMarkdown(raw: string): string {
-  const lines = raw.split("\n");
-  const out: string[] = [];
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const trimmed = line.trimEnd();
+  // Split on double newlines to get real paragraphs
+  const blocks = raw.split(/\n\n+/);
+  const cleaned: string[] = [];
 
-    if (
-      trimmed === "" ||
-      trimmed.startsWith("#") ||
-      trimmed.startsWith('"') ||
-      trimmed.startsWith('\u201c') ||
-      trimmed.startsWith('\u201d')
-    ) {
-      out.push(trimmed);
-      continue;
-    }
+  for (const block of blocks) {
+    const trimmed = block.trim();
+    if (!trimmed) continue;
 
-    const prev = out.length > 0 ? out[out.length - 1] : "";
-    const prevTrimmed = prev.trimEnd();
-
-    const prevEndsSentence =
-      prevTrimmed === "" ||
-      prevTrimmed.endsWith(".") ||
-      prevTrimmed.endsWith(":") ||
-      prevTrimmed.endsWith("?") ||
-      prevTrimmed.endsWith("!") ||
-      prevTrimmed.endsWith('"') ||
-      prevTrimmed.endsWith('\u201d') ||
-      prevTrimmed.startsWith("#");
-
-    if (!prevEndsSentence && prevTrimmed !== "" && !trimmed.startsWith("#")) {
-      out[out.length - 1] = prevTrimmed + " " + trimmed;
+    if (trimmed.startsWith("#") || trimmed.startsWith(">")) {
+      // Headings and blockquotes: preserve as-is
+      cleaned.push(trimmed);
     } else {
-      out.push(trimmed);
+      // Regular paragraph: join wrapped lines within the block into one paragraph
+      const joined = trimmed.replace(/\n/g, " ").replace(/\s+/g, " ");
+      cleaned.push(joined);
     }
   }
-  return out.join("\n");
+
+  return cleaned.join("\n\n");
 }
 
 // ---------- render markdown to React elements ----------
