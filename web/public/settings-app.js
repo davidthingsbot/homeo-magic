@@ -23,15 +23,15 @@ const PRESETS = {
   },
   viridis: {
     name: 'Viridis-like',
-    colors: ['#440154', '#31688e', '#35b779', '#fde725'],
+    colors: ['#fde725', '#35b779', '#31688e', '#440154'],
     mode: 'lab',
-    steps: 6,
+    steps: 4,
   },
   diverging: {
     name: 'Diverging',
     colors: ['#3b82f6', '#fef3c7', '#ef4444'],
     mode: 'lab',
-    steps: 5,
+    steps: 4,
   },
   teal: {
     name: 'Teal',
@@ -91,7 +91,6 @@ function saveToStorage() {
     scale, // the final computed hex array for the main page to read
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-  toast('Saved to localStorage');
 }
 
 // ── Scale computation ──
@@ -133,6 +132,7 @@ function applyPreset(key, render = true) {
     renderPresets();
     renderColorStops();
     updatePreview();
+    saveToStorage();
   }
 }
 
@@ -164,6 +164,7 @@ function updateStopColor(i, value) {
   renderColorStops();
   renderPresets();
   updatePreview();
+  saveToStorage();
 }
 
 function updateStopHex(i, input) {
@@ -178,6 +179,7 @@ function updateStopHex(i, input) {
     picker.value = normalizeHex(val);
     renderPresets();
     updatePreview();
+    saveToStorage();
   } catch {
     input.classList.add('invalid');
   }
@@ -193,6 +195,16 @@ function addStop() {
   renderPresets();
   renderColorStops();
   updatePreview();
+  saveToStorage();
+}
+
+function reverseStops() {
+  state.colors.reverse();
+  state.activePreset = null;
+  renderPresets();
+  renderColorStops();
+  updatePreview();
+  saveToStorage();
 }
 
 function removeStop(i) {
@@ -202,6 +214,7 @@ function removeStop(i) {
   renderPresets();
   renderColorStops();
   updatePreview();
+  saveToStorage();
 }
 
 // ── Settings changes ──
@@ -211,6 +224,7 @@ function onModeChange(value) {
   state.activePreset = null;
   renderPresets();
   updatePreview();
+  saveToStorage();
 }
 
 function onStepsChange(value) {
@@ -222,6 +236,7 @@ function onStepsChange(value) {
   state.activePreset = null;
   renderPresets();
   updatePreview();
+  saveToStorage();
 }
 
 // ── Preview ──

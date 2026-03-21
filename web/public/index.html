@@ -625,10 +625,11 @@
         return;
       }
       const query = document.getElementById('search').value;
-      dd.innerHTML = matches.map(m => 
+      dd.innerHTML = matches.map(m =>
         `<div class="dropdown-item" onclick="addSymptom('${m.replace(/'/g, "\\'")}')">${highlightMatch(m, query)}</div>`
       ).join('');
       dd.classList.add('show');
+      highlightedIndex = -1;
     }
 
     // Symptom management
@@ -851,20 +852,18 @@
       } else {
         const remedyCount = Object.keys(symData.remedies).length;
         // Get top remedies for this symptom
-        const topRemedies = Object.entries(symData.remedies)
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 20);
-        
+        const allRemedies = Object.entries(symData.remedies)
+          .sort((a, b) => b[1] - a[1]);
+
         typeEl.textContent = 'Symptom';
         contentEl.innerHTML = `
           <div class="symptom-text">${symptomName}</div>
           <div class="symptom-info">
             <strong>${remedyCount}</strong> remedies cover this symptom
             <div class="remedy-list">
-              ${topRemedies.map(([rem, grade]) => 
+              ${allRemedies.map(([rem, grade]) =>
                 `<span class="remedy-badge grade-${grade}" onclick="showRemedyDetail('${rem.replace(/'/g, "\\'")}')" style="cursor:pointer">${rem} (${grade})</span>`
               ).join('')}
-              ${remedyCount > 20 ? `<span style="color:#6b7280">...and ${remedyCount - 20} more</span>` : ''}
             </div>
           </div>
         `;
@@ -917,11 +916,45 @@
       showDropdown(searchSymptoms(e.target.value));
     });
 
+    let highlightedIndex = -1;
+
     document.getElementById('search').addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        document.getElementById('dropdown').classList.remove('show');
+      const dd = document.getElementById('dropdown');
+      const items = dd.querySelectorAll('.dropdown-item');
+      if (!dd.classList.contains('show') || items.length === 0) {
+        if (e.key === 'Escape') dd.classList.remove('show');
+        return;
+      }
+      switch (e.key) {
+        case 'ArrowDown':
+          e.preventDefault();
+          highlightedIndex = highlightedIndex < items.length - 1 ? highlightedIndex + 1 : 0;
+          updateHighlight(items);
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          highlightedIndex = highlightedIndex > 0 ? highlightedIndex - 1 : items.length - 1;
+          updateHighlight(items);
+          break;
+        case 'Enter':
+          e.preventDefault();
+          if (highlightedIndex >= 0 && items[highlightedIndex]) items[highlightedIndex].click();
+          break;
+        case 'Escape':
+          dd.classList.remove('show');
+          highlightedIndex = -1;
+          break;
       }
     });
+
+    function updateHighlight(items) {
+      items.forEach((item, i) => {
+        item.style.background = i === highlightedIndex ? '#eef1f2' : '';
+      });
+      if (items[highlightedIndex]) {
+        items[highlightedIndex].scrollIntoView({ block: 'nearest' });
+      }
+    }
 
     document.addEventListener('click', e => {
       if (!e.target.closest('.search-wrapper')) {

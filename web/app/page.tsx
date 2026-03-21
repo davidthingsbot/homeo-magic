@@ -71,9 +71,16 @@ export default function Home() {
     removeSymptom,
     hideSymptom,
     showSymptom,
+    reorderSymptoms,
     symptomCount,
     remedyCount,
   } = useRepertorize();
+
+  const dragRef = useRef<{ index: number } | null>(null);
+  const [symColWidth, setSymColWidth] = useState(420);
+  const [hoveredRemedy, setHoveredRemedy] = useState<string | null>(null);
+  const [hoveredSymRow, setHoveredSymRow] = useState<string | null>(null);
+  const resizeRef = useRef<{ startX: number; startWidth: number } | null>(null);
 
   const [query, setQuery] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -228,6 +235,7 @@ export default function Home() {
               {suggestions.map((symptom, idx) => (
                 <button
                   key={symptom}
+                  ref={idx === highlightedIndex ? (el) => el?.scrollIntoView({ block: "nearest" }) : undefined}
                   onClick={() => handleSelectSuggestion(symptom)}
                   onMouseEnter={() => setHighlightedIndex(idx)}
                   className={`w-full text-left px-4 py-3 text-sm cursor-pointer border-b border-[#e4e9eb] last:border-b-0 transition-colors ${
@@ -253,7 +261,7 @@ export default function Home() {
               {s}
               <button
                 onClick={() => removeSymptom(s)}
-                className="bg-[#dc2626] text-white border-none w-[18px] h-[18px] rounded-full text-sm flex items-center justify-center cursor-pointer hover:bg-[#b91c1c]"
+                className="bg-[#065774] text-white border-none w-[18px] h-[18px] rounded-full text-sm flex items-center justify-center cursor-pointer hover:bg-[#042B58]"
               >
                 &times;
               </button>
@@ -271,7 +279,7 @@ export default function Home() {
                   {s}
                   <button
                     onClick={(e) => { e.stopPropagation(); removeSymptom(s); }}
-                    className="bg-[#dc2626] text-white border-none w-[18px] h-[18px] rounded-full text-sm flex items-center justify-center cursor-pointer hover:bg-[#b91c1c]"
+                    className="bg-[#065774] text-white border-none w-[18px] h-[18px] rounded-full text-sm flex items-center justify-center cursor-pointer hover:bg-[#042B58]"
                   >
                     &times;
                   </button>
@@ -291,7 +299,6 @@ export default function Home() {
           </div>
         ) : visibleSymptoms.length === 0 ? (
           <div className="py-16 px-5 text-center text-[#6b7280]">
-            <div className="text-5xl mb-4">&#x1F441;</div>
             <p>
               All {selectedSymptoms.length} symptoms are hidden. Click a hidden
               symptom above to show it.
@@ -299,7 +306,6 @@ export default function Home() {
           </div>
         ) : results.items.length === 0 ? (
           <div className="py-16 px-5 text-center text-[#6b7280]">
-            <div className="text-5xl mb-4">&#x1F614;</div>
             <p>No remedies found for these symptoms</p>
           </div>
         ) : (
@@ -325,9 +331,19 @@ export default function Home() {
                 max="100"
                 value={minScore}
                 onChange={(e) => setMinScore(parseInt(e.target.value))}
-                className="w-[150px] accent-[#EF9B0C]"
+                className="score-slider w-[150px]"
+                style={{
+                  direction: "rtl",
+                  background: `linear-gradient(to right, ${getScoreColor(minScore / 100)} ${100 - minScore}%, #D3DCDE ${100 - minScore}%)`,
+                }}
               />
-              <span className="font-bold text-[#EF9B0C] min-w-[35px]">
+              <span
+                className="font-bold min-w-[35px] text-center text-sm px-2 py-0.5 rounded"
+                style={{
+                  background: getScoreColor(minScore / 100),
+                  color: getTextColor(getScoreColor(minScore / 100)),
+                }}
+              >
                 {minScore}
               </span>
               {minScore > 0 && (
@@ -351,8 +367,31 @@ export default function Home() {
               <table className="w-full border-collapse text-[13px]">
                 <thead>
                   <tr>
-                    <th className="text-left min-w-[250px] bg-[#e4e9eb] px-2 py-2.5 font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb]">
+                    <th
+                      className="text-left bg-[#e4e9eb] px-2 py-2.5 font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb] relative"
+                      style={{ width: symColWidth, minWidth: 420, maxWidth: 800 }}
+                    >
                       Analysis
+                      <span
+                        className="absolute top-0 right-0 w-1 h-full cursor-col-resize hover:bg-[#EF9B0C] transition-colors"
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                          resizeRef.current = { startX: e.clientX, startWidth: symColWidth };
+                          const onMove = (ev: MouseEvent) => {
+                            if (!resizeRef.current) return;
+                            const diff = ev.clientX - resizeRef.current.startX;
+                            const newWidth = Math.max(200, Math.min(800, resizeRef.current.startWidth + diff));
+                            setSymColWidth(newWidth);
+                          };
+                          const onUp = () => {
+                            resizeRef.current = null;
+                            document.removeEventListener("mousemove", onMove);
+                            document.removeEventListener("mouseup", onUp);
+                          };
+                          document.addEventListener("mousemove", onMove);
+                          document.addEventListener("mouseup", onUp);
+                        }}
+                      />
                     </th>
                     {displayed.map((r) => (
                       <th
@@ -360,19 +399,28 @@ export default function Home() {
                         onClick={() =>
                           setDetailPanel({ type: "remedy", name: r.abbrev })
                         }
-                        className="bg-[#f3f6f7] px-2 py-2.5 font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb] text-center cursor-pointer hover:bg-[#e9eef0] transition-colors"
-                        title="Click to see remedy details"
+                        onMouseEnter={() => setHoveredRemedy(r.abbrev)}
+                        onMouseLeave={() => setHoveredRemedy(null)}
+                        className="relative bg-[#f3f6f7] px-2 pt-2.5 pb-[10px] font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb] text-center cursor-pointer hover:bg-[#e9eef0] transition-colors"
                         style={{
                           writingMode: "vertical-rl",
                           textOrientation: "mixed",
                           transform: "rotate(180deg)",
                           height: "100px",
                           verticalAlign: "bottom",
-                          fontSize: "11px",
+                          fontSize: "16px",
                           whiteSpace: "nowrap",
                         }}
                       >
                         {r.abbrev}
+                        {hoveredRemedy === r.abbrev && (
+                          <span
+                            className="pointer-events-none absolute z-20 left-1/2 top-[calc(100%+6px)] -translate-x-1/2 rotate-180 whitespace-nowrap bg-[#EF9B0C] text-white text-xs font-normal px-3 py-1.5 rounded-md shadow-lg"
+                            style={{ writingMode: "horizontal-tb", textOrientation: "initial" }}
+                          >
+                            {remedies?.[r.abbrev] || r.abbrev}
+                          </span>
+                        )}
                       </th>
                     ))}
                   </tr>
@@ -406,8 +454,30 @@ export default function Home() {
                     const symCount = symData
                       ? Object.keys(symData.remedies).length
                       : 0;
+                    const symIndex = selectedSymptoms.indexOf(sym);
                     return (
-                      <tr key={sym} className="group">
+                      <tr
+                        key={sym}
+                        draggable
+                        onDragStart={(e) => {
+                          dragRef.current = { index: symIndex };
+                          e.dataTransfer.effectAllowed = "move";
+                        }}
+                        onDragOver={(e) => {
+                          e.preventDefault();
+                          e.dataTransfer.dropEffect = "move";
+                        }}
+                        onDrop={(e) => {
+                          e.preventDefault();
+                          if (dragRef.current !== null) {
+                            reorderSymptoms(dragRef.current.index, symIndex);
+                            dragRef.current = null;
+                          }
+                        }}
+                        onDragEnd={() => { dragRef.current = null; }}
+                        onMouseEnter={() => setHoveredSymRow(sym)}
+                        onMouseLeave={() => setHoveredSymRow(null)}
+                      >
                         <td
                           onClick={() =>
                             setDetailPanel({ type: "symptom", name: sym })
@@ -415,12 +485,21 @@ export default function Home() {
                           className="text-left px-2 py-2.5 border-b border-[#e4e9eb] cursor-pointer hover:bg-[#eef1f2] transition-colors"
                         >
                           <div className="flex items-center gap-2">
+                            <span
+                              className="flex-shrink-0 cursor-grab text-[#9ca3af]"
+                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
+                              title="Drag to reorder"
+                              onMouseDown={(e) => e.stopPropagation()}
+                            >
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="4" r="2"/><circle cx="15" cy="4" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="9" cy="20" r="2"/><circle cx="15" cy="20" r="2"/></svg>
+                            </span>
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
                                 hideSymptom(sym);
                               }}
-                              className="border-none w-[22px] h-[22px] rounded bg-[#e5e7eb] text-[#374151] text-xs cursor-pointer flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#d1d5db] flex-shrink-0"
+                              className="border-none w-[22px] h-[22px] rounded bg-[#e5e7eb] text-[#374151] text-xs cursor-pointer flex items-center justify-center hover:bg-[#d1d5db] flex-shrink-0"
+                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
                               title="Hide symptom"
                             >
                               <EyeIcon />
@@ -434,7 +513,8 @@ export default function Home() {
                                 e.stopPropagation();
                                 removeSymptom(sym);
                               }}
-                              className="border-none w-[22px] h-[22px] rounded bg-[#fee2e2] text-[#dc2626] text-xs cursor-pointer flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#fecaca] hover:text-[#b91c1c] flex-shrink-0 ml-auto"
+                              className="border-none w-[22px] h-[22px] rounded bg-[#D3DCDE] text-[#065774] text-xs cursor-pointer flex items-center justify-center hover:bg-[#065774] hover:text-white flex-shrink-0 ml-auto"
+                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
                               title="Remove symptom"
                             >
                               <TrashIcon />
@@ -576,7 +656,6 @@ function DetailPanel({
                 <div className="flex flex-wrap gap-2 mt-3">
                   {Object.entries(symptoms[name].remedies)
                     .sort((a, b) => b[1] - a[1])
-                    .slice(0, 20)
                     .map(([rem, grade]) => (
                       <span
                         key={rem}
@@ -586,13 +665,6 @@ function DetailPanel({
                         {rem} ({grade})
                       </span>
                     ))}
-                  {Object.keys(symptoms[name].remedies).length > 20 && (
-                    <span className="text-[#6b7280]">
-                      ...and{" "}
-                      {Object.keys(symptoms[name].remedies).length - 20}{" "}
-                      more
-                    </span>
-                  )}
                 </div>
               </div>
             )}

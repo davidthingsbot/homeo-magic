@@ -74,3 +74,37 @@ body {
 .animate-fade-in { animation: fadeIn 0.2s ease-out; }
 .animate-slide-up { animation: slideUp 0.2s ease-out; }
 .loading-pulse { animation: pulse 1.5s infinite; }
+
+/* Score slider */
+.score-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+.score-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #EF9B0C;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+.score-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #EF9B0C;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+/* Symptom row hover actions */
+.symptom-row .hover-action { opacity: 0; transition: opacity 0.15s; }
+.symptom-row:hover .hover-action { opacity: 1; }
