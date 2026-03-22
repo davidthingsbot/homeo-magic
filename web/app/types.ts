@@ -17,7 +17,7 @@ export interface MateriaProfile {
   remedy: string;
   abbreviations: string[];
   file: string;
-  total_symptoms_in_repertory: number;
+  total_rubrics_in_repertory: number;
   personality: string;
   mental_state: string;
   emotional_pattern: string;
@@ -25,7 +25,7 @@ export interface MateriaProfile {
 
 export type ProfilesData = Record<string, MateriaProfile>;
 
-// Rubric index from symptom_index.json - remedy abbrev -> rubric path -> Kent quote
+// Rubric index from rubric_index.json - remedy abbrev -> rubric path -> Kent quote
 export type RubricIndexData = Record<string, Record<string, string>>;
 
 // Result of repertorization

@@ -16,6 +16,7 @@ cp public/*.svg out/ 2>/dev/null || true
 cp public/*.ico out/ 2>/dev/null || true
 
 # Copy data
+# Legacy monolithic file (source input format)
 cp ../data/symptoms.json out/data/
 cp ../data/remedies.json out/data/
 

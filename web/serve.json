@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/homeo-magic/:path*", "destination": "/:path*" }
+  ]
+}

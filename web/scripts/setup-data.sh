@@ -11,13 +11,13 @@ PUBLIC_DATA="$WEB_DIR/public/data"
 
 mkdir -p "$PUBLIC_DATA"
 
-echo "Copying split symptom data..."
-# Copy symptom_pairs.json (needed for client-side index decoding)
-cp "$DATA_DIR/symptom_pairs.json" "$PUBLIC_DATA/"
+echo "Copying split rubric data..."
+# Copy rubric_pairs.json (needed for client-side index decoding)
+cp "$DATA_DIR/rubric_pairs.json" "$PUBLIC_DATA/"
 
-# Copy split symptom directories (body systems with subcategory files + index)
-rm -rf "$PUBLIC_DATA/symptoms"
-cp -r "$DATA_DIR/symptoms" "$PUBLIC_DATA/symptoms"
+# Copy split rubric directories (body systems with subcategory files + index)
+rm -rf "$PUBLIC_DATA/rubrics"
+cp -r "$DATA_DIR/rubrics" "$PUBLIC_DATA/rubrics"
 
 echo "Copying split remedy data..."
 # Copy split remedy directories (letter dirs + index)
@@ -38,14 +38,14 @@ PUBLIC_KENT="$PUBLIC_DATA/kent"
 if [ -d "$KENT_DATA" ]; then
   mkdir -p "$PUBLIC_KENT/remedy_markdown"
   cp "$KENT_DATA/profiles.json" "$PUBLIC_KENT/"
-  cp "$KENT_DATA/symptom_index.json" "$PUBLIC_KENT/"
+  cp "$KENT_DATA/rubric_index.json" "$PUBLIC_KENT/"
   cp "$KENT_DATA/remedy_markdown/"*.md "$PUBLIC_KENT/remedy_markdown/"
   echo "Kent materia medica data copied."
 fi
 
 echo "Done! Split data files copied to public/data/"
-echo "Symptom body systems:"
-ls "$PUBLIC_DATA/symptoms/" | head -10
+echo "Rubric body systems:"
+ls "$PUBLIC_DATA/rubrics/" | head -10
 echo "..."
 echo "Remedy letter dirs:"
 ls "$PUBLIC_DATA/remedies/" | head -10

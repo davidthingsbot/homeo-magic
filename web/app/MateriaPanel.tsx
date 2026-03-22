@@ -28,7 +28,7 @@ async function loadMateriaData(): Promise<{
   try {
     const [profilesRes, indexRes, linksRes, passagesRes] = await Promise.all([
       fetch(dataUrl("data/kent/profiles.json")),
-      fetch(dataUrl("data/kent/symptom_index.json")),
+      fetch(dataUrl("data/kent/rubric_index.json")),
       fetch(dataUrl("data/kent/archive_links.json")),
       fetch(dataUrl("data/kent/passage_index.json")),
     ]);

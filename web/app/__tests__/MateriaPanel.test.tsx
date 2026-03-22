@@ -12,7 +12,7 @@ const sampleProfiles: ProfilesData = {
     remedy: "Aconitum Napellus",
     abbreviations: ["Acon."],
     file: "aconitum_napellus.md",
-    total_symptoms_in_repertory: 5202,
+    total_rubrics_in_repertory: 5202,
     personality:
       "A vigorous, plethoric, robust individual with strong vitality.",
     mental_state:
@@ -24,7 +24,7 @@ const sampleProfiles: ProfilesData = {
     remedy: "Belladonna",
     abbreviations: ["Bell."],
     file: "belladonna.md",
-    total_symptoms_in_repertory: 8000,
+    total_rubrics_in_repertory: 8000,
     personality: "Hot, red, throbbing constitution.",
     mental_state: "Delirium with violence and rage.",
     emotional_pattern: "Sudden intense emotions with heat.",
@@ -56,7 +56,7 @@ function mockFetchResponses(
         json: () => Promise.resolve(profiles),
       });
     }
-    if (url.includes("symptom_index.json")) {
+    if (url.includes("rubric_index.json")) {
       if (!rubricIndex) return Promise.reject(new Error("Not found"));
       return Promise.resolve({
         ok: true,

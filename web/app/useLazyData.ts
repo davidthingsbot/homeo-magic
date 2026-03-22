@@ -24,15 +24,15 @@ function decodeRubricIndex(pairs: string[], encoded: string[]): string[] {
 
 /**
  * Determine the fetch URL for a rubric's body-system subcategory file.
- * "Mind, anxiety, morning" -> "data/symptoms/Mind/anxiety.json"
- * "Abdomen" -> "data/symptoms/Abdomen/_root.json"
+ * "Mind, anxiety, morning" -> "data/rubrics/Mind/anxiety.json"
+ * "Abdomen" -> "data/rubrics/Abdomen/_root.json"
  */
 function getRubricFileUrl(rubricName: string): string {
   const parts = rubricName.split(", ");
   const bodySystem = parts[0];
   const subcategory = parts.length > 1 ? parts[1] : "_root";
   const safeName = subcategory.replace(/[^\w\s\-.]/g, "").trim() || "_other";
-  return `data/symptoms/${bodySystem}/${safeName}.json`;
+  return `data/rubrics/${bodySystem}/${safeName}.json`;
 }
 
 /**
@@ -60,8 +60,8 @@ export function useLazyData() {
     async function loadIndexes() {
       try {
         const [pairsRes, indexRes, remedyRes] = await Promise.all([
-          fetch(dataUrl("data/symptom_pairs.json")),
-          fetch(dataUrl("data/symptoms/index.json")),
+          fetch(dataUrl("data/rubric_pairs.json")),
+          fetch(dataUrl("data/rubrics/index.json")),
           fetch(dataUrl("data/remedies/index.json")),
         ]);
 

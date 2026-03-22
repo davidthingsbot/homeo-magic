@@ -31,7 +31,7 @@ describe("dataUrl", () => {
     script.src = "/homeo-magic/_next/static/chunks/app.js";
     document.head.appendChild(script);
 
-    expect(dataUrl("data/symptoms/index.json")).toBe("/homeo-magic/data/symptoms/index.json");
+    expect(dataUrl("data/rubrics/index.json")).toBe("/homeo-magic/data/rubrics/index.json");
   });
 
   it("works for remedies index path", () => {
@@ -47,7 +47,7 @@ describe("dataUrl", () => {
     script.src = "/homeo-magic/_next/static/chunks/app.js";
     document.head.appendChild(script);
 
-    expect(dataUrl("data/symptoms/Head/pain.json")).toBe("/homeo-magic/data/symptoms/Head/pain.json");
+    expect(dataUrl("data/rubrics/Head/pain.json")).toBe("/homeo-magic/data/rubrics/Head/pain.json");
   });
 
   it("works for remedy markdown paths", () => {

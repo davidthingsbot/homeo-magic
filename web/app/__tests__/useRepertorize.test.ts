@@ -58,13 +58,13 @@ function setupFetchMock(
 ) {
   (global.fetch as ReturnType<typeof vi.fn>).mockImplementation(
     (url: string) => {
-      if (url.includes("symptom_pairs.json")) {
+      if (url.includes("rubric_pairs.json")) {
         return Promise.resolve({
           ok: true,
           json: () => Promise.resolve(samplePairs),
         });
       }
-      if (url.includes("symptoms/index.json")) {
+      if (url.includes("rubrics/index.json")) {
         return Promise.resolve({
           ok: true,
           json: () => Promise.resolve(sampleEncoded),
@@ -76,25 +76,25 @@ function setupFetchMock(
           json: () => Promise.resolve(sampleRemedies),
         });
       }
-      if (url.includes("symptoms/Mind/anxiety.json")) {
+      if (url.includes("rubrics/Mind/anxiety.json")) {
         return Promise.resolve({
           ok: true,
           json: () => Promise.resolve(mindAnxietyFile),
         });
       }
-      if (url.includes("symptoms/Mind/fear of death.json")) {
+      if (url.includes("rubrics/Mind/fear of death.json")) {
         return Promise.resolve({
           ok: true,
           json: () => Promise.resolve(mindFearFile),
         });
       }
-      if (url.includes("symptoms/Head/pain.json")) {
+      if (url.includes("rubrics/Head/pain.json")) {
         return Promise.resolve({
           ok: true,
           json: () => Promise.resolve(headPainFile),
         });
       }
-      if (url.includes("symptoms/Stomach/nausea.json")) {
+      if (url.includes("rubrics/Stomach/nausea.json")) {
         return Promise.resolve({
           ok: true,
           json: () => Promise.resolve(stomachNauseaFile),
@@ -173,7 +173,7 @@ describe("useRepertorize", () => {
 
     it("reports error on fetch failure", async () => {
       mockFetch.mockImplementation((url: string) => {
-        if (url.includes("symptom_pairs.json")) {
+        if (url.includes("rubric_pairs.json")) {
           return Promise.resolve({ ok: false, status: 500 });
         }
         if (url.includes("default-rubrics.json")) {

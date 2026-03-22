@@ -4,8 +4,8 @@ import { renderHook, act, waitFor } from "@testing-library/react";
 /**
  * Tests for lazy loading of rubric and remedy data.
  *
- * The lazy loading hook fetches compact indexes on mount (symptom_pairs.json,
- * symptoms/index.json, remedies/index.json) and decodes rubric names client-side.
+ * The lazy loading hook fetches compact indexes on mount (rubric_pairs.json,
+ * rubrics/index.json, remedies/index.json) and decodes rubric names client-side.
  * Full rubric data is fetched per body-system subcategory on demand.
  */
 
@@ -72,15 +72,15 @@ function mockFetch(url: string): Promise<Response> {
 
   let data: unknown;
 
-  if (url.includes("symptom_pairs.json")) {
+  if (url.includes("rubric_pairs.json")) {
     data = mockPairs;
-  } else if (url.includes("symptoms/index.json")) {
+  } else if (url.includes("rubrics/index.json")) {
     data = mockEncodedIndex;
   } else if (url.includes("remedies/index.json")) {
     data = mockRemedyIndex;
-  } else if (url.includes("symptoms/Abdomen/pain.json")) {
+  } else if (url.includes("rubrics/Abdomen/pain.json")) {
     data = mockAbdomenPain;
-  } else if (url.includes("symptoms/Head/pain.json")) {
+  } else if (url.includes("rubrics/Head/pain.json")) {
     data = mockHeadPain;
   } else if (url.includes("remedies/") && url.includes("Acon")) {
     data = mockRemedyDetail;
@@ -121,14 +121,14 @@ describe("Lazy loading", () => {
 
     // Should have fetched index files
     const indexFetches = fetchCalls.filter(
-      (url) => url.includes("index.json") || url.includes("symptom_pairs.json")
+      (url) => url.includes("index.json") || url.includes("rubric_pairs.json")
     );
     expect(indexFetches.length).toBeGreaterThan(0);
 
     // Should NOT have fetched full rubric files
     const rubricDataFetches = fetchCalls.filter(
       (url) =>
-        url.includes("symptoms/") &&
+        url.includes("rubrics/") &&
         !url.includes("index.json")
     );
     expect(rubricDataFetches).toHaveLength(0);

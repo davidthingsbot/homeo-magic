@@ -11,20 +11,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 
 
-def split_symptoms():
+def split_rubrics():
     """Split symptoms.json into body_system/subcategory.json files + index."""
     src = os.path.join(DATA_DIR, "symptoms.json")
-    out_dir = os.path.join(DATA_DIR, "symptoms")
+    out_dir = os.path.join(DATA_DIR, "rubrics")
     if os.path.isdir(out_dir):
         shutil.rmtree(out_dir)
     os.makedirs(out_dir, exist_ok=True)
 
     with open(src) as f:
-        symptoms = json.load(f)
+        rubrics = json.load(f)
 
     # Group by body_system and subcategory
     groups = defaultdict(lambda: defaultdict(dict))
-    for name, data in symptoms.items():
+    for name, data in rubrics.items():
         parts = name.split(", ")
         body_system = parts[0]
         subcategory = parts[1] if len(parts) > 1 else "_root"
@@ -56,7 +56,7 @@ def split_symptoms():
     from collections import Counter
 
     pair_counts = Counter()
-    for name in symptoms:
+    for name in rubrics:
         parts = name.split(", ", 2)
         pair = parts[0] + ", " + parts[1] if len(parts) > 1 else parts[0]
         pair_counts[pair] += 1
@@ -74,12 +74,12 @@ def split_symptoms():
             n //= 36
         return result
 
-    # Store pairs mapping separately for client-side decoding (not in symptoms dir)
-    with open(os.path.join(DATA_DIR, "symptom_pairs.json"), "w") as f:
+    # Store pairs mapping separately for client-side decoding (not in rubrics dir)
+    with open(os.path.join(DATA_DIR, "rubric_pairs.json"), "w") as f:
         json.dump(sorted_pairs, f, separators=(",", ":"))
 
     encoded = []
-    for name in sorted(symptoms.keys()):
+    for name in sorted(rubrics.keys()):
         parts = name.split(", ", 2)
         pair = parts[0] + ", " + parts[1] if len(parts) > 1 else parts[0]
         remaining = parts[2] if len(parts) > 2 else ""
@@ -92,7 +92,7 @@ def split_symptoms():
     with open(os.path.join(out_dir, "index.json"), "w") as f:
         json.dump(encoded, f, separators=(",", ":"))
 
-    print(f"Split {len(symptoms)} symptoms into {len(groups)} body systems")
+    print(f"Split {len(rubrics)} rubrics into {len(groups)} body systems")
 
 
 def split_remedies():
@@ -129,7 +129,7 @@ def split_kent():
     kent_dir = os.path.join(DATA_DIR, "kent", "materia_medica")
     split_dir = os.path.join(kent_dir, "split")
 
-    for data_type in ["passage_index", "profiles", "symptom_index"]:
+    for data_type in ["passage_index", "profiles", "rubric_index"]:
         src = os.path.join(kent_dir, f"{data_type}.json")
         if not os.path.exists(src):
             print(f"Skipping {data_type} (file not found)")
@@ -151,7 +151,7 @@ def split_kent():
 
 
 if __name__ == "__main__":
-    split_symptoms()
+    split_rubrics()
     split_remedies()
     split_kent()
     print("Done!")
