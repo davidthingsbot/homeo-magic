@@ -13,8 +13,8 @@ export function dataUrl(path: string): string {
     const scripts = document.querySelectorAll("script[src]");
     for (const script of scripts) {
       const src = script.getAttribute("src") || "";
-      const match = src.match(/^(\/[^/]+)\/_next\//);
-      if (match) {
+      const match = src.match(/^(\/.*?)\/_next\//);
+      if (match && match[1] !== "") {
         return `${match[1]}/${path}`;
       }
     }
