@@ -82,6 +82,7 @@ export default function Home() {
   const [hoveredRemedy, setHoveredRemedy] = useState<string | null>(null);
   const [selectedRemedy, setSelectedRemedy] = useState<string | null>(null);
   const [hoveredSymRow, setHoveredSymRow] = useState<string | null>(null);
+  const [selectedSymRow, setSelectedSymRow] = useState<string | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const resizeRef = useRef<{ startX: number; startWidth: number } | null>(null);
 
@@ -331,7 +332,7 @@ export default function Home() {
                 <thead>
                   <tr>
                     <th
-                      className="text-left bg-[#e4e9eb] px-2 py-2.5 font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb] relative text-[16px]"
+                      className="text-left bg-[#e4e9eb] px-5 py-2.5 font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb] relative text-[16px]"
                       style={{ width: symColWidth, minWidth: 420, maxWidth: 800 }}
                     >
                       Analysis
@@ -390,7 +391,7 @@ export default function Home() {
                 <tbody>
                   {/* Score row */}
                   <tr>
-                    <td className="text-left px-2 py-2.5 font-semibold border-b-2 border-[#D3DCDE] text-[16px]" style={{ background: "linear-gradient(180deg, #f3f6f7 0%, #e9eef0 100%)" }}>
+                    <td className="text-left px-5 py-2.5 font-semibold border-b-2 border-[#D3DCDE] text-[16px]" style={{ background: "linear-gradient(180deg, #f3f6f7 0%, #e9eef0 100%)" }}>
                       Score
                     </td>
                     {displayed.map((r) => {
@@ -443,34 +444,28 @@ export default function Home() {
                         onDragEnd={() => { dragRef.current = null; }}
                         onMouseEnter={() => setHoveredSymRow(sym)}
                         onMouseLeave={() => setHoveredSymRow(null)}
-                        style={{ opacity: isHidden ? 0.4 : 1, transition: "opacity 0.15s" }}
+                        style={{
+                          opacity: isHidden ? 0.4 : 1,
+                          transition: "opacity 0.15s, background 0.15s",
+                          background: (selectedSymRow === sym || hoveredSymRow === sym) ? "#eef1f2" : undefined,
+                        }}
                       >
                         <td
-                          onClick={() =>
-                            setDetailPanel({ type: "symptom", name: sym })
-                          }
-                          className="text-left px-2 py-2.5 border-b border-[#e4e9eb] cursor-pointer hover:bg-[#eef1f2] transition-colors text-[15px]"
+                          onClick={() => {
+                            setSelectedSymRow((prev) => prev === sym ? null : sym);
+                            setDetailPanel({ type: "symptom", name: sym });
+                          }}
+                          className="text-left px-5 py-2.5 border-b border-[#e4e9eb] cursor-pointer transition-colors text-[15px]"
                         >
                           <div className="flex items-center gap-2">
                             <span
                               className="flex-shrink-0 cursor-grab text-[#9ca3af]"
-                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
+                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s", marginLeft: "-20px", marginRight: "4px" }}
                               title="Drag to reorder"
                               onMouseDown={(e) => e.stopPropagation()}
                             >
                               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="4" r="2"/><circle cx="15" cy="4" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="9" cy="20" r="2"/><circle cx="15" cy="20" r="2"/></svg>
                             </span>
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                isHidden ? showSymptom(sym) : hideSymptom(sym);
-                              }}
-                              className="border-none w-[22px] h-[22px] rounded bg-[#e5e7eb] text-[#374151] text-xs cursor-pointer flex items-center justify-center hover:bg-[#d1d5db] flex-shrink-0"
-                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
-                              title={isHidden ? "Show symptom" : "Hide symptom"}
-                            >
-                              {isHidden ? <EyeOffIcon /> : <EyeIcon />}
-                            </button>
                             <span className="flex-1" style={isHidden ? { textDecoration: "line-through", color: "#9ca3af" } : undefined}>{sym}</span>
                             <span className="text-[#9ca3af] text-[11px]">
                               ({symCount})
@@ -478,9 +473,20 @@ export default function Home() {
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
+                                isHidden ? showSymptom(sym) : hideSymptom(sym);
+                              }}
+                              className="border-none w-[22px] h-[22px] rounded bg-[#D3DCDE] text-[#065774] text-xs cursor-pointer flex items-center justify-center hover:bg-[#065774] hover:text-white flex-shrink-0"
+                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
+                              title={isHidden ? "Show symptom" : "Hide symptom"}
+                            >
+                              {isHidden ? <EyeOffIcon /> : <EyeIcon />}
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
                                 removeSymptom(sym);
                               }}
-                              className="border-none w-[22px] h-[22px] rounded bg-[#D3DCDE] text-[#065774] text-xs cursor-pointer flex items-center justify-center hover:bg-[#065774] hover:text-white flex-shrink-0 ml-auto"
+                              className="border-none w-[22px] h-[22px] rounded bg-[#D3DCDE] text-[#065774] text-xs cursor-pointer flex items-center justify-center hover:bg-[#065774] hover:text-white flex-shrink-0"
                               style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
                               title="Remove symptom"
                             >
@@ -495,7 +501,12 @@ export default function Home() {
                               key={r.abbrev}
                               className="text-center px-2 py-2.5 border-b border-[#e4e9eb]"
                               style={{
-                                background: (hoveredRemedy === r.abbrev || selectedRemedy === r.abbrev) ? "#eef3f5" : undefined,
+                                background:
+                                  ((hoveredRemedy === r.abbrev || selectedRemedy === r.abbrev) && (hoveredSymRow === sym || selectedSymRow === sym))
+                                    ? "#d0dce0"
+                                    : (hoveredRemedy === r.abbrev || selectedRemedy === r.abbrev || hoveredSymRow === sym || selectedSymRow === sym)
+                                      ? "#eef3f5"
+                                      : undefined,
                               }}
                             >
                               {grade ? (

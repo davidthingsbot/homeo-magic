@@ -36,21 +36,18 @@ export function useRepertorize() {
         let restored = false;
         if (Array.isArray(saved.selectedSymptoms) && saved.selectedSymptoms.length > 0) {
           setSelectedSymptoms(saved.selectedSymptoms);
-          restored = true;
+          if (Array.isArray(saved.hiddenSymptoms) && saved.hiddenSymptoms.length > 0) {
+            setHiddenSymptoms(new Set(saved.hiddenSymptoms));
+          }
+          if (typeof saved.minScore === "number" && saved.minScore > 0) {
+            setMinScore(saved.minScore);
+          }
+          return; // Had persisted state with symptoms, skip defaults
         }
-        if (Array.isArray(saved.hiddenSymptoms) && saved.hiddenSymptoms.length > 0) {
-          setHiddenSymptoms(new Set(saved.hiddenSymptoms));
-          restored = true;
-        }
-        if (typeof saved.minScore === "number" && saved.minScore > 0) {
-          setMinScore(saved.minScore);
-          restored = true;
-        }
-        if (restored) return; // Had meaningful persisted state, skip defaults
       }
     } catch {}
 
-    // No persisted state -- try loading default symptoms
+    // No persisted symptoms -- load defaults
     fetch("data/default-symptoms.json")
       .then((res) => res.ok ? res.json() : null)
       .then((defaults) => {
