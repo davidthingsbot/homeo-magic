@@ -1,11 +1,11 @@
 /**
- * Fuzzy multi-token symptom search module.
+ * Fuzzy multi-token rubric search module.
  */
 
 export interface SearchIndex {
   names: string[];
   lowered: string[];
-  tokens: string[][];  // pre-split lowercase tokens per symptom
+  tokens: string[][];  // pre-split lowercase tokens per rubric
 }
 
 export interface SearchResult {
@@ -13,8 +13,8 @@ export interface SearchResult {
   score: number;
 }
 
-export function buildSearchIndex(symptomNames: string[]): SearchIndex {
-  const names = symptomNames;
+export function buildSearchIndex(rubricNames: string[]): SearchIndex {
+  const names = rubricNames;
   const lowered = names.map((n) => n.toLowerCase());
   const tokens = lowered.map((n) =>
     n.split(/[\s,]+/).filter((t) => t.length > 0)
@@ -47,22 +47,22 @@ function editDistance(a: string, b: string): number {
   return prev[n];
 }
 
-function tokenMatchScore(queryToken: string, symptomToken: string): number {
+function tokenMatchScore(queryToken: string, rubricToken: string): number {
   // Exact match
-  if (queryToken === symptomToken) return 10;
+  if (queryToken === rubricToken) return 10;
   // Prefix match
-  if (symptomToken.startsWith(queryToken)) return 8;
+  if (rubricToken.startsWith(queryToken)) return 8;
   // Contains
-  if (symptomToken.includes(queryToken)) return 5;
+  if (rubricToken.includes(queryToken)) return 5;
 
   // Edit distance for fuzzy matching
   const maxDist = queryToken.length <= 3 ? 1 : 2;
-  const dist = editDistance(queryToken, symptomToken);
+  const dist = editDistance(queryToken, rubricToken);
   if (dist <= maxDist) return 6 - dist;
 
   // Check prefix with edit distance (for abbreviations like "hed" -> "head")
-  const prefixLen = Math.min(queryToken.length + 1, symptomToken.length);
-  const prefixDist = editDistance(queryToken, symptomToken.substring(0, prefixLen));
+  const prefixLen = Math.min(queryToken.length + 1, rubricToken.length);
+  const prefixDist = editDistance(queryToken, rubricToken.substring(0, prefixLen));
   if (prefixDist <= maxDist) return 5 - prefixDist;
 
   return 0;
@@ -84,7 +84,7 @@ export function search(
 
   for (let i = 0; i < index.names.length; i++) {
     const nameLower = index.lowered[i];
-    const symptomTokens = index.tokens[i];
+    const rubricTokens = index.tokens[i];
 
     let totalScore = 0;
 
@@ -97,11 +97,11 @@ export function search(
       totalScore += 50;
     }
 
-    // Score each query token against best matching symptom token
+    // Score each query token against best matching rubric token
     let allTokensMatch = true;
     for (const qt of queryTokens) {
       let bestTokenScore = 0;
-      for (const st of symptomTokens) {
+      for (const st of rubricTokens) {
         const s = tokenMatchScore(qt, st);
         if (s > bestTokenScore) bestTokenScore = s;
       }
@@ -115,7 +115,7 @@ export function search(
     if (!allTokensMatch || totalScore === 0) continue;
 
     // Slight penalty for longer names (prefer more specific matches)
-    const lengthPenalty = symptomTokens.length * 0.1;
+    const lengthPenalty = rubricTokens.length * 0.1;
     totalScore -= lengthPenalty;
 
     results.push({ name: index.names[i], score: totalScore });

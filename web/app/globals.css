@@ -136,6 +136,6 @@ body {
   font-family: Georgia, 'Times New Roman', serif;
 }
 
-/* Symptom row hover actions */
-.symptom-row .hover-action { opacity: 0; transition: opacity 0.15s; }
-.symptom-row:hover .hover-action { opacity: 1; }
+/* Rubric row hover actions */
+.rubric-row .hover-action { opacity: 0; transition: opacity 0.15s; }
+.rubric-row:hover .hover-action { opacity: 1; }

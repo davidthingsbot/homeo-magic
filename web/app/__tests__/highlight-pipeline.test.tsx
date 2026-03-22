@@ -257,13 +257,13 @@ describe("findPassageRange with real data", () => {
     });
 
     it("handles passage where text diverges at end (prefix match)", () => {
-      // Passage says "symptoms." but cleaned says "symptoms; more text"
-      const cleaned = "The patient has cardiac symptoms; it is much like other remedies.";
-      const passage = "The patient has cardiac symptoms.";
+      // Passage says "rubrics." but cleaned says "rubrics; more text"
+      const cleaned = "The patient has cardiac rubrics; it is much like other remedies.";
+      const passage = "The patient has cardiac rubrics.";
       const range = findPassageRange(passage, cleaned);
       expect(range).not.toBeNull();
       if (range) {
-        expect(cleaned.slice(range.start, range.end)).toContain("cardiac symptoms");
+        expect(cleaned.slice(range.start, range.end)).toContain("cardiac rubrics");
       }
     });
 
@@ -429,7 +429,7 @@ describe("full rendering pipeline with real Nux data", () => {
     if (!stomachPassage) return;
 
     setQueryParams({
-      symptoms: "Stomach, constipation",
+      rubrics: "Stomach, constipation",
       highlight: stomachPassage.passage,
     });
     setupNuxFetch();
@@ -452,7 +452,7 @@ describe("full rendering pipeline with real Nux data", () => {
     if (!stomachP || !bladderP) return;
 
     setQueryParams({
-      symptoms: "Stomach, constipation|Bladder, urging to urinate (morbid desire), frequent",
+      rubrics: "Stomach, constipation|Bladder, urging to urinate (morbid desire), frequent",
       highlight: stomachP.passage,
     });
     setupNuxFetch();
@@ -470,10 +470,10 @@ describe("full rendering pipeline with real Nux data", () => {
     });
   });
 
-  it("merges duplicate ranges when multiple symptoms match same passage", async () => {
-    // Multiple bladder-related symptoms all match the same bladder passage
+  it("merges duplicate ranges when multiple rubrics match same passage", async () => {
+    // Multiple bladder-related rubrics all match the same bladder passage
     setQueryParams({
-      symptoms: [
+      rubrics: [
         "Bladder, urging to urinate (morbid desire), frequent",
         "Bladder, urination, dysuria",
         "Urine, bloody",
@@ -495,9 +495,9 @@ describe("full rendering pipeline with real Nux data", () => {
     expect(bladderMarks.length).toBeLessThanOrEqual(1);
   });
 
-  it("shows symptom badges with checkmarks for matched symptoms", async () => {
+  it("shows rubric badges with checkmarks for matched rubrics", async () => {
     setQueryParams({
-      symptoms: "Mind, anxiety, restlessness|Mind, nonexistent symptom xyz",
+      rubrics: "Mind, anxiety, restlessness|Mind, nonexistent rubric xyz",
     });
     setupNuxFetch();
     render(<RemedyReader slug="nux_vomica" />);
@@ -543,22 +543,22 @@ describe("buildRemedyUrl → RemedyReader highlight param round-trip", () => {
     expect(decoded.get("highlight")).toBe(passage);
   });
 
-  it("passage with pipe chars survives (not confused with symptom separator)", () => {
-    // Symptoms use | as separator, make sure passage text with | works
-    const passage = "Symptom A | Symptom B";
+  it("passage with pipe chars survives (not confused with rubric separator)", () => {
+    // Rubrics use | as separator, make sure passage text with | works
+    const passage = "Rubric A | Rubric B";
     const params = new URLSearchParams();
-    params.set("symptoms", "Mind, anxiety|Head, pain");
+    params.set("rubrics", "Mind, anxiety|Head, pain");
     params.set("highlight", passage);
     const decoded = new URLSearchParams("?" + params.toString());
     expect(decoded.get("highlight")).toBe(passage);
-    expect(decoded.get("symptoms")).toBe("Mind, anxiety|Head, pain");
+    expect(decoded.get("rubrics")).toBe("Mind, anxiety|Head, pain");
   });
 });
 
 // ===================================================================
-// 6. Symptom badge click-to-scroll behavior
+// 6. Rubric badge click-to-scroll behavior
 // ===================================================================
-describe("symptom badge click-to-scroll", () => {
+describe("rubric badge click-to-scroll", () => {
   it("scrolls to the matching highlight mark on badge click", async () => {
     const stomachP = passageIndex["Nux-v."]?.find((p) =>
       p.passage.includes("disordered stomach")
@@ -566,7 +566,7 @@ describe("symptom badge click-to-scroll", () => {
     if (!stomachP) return;
 
     setQueryParams({
-      symptoms: "Stomach, constipation",
+      rubrics: "Stomach, constipation",
       highlight: stomachP.passage,
     });
     setupNuxFetch();
@@ -589,7 +589,7 @@ describe("symptom badge click-to-scroll", () => {
 
     scrollIntoViewMock.mockClear();
 
-    // Click the symptom badge
+    // Click the rubric badge
     const badge = screen.getByText(/Stomach, constipation/i);
     badge.click();
 

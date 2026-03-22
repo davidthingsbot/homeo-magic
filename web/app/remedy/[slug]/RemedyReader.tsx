@@ -330,8 +330,8 @@ function highlightText(
 }
 
 // ---------- passage matching (mirrors MateriaPanel logic) ----------
-function extractSearchTerms(symptom: string): string[] {
-  const parts = symptom.split(",").map((s) => s.trim().toLowerCase());
+function extractSearchTerms(rubric: string): string[] {
+  const parts = rubric.split(",").map((s) => s.trim().toLowerCase());
   return parts
     .filter((p) => p.length > 2)
     .flatMap((p) => p.replace(/[()]/g, "").split(/\s+/))
@@ -343,10 +343,10 @@ function extractSearchTerms(symptom: string): string[] {
 
 function matchPassages(
   passages: PassageEntry[],
-  symptoms: string[]
+  rubrics: string[]
 ): Record<string, string> {
   const results: Record<string, string> = {};
-  for (const sym of symptoms) {
+  for (const sym of rubrics) {
     const searchTerms = extractSearchTerms(sym);
     if (searchTerms.length === 0) continue;
     let bestPassage = "";
@@ -375,21 +375,21 @@ function matchPassages(
 // ---------- main component ----------
 export default function RemedyReader({ slug }: { slug: string }) {
   // Read query params on the client side (static export can't use searchParams)
-  const [symptomsParam, setSymptomsParam] = useState("");
+  const [rubricsParam, setRubricsParam] = useState("");
   const [highlightParam, setHighlightParam] = useState("");
 
   useEffect(() => {
     const sp = new URLSearchParams(window.location.search);
-    setSymptomsParam(sp.get("symptoms") || "");
+    setRubricsParam(sp.get("rubrics") || "");
     setHighlightParam(sp.get("highlight") || "");
   }, []);
 
-  const symptoms = useMemo(
+  const rubrics = useMemo(
     () =>
-      symptomsParam
-        ? symptomsParam.split("|").filter((s) => s.length > 0)
+      rubricsParam
+        ? rubricsParam.split("|").filter((s) => s.length > 0)
         : [],
-    [symptomsParam]
+    [rubricsParam]
   );
 
   const [markdown, setMarkdown] = useState<string | null>(null);
@@ -439,9 +439,9 @@ export default function RemedyReader({ slug }: { slug: string }) {
           (k) => profiles[k].file === prof.file
         );
 
-        if (abbrevKey && symptoms.length > 0) {
+        if (abbrevKey && rubrics.length > 0) {
           const remedyPassages = passageIndex[abbrevKey] ?? [];
-          const matched = matchPassages(remedyPassages, symptoms);
+          const matched = matchPassages(remedyPassages, rubrics);
           setMatchedPassages(matched);
         }
 
@@ -469,7 +469,7 @@ export default function RemedyReader({ slug }: { slug: string }) {
     return () => {
       cancelled = true;
     };
-  }, [slug, symptomsParam]);
+  }, [slug, rubricsParam]);
 
   const { elements, primaryRef } = useMemo(() => {
     if (!markdown) return { elements: [], primaryRef: null as string | null };
@@ -505,7 +505,7 @@ export default function RemedyReader({ slug }: { slug: string }) {
     }
 
     // Deduplicate and merge overlapping ranges.
-    // Multiple symptoms can match the same passage text, creating duplicate ranges.
+    // Multiple rubrics can match the same passage text, creating duplicate ranges.
     // Merge overlapping ranges, preserving primary status if any overlap is primary.
     const sorted = rangesRaw.sort((a, b) => a.start - b.start || a.end - b.end);
     const ranges: typeof rangesRaw = [];
@@ -589,14 +589,14 @@ export default function RemedyReader({ slug }: { slug: string }) {
           </p>
         </header>
 
-        {symptoms.length > 0 && matchCount > 0 && (
+        {rubrics.length > 0 && matchCount > 0 && (
           <div className="px-8 py-4 bg-[#fefce8] border-b border-[#fde68a]">
             <div className="text-sm font-semibold text-[#92400e] mb-2">
               {matchCount} matching passage{matchCount !== 1 ? "s" : ""}{" "}
-              highlighted for your symptoms:
+              highlighted for your rubrics:
             </div>
             <div className="flex flex-wrap gap-2">
-              {symptoms.map((sym) => {
+              {rubrics.map((sym) => {
                 const hasMatch = !!matchedPassages[sym];
                 return (
                   <button
@@ -608,7 +608,7 @@ export default function RemedyReader({ slug }: { slug: string }) {
                     }`}
                     onClick={() => {
                       if (!hasMatch) return;
-                      // Find the highlight mark for this symptom's passage
+                      // Find the highlight mark for this rubric's passage
                       const marks = document.querySelectorAll("mark[data-highlight]");
                       const passage = matchedPassages[sym]?.toLowerCase() || "";
                       for (const mark of marks) {

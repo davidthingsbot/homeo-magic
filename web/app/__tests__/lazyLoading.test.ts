@@ -2,18 +2,18 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderHook, act, waitFor } from "@testing-library/react";
 
 /**
- * Tests for lazy loading of symptom and remedy data.
+ * Tests for lazy loading of rubric and remedy data.
  *
  * The lazy loading hook fetches compact indexes on mount (symptom_pairs.json,
- * symptoms/index.json, remedies/index.json) and decodes symptom names client-side.
- * Full symptom data is fetched per body-system subcategory on demand.
+ * symptoms/index.json, remedies/index.json) and decodes rubric names client-side.
+ * Full rubric data is fetched per body-system subcategory on demand.
  */
 
 import { useLazyData } from "../useLazyData";
 
 // ---------- mock data ----------
 
-// Compact encoded index matching the split_symptoms.py format
+// Compact encoded index matching the split_rubrics.py format
 const mockPairs = [
   "Abdomen, pain",
   "Head, pain",
@@ -57,7 +57,7 @@ const mockHeadPain = {
 const mockRemedyDetail = {
   "Acon.": {
     fullName: "Aconitum Napellus",
-    symptoms: ["Abdomen, pain", "Head, pain"],
+    rubrics: ["Abdomen, pain", "Head, pain"],
     totalScore: 5202,
   },
 };
@@ -125,13 +125,13 @@ describe("Lazy loading", () => {
     );
     expect(indexFetches.length).toBeGreaterThan(0);
 
-    // Should NOT have fetched full symptom files
-    const symptomDataFetches = fetchCalls.filter(
+    // Should NOT have fetched full rubric files
+    const rubricDataFetches = fetchCalls.filter(
       (url) =>
         url.includes("symptoms/") &&
         !url.includes("index.json")
     );
-    expect(symptomDataFetches).toHaveLength(0);
+    expect(rubricDataFetches).toHaveLength(0);
 
     // Should NOT have fetched individual remedy files
     const remedyDataFetches = fetchCalls.filter(
@@ -142,15 +142,15 @@ describe("Lazy loading", () => {
     expect(remedyDataFetches).toHaveLength(0);
   });
 
-  // 2. Index decoding produces correct symptom names
-  it("decodes compact index into full symptom names", async () => {
+  // 2. Index decoding produces correct rubric names
+  it("decodes compact index into full rubric names", async () => {
     const { result } = renderHook(() => useLazyData());
 
     await waitFor(() => {
       expect(result.current.loading).toBe(false);
     });
 
-    expect(result.current.symptomNames).toEqual([
+    expect(result.current.rubricNames).toEqual([
       "Abdomen, pain",
       "Abdomen, pain, burning",
       "Head, pain",
@@ -172,8 +172,8 @@ describe("Lazy loading", () => {
     expect(Object.keys(result.current.remedies!).length).toBe(6);
   });
 
-  // 4. Selecting a symptom triggers fetch for body system subcategory
-  it("fetches body system subcategory when symptom data requested", async () => {
+  // 4. Selecting a rubric triggers fetch for body system subcategory
+  it("fetches body system subcategory when rubric data requested", async () => {
     const { result } = renderHook(() => useLazyData());
 
     await waitFor(() => {
@@ -183,7 +183,7 @@ describe("Lazy loading", () => {
     fetchCalls = []; // Reset to track only new fetches
 
     await act(async () => {
-      await result.current.fetchSymptomData("Abdomen, pain");
+      await result.current.fetchRubricData("Abdomen, pain");
     });
 
     const abdomenFetches = fetchCalls.filter((url) =>
@@ -202,7 +202,7 @@ describe("Lazy loading", () => {
 
     // First fetch
     await act(async () => {
-      await result.current.fetchSymptomData("Abdomen, pain");
+      await result.current.fetchRubricData("Abdomen, pain");
     });
 
     const firstFetchCount = fetchCalls.filter((url) =>
@@ -211,7 +211,7 @@ describe("Lazy loading", () => {
 
     // Second fetch — should use cache
     await act(async () => {
-      await result.current.fetchSymptomData("Abdomen, pain");
+      await result.current.fetchRubricData("Abdomen, pain");
     });
 
     const secondFetchCount = fetchCalls.filter((url) =>
@@ -223,38 +223,38 @@ describe("Lazy loading", () => {
   });
 
   // 6. App works correctly with data arriving incrementally
-  it("provides symptom data incrementally as body systems are loaded", async () => {
+  it("provides rubric data incrementally as body systems are loaded", async () => {
     const { result } = renderHook(() => useLazyData());
 
     await waitFor(() => {
       expect(result.current.loading).toBe(false);
     });
 
-    // Initially no symptom detail data loaded
-    expect(result.current.symptomData["Abdomen, pain"]).toBeUndefined();
+    // Initially no rubric detail data loaded
+    expect(result.current.rubricData["Abdomen, pain"]).toBeUndefined();
 
     // Load abdomen data
     await act(async () => {
-      await result.current.fetchSymptomData("Abdomen, pain");
+      await result.current.fetchRubricData("Abdomen, pain");
     });
 
-    // Now abdomen symptoms should be available
-    const abdomenData = result.current.symptomData["Abdomen, pain"];
+    // Now abdomen rubrics should be available
+    const abdomenData = result.current.rubricData["Abdomen, pain"];
     expect(abdomenData).toBeDefined();
     expect(abdomenData?.remedies).toBeDefined();
     expect(abdomenData?.remedies["Acon."]).toBe(3);
 
     // Head data still not available
-    expect(result.current.symptomData["Head, pain"]).toBeUndefined();
+    expect(result.current.rubricData["Head, pain"]).toBeUndefined();
 
     // Load head data
     await act(async () => {
-      await result.current.fetchSymptomData("Head, pain");
+      await result.current.fetchRubricData("Head, pain");
     });
 
     // Now both are available
-    expect(result.current.symptomData["Head, pain"]).toBeDefined();
-    expect(result.current.symptomData["Abdomen, pain"]).toBeDefined();
+    expect(result.current.rubricData["Head, pain"]).toBeDefined();
+    expect(result.current.rubricData["Abdomen, pain"]).toBeDefined();
   });
 
   // 7. Repertorization results identical with lazy-loaded vs monolithic data
@@ -267,13 +267,13 @@ describe("Lazy loading", () => {
 
     // Load needed body systems
     await act(async () => {
-      await result.current.fetchSymptomData("Abdomen, pain");
-      await result.current.fetchSymptomData("Head, pain");
+      await result.current.fetchRubricData("Abdomen, pain");
+      await result.current.fetchRubricData("Head, pain");
     });
 
-    // Get symptom data for repertorization
-    const abdomenPain = result.current.symptomData["Abdomen, pain"];
-    const headPain = result.current.symptomData["Head, pain"];
+    // Get rubric data for repertorization
+    const abdomenPain = result.current.rubricData["Abdomen, pain"];
+    const headPain = result.current.rubricData["Head, pain"];
 
     expect(abdomenPain).toBeDefined();
     expect(headPain).toBeDefined();
@@ -285,8 +285,8 @@ describe("Lazy loading", () => {
     expect(headPain!.remedies["Bry."]).toBe(2);
   });
 
-  // 8. fetchMultipleSymptomData deduplicates by file
-  it("deduplicates fetches when loading multiple symptoms from same file", async () => {
+  // 8. fetchMultipleRubricData deduplicates by file
+  it("deduplicates fetches when loading multiple rubrics from same file", async () => {
     const { result } = renderHook(() => useLazyData());
 
     await waitFor(() => {
@@ -297,7 +297,7 @@ describe("Lazy loading", () => {
 
     // Both "Abdomen, pain" and "Abdomen, pain, burning" are in the same file
     await act(async () => {
-      await result.current.fetchMultipleSymptomData([
+      await result.current.fetchMultipleRubricData([
         "Abdomen, pain",
         "Abdomen, pain, burning",
       ]);
@@ -309,8 +309,8 @@ describe("Lazy loading", () => {
     // Should only fetch once since both are in Abdomen/pain.json
     expect(abdomenFetches.length).toBe(1);
 
-    // Both symptoms should be available
-    expect(result.current.symptomData["Abdomen, pain"]).toBeDefined();
-    expect(result.current.symptomData["Abdomen, pain, burning"]).toBeDefined();
+    // Both rubrics should be available
+    expect(result.current.rubricData["Abdomen, pain"]).toBeDefined();
+    expect(result.current.rubricData["Abdomen, pain, burning"]).toBeDefined();
   });
 });

@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderHook, act, waitFor } from "@testing-library/react";
 import { useRepertorize } from "../useRepertorize";
-import type { SymptomsData, RemediesData } from "../types";
+import type { RubricsData, RemediesData } from "../types";
 
 // ---------- sample data ----------
-const sampleSymptoms: SymptomsData = {
+const sampleRubrics: RubricsData = {
   "Mind, anxiety": {
     remedies: { "Acon.": 3, "Ars.": 3, "Bell.": 1 },
   },
@@ -28,7 +28,7 @@ const sampleRemedies: RemediesData = {
 };
 
 // ---------- helpers ----------
-// Build pairs and encoded index from the sample symptoms to match the lazy loading format.
+// Build pairs and encoded index from the sample rubrics to match the lazy loading format.
 // pairs = ["Mind, anxiety", "Head, pain", "Stomach, nausea", "Mind, fear of death"]
 // Sorted by frequency (each appears once, so order is stable by insertion).
 const samplePairs = ["Mind, anxiety", "Mind, fear of death", "Head, pain", "Stomach, nausea"];
@@ -39,22 +39,22 @@ const sampleEncoded = [
   "1",            // "Mind, fear of death" (pair 1, no remaining)
 ];
 
-// Split symptom files by body-system/subcategory
-const mindAnxietyFile: SymptomsData = {
-  "Mind, anxiety": sampleSymptoms["Mind, anxiety"],
+// Split rubric files by body-system/subcategory
+const mindAnxietyFile: RubricsData = {
+  "Mind, anxiety": sampleRubrics["Mind, anxiety"],
 };
-const mindFearFile: SymptomsData = {
-  "Mind, fear of death": sampleSymptoms["Mind, fear of death"],
+const mindFearFile: RubricsData = {
+  "Mind, fear of death": sampleRubrics["Mind, fear of death"],
 };
-const headPainFile: SymptomsData = {
-  "Head, pain, forehead": sampleSymptoms["Head, pain, forehead"],
+const headPainFile: RubricsData = {
+  "Head, pain, forehead": sampleRubrics["Head, pain, forehead"],
 };
-const stomachNauseaFile: SymptomsData = {
-  "Stomach, nausea": sampleSymptoms["Stomach, nausea"],
+const stomachNauseaFile: RubricsData = {
+  "Stomach, nausea": sampleRubrics["Stomach, nausea"],
 };
 
 function setupFetchMock(
-  defaultSymptoms: string[] | null = null
+  defaultRubrics: string[] | null = null
 ) {
   (global.fetch as ReturnType<typeof vi.fn>).mockImplementation(
     (url: string) => {
@@ -100,11 +100,11 @@ function setupFetchMock(
           json: () => Promise.resolve(stomachNauseaFile),
         });
       }
-      if (url.includes("default-symptoms.json")) {
-        if (defaultSymptoms) {
+      if (url.includes("default-rubrics.json")) {
+        if (defaultRubrics) {
           return Promise.resolve({
             ok: true,
-            json: () => Promise.resolve(defaultSymptoms),
+            json: () => Promise.resolve(defaultRubrics),
           });
         }
         return Promise.resolve({ ok: false });
@@ -158,7 +158,7 @@ describe("useRepertorize", () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       expect(result.current.loading).toBe(true);
-      expect(result.current.selectedSymptoms).toEqual([]);
+      expect(result.current.selectedRubrics).toEqual([]);
       expect(result.current.error).toBeNull();
     });
 
@@ -167,7 +167,7 @@ describe("useRepertorize", () => {
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
       expect(result.current.error).toBeNull();
-      expect(result.current.symptomCount).toBe(4);
+      expect(result.current.rubricCount).toBe(4);
       expect(result.current.remedyCount).toBe(5);
     });
 
@@ -176,7 +176,7 @@ describe("useRepertorize", () => {
         if (url.includes("symptom_pairs.json")) {
           return Promise.resolve({ ok: false, status: 500 });
         }
-        if (url.includes("default-symptoms.json")) {
+        if (url.includes("default-rubrics.json")) {
           return Promise.resolve({ ok: false });
         }
         return Promise.resolve({ ok: false, status: 500 });
@@ -191,15 +191,15 @@ describe("useRepertorize", () => {
     it("does NOT read sessionStorage during initial render (SSR safe)", () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
-      expect(result.current.selectedSymptoms).toEqual([]);
+      expect(result.current.selectedRubrics).toEqual([]);
       expect(result.current.minScore).toBe(0);
-      expect(result.current.hiddenSymptoms.size).toBe(0);
+      expect(result.current.hiddenRubrics.size).toBe(0);
     });
 
     it("restores persisted state from sessionStorage via useEffect", async () => {
       const savedState = {
-        selectedSymptoms: ["Mind, anxiety", "Head, pain, forehead"],
-        hiddenSymptoms: ["Head, pain, forehead"],
+        selectedRubrics: ["Mind, anxiety", "Head, pain, forehead"],
+        hiddenRubrics: ["Head, pain, forehead"],
         minScore: 25,
       };
       mockSessionStorage["homeo-magic-state"] = JSON.stringify(savedState);
@@ -208,17 +208,17 @@ describe("useRepertorize", () => {
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      expect(result.current.selectedSymptoms).toEqual([
+      expect(result.current.selectedRubrics).toEqual([
         "Mind, anxiety",
         "Head, pain, forehead",
       ]);
-      expect(result.current.hiddenSymptoms.has("Head, pain, forehead")).toBe(
+      expect(result.current.hiddenRubrics.has("Head, pain, forehead")).toBe(
         true
       );
       expect(result.current.minScore).toBe(25);
     });
 
-    it("fetches default symptoms when no persisted state exists", async () => {
+    it("fetches default rubrics when no persisted state exists", async () => {
       setupFetchMock([
         "Mind, anxiety",
         "Stomach, nausea",
@@ -226,125 +226,125 @@ describe("useRepertorize", () => {
       renderHook(() => useRepertorize());
       await waitFor(() => {
         const calls = mockFetch.mock.calls.map((c: unknown[]) => c[0]);
-        expect(calls.some((url: string) => url.includes("default-symptoms.json"))).toBe(true);
+        expect(calls.some((url: string) => url.includes("default-rubrics.json"))).toBe(true);
       });
     });
 
-    it("skips default symptoms fetch when persisted state exists", async () => {
+    it("skips default rubrics fetch when persisted state exists", async () => {
       mockSessionStorage["homeo-magic-state"] = JSON.stringify({
-        selectedSymptoms: ["Mind, anxiety"],
-        hiddenSymptoms: [],
+        selectedRubrics: ["Mind, anxiety"],
+        hiddenRubrics: [],
         minScore: 0,
       });
       setupFetchMock(["Stomach, nausea"]);
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
-      expect(result.current.selectedSymptoms).toEqual(["Mind, anxiety"]);
+      expect(result.current.selectedRubrics).toEqual(["Mind, anxiety"]);
     });
   });
 
-  describe("symptom management", () => {
-    it("addSymptom adds a new symptom", async () => {
+  describe("rubric management", () => {
+    it("addRubric adds a new rubric", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      expect(result.current.selectedSymptoms).toContain("Mind, anxiety");
+      act(() => result.current.addRubric("Mind, anxiety"));
+      expect(result.current.selectedRubrics).toContain("Mind, anxiety");
     });
 
-    it("addSymptom prevents duplicates", async () => {
+    it("addRubric prevents duplicates", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      act(() => result.current.addSymptom("Mind, anxiety"));
+      act(() => result.current.addRubric("Mind, anxiety"));
+      act(() => result.current.addRubric("Mind, anxiety"));
       expect(
-        result.current.selectedSymptoms.filter((s) => s === "Mind, anxiety")
+        result.current.selectedRubrics.filter((s) => s === "Mind, anxiety")
           .length
       ).toBe(1);
     });
 
-    it("removeSymptom removes a symptom and its hidden state", async () => {
+    it("removeRubric removes a rubric and its hidden state", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      act(() => result.current.hideSymptom("Mind, anxiety"));
-      expect(result.current.hiddenSymptoms.has("Mind, anxiety")).toBe(true);
+      act(() => result.current.addRubric("Mind, anxiety"));
+      act(() => result.current.hideRubric("Mind, anxiety"));
+      expect(result.current.hiddenRubrics.has("Mind, anxiety")).toBe(true);
 
-      act(() => result.current.removeSymptom("Mind, anxiety"));
-      expect(result.current.selectedSymptoms).not.toContain("Mind, anxiety");
-      expect(result.current.hiddenSymptoms.has("Mind, anxiety")).toBe(false);
+      act(() => result.current.removeRubric("Mind, anxiety"));
+      expect(result.current.selectedRubrics).not.toContain("Mind, anxiety");
+      expect(result.current.hiddenRubrics.has("Mind, anxiety")).toBe(false);
     });
 
-    it("hideSymptom / showSymptom toggles visibility", async () => {
+    it("hideRubric / showRubric toggles visibility", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      expect(result.current.hiddenSymptoms.has("Mind, anxiety")).toBe(false);
+      act(() => result.current.addRubric("Mind, anxiety"));
+      expect(result.current.hiddenRubrics.has("Mind, anxiety")).toBe(false);
 
-      act(() => result.current.hideSymptom("Mind, anxiety"));
-      expect(result.current.hiddenSymptoms.has("Mind, anxiety")).toBe(true);
+      act(() => result.current.hideRubric("Mind, anxiety"));
+      expect(result.current.hiddenRubrics.has("Mind, anxiety")).toBe(true);
 
-      act(() => result.current.showSymptom("Mind, anxiety"));
-      expect(result.current.hiddenSymptoms.has("Mind, anxiety")).toBe(false);
+      act(() => result.current.showRubric("Mind, anxiety"));
+      expect(result.current.hiddenRubrics.has("Mind, anxiety")).toBe(false);
     });
 
-    it("reorderSymptoms moves symptom from one position to another", async () => {
+    it("reorderRubrics moves rubric from one position to another", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      act(() => result.current.addSymptom("Head, pain, forehead"));
-      act(() => result.current.addSymptom("Stomach, nausea"));
+      act(() => result.current.addRubric("Mind, anxiety"));
+      act(() => result.current.addRubric("Head, pain, forehead"));
+      act(() => result.current.addRubric("Stomach, nausea"));
 
-      act(() => result.current.reorderSymptoms(0, 2));
-      expect(result.current.selectedSymptoms).toEqual([
+      act(() => result.current.reorderRubrics(0, 2));
+      expect(result.current.selectedRubrics).toEqual([
         "Head, pain, forehead",
         "Stomach, nausea",
         "Mind, anxiety",
       ]);
     });
 
-    it("clearSymptoms resets all selections", async () => {
+    it("clearRubrics resets all selections", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      act(() => result.current.addSymptom("Stomach, nausea"));
-      act(() => result.current.hideSymptom("Mind, anxiety"));
-      act(() => result.current.clearSymptoms());
+      act(() => result.current.addRubric("Mind, anxiety"));
+      act(() => result.current.addRubric("Stomach, nausea"));
+      act(() => result.current.hideRubric("Mind, anxiety"));
+      act(() => result.current.clearRubrics());
 
-      expect(result.current.selectedSymptoms).toEqual([]);
-      expect(result.current.hiddenSymptoms.size).toBe(0);
+      expect(result.current.selectedRubrics).toEqual([]);
+      expect(result.current.hiddenRubrics.size).toBe(0);
     });
   });
 
-  describe("searchSymptoms", () => {
-    it("returns matching symptoms that aren't already selected", async () => {
+  describe("searchRubrics", () => {
+    it("returns matching rubrics that aren't already selected", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      const matches = result.current.searchSymptoms("mind");
+      const matches = result.current.searchRubrics("mind");
       expect(matches).toContain("Mind, anxiety");
       expect(matches).toContain("Mind, fear of death");
     });
 
-    it("excludes already selected symptoms from results", async () => {
+    it("excludes already selected rubrics from results", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      const matches = result.current.searchSymptoms("mind");
+      act(() => result.current.addRubric("Mind, anxiety"));
+      const matches = result.current.searchRubrics("mind");
       expect(matches).not.toContain("Mind, anxiety");
       expect(matches).toContain("Mind, fear of death");
     });
@@ -354,7 +354,7 @@ describe("useRepertorize", () => {
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      expect(result.current.searchSymptoms("")).toEqual([]);
+      expect(result.current.searchRubrics("")).toEqual([]);
     });
 
     it("returns empty array for whitespace-only query", async () => {
@@ -362,7 +362,7 @@ describe("useRepertorize", () => {
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      expect(result.current.searchSymptoms("   ")).toEqual([]);
+      expect(result.current.searchRubrics("   ")).toEqual([]);
     });
 
     it("respects limit parameter", async () => {
@@ -370,13 +370,13 @@ describe("useRepertorize", () => {
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      const matches = result.current.searchSymptoms("mind", 1);
+      const matches = result.current.searchRubrics("mind", 1);
       expect(matches.length).toBe(1);
     });
   });
 
   describe("results computation (scoring and normalization)", () => {
-    it("returns empty results when no symptoms selected", async () => {
+    it("returns empty results when no rubrics selected", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -385,12 +385,12 @@ describe("useRepertorize", () => {
       expect(result.current.results.totalCount).toBe(0);
     });
 
-    it("computes scores for a single symptom", async () => {
+    it("computes scores for a single rubric", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
+      act(() => result.current.addRubric("Mind, anxiety"));
 
       // Wait for lazy fetch to complete
       await waitFor(() => {
@@ -406,13 +406,13 @@ describe("useRepertorize", () => {
       expect(bell!.totalScore).toBe(33);
     });
 
-    it("computes combined scores for multiple symptoms", async () => {
+    it("computes combined scores for multiple rubrics", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      act(() => result.current.addSymptom("Head, pain, forehead"));
+      act(() => result.current.addRubric("Mind, anxiety"));
+      act(() => result.current.addRubric("Head, pain, forehead"));
 
       await waitFor(() => {
         expect(result.current.results.items.length).toBe(4);
@@ -433,8 +433,8 @@ describe("useRepertorize", () => {
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      act(() => result.current.addSymptom("Head, pain, forehead"));
+      act(() => result.current.addRubric("Mind, anxiety"));
+      act(() => result.current.addRubric("Head, pain, forehead"));
 
       await waitFor(() => {
         expect(result.current.results.items.length).toBe(4);
@@ -446,20 +446,20 @@ describe("useRepertorize", () => {
       }
     });
 
-    it("excludes hidden symptoms from scoring", async () => {
+    it("excludes hidden rubrics from scoring", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
-      act(() => result.current.addSymptom("Head, pain, forehead"));
+      act(() => result.current.addRubric("Mind, anxiety"));
+      act(() => result.current.addRubric("Head, pain, forehead"));
 
       await waitFor(() => {
         expect(result.current.results.items.length).toBe(4);
       });
 
       // Hide Mind, anxiety — only Head scores should remain
-      act(() => result.current.hideSymptom("Mind, anxiety"));
+      act(() => result.current.hideRubric("Mind, anxiety"));
 
       // Head, pain: Bell.=3, Bry.=2, Acon.=1 — no Ars.
       const items = result.current.results.items;
@@ -469,18 +469,18 @@ describe("useRepertorize", () => {
       expect(items[0].totalScore).toBe(100);
     });
 
-    it("returns empty results when all symptoms are hidden", async () => {
+    it("returns empty results when all rubrics are hidden", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
+      act(() => result.current.addRubric("Mind, anxiety"));
 
       await waitFor(() => {
         expect(result.current.results.items.length).toBe(3);
       });
 
-      act(() => result.current.hideSymptom("Mind, anxiety"));
+      act(() => result.current.hideRubric("Mind, anxiety"));
       expect(result.current.results.items).toEqual([]);
     });
 
@@ -489,7 +489,7 @@ describe("useRepertorize", () => {
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
+      act(() => result.current.addRubric("Mind, anxiety"));
 
       await waitFor(() => {
         expect(result.current.results.items.length).toBe(3);
@@ -503,12 +503,12 @@ describe("useRepertorize", () => {
   });
 
   describe("state persistence to sessionStorage", () => {
-    it("persists selectedSymptoms, hiddenSymptoms, and minScore", async () => {
+    it("persists selectedRubrics, hiddenRubrics, and minScore", async () => {
       setupFetchMock();
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      act(() => result.current.addSymptom("Mind, anxiety"));
+      act(() => result.current.addRubric("Mind, anxiety"));
       act(() => result.current.setMinScore(42));
 
       const lastCall =
@@ -517,7 +517,7 @@ describe("useRepertorize", () => {
         ];
       expect(lastCall[0]).toBe("homeo-magic-state");
       const saved = JSON.parse(lastCall[1]);
-      expect(saved.selectedSymptoms).toContain("Mind, anxiety");
+      expect(saved.selectedRubrics).toContain("Mind, anxiety");
       expect(saved.minScore).toBe(42);
     });
   });
@@ -534,10 +534,10 @@ describe("useRepertorize", () => {
   });
 
   describe("REGRESSION: persistence + lazy loading integration", () => {
-    it("restoring symptoms from sessionStorage loads their body-system data", async () => {
+    it("restoring rubrics from sessionStorage loads their body-system data", async () => {
       mockSessionStorage["homeo-magic-state"] = JSON.stringify({
-        selectedSymptoms: ["Mind, anxiety", "Head, pain, forehead"],
-        hiddenSymptoms: [],
+        selectedRubrics: ["Mind, anxiety", "Head, pain, forehead"],
+        hiddenRubrics: [],
         minScore: 0,
       });
       setupFetchMock();
@@ -545,12 +545,12 @@ describe("useRepertorize", () => {
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      // Restored symptoms should have their body-system data fetched
+      // Restored rubrics should have their body-system data fetched
       await waitFor(() => {
         expect(result.current.results.items.length).toBeGreaterThan(0);
       });
 
-      // Verify data for both restored symptoms is present in results
+      // Verify data for both restored rubrics is present in results
       const abbrevs = result.current.results.items.map((i) => i.abbrev);
       // Mind, anxiety has Acon., Ars., Bell. — Head, pain has Bell., Bry., Acon.
       expect(abbrevs).toContain("Acon.");
@@ -559,10 +559,10 @@ describe("useRepertorize", () => {
       expect(abbrevs).toContain("Ars.");
     });
 
-    it("adding a symptom after restore fetches its body-system data", async () => {
+    it("adding a rubric after restore fetches its body-system data", async () => {
       mockSessionStorage["homeo-magic-state"] = JSON.stringify({
-        selectedSymptoms: ["Mind, anxiety"],
-        hiddenSymptoms: [],
+        selectedRubrics: ["Mind, anxiety"],
+        hiddenRubrics: [],
         minScore: 0,
       });
       setupFetchMock();
@@ -570,25 +570,25 @@ describe("useRepertorize", () => {
       const { result } = renderHook(() => useRepertorize());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      // Wait for restored symptom data to load
+      // Wait for restored rubric data to load
       await waitFor(() => {
         expect(result.current.results.items.length).toBeGreaterThan(0);
       });
 
-      // Now add a new symptom from a different body system
-      act(() => result.current.addSymptom("Stomach, nausea"));
+      // Now add a new rubric from a different body system
+      act(() => result.current.addRubric("Stomach, nausea"));
 
-      // The new symptom's data should also be fetched and appear in results
+      // The new rubric's data should also be fetched and appear in results
       await waitFor(() => {
         const abbrevs = result.current.results.items.map((i) => i.abbrev);
         expect(abbrevs).toContain("Nux-v."); // Only in Stomach, nausea
       });
     });
 
-    it("removing a restored symptom removes it from state AND sessionStorage", async () => {
+    it("removing a restored rubric removes it from state AND sessionStorage", async () => {
       mockSessionStorage["homeo-magic-state"] = JSON.stringify({
-        selectedSymptoms: ["Mind, anxiety", "Head, pain, forehead"],
-        hiddenSymptoms: [],
+        selectedRubrics: ["Mind, anxiety", "Head, pain, forehead"],
+        hiddenRubrics: [],
         minScore: 0,
       });
       setupFetchMock();
@@ -598,17 +598,17 @@ describe("useRepertorize", () => {
 
       // Wait for restore to complete
       await waitFor(() => {
-        expect(result.current.selectedSymptoms).toEqual([
+        expect(result.current.selectedRubrics).toEqual([
           "Mind, anxiety",
           "Head, pain, forehead",
         ]);
       });
 
-      // Remove a restored symptom
-      act(() => result.current.removeSymptom("Mind, anxiety"));
+      // Remove a restored rubric
+      act(() => result.current.removeRubric("Mind, anxiety"));
 
-      expect(result.current.selectedSymptoms).toEqual(["Head, pain, forehead"]);
-      expect(result.current.selectedSymptoms).not.toContain("Mind, anxiety");
+      expect(result.current.selectedRubrics).toEqual(["Head, pain, forehead"]);
+      expect(result.current.selectedRubrics).not.toContain("Mind, anxiety");
 
       // sessionStorage should reflect the removal
       const lastSetCall =
@@ -616,14 +616,14 @@ describe("useRepertorize", () => {
           sessionStorageMock.setItem.mock.calls.length - 1
         ];
       const persisted = JSON.parse(lastSetCall[1]);
-      expect(persisted.selectedSymptoms).toEqual(["Head, pain, forehead"]);
-      expect(persisted.selectedSymptoms).not.toContain("Mind, anxiety");
+      expect(persisted.selectedRubrics).toEqual(["Head, pain, forehead"]);
+      expect(persisted.selectedRubrics).not.toContain("Mind, anxiety");
     });
 
-    it("clearing all symptoms works after restore", async () => {
+    it("clearing all rubrics works after restore", async () => {
       mockSessionStorage["homeo-magic-state"] = JSON.stringify({
-        selectedSymptoms: ["Mind, anxiety", "Head, pain, forehead"],
-        hiddenSymptoms: ["Head, pain, forehead"],
+        selectedRubrics: ["Mind, anxiety", "Head, pain, forehead"],
+        hiddenRubrics: ["Head, pain, forehead"],
         minScore: 10,
       });
       setupFetchMock();
@@ -633,14 +633,14 @@ describe("useRepertorize", () => {
 
       // Wait for restore to complete
       await waitFor(() => {
-        expect(result.current.selectedSymptoms.length).toBe(2);
+        expect(result.current.selectedRubrics.length).toBe(2);
       });
 
       // Clear all
-      act(() => result.current.clearSymptoms());
+      act(() => result.current.clearRubrics());
 
-      expect(result.current.selectedSymptoms).toEqual([]);
-      expect(result.current.hiddenSymptoms.size).toBe(0);
+      expect(result.current.selectedRubrics).toEqual([]);
+      expect(result.current.hiddenRubrics.size).toBe(0);
 
       // sessionStorage should reflect the clear
       const lastSetCall =
@@ -648,14 +648,14 @@ describe("useRepertorize", () => {
           sessionStorageMock.setItem.mock.calls.length - 1
         ];
       const persisted = JSON.parse(lastSetCall[1]);
-      expect(persisted.selectedSymptoms).toEqual([]);
-      expect(persisted.hiddenSymptoms).toEqual([]);
+      expect(persisted.selectedRubrics).toEqual([]);
+      expect(persisted.hiddenRubrics).toEqual([]);
     });
 
-    it("adding a symptom from a different body system than restored ones produces correct combined results", async () => {
+    it("adding a rubric from a different body system than restored ones produces correct combined results", async () => {
       mockSessionStorage["homeo-magic-state"] = JSON.stringify({
-        selectedSymptoms: ["Mind, anxiety"],
-        hiddenSymptoms: [],
+        selectedRubrics: ["Mind, anxiety"],
+        hiddenRubrics: [],
         minScore: 0,
       });
       setupFetchMock();
@@ -668,8 +668,8 @@ describe("useRepertorize", () => {
         expect(result.current.results.items.length).toBe(3); // Acon, Ars, Bell
       });
 
-      // Add symptom from different body system
-      act(() => result.current.addSymptom("Head, pain, forehead"));
+      // Add rubric from different body system
+      act(() => result.current.addRubric("Head, pain, forehead"));
 
       // Should now have combined results from Mind + Head
       await waitFor(() => {
@@ -684,34 +684,34 @@ describe("useRepertorize", () => {
       expect(bell!.rawScore).toBe(4);
     });
 
-    it("BUG #3: after clearSymptoms, remounting loads defaults instead of empty state", async () => {
-      // Simulate: user had symptoms, cleared them, navigated away, came back
-      // The persist effect writes {selectedSymptoms: []} after clearSymptoms().
+    it("BUG #3: after clearRubrics, remounting loads defaults instead of empty state", async () => {
+      // Simulate: user had rubrics, cleared them, navigated away, came back
+      // The persist effect writes {selectedRubrics: []} after clearRubrics().
       // On remount, the restore effect should NOT treat this as "had persisted state"
       // and should fall through to loading defaults.
       mockSessionStorage["homeo-magic-state"] = JSON.stringify({
-        selectedSymptoms: [],
-        hiddenSymptoms: [],
+        selectedRubrics: [],
+        hiddenRubrics: [],
         minScore: 0,
       });
 
-      // Also set up a default-symptoms.json endpoint
-      const defaultSymptoms = ["Mind, anxiety", "Head, pain, forehead"];
+      // Also set up a default-rubrics.json endpoint
+      const defaultRubrics = ["Mind, anxiety", "Head, pain, forehead"];
       mockFetch.mockImplementation((url: string) => {
         if (url.includes("repertory_index.json")) {
           return Promise.resolve({
             ok: true,
             json: () =>
               Promise.resolve({
-                symptoms: { Mind: ["Mind, anxiety"], Head: ["Head, pain, forehead"] },
+                rubrics: { Mind: ["Mind, anxiety"], Head: ["Head, pain, forehead"] },
                 remedies: { "Acon.": "Aconitum Napellus" },
               }),
           });
         }
-        if (url.includes("default-symptoms.json")) {
+        if (url.includes("default-rubrics.json")) {
           return Promise.resolve({
             ok: true,
-            json: () => Promise.resolve(defaultSymptoms),
+            json: () => Promise.resolve(defaultRubrics),
           });
         }
         if (url.includes("body_systems/")) {
@@ -732,15 +732,15 @@ describe("useRepertorize", () => {
 
       // Should have loaded defaults, NOT stayed empty
       await waitFor(() => {
-        expect(result.current.selectedSymptoms.length).toBeGreaterThan(0);
+        expect(result.current.selectedRubrics.length).toBeGreaterThan(0);
       });
-      expect(result.current.selectedSymptoms).toEqual(defaultSymptoms);
+      expect(result.current.selectedRubrics).toEqual(defaultRubrics);
     });
 
     it("persist effect does not clobber sessionStorage before restore completes", async () => {
       const savedState = {
-        selectedSymptoms: ["Mind, anxiety", "Head, pain, forehead"],
-        hiddenSymptoms: ["Head, pain, forehead"],
+        selectedRubrics: ["Mind, anxiety", "Head, pain, forehead"],
+        hiddenRubrics: ["Head, pain, forehead"],
         minScore: 25,
       };
       mockSessionStorage["homeo-magic-state"] = JSON.stringify(savedState);
@@ -752,17 +752,17 @@ describe("useRepertorize", () => {
       renderHook(() => useRepertorize());
 
       // After initial render + effects, sessionStorage should never have been
-      // written with empty selectedSymptoms (the persist effect should not
+      // written with empty selectedRubrics (the persist effect should not
       // overwrite saved state before restore has had a chance to load it)
       const newCalls = sessionStorageMock.setItem.mock.calls
         .slice(callsBefore)
         .filter((c: unknown[]) => c[0] === "homeo-magic-state");
       for (const call of newCalls) {
         const written = JSON.parse(call[1] as string);
-        // The persist effect should never write an empty symptoms array when
+        // The persist effect should never write an empty rubrics array when
         // we had saved state — that would clobber the restore
-        if (written.selectedSymptoms.length === 0) {
-          expect(written.selectedSymptoms).not.toEqual([]);
+        if (written.selectedRubrics.length === 0) {
+          expect(written.selectedRubrics).not.toEqual([]);
         }
       }
     });

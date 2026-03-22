@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import { MateriaPanel, resetMateriaCache } from "../MateriaPanel";
-import type { ProfilesData, SymptomIndexData } from "../types";
+import type { ProfilesData, RubricIndexData } from "../types";
 
 // Mock fetch globally
 const mockFetch = vi.fn();
@@ -31,7 +31,7 @@ const sampleProfiles: ProfilesData = {
   },
 };
 
-const sampleSymptomIndex: SymptomIndexData = {
+const sampleRubricIndex: RubricIndexData = {
   "Acon.": {
     Mind: "The patient feels the violence of his sickness, with great nervous irritation.",
     "Mind, irritability":
@@ -46,7 +46,7 @@ const sampleSymptomIndex: SymptomIndexData = {
 
 function mockFetchResponses(
   profiles: ProfilesData | null,
-  symptomIndex: SymptomIndexData | null
+  rubricIndex: RubricIndexData | null
 ) {
   mockFetch.mockImplementation((url: string) => {
     if (url.includes("profiles.json")) {
@@ -57,10 +57,10 @@ function mockFetchResponses(
       });
     }
     if (url.includes("symptom_index.json")) {
-      if (!symptomIndex) return Promise.reject(new Error("Not found"));
+      if (!rubricIndex) return Promise.reject(new Error("Not found"));
       return Promise.resolve({
         ok: true,
-        json: () => Promise.resolve(symptomIndex),
+        json: () => Promise.resolve(rubricIndex),
       });
     }
     if (url.includes("archive_links.json") || url.includes("passage_index.json")) {
@@ -80,26 +80,26 @@ describe("MateriaPanel", () => {
   });
 
   it("renders loading state initially", () => {
-    mockFetchResponses(sampleProfiles, sampleSymptomIndex);
+    mockFetchResponses(sampleProfiles, sampleRubricIndex);
     render(
-      <MateriaPanel remedyAbbrev="Acon." selectedSymptoms={["Mind", "Head"]} />
+      <MateriaPanel remedyAbbrev="Acon." selectedRubrics={["Mind", "Head"]} />
     );
     expect(screen.getByText(/loading materia medica/i)).toBeInTheDocument();
   });
 
-  it("renders symptom cross-references for selected symptoms", async () => {
-    mockFetchResponses(sampleProfiles, sampleSymptomIndex);
+  it("renders rubric cross-references for selected rubrics", async () => {
+    mockFetchResponses(sampleProfiles, sampleRubricIndex);
     render(
-      <MateriaPanel remedyAbbrev="Acon." selectedSymptoms={["Mind", "Head"]} />
+      <MateriaPanel remedyAbbrev="Acon." selectedRubrics={["Mind", "Head"]} />
     );
 
     await waitFor(() => {
       expect(
-        screen.getByText(/symptom cross-references/i)
+        screen.getByText(/rubric cross-references/i)
       ).toBeInTheDocument();
     });
 
-    // Check symptom names are shown in bold context
+    // Check rubric names are shown in bold context
     expect(screen.getByText("Mind")).toBeInTheDocument();
     expect(screen.getByText("Head")).toBeInTheDocument();
 
@@ -114,18 +114,18 @@ describe("MateriaPanel", () => {
     ).toBeInTheDocument();
   });
 
-  it("shows fallback when no symptom passage exists", async () => {
-    mockFetchResponses(sampleProfiles, sampleSymptomIndex);
+  it("shows fallback when no rubric passage exists", async () => {
+    mockFetchResponses(sampleProfiles, sampleRubricIndex);
     render(
       <MateriaPanel
         remedyAbbrev="Acon."
-        selectedSymptoms={["Mind", "Stomach"]}
+        selectedRubrics={["Mind", "Stomach"]}
       />
     );
 
     await waitFor(() => {
       expect(
-        screen.getByText(/symptom cross-references/i)
+        screen.getByText(/rubric cross-references/i)
       ).toBeInTheDocument();
     });
 
@@ -137,9 +137,9 @@ describe("MateriaPanel", () => {
   });
 
   it("renders constitutional profile section", async () => {
-    mockFetchResponses(sampleProfiles, sampleSymptomIndex);
+    mockFetchResponses(sampleProfiles, sampleRubricIndex);
     render(
-      <MateriaPanel remedyAbbrev="Acon." selectedSymptoms={["Mind"]} />
+      <MateriaPanel remedyAbbrev="Acon." selectedRubrics={["Mind"]} />
     );
 
     await waitFor(() => {
@@ -160,9 +160,9 @@ describe("MateriaPanel", () => {
   });
 
   it("renders book link section", async () => {
-    mockFetchResponses(sampleProfiles, sampleSymptomIndex);
+    mockFetchResponses(sampleProfiles, sampleRubricIndex);
     render(
-      <MateriaPanel remedyAbbrev="Acon." selectedSymptoms={[]} />
+      <MateriaPanel remedyAbbrev="Acon." selectedRubrics={[]} />
     );
 
     await waitFor(() => {
@@ -177,17 +177,17 @@ describe("MateriaPanel", () => {
   });
 
   it("shows fallback when no materia data exists for remedy", async () => {
-    mockFetchResponses(sampleProfiles, sampleSymptomIndex);
+    mockFetchResponses(sampleProfiles, sampleRubricIndex);
     render(
       <MateriaPanel
         remedyAbbrev="Unknown."
-        selectedSymptoms={["Mind"]}
+        selectedRubrics={["Mind"]}
       />
     );
 
     await waitFor(() => {
       expect(
-        screen.getByText(/no materia medica data available/i)
+        screen.getByText(/no materia medica available/i)
       ).toBeInTheDocument();
     });
   });
@@ -195,32 +195,32 @@ describe("MateriaPanel", () => {
   it("handles fetch errors gracefully", async () => {
     mockFetchResponses(null, null);
     render(
-      <MateriaPanel remedyAbbrev="Acon." selectedSymptoms={["Mind"]} />
+      <MateriaPanel remedyAbbrev="Acon." selectedRubrics={["Mind"]} />
     );
 
     await waitFor(() => {
       expect(
-        screen.getByText(/no materia medica data available/i)
+        screen.getByText(/no materia medica available/i)
       ).toBeInTheDocument();
     });
   });
 
-  it("renders symptom cross-references before constitutional profile", async () => {
-    mockFetchResponses(sampleProfiles, sampleSymptomIndex);
+  it("renders rubric cross-references before constitutional profile", async () => {
+    mockFetchResponses(sampleProfiles, sampleRubricIndex);
     render(
-      <MateriaPanel remedyAbbrev="Acon." selectedSymptoms={["Mind"]} />
+      <MateriaPanel remedyAbbrev="Acon." selectedRubrics={["Mind"]} />
     );
 
     await waitFor(() => {
       expect(
-        screen.getByText(/symptom cross-references/i)
+        screen.getByText(/rubric cross-references/i)
       ).toBeInTheDocument();
     });
 
     const sections = screen.getAllByRole("heading", { level: 3 });
     const sectionTexts = sections.map((s) => s.textContent);
     const crossRefIdx = sectionTexts.findIndex((t) =>
-      t?.match(/symptom cross-references/i)
+      t?.match(/rubric cross-references/i)
     );
     const profileIdx = sectionTexts.findIndex((t) =>
       t?.match(/constitutional profile/i)
@@ -233,10 +233,10 @@ describe("MateriaPanel", () => {
     expect(profileIdx).toBeLessThan(bookIdx);
   });
 
-  it("shows no cross-references section when no symptoms selected", async () => {
-    mockFetchResponses(sampleProfiles, sampleSymptomIndex);
+  it("shows no cross-references section when no rubrics selected", async () => {
+    mockFetchResponses(sampleProfiles, sampleRubricIndex);
     render(
-      <MateriaPanel remedyAbbrev="Acon." selectedSymptoms={[]} />
+      <MateriaPanel remedyAbbrev="Acon." selectedRubrics={[]} />
     );
 
     await waitFor(() => {
@@ -246,7 +246,7 @@ describe("MateriaPanel", () => {
     });
 
     expect(
-      screen.queryByText(/symptom cross-references/i)
+      screen.queryByText(/rubric cross-references/i)
     ).not.toBeInTheDocument();
   });
 });

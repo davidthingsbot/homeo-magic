@@ -2,28 +2,28 @@
 import { dataUrl, navUrl } from "./dataUrl";
 
 import { useState, useEffect } from "react";
-import type { ProfilesData, SymptomIndexData, MateriaProfile } from "./types";
+import type { ProfilesData, RubricIndexData, MateriaProfile } from "./types";
 
 let cachedProfiles: ProfilesData | null = null;
-let cachedSymptomIndex: SymptomIndexData | null = null;
+let cachedRubricIndex: RubricIndexData | null = null;
 let cachedArchiveLinks: Record<string, { leaf: number; url: string }> | null = null;
 let cachedPassageIndex: Record<string, Array<{ keywords: string[]; passage: string }>> | null = null;
 
 /** Reset the module-level cache (for testing) */
 export function resetMateriaCache() {
   cachedProfiles = null;
-  cachedSymptomIndex = null;
+  cachedRubricIndex = null;
   cachedArchiveLinks = null;
   cachedPassageIndex = null;
 }
 
 async function loadMateriaData(): Promise<{
   profiles: ProfilesData | null;
-  symptomIndex: SymptomIndexData | null;
+  rubricIndex: RubricIndexData | null;
   archiveLinks: Record<string, { leaf: number; url: string }> | null;
 }> {
-  if (cachedProfiles && cachedSymptomIndex) {
-    return { profiles: cachedProfiles, symptomIndex: cachedSymptomIndex, archiveLinks: cachedArchiveLinks };
+  if (cachedProfiles && cachedRubricIndex) {
+    return { profiles: cachedProfiles, rubricIndex: cachedRubricIndex, archiveLinks: cachedArchiveLinks };
   }
   try {
     const [profilesRes, indexRes, linksRes, passagesRes] = await Promise.all([
@@ -34,31 +34,31 @@ async function loadMateriaData(): Promise<{
     ]);
     if (!profilesRes.ok || !indexRes.ok) throw new Error("Failed to load");
     const profiles = (await profilesRes.json()) as ProfilesData;
-    const symptomIndex = (await indexRes.json()) as SymptomIndexData;
+    const rubricIndex = (await indexRes.json()) as RubricIndexData;
     const archiveLinks = linksRes.ok ? await linksRes.json() : null;
     const passageIndex = passagesRes.ok ? await passagesRes.json() : null;
     cachedProfiles = profiles;
-    cachedSymptomIndex = symptomIndex;
+    cachedRubricIndex = rubricIndex;
     cachedArchiveLinks = archiveLinks;
     cachedPassageIndex = passageIndex;
-    return { profiles, symptomIndex, archiveLinks };
+    return { profiles, rubricIndex, archiveLinks };
   } catch {
-    return { profiles: null, symptomIndex: null, archiveLinks: null };
+    return { profiles: null, rubricIndex: null, archiveLinks: null };
   }
 }
 
 /**
- * Match selected symptoms against the pre-extracted passage index.
- * Each passage has keywords; we score how well each passage matches each symptom.
+ * Match selected rubrics against the pre-extracted passage index.
+ * Each passage has keywords; we score how well each passage matches each rubric.
  */
 function matchPassagesFromIndex(
   passages: Array<{ keywords: string[]; passage: string }>,
-  symptoms: string[]
+  rubrics: string[]
 ): Record<string, string> {
   const results: Record<string, string> = {};
 
-  for (const sym of symptoms) {
-    // Extract search terms from the symptom path
+  for (const sym of rubrics) {
+    // Extract search terms from the rubric path
     const parts = sym.split(",").map(s => s.trim().toLowerCase());
     const searchTerms = parts
       .filter(p => p.length > 2)
@@ -67,7 +67,7 @@ function matchPassagesFromIndex(
 
     if (searchTerms.length === 0) continue;
 
-    // Score each passage against this symptom
+    // Score each passage against this rubric
     let bestPassage = "";
     let bestScore = 0;
 
@@ -98,13 +98,13 @@ function matchPassagesFromIndex(
 
 function buildRemedyUrl(
   file: string,
-  symptoms: string[],
+  rubrics: string[],
   highlight?: string
 ): string {
   const slug = file.replace(/\.md$/, "");
   const params = new URLSearchParams();
-  if (symptoms.length > 0) {
-    params.set("symptoms", symptoms.join("|"));
+  if (rubrics.length > 0) {
+    params.set("rubrics", rubrics.join("|"));
   }
   if (highlight) {
     params.set("highlight", highlight);
@@ -115,12 +115,16 @@ function buildRemedyUrl(
 
 export function MateriaPanel({
   remedyAbbrev,
-  selectedSymptoms,
+  selectedRubrics,
   grades,
+  onPassageClick,
+  selectedPassage,
 }: {
   remedyAbbrev: string;
-  selectedSymptoms: string[];
+  selectedRubrics: string[];
   grades?: Record<string, number>;
+  onPassageClick?: (passage: string) => void;
+  selectedPassage?: string;
 }) {
   const [profile, setProfile] = useState<MateriaProfile | null>(null);
   const [passages, setPassages] = useState<Record<string, string> | null>(null);
@@ -133,7 +137,7 @@ export function MateriaPanel({
     setLoading(true);
     setNotFound(false);
 
-    loadMateriaData().then(async ({ profiles, symptomIndex, archiveLinks }) => {
+    loadMateriaData().then(async ({ profiles, rubricIndex, archiveLinks }) => {
       if (cancelled) return;
       if (!profiles || !profiles[remedyAbbrev]) {
         setNotFound(true);
@@ -143,16 +147,16 @@ export function MateriaPanel({
       const prof = profiles[remedyAbbrev];
       setProfile(prof);
 
-      // Match symptoms against the pre-extracted passage index
+      // Match rubrics against the pre-extracted passage index
       const remedyPassages = cachedPassageIndex?.[remedyAbbrev] ?? [];
-      const matched = matchPassagesFromIndex(remedyPassages, selectedSymptoms);
+      const matched = matchPassagesFromIndex(remedyPassages, selectedRubrics);
 
-      // Also check the old pre-computed symptom index as fallback
-      const preComputed = symptomIndex?.[remedyAbbrev] ?? {};
-      
+      // Also check the old pre-computed rubric index as fallback
+      const preComputed = rubricIndex?.[remedyAbbrev] ?? {};
+
       // Merge: passage index first, then old pre-computed
       const merged: Record<string, string> = {};
-      for (const sym of selectedSymptoms) {
+      for (const sym of selectedRubrics) {
         if (matched[sym]) {
           merged[sym] = matched[sym];
         } else if (preComputed[sym]) {
@@ -188,16 +192,19 @@ export function MateriaPanel({
 
   if (notFound || !profile) {
     return (
-      <div className="py-6 text-center text-[#6b7280] text-sm italic">
-        No materia medica data available for this remedy.
+      <div className="py-16 px-6 text-center text-[#6b7280]">
+        <p className="text-sm font-medium mb-1">No Materia Medica available</p>
+        <p className="text-xs">
+          Kent&apos;s Materia Medica does not include data for this remedy.
+        </p>
       </div>
     );
   }
 
   return (
     <div className="space-y-5">
-      {/* 1. Symptom Cross-References */}
-      {selectedSymptoms.length > 0 && (
+      {/* 1. Rubric Cross-References */}
+      {selectedRubrics.length > 0 && (
         <section>
           <h3 className="text-sm font-semibold text-[#065774] uppercase tracking-wide mb-3 flex items-center gap-2">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -206,16 +213,24 @@ export function MateriaPanel({
               <line x1="16" y1="13" x2="8" y2="13" />
               <line x1="16" y1="17" x2="8" y2="17" />
             </svg>
-            Symptom Cross-References
+            Rubric Cross-References
           </h3>
           <div className="space-y-3">
-            {selectedSymptoms.map((sym) => {
+            {selectedRubrics.map((sym) => {
               const passage = passages?.[sym];
               const grade = grades?.[sym];
+              const isSelected = passage && selectedPassage === passage;
               return (
                 <div
                   key={sym}
-                  className="rounded-lg border border-[#e5e7eb] bg-[#f9fafb] p-3"
+                  onClick={() => passage && onPassageClick?.(passage)}
+                  className={`rounded-lg border p-3 transition-colors ${
+                    passage ? "cursor-pointer" : ""
+                  } ${
+                    isSelected
+                      ? "border-[#EF9B0C] bg-[#EF9B0C]/20"
+                      : "border-[#e5e7eb] bg-[#f9fafb] hover:bg-[#fefce8]"
+                  }`}
                 >
                   <div className="flex items-center gap-2 mb-1">
                     {grade && (
@@ -228,16 +243,12 @@ export function MateriaPanel({
                     </span>
                   </div>
                   {passage ? (
-                    <a
-                      href={buildRemedyUrl(profile.file, selectedSymptoms, passage)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-[13px] text-[#374151] leading-relaxed hover:bg-[#fefce8] rounded p-1 -m-1 transition-colors no-underline cursor-pointer"
+                    <div
+                      className="my-1 text-[14px] text-[#374151] leading-[1.7]"
                       style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
                     >
                       &ldquo;{passage}&rdquo;
-                      <span className="text-[11px] text-[#065774] not-italic ml-1">&rarr; view in context</span>
-                    </a>
+                    </div>
                   ) : (
                     <p className="text-[13px] text-[#9ca3af] italic">
                       No specific passage found.
@@ -280,7 +291,7 @@ export function MateriaPanel({
         </h3>
         <div className="flex flex-wrap gap-3">
           <a
-            href={buildRemedyUrl(profile.file, selectedSymptoms)}
+            href={buildRemedyUrl(profile.file, selectedRubrics)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#065774] text-white rounded-lg text-sm font-medium hover:bg-[#042B58] transition-colors no-underline"

@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Homeo-Magic | Homeopathic Repertorization",
   description:
-    "Find matching homeopathic remedies by selecting symptoms. 74,000+ symptoms, 2,400+ remedies.",
+    "Find matching homeopathic remedies by selecting rubrics. 74,000+ rubrics, 2,400+ remedies.",
 };
 
 export default function RootLayout({

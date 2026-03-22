@@ -26,7 +26,7 @@ describe("dataUrl", () => {
     expect(result).toBe("/homeo-magic/data/kent/profiles.json");
   });
 
-  it("works for symptom index path", () => {
+  it("works for rubric index path", () => {
     const script = document.createElement("script");
     script.src = "/homeo-magic/_next/static/chunks/app.js";
     document.head.appendChild(script);
@@ -42,7 +42,7 @@ describe("dataUrl", () => {
     expect(dataUrl("data/remedies/index.json")).toBe("/homeo-magic/data/remedies/index.json");
   });
 
-  it("works for dynamic symptom subcategory paths", () => {
+  it("works for dynamic rubric subcategory paths", () => {
     const script = document.createElement("script");
     script.src = "/homeo-magic/_next/static/chunks/app.js";
     document.head.appendChild(script);

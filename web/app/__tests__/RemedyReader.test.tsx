@@ -235,9 +235,9 @@ describe("RemedyReader", () => {
   });
 
   describe("passage highlighting", () => {
-    it("highlights matched passages from symptom search", async () => {
+    it("highlights matched passages from rubric search", async () => {
       setQueryParams({
-        symptoms: "Mind, anxiety",
+        rubrics: "Mind, anxiety",
       });
       setupFetchMock();
       render(<RemedyReader slug="aconitum_napellus" />);
@@ -247,7 +247,7 @@ describe("RemedyReader", () => {
         expect(screen.getByText(/matching passage/)).toBeInTheDocument();
       });
 
-      // Symptom badge should show
+      // Rubric badge should show
       expect(screen.getByText(/Mind, anxiety/)).toBeInTheDocument();
     });
 
@@ -255,7 +255,7 @@ describe("RemedyReader", () => {
       const passage =
         "The anxiety that is found in Aconitum is overwhelming.";
       setQueryParams({
-        symptoms: "Mind, anxiety",
+        rubrics: "Mind, anxiety",
         highlight: passage,
       });
       setupFetchMock();
@@ -271,7 +271,7 @@ describe("RemedyReader", () => {
 
     it("highlights secondary passages with different styling", async () => {
       setQueryParams({
-        symptoms: "Mind, anxiety|Head, headache",
+        rubrics: "Mind, anxiety|Head, headache",
         highlight: "some other passage",
       });
       setupFetchMock();
@@ -290,20 +290,20 @@ describe("RemedyReader", () => {
       });
     });
 
-    it("shows symptom badges with check marks for matched symptoms", async () => {
-      setQueryParams({ symptoms: "Mind, anxiety" });
+    it("shows rubric badges with check marks for matched rubrics", async () => {
+      setQueryParams({ rubrics: "Mind, anxiety" });
       setupFetchMock();
       render(<RemedyReader slug="aconitum_napellus" />);
 
       await waitFor(() => {
-        // The matched symptom should show a checkmark
+        // The matched rubric should show a checkmark
         const badge = screen.getByText(/Mind, anxiety/);
         expect(badge.textContent).toContain("\u2713");
       });
     });
 
-    it("shows symptom badges without check marks for unmatched symptoms", async () => {
-      setQueryParams({ symptoms: "Mind, anxiety|Extremities, cold" });
+    it("shows rubric badges without check marks for unmatched rubrics", async () => {
+      setQueryParams({ rubrics: "Mind, anxiety|Extremities, cold" });
       setupFetchMock();
       render(<RemedyReader slug="aconitum_napellus" />);
 
@@ -321,7 +321,7 @@ describe("RemedyReader", () => {
       expect(unmatchedBadge).toBeTruthy();
     });
 
-    it("does not show passage section when no symptoms provided", async () => {
+    it("does not show passage section when no rubrics provided", async () => {
       setupFetchMock();
       render(<RemedyReader slug="aconitum_napellus" />);
 
@@ -428,7 +428,7 @@ describe("RemedyReader", () => {
     it("scrolls to primary highlight element after loading", async () => {
       const passage = "The anxiety that is found in Aconitum is overwhelming.";
       setQueryParams({
-        symptoms: "Mind, anxiety",
+        rubrics: "Mind, anxiety",
         highlight: passage,
       });
       setupFetchMock();
@@ -457,7 +457,7 @@ describe("RemedyReader", () => {
     });
 
     it("does not scroll when no highlight param is provided", async () => {
-      setQueryParams({ symptoms: "Mind, anxiety" });
+      setQueryParams({ rubrics: "Mind, anxiety" });
       setupFetchMock();
 
       const scrollIntoViewMock = vi.fn();
@@ -479,7 +479,7 @@ describe("RemedyReader", () => {
     it("passage link href includes highlight query param with passage text", async () => {
       const passage = "The anxiety that is found in Aconitum is overwhelming.";
       setQueryParams({
-        symptoms: "Mind, anxiety",
+        rubrics: "Mind, anxiety",
         highlight: passage,
       });
       setupFetchMock();
@@ -569,7 +569,7 @@ describe("Real-data Nux vomica highlighting", () => {
       // passage_index says "Nux suffers..." but markdown has "*Nux* suffers..."
       const passage = nuxPassageIndex["Nux-v."][0].passage;
       setQueryParams({
-        symptoms: "Stomach, constipation",
+        rubrics: "Stomach, constipation",
         highlight: passage,
       });
       setupNuxFetchMock();
@@ -586,7 +586,7 @@ describe("Real-data Nux vomica highlighting", () => {
       // passage_index says "...like Puls." but markdown has "...like **Puls.**"
       const passage = nuxPassageIndex["Nux-v."][1].passage;
       setQueryParams({
-        symptoms: "Stomach, worse morning",
+        rubrics: "Stomach, worse morning",
         highlight: passage,
       });
       setupNuxFetchMock();
@@ -600,10 +600,10 @@ describe("Real-data Nux vomica highlighting", () => {
     });
 
     it("primary highlight corresponds to ?highlight= param, not a different passage", async () => {
-      // Set highlight to the stomach passage; bladder passage is also matched via symptoms
+      // Set highlight to the stomach passage; bladder passage is also matched via rubrics
       const stomachPassage = nuxPassageIndex["Nux-v."][0].passage;
       setQueryParams({
-        symptoms: "Stomach, constipation|Bladder, urging to urinate (morbid desire), frequent",
+        rubrics: "Stomach, constipation|Bladder, urging to urinate (morbid desire), frequent",
         highlight: stomachPassage,
       });
       setupNuxFetchMock();
@@ -635,11 +635,11 @@ describe("Real-data Nux vomica highlighting", () => {
     });
   });
 
-  describe("BUG #2: overlapping ranges — multiple symptoms matching one passage", () => {
-    it("renders bladder passage text exactly once when 5 symptoms match it", async () => {
-      // These are real default symptoms that all score highest on the bladder passage
+  describe("BUG #2: overlapping ranges — multiple rubrics matching one passage", () => {
+    it("renders bladder passage text exactly once when 5 rubrics match it", async () => {
+      // These are real default rubrics that all score highest on the bladder passage
       setQueryParams({
-        symptoms: [
+        rubrics: [
           "Urine, bloody",
           "Urine, odor offensive",
           "Urine, specific gravity increased",
@@ -663,7 +663,7 @@ describe("Real-data Nux vomica highlighting", () => {
 
     it("produces exactly one <mark> range for 5 duplicate overlapping matches", async () => {
       setQueryParams({
-        symptoms: [
+        rubrics: [
           "Urine, bloody",
           "Urine, odor offensive",
           "Urine, specific gravity increased",
@@ -679,7 +679,7 @@ describe("Real-data Nux vomica highlighting", () => {
         expect(marks.length).toBeGreaterThan(0);
       });
 
-      // All 5 symptoms map to the same passage — should produce ONE merged <mark>, not 5
+      // All 5 rubrics map to the same passage — should produce ONE merged <mark>, not 5
       const marks = document.querySelectorAll("mark");
       // Count marks that contain the bladder passage text
       const bladderMarks = Array.from(marks).filter((m) =>
@@ -694,7 +694,7 @@ describe("Real-data Nux vomica highlighting", () => {
       // The passage "Nux suffers..." should be findable in cleaned markdown
       const passage = nuxPassageIndex["Nux-v."][0].passage;
       setQueryParams({
-        symptoms: "Stomach, constipation",
+        rubrics: "Stomach, constipation",
         highlight: passage,
       });
       setupNuxFetchMock();
@@ -710,7 +710,7 @@ describe("Real-data Nux vomica highlighting", () => {
     it("passage without formatting matches text that had **bold** stripped", async () => {
       const passage = nuxPassageIndex["Nux-v."][1].passage;
       setQueryParams({
-        symptoms: "Stomach, worse morning",
+        rubrics: "Stomach, worse morning",
         highlight: passage,
       });
       setupNuxFetchMock();
@@ -726,7 +726,7 @@ describe("Real-data Nux vomica highlighting", () => {
       // The bladder passage has no formatting differences
       const passage = nuxPassageIndex["Nux-v."][2].passage;
       setQueryParams({
-        symptoms: "Bladder, urging to urinate (morbid desire), frequent",
+        rubrics: "Bladder, urging to urinate (morbid desire), frequent",
         highlight: passage,
       });
       setupNuxFetchMock();
@@ -777,7 +777,7 @@ describe("cleanMarkdown (tested via rendering)", () => {
 
 describe("matchPassages scoring (tested via rendering)", () => {
   it("matches passages based on keyword overlap", async () => {
-    setQueryParams({ symptoms: "Mind, anxiety, restlessness" });
+    setQueryParams({ rubrics: "Mind, anxiety, restlessness" });
     setupFetchMock();
     render(<RemedyReader slug="aconitum_napellus" />);
 
@@ -788,8 +788,8 @@ describe("matchPassages scoring (tested via rendering)", () => {
   });
 
   it("does not match passages with insufficient score", async () => {
-    // Use a symptom with very short terms that won't match
-    setQueryParams({ symptoms: "ab, cd" });
+    // Use a rubric with very short terms that won't match
+    setQueryParams({ rubrics: "ab, cd" });
     setupFetchMock();
     render(<RemedyReader slug="aconitum_napellus" />);
 

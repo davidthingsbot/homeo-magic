@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 /**
- * Tests for fuzzy multi-token symptom search.
+ * Tests for fuzzy multi-token rubric search.
  *
  * The search module should be importable from "../search" and expose:
- *   - buildSearchIndex(symptomNames: string[]): SearchIndex
+ *   - buildSearchIndex(rubricNames: string[]): SearchIndex
  *   - search(index: SearchIndex, query: string, limit?: number): SearchResult[]
  *
  * Each SearchResult has: { name: string; score: number }
@@ -14,8 +14,8 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { buildSearchIndex, search } from "../search";
 import type { SearchIndex, SearchResult } from "../search";
 
-// ---------- sample symptoms ----------
-const SAMPLE_SYMPTOMS = [
+// ---------- sample rubrics ----------
+const SAMPLE_RUBRICS = [
   "Extremities, pain, foot",
   "Extremities, pain, hand",
   "Extremities, coldness, foot",
@@ -42,7 +42,7 @@ describe("Fuzzy multi-token search", () => {
   let index: SearchIndex;
 
   beforeEach(() => {
-    index = buildSearchIndex(SAMPLE_SYMPTOMS);
+    index = buildSearchIndex(SAMPLE_RUBRICS);
   });
 
   // 1. Exact prefix match
@@ -53,7 +53,7 @@ describe("Fuzzy multi-token search", () => {
   });
 
   // 2. Multi-token: 'pain foot' matches 'Extremities, pain, foot'
-  it("matches multi-token query across symptom parts", () => {
+  it("matches multi-token query across rubric parts", () => {
     const results = search(index, "pain foot");
     const names = results.map((r) => r.name);
     expect(names).toContain("Extremities, pain, foot");
@@ -76,8 +76,8 @@ describe("Fuzzy multi-token search", () => {
     expect(names).toContain("Head, pain");
   });
 
-  // 5. Typo tolerance: 'burnng' matches burning symptoms
-  it("tolerates typos: 'burnng' matches burning symptoms", () => {
+  // 5. Typo tolerance: 'burnng' matches burning rubrics
+  it("tolerates typos: 'burnng' matches burning rubrics", () => {
     const results = search(index, "burnng");
     const names = results.map((r) => r.name);
     const burningResults = names.filter((n) => n.includes("burning"));
@@ -101,7 +101,7 @@ describe("Fuzzy multi-token search", () => {
     // "pain foot" should be more specific than "pain"
     expect(results1.length).toBeGreaterThanOrEqual(results3.length);
 
-    // The top result for "pain foot" should be the foot-specific symptom
+    // The top result for "pain foot" should be the foot-specific rubric
     if (results3.length > 0) {
       expect(results3[0].name).toContain("foot");
     }

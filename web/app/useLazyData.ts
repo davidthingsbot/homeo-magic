@@ -2,14 +2,14 @@
 import { dataUrl } from "./dataUrl";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import type { SymptomsData, RemediesData } from "./types";
+import type { RubricsData, RemediesData } from "./types";
 
 /**
- * Decode compact base-36 encoded symptom index using the pairs mapping.
+ * Decode compact base-36 encoded rubric index using the pairs mapping.
  * Each entry is "pairIdx:remaining" or just "pairIdx" (no remaining text).
  * pairIdx is base-36 encoded, and pairs[pairIdx] gives "BodySystem, subcategory".
  */
-function decodeSymptomIndex(pairs: string[], encoded: string[]): string[] {
+function decodeRubricIndex(pairs: string[], encoded: string[]): string[] {
   return encoded.map((code) => {
     const colonIdx = code.indexOf(":");
     if (colonIdx === -1) {
@@ -23,12 +23,12 @@ function decodeSymptomIndex(pairs: string[], encoded: string[]): string[] {
 }
 
 /**
- * Determine the fetch URL for a symptom's body-system subcategory file.
+ * Determine the fetch URL for a rubric's body-system subcategory file.
  * "Mind, anxiety, morning" -> "data/symptoms/Mind/anxiety.json"
  * "Abdomen" -> "data/symptoms/Abdomen/_root.json"
  */
-function getSymptomFileUrl(symptomName: string): string {
-  const parts = symptomName.split(", ");
+function getRubricFileUrl(rubricName: string): string {
+  const parts = rubricName.split(", ");
   const bodySystem = parts[0];
   const subcategory = parts.length > 1 ? parts[1] : "_root";
   const safeName = subcategory.replace(/[^\w\s\-.]/g, "").trim() || "_other";
@@ -38,8 +38,8 @@ function getSymptomFileUrl(symptomName: string): string {
 /**
  * Cache key for deduplication (body system + subcategory file).
  */
-function getSymptomCacheKey(symptomName: string): string {
-  const parts = symptomName.split(", ");
+function getRubricCacheKey(rubricName: string): string {
+  const parts = rubricName.split(", ");
   const bodySystem = parts[0];
   const subcategory = parts.length > 1 ? parts[1] : "_root";
   return `${bodySystem}/${subcategory}`;
@@ -48,11 +48,11 @@ function getSymptomCacheKey(symptomName: string): string {
 export function useLazyData() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [symptomNames, setSymptomNames] = useState<string[]>([]);
+  const [rubricNames, setRubricNames] = useState<string[]>([]);
   const [remedies, setRemedies] = useState<RemediesData | null>(null);
 
-  // Symptom data cache — grows as body-system files are fetched on demand
-  const [symptomData, setSymptomData] = useState<SymptomsData>({});
+  // Rubric data cache — grows as body-system files are fetched on demand
+  const [rubricData, setRubricData] = useState<RubricsData>({});
   const fetchedFilesRef = useRef<Set<string>>(new Set());
 
   // Load indexes on mount (lightweight: ~2.1 MB total vs 20 MB monolithic)
@@ -75,8 +75,8 @@ export function useLazyData() {
           remedyRes.json(),
         ]);
 
-        const names = decodeSymptomIndex(pairs, encoded);
-        setSymptomNames(names);
+        const names = decodeRubricIndex(pairs, encoded);
+        setRubricNames(names);
         setRemedies(remedyData);
         setLoading(false);
       } catch (err) {
@@ -88,25 +88,25 @@ export function useLazyData() {
   }, []);
 
   /**
-   * Fetch symptom data for a given symptom name.
-   * Loads the entire body-system/subcategory file (which contains multiple symptoms).
+   * Fetch rubric data for a given rubric name.
+   * Loads the entire body-system/subcategory file (which contains multiple rubrics).
    * Returns a promise that resolves when the data is available.
    */
-  const fetchSymptomData = useCallback(
-    async (symptomName: string): Promise<void> => {
-      const cacheKey = getSymptomCacheKey(symptomName);
+  const fetchRubricData = useCallback(
+    async (rubricName: string): Promise<void> => {
+      const cacheKey = getRubricCacheKey(rubricName);
       if (fetchedFilesRef.current.has(cacheKey)) return;
       fetchedFilesRef.current.add(cacheKey);
 
-      const url = getSymptomFileUrl(symptomName);
+      const url = getRubricFileUrl(rubricName);
       try {
         const res = await fetch(dataUrl(url));
         if (!res.ok) {
           fetchedFilesRef.current.delete(cacheKey);
           return;
         }
-        const data: SymptomsData = await res.json();
-        setSymptomData((prev) => ({ ...prev, ...data }));
+        const data: RubricsData = await res.json();
+        setRubricData((prev) => ({ ...prev, ...data }));
       } catch {
         fetchedFilesRef.current.delete(cacheKey);
       }
@@ -115,16 +115,16 @@ export function useLazyData() {
   );
 
   /**
-   * Fetch symptom data for multiple symptoms in parallel.
+   * Fetch rubric data for multiple rubrics in parallel.
    * Deduplicates by body-system/subcategory file.
    */
-  const fetchMultipleSymptomData = useCallback(
-    async (symptomNames: string[]): Promise<void> => {
+  const fetchMultipleRubricData = useCallback(
+    async (rubricNames: string[]): Promise<void> => {
       const uniqueKeys = new Set<string>();
       const toFetch: string[] = [];
 
-      for (const name of symptomNames) {
-        const key = getSymptomCacheKey(name);
+      for (const name of rubricNames) {
+        const key = getRubricCacheKey(name);
         if (!fetchedFilesRef.current.has(key) && !uniqueKeys.has(key)) {
           uniqueKeys.add(key);
           toFetch.push(name);
@@ -132,18 +132,18 @@ export function useLazyData() {
       }
 
       if (toFetch.length === 0) return;
-      await Promise.all(toFetch.map(fetchSymptomData));
+      await Promise.all(toFetch.map(fetchRubricData));
     },
-    [fetchSymptomData]
+    [fetchRubricData]
   );
 
   return {
     loading,
     error,
-    symptomNames,
+    rubricNames,
     remedies,
-    symptomData,
-    fetchSymptomData,
-    fetchMultipleSymptomData,
+    rubricData,
+    fetchRubricData,
+    fetchMultipleRubricData,
   };
 }

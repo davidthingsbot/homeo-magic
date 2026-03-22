@@ -1,6 +1,6 @@
-// Symptom data structure from symptoms.json
-export interface SymptomsData {
-  [symptomName: string]: {
+// Rubric data structure from symptoms.json
+export interface RubricsData {
+  [rubricName: string]: {
     remedies: {
       [remedyAbbrev: string]: number; // weight 1-3
     };
@@ -25,8 +25,8 @@ export interface MateriaProfile {
 
 export type ProfilesData = Record<string, MateriaProfile>;
 
-// Symptom index from symptom_index.json - remedy abbrev -> symptom path -> Kent quote
-export type SymptomIndexData = Record<string, Record<string, string>>;
+// Rubric index from symptom_index.json - remedy abbrev -> rubric path -> Kent quote
+export type RubricIndexData = Record<string, Record<string, string>>;
 
 // Result of repertorization
 export interface RepertoResult {
@@ -35,6 +35,6 @@ export interface RepertoResult {
   totalScore: number; // normalized 0-100
   rawScore: number; // actual sum of grades
   breakdown: {
-    [symptom: string]: number;
+    [rubric: string]: number;
   };
 }

@@ -2,7 +2,7 @@
 import { dataUrl } from "./dataUrl";
 
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import type { SymptomsData, RemediesData, RepertoResult } from "./types";
+import type { RubricsData, RemediesData, RepertoResult } from "./types";
 import { useLazyData } from "./useLazyData";
 import { buildSearchIndex, search } from "./search";
 
@@ -16,15 +16,15 @@ export function useRepertorize() {
   const {
     loading: indexLoading,
     error: indexError,
-    symptomNames,
+    rubricNames,
     remedies,
-    symptomData,
-    fetchSymptomData,
-    fetchMultipleSymptomData,
+    rubricData,
+    fetchRubricData,
+    fetchMultipleRubricData,
   } = useLazyData();
 
-  const [selectedSymptoms, setSelectedSymptoms] = useState<string[]>([]);
-  const [hiddenSymptoms, setHiddenSymptoms] = useState<Set<string>>(new Set());
+  const [selectedRubrics, setSelectedRubrics] = useState<string[]>([]);
+  const [hiddenRubrics, setHiddenRubrics] = useState<Set<string>>(new Set());
   const [minScore, setMinScore] = useState(0);
   const hydratedRef = useRef(false);
 
@@ -35,35 +35,35 @@ export function useRepertorize() {
       if (raw) {
         const saved = JSON.parse(raw);
         let restored = false;
-        if (Array.isArray(saved.selectedSymptoms) && saved.selectedSymptoms.length > 0) {
-          setSelectedSymptoms(saved.selectedSymptoms);
-          if (Array.isArray(saved.hiddenSymptoms) && saved.hiddenSymptoms.length > 0) {
-            setHiddenSymptoms(new Set(saved.hiddenSymptoms));
+        if (Array.isArray(saved.selectedRubrics) && saved.selectedRubrics.length > 0) {
+          setSelectedRubrics(saved.selectedRubrics);
+          if (Array.isArray(saved.hiddenRubrics) && saved.hiddenRubrics.length > 0) {
+            setHiddenRubrics(new Set(saved.hiddenRubrics));
           }
           if (typeof saved.minScore === "number" && saved.minScore > 0) {
             setMinScore(saved.minScore);
           }
-          return; // Had persisted state with symptoms, skip defaults
+          return; // Had persisted state with rubrics, skip defaults
         }
       }
     } catch {}
 
-    // No persisted symptoms -- load defaults
-    fetch(dataUrl("data/default-symptoms.json"))
+    // No persisted rubrics -- load defaults
+    fetch(dataUrl("data/default-rubrics.json"))
       .then((res) => res.ok ? res.json() : null)
       .then((defaults) => {
         if (Array.isArray(defaults) && defaults.length > 0) {
-          setSelectedSymptoms(defaults);
+          setSelectedRubrics(defaults);
         }
       })
       .catch(() => {}); // No defaults file, that's fine
   }, []);
 
-  // When index finishes loading, fetch body-system data for any selected symptoms
+  // When index finishes loading, fetch body-system data for any selected rubrics
   useEffect(() => {
-    if (indexLoading || selectedSymptoms.length === 0) return;
-    fetchMultipleSymptomData(selectedSymptoms);
-  }, [indexLoading, selectedSymptoms, fetchMultipleSymptomData]);
+    if (indexLoading || selectedRubrics.length === 0) return;
+    fetchMultipleRubricData(selectedRubrics);
+  }, [indexLoading, selectedRubrics, fetchMultipleRubricData]);
 
   const loading = indexLoading;
   const error = indexError;
@@ -84,72 +84,72 @@ export function useRepertorize() {
     sessionStorage.setItem(
       "homeo-magic-state",
       JSON.stringify({
-        selectedSymptoms,
-        hiddenSymptoms: [...hiddenSymptoms],
+        selectedRubrics,
+        hiddenRubrics: [...hiddenRubrics],
         minScore,
       })
     );
-  }, [selectedSymptoms, hiddenSymptoms, minScore]);
+  }, [selectedRubrics, hiddenRubrics, minScore]);
 
-  // Build fuzzy search index from symptom names
+  // Build fuzzy search index from rubric names
   const searchIndex = useMemo(() => {
-    if (symptomNames.length === 0) return null;
-    return buildSearchIndex(symptomNames);
-  }, [symptomNames]);
+    if (rubricNames.length === 0) return null;
+    return buildSearchIndex(rubricNames);
+  }, [rubricNames]);
 
-  const searchSymptoms = useCallback(
+  const searchRubrics = useCallback(
     (query: string, limit: number = 50): string[] => {
       if (!searchIndex || !query.trim()) return [];
-      const results = search(searchIndex, query, limit + selectedSymptoms.length);
+      const results = search(searchIndex, query, limit + selectedRubrics.length);
       return results
         .map((r) => r.name)
-        .filter((name) => !selectedSymptoms.includes(name))
+        .filter((name) => !selectedRubrics.includes(name))
         .slice(0, limit);
     },
-    [searchIndex, selectedSymptoms]
+    [searchIndex, selectedRubrics]
   );
 
-  const addSymptom = useCallback(
-    (symptom: string) => {
-      setSelectedSymptoms((prev) => {
-        if (prev.includes(symptom)) return prev;
-        return [...prev, symptom];
+  const addRubric = useCallback(
+    (rubric: string) => {
+      setSelectedRubrics((prev) => {
+        if (prev.includes(rubric)) return prev;
+        return [...prev, rubric];
       });
-      // Trigger lazy fetch of body-system data for this symptom
-      fetchSymptomData(symptom);
+      // Trigger lazy fetch of body-system data for this rubric
+      fetchRubricData(rubric);
     },
-    [fetchSymptomData]
+    [fetchRubricData]
   );
 
-  const removeSymptom = useCallback((symptom: string) => {
-    setSelectedSymptoms((prev) => prev.filter((s) => s !== symptom));
-    setHiddenSymptoms((prev) => {
-      if (!prev.has(symptom)) return prev;
+  const removeRubric = useCallback((rubric: string) => {
+    setSelectedRubrics((prev) => prev.filter((s) => s !== rubric));
+    setHiddenRubrics((prev) => {
+      if (!prev.has(rubric)) return prev;
       const next = new Set(prev);
-      next.delete(symptom);
+      next.delete(rubric);
       return next;
     });
   }, []);
 
-  const hideSymptom = useCallback((symptom: string) => {
-    setHiddenSymptoms((prev) => {
+  const hideRubric = useCallback((rubric: string) => {
+    setHiddenRubrics((prev) => {
       const next = new Set(prev);
-      next.add(symptom);
+      next.add(rubric);
       return next;
     });
   }, []);
 
-  const showSymptom = useCallback((symptom: string) => {
-    setHiddenSymptoms((prev) => {
-      if (!prev.has(symptom)) return prev;
+  const showRubric = useCallback((rubric: string) => {
+    setHiddenRubrics((prev) => {
+      if (!prev.has(rubric)) return prev;
       const next = new Set(prev);
-      next.delete(symptom);
+      next.delete(rubric);
       return next;
     });
   }, []);
 
-  const reorderSymptoms = useCallback((fromIndex: number, toIndex: number) => {
-    setSelectedSymptoms((prev) => {
+  const reorderRubrics = useCallback((fromIndex: number, toIndex: number) => {
+    setSelectedRubrics((prev) => {
       const next = [...prev];
       const [moved] = next.splice(fromIndex, 1);
       next.splice(toIndex, 0, moved);
@@ -157,38 +157,38 @@ export function useRepertorize() {
     });
   }, []);
 
-  const clearSymptoms = useCallback(() => {
-    setSelectedSymptoms([]);
-    setHiddenSymptoms(new Set());
+  const clearRubrics = useCallback(() => {
+    setSelectedRubrics([]);
+    setHiddenRubrics(new Set());
   }, []);
 
-  // Use symptomData (lazy-loaded cache) as the symptoms object
-  const symptoms: SymptomsData | null =
-    Object.keys(symptomData).length > 0 ? symptomData : null;
+  // Use rubricData (lazy-loaded cache) as the rubrics object
+  const rubrics: RubricsData | null =
+    Object.keys(rubricData).length > 0 ? rubricData : null;
 
-  // Compute results: all remedies across visible symptoms, scored and normalized
+  // Compute results: all remedies across visible rubrics, scored and normalized
   const results = useMemo((): {
     items: RepertoResult[];
-    gradeMap: { [abbrev: string]: { [symptom: string]: number } };
+    gradeMap: { [abbrev: string]: { [rubric: string]: number } };
     maxScore: number;
     totalCount: number;
   } => {
-    if (!remedies || selectedSymptoms.length === 0) {
+    if (!remedies || selectedRubrics.length === 0) {
       return { items: [], gradeMap: {}, maxScore: 0, totalCount: 0 };
     }
 
-    const visibleSymptoms = selectedSymptoms.filter(
-      (s) => !hiddenSymptoms.has(s)
+    const visibleRubrics = selectedRubrics.filter(
+      (s) => !hiddenRubrics.has(s)
     );
-    if (visibleSymptoms.length === 0) {
+    if (visibleRubrics.length === 0) {
       return { items: [], gradeMap: {}, maxScore: 0, totalCount: 0 };
     }
 
     const scores: { [abbrev: string]: number } = {};
-    const gradeMap: { [abbrev: string]: { [symptom: string]: number } } = {};
+    const gradeMap: { [abbrev: string]: { [rubric: string]: number } } = {};
 
-    for (const sym of visibleSymptoms) {
-      const symData = symptomData[sym];
+    for (const sym of visibleRubrics) {
+      const symData = rubricData[sym];
       if (!symData) continue;
       for (const [abbrev, grade] of Object.entries(symData.remedies)) {
         if (!scores[abbrev]) {
@@ -222,27 +222,27 @@ export function useRepertorize() {
       maxScore,
       totalCount: allNormalized.length,
     };
-  }, [symptomData, remedies, selectedSymptoms, hiddenSymptoms]);
+  }, [rubricData, remedies, selectedRubrics, hiddenRubrics]);
 
   return {
     loading,
     error,
     loadProgress,
-    symptoms,
+    rubrics,
     remedies,
-    selectedSymptoms,
-    hiddenSymptoms,
+    selectedRubrics,
+    hiddenRubrics,
     results,
     minScore,
     setMinScore,
-    searchSymptoms,
-    addSymptom,
-    removeSymptom,
-    hideSymptom,
-    showSymptom,
-    clearSymptoms,
-    reorderSymptoms,
-    symptomCount: symptomNames.length,
+    searchRubrics,
+    addRubric,
+    removeRubric,
+    hideRubric,
+    showRubric,
+    clearRubrics,
+    reorderRubrics,
+    rubricCount: rubricNames.length,
     remedyCount: remedies ? Object.keys(remedies).length : 0,
   };
 }

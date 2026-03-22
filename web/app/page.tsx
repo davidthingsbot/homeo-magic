@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { useRepertorize } from "./useRepertorize";
 import chroma from "chroma-js";
 import { MateriaPanel } from "./MateriaPanel";
+import { LecturePanel } from "./LecturePanel";
 
 // Color scale for score heat-mapping
 const defaultScale = () => chroma.scale(["#fef3c7", "#fca5a5"]).mode("lab");
@@ -59,30 +60,32 @@ export default function Home() {
     loading,
     error,
     loadProgress,
-    symptoms,
+    rubrics,
     remedies,
-    selectedSymptoms,
-    hiddenSymptoms,
+    selectedRubrics,
+    hiddenRubrics,
     results,
     minScore,
     setMinScore,
-    searchSymptoms,
-    addSymptom,
-    removeSymptom,
-    hideSymptom,
-    showSymptom,
-    clearSymptoms,
-    reorderSymptoms,
-    symptomCount,
+    searchRubrics,
+    addRubric,
+    removeRubric,
+    hideRubric,
+    showRubric,
+    clearRubrics,
+    reorderRubrics,
+    rubricCount,
     remedyCount,
   } = useRepertorize();
 
   const dragRef = useRef<{ index: number } | null>(null);
-  const [symColWidth, setSymColWidth] = useState(420);
+  const [rubricColWidth, setSymColWidth] = useState(420);
   const [hoveredRemedy, setHoveredRemedy] = useState<string | null>(null);
   const [selectedRemedy, setSelectedRemedy] = useState<string | null>(null);
-  const [hoveredSymRow, setHoveredSymRow] = useState<string | null>(null);
-  const [selectedSymRow, setSelectedSymRow] = useState<string | null>(null);
+  const [hoveredRubricRow, setHoveredSymRow] = useState<string | null>(null);
+  const [selectedRubricRow, setSelectedSymRow] = useState<string | null>(null);
+  const [showClearConfirm, setShowClearConfirm] = useState(false);
+  const [highlightPassage, setHighlightPassage] = useState<string | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const resizeRef = useRef<{ startX: number; startWidth: number } | null>(null);
 
@@ -90,7 +93,7 @@ export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [detailPanel, setDetailPanel] = useState<{
-    type: "remedy" | "symptom";
+    type: "remedy" | "rubric";
     name: string;
   } | null>(null);
 
@@ -106,8 +109,8 @@ export default function Home() {
 
   const suggestions = useMemo(() => {
     if (query.trim().length < 2) return [];
-    return searchSymptoms(query, 50);
-  }, [query, searchSymptoms]);
+    return searchRubrics(query, 50);
+  }, [query, searchRubrics]);
   const showDropdown = dropdownOpen && suggestions.length > 0;
 
   useEffect(() => {
@@ -153,8 +156,8 @@ export default function Home() {
     }
   }
 
-  function handleSelectSuggestion(symptom: string) {
-    addSymptom(symptom);
+  function handleSelectSuggestion(rubric: string) {
+    addRubric(rubric);
     setQuery("");
     setDropdownOpen(false);
     inputRef.current?.focus();
@@ -184,7 +187,7 @@ export default function Home() {
               <span style={{ color: "#fca5a5" }}>Error: {error}</span>
             ) : (
               <>
-                {symptomCount.toLocaleString()} symptoms &bull;{" "}
+                {rubricCount.toLocaleString()} rubrics &bull;{" "}
                 {remedyCount.toLocaleString()} remedies
               </>
             )}
@@ -206,17 +209,8 @@ export default function Home() {
       <div className="bg-white rounded-2xl p-5 shadow-[0_10px_40px_rgba(0,0,0,0.2)] mb-5">
         <div className="flex items-center justify-between mb-2">
           <label htmlFor="search" className="block font-semibold text-[#065774]">
-            Add symptoms:
+            Add rubrics:
           </label>
-          {selectedSymptoms.length > 0 && (
-            <button
-              onClick={() => { clearSymptoms(); setSelectedRemedy(null); sessionStorage.removeItem("homeo-magic-state"); }}
-              className="px-3 py-1 bg-[#dc2626] text-white border-none rounded-md text-xs font-medium cursor-pointer hover:bg-[#b91c1c] transition-colors"
-              data-testid="clear-all-symptoms"
-            >
-              Clear All ({selectedSymptoms.length})
-            </button>
-          )}
         </div>
         <div className="relative">
           <input
@@ -237,17 +231,17 @@ export default function Home() {
               ref={dropdownRef}
               className="absolute z-[100] top-full left-0 right-0 bg-white border-2 border-[#EF9B0C] rounded-[10px] mt-1 max-h-[300px] overflow-y-auto shadow-[0_10px_40px_rgba(0,0,0,0.15)]"
             >
-              {suggestions.map((symptom, idx) => (
+              {suggestions.map((rubric, idx) => (
                 <button
-                  key={symptom}
+                  key={rubric}
                   ref={idx === highlightedIndex ? (el) => el?.scrollIntoView({ block: "nearest" }) : undefined}
-                  onClick={() => handleSelectSuggestion(symptom)}
+                  onClick={() => handleSelectSuggestion(rubric)}
                   onMouseEnter={() => setHighlightedIndex(idx)}
                   className={`w-full text-left px-4 py-3 text-sm cursor-pointer border-b border-[#e4e9eb] last:border-b-0 transition-colors ${
                     idx === highlightedIndex ? "bg-[#eef1f2]" : "hover:bg-[#eef1f2]"
                   }`}
                 >
-                  <HighlightMatch text={symptom} query={query} />
+                  <HighlightMatch text={rubric} query={query} />
                 </button>
               ))}
             </div>
@@ -257,67 +251,83 @@ export default function Home() {
 
       {/* Results */}
       <div className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden">
-        {selectedSymptoms.length === 0 ? (
+        {selectedRubrics.length === 0 ? (
           <div className="py-16 px-5 text-center text-[#6b7280]">
             <div className="text-5xl mb-4">&#x1F50D;</div>
-            <p>Search and select symptoms above to find matching remedies</p>
+            <p>Search and select rubrics above to find matching remedies</p>
           </div>
         ) : results.items.length === 0 ? (
           <div className="py-16 px-5 text-center text-[#6b7280]">
-            <p>No remedies found for these symptoms</p>
+            <p>No remedies found for these rubrics</p>
           </div>
         ) : (
           <>
+            {/* Banner row - "Analysis" label */}
             <div
-              className="px-5 py-4 font-semibold text-white"
+              className="flex items-center py-4 text-white"
               style={{
                 background:
                   "linear-gradient(135deg, #065774 0%, #042B58 100%)",
               }}
             >
-              {results.totalCount} Remedies Found
-            </div>
-
-            {/* Filter bar */}
-            <div className="flex items-center gap-4 px-5 py-3 bg-[#eef1f2] border-b border-[#D3DCDE] flex-wrap">
-              <label className="font-medium text-[#065774] text-[16px]">
-                Min score:
-              </label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={minScore}
-                onChange={(e) => setMinScore(parseInt(e.target.value))}
-                className="score-slider w-[150px]"
-                style={{
-                  direction: "rtl",
-                  background: `linear-gradient(to right, ${getScoreColor(minScore / 100)} ${100 - minScore}%, #D3DCDE ${100 - minScore}%)`,
-                }}
-              />
-              <span
-                className="font-bold min-w-[35px] text-center text-sm px-2 py-0.5 rounded"
-                style={{
-                  background: getScoreColor(minScore / 100),
-                  color: getTextColor(getScoreColor(minScore / 100)),
-                }}
-              >
-                {minScore}
-              </span>
-              {minScore > 0 && (
+              <div className="font-semibold px-5 text-[16px]">
+                Analysis
+              </div>
+              {selectedRubrics.length > 0 && (
                 <button
-                  onClick={() => setMinScore(0)}
-                  className="px-3 py-1.5 bg-[#D3DCDE] text-[#065774] border-none rounded-md text-xs font-medium cursor-pointer hover:bg-[#c5cdd0]"
+                  onClick={() => setShowClearConfirm(true)}
+                  className="ml-auto mr-5 px-3 py-1 bg-[#dc2626] text-white border-none rounded-md text-xs font-medium cursor-pointer hover:bg-[#b91c1c] transition-colors"
+                  data-testid="clear-all-rubrics"
                 >
-                  Reset
+                  Clear All ({selectedRubrics.length})
                 </button>
               )}
-              <span className="text-sm text-[#6b7280] ml-auto">
-                Showing {displayed.length} of {filtered.length}{" "}remedies
-                (&ge;{minScore})
-                {filtered.length > displayed.length &&
-                  ` \u2022 ${filtered.length - displayed.length} more below`}
-              </span>
+            </div>
+
+            {/* Filter bar - Remedies Found + Min score */}
+            <div className="flex items-center py-3 bg-[#eef1f2] border-b border-[#D3DCDE]">
+              <div style={{ width: rubricColWidth, minWidth: 420, flexShrink: 0 }} />
+              <div className="flex items-center gap-4 px-2">
+                <span className="font-medium text-[#065774] text-[16px] whitespace-nowrap">
+                  Showing {displayed.length} of {results.totalCount}{" "}remedies
+                  {filtered.length > displayed.length &&
+                    ` \u2022 ${filtered.length - displayed.length} more below`}
+                </span>
+              </div>
+              <div className="flex items-center gap-3 ml-auto pr-5">
+                <label className="font-medium text-[#065774] text-[16px] whitespace-nowrap">
+                  Min score:
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={minScore}
+                  onChange={(e) => setMinScore(parseInt(e.target.value))}
+                  className="score-slider w-[120px]"
+                  style={{
+                    direction: "rtl",
+                    background: `linear-gradient(to right, ${getScoreColor(minScore / 100)} ${100 - minScore}%, #D3DCDE ${100 - minScore}%)`,
+                  }}
+                />
+                <span
+                  className="font-bold min-w-[35px] text-center text-sm px-2 py-0.5 rounded"
+                  style={{
+                    background: getScoreColor(minScore / 100),
+                    color: getTextColor(getScoreColor(minScore / 100)),
+                  }}
+                >
+                  {minScore}
+                </span>
+                {minScore > 0 && (
+                  <button
+                    onClick={() => setMinScore(0)}
+                    className="px-3 py-1.5 bg-[#D3DCDE] text-[#065774] border-none rounded-md text-xs font-medium cursor-pointer hover:bg-[#c5cdd0]"
+                  >
+                    Reset
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Table */}
@@ -326,15 +336,15 @@ export default function Home() {
                 <thead>
                   <tr>
                     <th
-                      className="text-left bg-[#e4e9eb] px-5 py-2.5 font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb] relative text-[16px]"
-                      style={{ width: symColWidth, minWidth: 420, maxWidth: 800 }}
+                      className="text-right bg-[#e4e9eb] px-5 py-2.5 font-semibold text-[#065774] sticky top-0 left-0 z-20 border-b border-[#e4e9eb] relative text-[16px]"
+                      style={{ width: rubricColWidth, minWidth: 420, maxWidth: 800 }}
                     >
-                      Analysis
+                      Remedies
                       <span
                         className="absolute top-0 right-0 w-1 h-full cursor-col-resize hover:bg-[#EF9B0C] transition-colors"
                         onMouseDown={(e) => {
                           e.preventDefault();
-                          resizeRef.current = { startX: e.clientX, startWidth: symColWidth };
+                          resizeRef.current = { startX: e.clientX, startWidth: rubricColWidth };
                           const onMove = (ev: MouseEvent) => {
                             if (!resizeRef.current) return;
                             const diff = ev.clientX - resizeRef.current.startX;
@@ -365,13 +375,13 @@ export default function Home() {
                           setTooltipPos({ x: rect.left + rect.width / 2, y: rect.top - 6 });
                         }}
                         onMouseLeave={() => setHoveredRemedy(null)}
-                        className="px-2 pt-2.5 pb-[10px] font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb] text-center cursor-pointer transition-colors"
+                        className="px-1 pt-2.5 pb-[10px] font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb] text-center cursor-pointer transition-colors"
                         style={{
                           writingMode: "vertical-rl",
                           textOrientation: "mixed",
                           transform: "rotate(180deg)",
                           height: "100px",
-                          verticalAlign: "bottom",
+                          verticalAlign: "middle",
                           fontSize: "16px",
                           whiteSpace: "nowrap",
                           background: (hoveredRemedy === r.abbrev || selectedRemedy === r.abbrev) ? "#dce6ea" : "#f3f6f7",
@@ -385,8 +395,11 @@ export default function Home() {
                 <tbody>
                   {/* Score row */}
                   <tr>
-                    <td className="text-left px-5 py-2.5 font-semibold border-b-2 border-[#D3DCDE] text-[16px]" style={{ background: "linear-gradient(180deg, #f3f6f7 0%, #e9eef0 100%)" }}>
-                      Score
+                    <td className="px-5 py-2.5 font-semibold border-b-2 border-[#D3DCDE] text-[16px] sticky left-0 z-10" style={{ background: "linear-gradient(180deg, #f3f6f7 0%, #e9eef0 100%)" }}>
+                      <div className="flex justify-between">
+                        <span className="text-[#065774]">Rubrics</span>
+                        <span>Score</span>
+                      </div>
                     </td>
                     {displayed.map((r) => {
                       const bg = getScoreColor(r.totalScore / 100);
@@ -409,19 +422,19 @@ export default function Home() {
                     })}
                   </tr>
 
-                  {/* Symptom rows */}
-                  {selectedSymptoms.map((sym, symIndex) => {
-                    const isHidden = hiddenSymptoms.has(sym);
-                    const symData = symptoms?.[sym];
-                    const symCount = symData
-                      ? Object.keys(symData.remedies).length
+                  {/* Rubric rows */}
+                  {selectedRubrics.map((sym, rubricIndex) => {
+                    const isHidden = hiddenRubrics.has(sym);
+                    const rubricData = rubrics?.[sym];
+                    const rubricRemedyCount = rubricData
+                      ? Object.keys(rubricData.remedies).length
                       : 0;
                     return (
                       <tr
                         key={sym}
                         draggable
                         onDragStart={(e) => {
-                          dragRef.current = { index: symIndex };
+                          dragRef.current = { index: rubricIndex };
                           e.dataTransfer.effectAllowed = "move";
                         }}
                         onDragOver={(e) => {
@@ -431,7 +444,7 @@ export default function Home() {
                         onDrop={(e) => {
                           e.preventDefault();
                           if (dragRef.current !== null) {
-                            reorderSymptoms(dragRef.current.index, symIndex);
+                            reorderRubrics(dragRef.current.index, rubricIndex);
                             dragRef.current = null;
                           }
                         }}
@@ -441,20 +454,23 @@ export default function Home() {
                         style={{
                           opacity: isHidden ? 0.4 : 1,
                           transition: "opacity 0.15s, background 0.15s",
-                          background: (selectedSymRow === sym || hoveredSymRow === sym) ? "#eef1f2" : undefined,
+                          background: (selectedRubricRow === sym || hoveredRubricRow === sym) ? "#eef1f2" : undefined,
                         }}
                       >
                         <td
                           onClick={() => {
                             setSelectedSymRow((prev) => prev === sym ? null : sym);
-                            setDetailPanel({ type: "symptom", name: sym });
+                            setDetailPanel({ type: "rubric", name: sym });
                           }}
-                          className="text-left px-5 py-2.5 border-b border-[#e4e9eb] cursor-pointer transition-colors text-[15px]"
+                          className="text-left px-5 py-2.5 border-b border-[#e4e9eb] cursor-pointer transition-colors text-[15px] sticky left-0 z-10"
+                          style={{
+                            background: (selectedRubricRow === sym || hoveredRubricRow === sym) ? "#eef1f2" : "white",
+                          }}
                         >
                           <div className="flex items-center gap-2">
                             <span
                               className="flex-shrink-0 cursor-grab text-[#9ca3af]"
-                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s", marginLeft: "-20px", marginRight: "4px" }}
+                              style={{ opacity: hoveredRubricRow === sym ? 1 : 0, transition: "opacity 0.15s", marginLeft: "-20px", marginRight: "4px" }}
                               title="Drag to reorder"
                               onMouseDown={(e) => e.stopPropagation()}
                             >
@@ -462,27 +478,27 @@ export default function Home() {
                             </span>
                             <span className="flex-1" style={isHidden ? { textDecoration: "line-through", color: "#9ca3af" } : undefined}>{sym}</span>
                             <span className="text-[#9ca3af] text-[11px]">
-                              ({symCount})
+                              ({rubricRemedyCount})
                             </span>
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
-                                isHidden ? showSymptom(sym) : hideSymptom(sym);
+                                isHidden ? showRubric(sym) : hideRubric(sym);
                               }}
                               className="border-none w-[22px] h-[22px] rounded bg-[#D3DCDE] text-[#065774] text-xs cursor-pointer flex items-center justify-center hover:bg-[#065774] hover:text-white flex-shrink-0"
-                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
-                              title={isHidden ? "Show symptom" : "Hide symptom"}
+                              style={{ opacity: hoveredRubricRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
+                              title={isHidden ? "Show rubric" : "Hide rubric"}
                             >
                               {isHidden ? <EyeOffIcon /> : <EyeIcon />}
                             </button>
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
-                                removeSymptom(sym);
+                                removeRubric(sym);
                               }}
                               className="border-none w-[22px] h-[22px] rounded bg-[#D3DCDE] text-[#065774] text-xs cursor-pointer flex items-center justify-center hover:bg-[#065774] hover:text-white flex-shrink-0"
-                              style={{ opacity: hoveredSymRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
-                              title="Remove symptom"
+                              style={{ opacity: hoveredRubricRow === sym ? 1 : 0, transition: "opacity 0.15s" }}
+                              title="Remove rubric"
                             >
                               <TrashIcon />
                             </button>
@@ -496,9 +512,9 @@ export default function Home() {
                               className="text-center px-2 py-2.5 border-b border-[#e4e9eb]"
                               style={{
                                 background:
-                                  ((hoveredRemedy === r.abbrev || selectedRemedy === r.abbrev) && (hoveredSymRow === sym || selectedSymRow === sym))
+                                  ((hoveredRemedy === r.abbrev || selectedRemedy === r.abbrev) && (hoveredRubricRow === sym || selectedRubricRow === sym))
                                     ? "#d0dce0"
-                                    : (hoveredRemedy === r.abbrev || selectedRemedy === r.abbrev || hoveredSymRow === sym || selectedSymRow === sym)
+                                    : (hoveredRemedy === r.abbrev || selectedRemedy === r.abbrev || hoveredRubricRow === sym || selectedRubricRow === sym)
                                       ? "#eef3f5"
                                       : undefined,
                               }}
@@ -521,19 +537,40 @@ export default function Home() {
         )}
       </div>
 
-      {/* Detail panel */}
+      {/* Detail panel + Lecture panel side by side */}
       {detailPanel && (
-        <DetailPanel
-          type={detailPanel.type}
-          name={detailPanel.name}
-          symptoms={symptoms}
-          remedies={remedies}
-          selectedSymptoms={selectedSymptoms}
-          onClose={() => setDetailPanel(null)}
-          onShowRemedyDetail={(name) =>
-            setDetailPanel({ type: "remedy", name })
-          }
-        />
+        <div className="flex gap-5 mt-5 items-stretch">
+          <div className="w-1/2 flex-shrink-0 flex">
+            <DetailPanel
+              type={detailPanel.type}
+              name={detailPanel.name}
+              rubrics={rubrics}
+              remedies={remedies}
+              selectedRubrics={selectedRubrics}
+              onClose={() => setDetailPanel(null)}
+              onShowRemedyDetail={(name) =>
+                setDetailPanel({ type: "remedy", name })
+              }
+              onPassageClick={(passage) => setHighlightPassage(passage)}
+              selectedPassage={highlightPassage}
+            />
+          </div>
+          {detailPanel.type === "remedy" && (
+            <div className="w-1/2 flex-shrink-0 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden animate-slide-up">
+              <div
+                className="px-5 py-3.5 text-white font-semibold"
+                style={{ background: "linear-gradient(135deg, #065774 0%, #042B58 100%)" }}
+              >
+                Lecture
+              </div>
+              <LecturePanel
+                remedyAbbrev={detailPanel.name}
+                selectedRubrics={selectedRubrics}
+                highlightPassage={highlightPassage ?? undefined}
+              />
+            </div>
+          )}
+        </div>
       )}
 
       {/* Remedy tooltip (fixed position to avoid overflow clipping) */}
@@ -547,6 +584,44 @@ export default function Home() {
           }}
         >
           {remedies?.[hoveredRemedy] || hoveredRemedy}
+        </div>
+      )}
+
+      {/* Clear All confirmation modal */}
+      {showClearConfirm && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ background: "rgba(0,0,0,0.4)" }}
+          onClick={() => setShowClearConfirm(false)}
+        >
+          <div
+            className="bg-white rounded-xl shadow-xl p-6 max-w-sm w-full mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-lg font-semibold text-[#042B58] mb-2">Clear all rubrics?</h3>
+            <p className="text-[#6b7280] text-sm mb-5">
+              This will remove all {selectedRubrics.length} selected rubrics and reset the analysis.
+            </p>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => setShowClearConfirm(false)}
+                className="px-4 py-2 bg-[#eef1f2] text-[#065774] border-none rounded-lg text-sm font-medium cursor-pointer hover:bg-[#D3DCDE] transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  clearRubrics();
+                  setSelectedRemedy(null);
+                  sessionStorage.removeItem("homeo-magic-state");
+                  setShowClearConfirm(false);
+                }}
+                className="px-4 py-2 bg-[#dc2626] text-white border-none rounded-lg text-sm font-medium cursor-pointer hover:bg-[#b91c1c] transition-colors"
+              >
+                Clear All
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
@@ -600,29 +675,33 @@ function TrashIcon() {
 function DetailPanel({
   type,
   name,
-  symptoms,
+  rubrics,
   remedies,
-  selectedSymptoms,
+  selectedRubrics,
   onClose,
   onShowRemedyDetail,
+  onPassageClick,
+  selectedPassage,
 }: {
-  type: "remedy" | "symptom";
+  type: "remedy" | "rubric";
   name: string;
-  symptoms: Record<string, { remedies: Record<string, number> }> | null;
+  rubrics: Record<string, { remedies: Record<string, number> }> | null;
   remedies: Record<string, string> | null;
-  selectedSymptoms: string[];
+  selectedRubrics: string[];
   onClose: () => void;
   onShowRemedyDetail: (name: string) => void;
+  onPassageClick?: (passage: string) => void;
+  selectedPassage?: string | null;
 }) {
   return (
-    <div className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] mt-5 overflow-hidden animate-slide-up">
+    <div className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden animate-slide-up w-full">
       <div
         className="px-5 py-3.5 text-white font-semibold"
         style={{
           background: "linear-gradient(135deg, #065774 0%, #042B58 100%)",
         }}
       >
-        <span>{type === "remedy" ? "Remedy" : "Symptom"}</span>
+        <span>{type === "remedy" ? "Remedy" : "Rubric"}</span>
       </div>
       <div className="p-5 text-[15px] leading-relaxed text-[#374151]">
         {type === "remedy" ? (
@@ -635,33 +714,35 @@ function DetailPanel({
             </div>
             <MateriaPanel
               remedyAbbrev={name}
-              selectedSymptoms={selectedSymptoms}
+              selectedRubrics={selectedRubrics}
               grades={(() => {
-                // Get grade breakdown from symptom data
+                // Get grade breakdown from rubric data
                 const grades: Record<string, number> = {};
-                if (symptoms) {
-                  for (const sym of selectedSymptoms) {
-                    const symData = symptoms[sym];
-                    if (symData?.remedies?.[name]) {
-                      grades[sym] = symData.remedies[name];
+                if (rubrics) {
+                  for (const sym of selectedRubrics) {
+                    const rubricData = rubrics[sym];
+                    if (rubricData?.remedies?.[name]) {
+                      grades[sym] = rubricData.remedies[name];
                     }
                   }
                 }
                 return grades;
               })()}
+              onPassageClick={onPassageClick}
+              selectedPassage={selectedPassage ?? undefined}
             />
           </>
         ) : (
           <>
             <div className="text-lg text-[#1f2937]">{name}</div>
-            {symptoms?.[name] && (
+            {rubrics?.[name] && (
               <div className="mt-4 pt-4 border-t border-[#e5e7eb] text-sm text-[#6b7280]">
                 <strong>
-                  {Object.keys(symptoms[name].remedies).length}
+                  {Object.keys(rubrics[name].remedies).length}
                 </strong>{" "}
-                remedies cover this symptom
+                remedies cover this rubric
                 <div className="flex flex-wrap gap-2 mt-3">
-                  {Object.entries(symptoms[name].remedies)
+                  {Object.entries(rubrics[name].remedies)
                     .sort((a, b) => b[1] - a[1])
                     .map(([rem, grade]) => (
                       <span
