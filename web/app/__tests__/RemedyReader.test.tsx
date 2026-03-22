@@ -335,11 +335,10 @@ describe("RemedyReader", () => {
   });
 
   describe("navigation", () => {
-    it("renders back link", async () => {
+    it("shows back link in error state only (removed from normal view in 9dabff8)", async () => {
       setupFetchMock();
-      render(<RemedyReader slug="aconitum_napellus" />);
+      render(<RemedyReader slug="nonexistent_remedy" />);
 
-      // Wait for loading to finish so the nav renders
       await waitFor(() => {
         expect(screen.getByText(/Back to Homeo-Magic/)).toBeInTheDocument();
       });

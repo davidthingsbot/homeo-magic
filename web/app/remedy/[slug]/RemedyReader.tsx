@@ -15,7 +15,7 @@ interface MateriaProfile {
 }
 
 // ---------- markdown cleanup ----------
-function cleanMarkdown(raw: string): string {
+export function cleanMarkdown(raw: string): string {
   // Split on double newlines to get major blocks (around headings)
   const blocks = raw.split(/\n\n+/);
   const cleaned: string[] = [];
@@ -72,6 +72,131 @@ function cleanMarkdown(raw: string): string {
   result = result.replace(/\*(.+?)\*/g, "$1"); // *italic* -> italic
 
   return result;
+}
+
+// ---------- passage range finding ----------
+function normalizeWS(s: string): string {
+  return s.replace(/\s+/g, " ").trim();
+}
+
+/** Find a passage in cleaned text. Returns character range or null. */
+export function findPassageRange(
+  passage: string,
+  cleaned: string
+): { start: number; end: number } | null {
+  const cleanedLower = cleaned.toLowerCase();
+  const passageLower = passage.toLowerCase();
+
+  // Strategy 1: exact case-insensitive match
+  let idx = cleanedLower.indexOf(passageLower);
+  if (idx !== -1) return { start: idx, end: idx + passage.length };
+
+  // Strategy 2: normalized whitespace match
+  const normPassage = normalizeWS(passageLower);
+  const normCleaned = normalizeWS(cleanedLower);
+  let normIdx = normCleaned.indexOf(normPassage);
+  if (normIdx !== -1) {
+    return mapNormToOrig(normIdx, normPassage.length, cleaned, cleanedLower);
+  }
+
+  // Strategy 3: prefix match — try progressively shorter prefixes
+  // Handles cases where passage_index text diverges from markdown
+  // (e.g. different sentence boundaries, expanded abbreviations)
+  for (const fraction of [0.75, 0.5, 0.3]) {
+    const prefixLen = Math.max(20, Math.floor(normPassage.length * fraction));
+    if (prefixLen >= normPassage.length) continue;
+    const prefix = normPassage.slice(0, prefixLen);
+    normIdx = normCleaned.indexOf(prefix);
+    if (normIdx !== -1) {
+      const approxEnd = Math.min(
+        normIdx + normPassage.length,
+        normCleaned.length
+      );
+      return mapNormToOrig(normIdx, approxEnd - normIdx, cleaned, cleanedLower);
+    }
+  }
+
+  // Strategy 4: skip leading words (handles expanded abbreviations at start)
+  // Try skipping 1, 2, or 3 words to find a matching chunk
+  const words = normPassage.split(" ");
+  for (const skip of [1, 2, 3]) {
+    if (words.length < skip + 5) continue;
+    const midWords = words.slice(skip, skip + 5).join(" ");
+    normIdx = normCleaned.indexOf(midWords);
+    if (normIdx !== -1) {
+      // Walk back to find likely passage start (sentence boundary)
+      const searchStart = Math.max(0, normIdx - 60);
+      const region = normCleaned.slice(searchStart, normIdx);
+      const lastBoundary = Math.max(
+        region.lastIndexOf(". "),
+        region.lastIndexOf("? "),
+        region.lastIndexOf("! ")
+      );
+      const startInNorm =
+        lastBoundary !== -1 ? searchStart + lastBoundary + 2 : normIdx;
+      const endInNorm = Math.min(
+        startInNorm + normPassage.length,
+        normCleaned.length
+      );
+      return mapNormToOrig(
+        startInNorm,
+        endInNorm - startInNorm,
+        cleaned,
+        cleanedLower
+      );
+    }
+  }
+
+  return null;
+}
+
+/** Map a (start, length) range in normalized text back to positions in the original cleaned text. */
+function mapNormToOrig(
+  normStart: number,
+  normLen: number,
+  cleaned: string,
+  cleanedLower: string
+): { start: number; end: number } {
+  let origPos = 0;
+  let normPos = 0;
+  let inWhitespace = false;
+
+  // Advance to normStart
+  while (origPos < cleaned.length && normPos < normStart) {
+    if (/\s/.test(cleanedLower[origPos])) {
+      if (!inWhitespace) {
+        normPos++;
+        inWhitespace = true;
+      }
+      origPos++;
+    } else {
+      normPos++;
+      inWhitespace = false;
+      origPos++;
+    }
+  }
+  // Skip trailing whitespace at match boundary
+  while (origPos < cleaned.length && /\s/.test(cleanedLower[origPos]))
+    origPos++;
+  const matchStart = origPos;
+
+  // Advance through the match length
+  const normEnd = normStart + normLen;
+  while (origPos < cleaned.length && normPos < normEnd) {
+    if (/\s/.test(cleanedLower[origPos])) {
+      if (!inWhitespace) {
+        normPos++;
+        inWhitespace = true;
+      }
+      origPos++;
+    } else {
+      normPos++;
+      inWhitespace = false;
+      origPos++;
+    }
+  }
+
+  return { start: matchStart, end: origPos };
 }
 
 // ---------- render markdown to React elements ----------
@@ -350,73 +475,6 @@ export default function RemedyReader({ slug }: { slug: string }) {
     if (!markdown) return { elements: [], primaryRef: null as string | null };
 
     const cleaned = cleanMarkdown(markdown);
-    const cleanedLower = cleaned.toLowerCase();
-
-    // Normalize whitespace for fuzzy matching: collapse all runs of whitespace to single space
-    function normalizeWS(s: string): string {
-      return s.replace(/\s+/g, " ").trim();
-    }
-
-    // Find a passage in the cleaned text using normalized whitespace matching
-    // Returns { start, end } in the original cleaned text, or null
-    function findPassageRange(passage: string): { start: number; end: number } | null {
-      const passageLower = passage.toLowerCase();
-      // Try exact match first
-      let idx = cleanedLower.indexOf(passageLower);
-      if (idx !== -1) return { start: idx, end: idx + passage.length };
-
-      // Try normalized whitespace match
-      const normPassage = normalizeWS(passageLower);
-      const normCleaned = normalizeWS(cleanedLower);
-      const normIdx = normCleaned.indexOf(normPassage);
-      if (normIdx === -1) return null;
-
-      // Map normalized position back to original cleaned text position
-      // Walk through cleaned text, tracking normalized position
-      let origPos = 0;
-      let normPos = 0;
-      let matchStart = -1;
-      let inWhitespace = false;
-
-      // Skip leading whitespace in cleaned text
-      while (origPos < cleaned.length && normPos < normIdx) {
-        const ch = cleanedLower[origPos];
-        if (/\s/.test(ch)) {
-          if (!inWhitespace) {
-            normPos++; // collapsed whitespace = one space in normalized
-            inWhitespace = true;
-          }
-          origPos++;
-        } else {
-          normPos++;
-          inWhitespace = false;
-          origPos++;
-        }
-      }
-      // Skip any whitespace at match boundary
-      while (origPos < cleaned.length && /\s/.test(cleanedLower[origPos])) origPos++;
-      matchStart = origPos;
-
-      // Now find the end
-      const normMatchEnd = normIdx + normPassage.length;
-      while (origPos < cleaned.length && normPos < normMatchEnd) {
-        const ch = cleanedLower[origPos];
-        if (/\s/.test(ch)) {
-          if (!inWhitespace) {
-            normPos++;
-            inWhitespace = true;
-          }
-          origPos++;
-        } else {
-          normPos++;
-          inWhitespace = false;
-          origPos++;
-        }
-      }
-
-      if (matchStart >= 0) return { start: matchStart, end: origPos };
-      return null;
-    }
 
     const allPassages = Object.entries(matchedPassages);
     const rangesRaw: Array<{
@@ -432,14 +490,14 @@ export default function RemedyReader({ slug }: { slug: string }) {
       const isPrimary = passage === highlightParam;
       if (isPrimary) primaryPassage = passage;
 
-      const range = findPassageRange(passage);
+      const range = findPassageRange(passage, cleaned);
       if (range) {
         rangesRaw.push({ ...range, primary: isPrimary });
       }
     }
 
     if (highlightParam && !primaryPassage) {
-      const range = findPassageRange(highlightParam);
+      const range = findPassageRange(highlightParam, cleaned);
       if (range) {
         rangesRaw.push({ ...range, primary: true });
         primaryPassage = highlightParam;
