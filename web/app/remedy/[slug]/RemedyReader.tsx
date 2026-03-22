@@ -513,26 +513,7 @@ export default function RemedyReader({ slug }: { slug: string }) {
 
   return (
     <div className="max-w-3xl mx-auto pb-16">
-      <nav className="flex items-center gap-4 mb-6 text-white">
-        <a
-          href={navUrl("/")}
-          className="inline-flex items-center gap-2 text-white/85 hover:text-white no-underline text-sm transition-colors"
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          Back to Homeo-Magic
-        </a>
-      </nav>
+      {/* Page opens in new tab - user closes tab to return */}
 
       <article className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden">
         <header
