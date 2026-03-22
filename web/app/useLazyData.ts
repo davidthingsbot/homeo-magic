@@ -1,4 +1,5 @@
 "use client";
+import { dataUrl } from "./dataUrl";
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import type { SymptomsData, RemediesData } from "./types";
@@ -59,9 +60,9 @@ export function useLazyData() {
     async function loadIndexes() {
       try {
         const [pairsRes, indexRes, remedyRes] = await Promise.all([
-          fetch("data/symptom_pairs.json"),
-          fetch("data/symptoms/index.json"),
-          fetch("data/remedies/index.json"),
+          fetch(dataUrl("data/symptom_pairs.json")),
+          fetch(dataUrl("data/symptoms/index.json")),
+          fetch(dataUrl("data/remedies/index.json")),
         ]);
 
         if (!pairsRes.ok || !indexRes.ok || !remedyRes.ok) {
@@ -99,7 +100,7 @@ export function useLazyData() {
 
       const url = getSymptomFileUrl(symptomName);
       try {
-        const res = await fetch(url);
+        const res = await fetch(dataUrl(url));
         if (!res.ok) {
           fetchedFilesRef.current.delete(cacheKey);
           return;

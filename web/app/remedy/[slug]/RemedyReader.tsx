@@ -1,4 +1,5 @@
 "use client";
+import { dataUrl } from "../../dataUrl";
 
 import { useState, useEffect, useRef, useMemo } from "react";
 
@@ -281,8 +282,8 @@ export default function RemedyReader({ slug }: { slug: string }) {
     async function load() {
       try {
         const [profilesRes, passagesRes] = await Promise.all([
-          fetch("data/kent/profiles.json"),
-          fetch("data/kent/passage_index.json"),
+          fetch(dataUrl("data/kent/profiles.json")),
+          fetch(dataUrl("data/kent/passage_index.json")),
         ]);
 
         if (!profilesRes.ok) throw new Error("Failed to load profiles");

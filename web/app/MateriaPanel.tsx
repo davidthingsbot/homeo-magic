@@ -1,4 +1,5 @@
 "use client";
+import { dataUrl } from "./dataUrl";
 
 import { useState, useEffect } from "react";
 import type { ProfilesData, SymptomIndexData, MateriaProfile } from "./types";
@@ -26,10 +27,10 @@ async function loadMateriaData(): Promise<{
   }
   try {
     const [profilesRes, indexRes, linksRes, passagesRes] = await Promise.all([
-      fetch("data/kent/profiles.json"),
-      fetch("data/kent/symptom_index.json"),
-      fetch("data/kent/archive_links.json"),
-      fetch("data/kent/passage_index.json"),
+      fetch(dataUrl("data/kent/profiles.json")),
+      fetch(dataUrl("data/kent/symptom_index.json")),
+      fetch(dataUrl("data/kent/archive_links.json")),
+      fetch(dataUrl("data/kent/passage_index.json")),
     ]);
     if (!profilesRes.ok || !indexRes.ok) throw new Error("Failed to load");
     const profiles = (await profilesRes.json()) as ProfilesData;

@@ -1,4 +1,5 @@
 "use client";
+import { dataUrl } from "./dataUrl";
 
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import type { SymptomsData, RemediesData, RepertoResult } from "./types";
@@ -48,7 +49,7 @@ export function useRepertorize() {
     } catch {}
 
     // No persisted symptoms -- load defaults
-    fetch("data/default-symptoms.json")
+    fetch(dataUrl("data/default-symptoms.json"))
       .then((res) => res.ok ? res.json() : null)
       .then((defaults) => {
         if (Array.isArray(defaults) && defaults.length > 0) {
