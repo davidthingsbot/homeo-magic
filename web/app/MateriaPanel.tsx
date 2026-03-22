@@ -1,5 +1,5 @@
 "use client";
-import { dataUrl } from "./dataUrl";
+import { dataUrl, navUrl } from "./dataUrl";
 
 import { useState, useEffect } from "react";
 import type { ProfilesData, SymptomIndexData, MateriaProfile } from "./types";
@@ -110,7 +110,7 @@ function buildRemedyUrl(
     params.set("highlight", highlight);
   }
   const qs = params.toString();
-  return `/remedy/${encodeURIComponent(slug)}${qs ? `?${qs}` : ""}`;
+  return navUrl(`/remedy/${encodeURIComponent(slug)}${qs ? `?${qs}` : ""}`);
 }
 
 export function MateriaPanel({

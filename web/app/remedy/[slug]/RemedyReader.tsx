@@ -1,5 +1,5 @@
 "use client";
-import { dataUrl } from "../../dataUrl";
+import { dataUrl, navUrl } from "../../dataUrl";
 
 import { useState, useEffect, useRef, useMemo } from "react";
 
@@ -499,7 +499,7 @@ export default function RemedyReader({ slug }: { slug: string }) {
           <div className="text-4xl mb-4">&#x1F4D6;</div>
           <p className="text-[#374151] text-lg">{error}</p>
           <a
-            href="/"
+            href={navUrl("/")}
             className="mt-4 inline-block text-[#065774] hover:underline"
           >
             &larr; Back to Homeo-Magic
@@ -515,7 +515,7 @@ export default function RemedyReader({ slug }: { slug: string }) {
     <div className="max-w-3xl mx-auto pb-16">
       <nav className="flex items-center gap-4 mb-6 text-white">
         <a
-          href="/"
+          href={navUrl("/")}
           className="inline-flex items-center gap-2 text-white/85 hover:text-white no-underline text-sm transition-colors"
         >
           <svg
