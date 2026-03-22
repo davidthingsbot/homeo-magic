@@ -321,7 +321,7 @@ export default function RemedyReader({ slug }: { slug: string }) {
         }
 
         const mdRes = await fetch(
-          `data/kent/remedy_markdown/${prof.file}`
+          dataUrl(`data/kent/remedy_markdown/${prof.file}`)
         );
         if (!mdRes.ok) throw new Error("Failed to load remedy text");
 
