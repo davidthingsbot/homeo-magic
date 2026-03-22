@@ -85,6 +85,35 @@ describe("dataUrl", () => {
     expect(result).toBe("/homeo-magic/data/kent/profiles.json");
   });
 
+  it("is used by ALL data fetches in the app (no raw data/ paths)", async () => {
+    // This test ensures no fetch calls bypass dataUrl
+    // by checking the actual source files for raw "data/" fetches
+    const fs = await import("fs");
+    const path = await import("path");
+    
+    const appDir = path.resolve(__dirname, "..");
+    const sourceFiles = [
+      "MateriaPanel.tsx",
+      "useLazyData.ts",
+      "useRepertorize.ts",
+    ];
+    
+    for (const file of sourceFiles) {
+      const content = fs.readFileSync(path.join(appDir, file), "utf-8");
+      // Find fetch calls with data/ paths that don't use dataUrl
+      const rawFetches = content.match(/fetch\s*\(\s*[`"']data\//g);
+      expect(rawFetches).toBeNull();
+    }
+    
+    // Also check RemedyReader
+    const remedyReader = fs.readFileSync(
+      path.join(appDir, "remedy", "[slug]", "RemedyReader.tsx"),
+      "utf-8"
+    );
+    const rawRemedyFetches = remedyReader.match(/fetch\s*\(\s*[`"']data\//g);
+    expect(rawRemedyFetches).toBeNull();
+  });
+
   it("handles deeply nested basePath", () => {
     const script = document.createElement("script");
     script.src = "/org/project/_next/static/chunks/app.js";
