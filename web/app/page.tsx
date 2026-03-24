@@ -108,8 +108,28 @@ export default function Home() {
   const [selectedRubricRow, setSelectedSymRow] = useState<string | null>(null);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const [highlightPassage, setHighlightPassage] = useState<string | null>(null);
-  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+
   const resizeRef = useRef<{ startX: number; startWidth: number } | null>(null);
+  const tableWrapRef = useRef<HTMLDivElement>(null);
+
+  const startResize = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    resizeRef.current = { startX: e.clientX, startWidth: rubricColWidth };
+    const onMove = (ev: MouseEvent) => {
+      if (!resizeRef.current) return;
+      const diff = ev.clientX - resizeRef.current.startX;
+      const newWidth = Math.max(200, Math.min(800, resizeRef.current.startWidth + diff));
+      setSymColWidth(newWidth);
+    };
+    const onUp = () => {
+      resizeRef.current = null;
+      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseup", onUp);
+    };
+    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseup", onUp);
+  }, [rubricColWidth]);
 
   const [query, setQuery] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -227,56 +247,59 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Search */}
-      <div className="bg-white rounded-2xl p-5 shadow-[0_10px_40px_rgba(0,0,0,0.2)] mb-5">
-        <div className="flex items-center justify-between mb-2">
-          <label htmlFor="search" className="block font-semibold text-[#065774]">
-            Add rubrics:
-          </label>
-        </div>
-        <div className="relative">
-          <input
-            ref={inputRef}
-            id="search"
-            type="text"
-            value={query}
-            onChange={(e) => { setQuery(e.target.value); setDropdownOpen(true); }}
-            onKeyDown={handleKeyDown}
-            onFocus={() => { if (suggestions.length > 0) setDropdownOpen(true); }}
-            placeholder="Type to search (e.g., headache, anxiety, burning)..."
-            className="w-full px-[18px] py-[14px] text-base border-2 border-[#D3DCDE] rounded-[10px] outline-none transition-all font-inherit focus:border-[#EF9B0C] focus:shadow-[0_0_0_3px_rgba(239,155,12,0.2)] disabled:bg-[#eef1f2] disabled:cursor-not-allowed"
-            autoComplete="off"
-            disabled={loading}
-          />
-          {showDropdown && suggestions.length > 0 && (
-            <div
-              ref={dropdownRef}
-              className="absolute z-[100] top-full left-0 right-0 bg-white border-2 border-[#EF9B0C] rounded-[10px] mt-1 max-h-[300px] overflow-y-auto shadow-[0_10px_40px_rgba(0,0,0,0.15)]"
-            >
-              {suggestions.map((rubric, idx) => (
-                <button
-                  key={rubric}
-                  ref={idx === highlightedIndex ? (el) => el?.scrollIntoView({ block: "nearest" }) : undefined}
-                  onClick={() => handleSelectSuggestion(rubric)}
-                  onMouseEnter={() => setHighlightedIndex(idx)}
-                  className={`w-full text-left px-4 py-3 text-sm cursor-pointer border-b border-[#e4e9eb] last:border-b-0 transition-colors ${
-                    idx === highlightedIndex ? "bg-[#eef1f2]" : "hover:bg-[#eef1f2]"
-                  }`}
-                >
-                  <HighlightMatch text={rubric} query={query} />
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-
       {/* Results */}
-      <div className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden">
+      <div className="bg-white rounded-[10px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden">
+        {/* Search - navy gradient banner */}
+        <div
+          className="px-5 py-4 text-white"
+          style={{
+            background: "linear-gradient(175deg, #065774 0%, #042B58 100%)",
+          }}
+        >
+          <label htmlFor="search" className="block font-semibold text-white text-[16px] mb-2">
+            Add Rubrics:
+          </label>
+          <div className="relative">
+            <input
+              ref={inputRef}
+              id="search"
+              type="text"
+              value={query}
+              onChange={(e) => { setQuery(e.target.value); setDropdownOpen(true); }}
+              onKeyDown={handleKeyDown}
+              onFocus={() => { if (suggestions.length > 0) setDropdownOpen(true); }}
+              placeholder="Type to search (e.g., headache, anxiety, burning)..."
+              className="w-full px-[18px] py-[14px] text-base border-2 border-[#D3DCDE] rounded-[10px] outline-none transition-all font-inherit focus:border-[#EF9B0C] focus:shadow-[0_0_0_3px_rgba(239,155,12,0.2)] disabled:bg-[#eef1f2] disabled:cursor-not-allowed text-[#1f2937] bg-white"
+              autoComplete="off"
+              disabled={loading}
+            />
+            {showDropdown && suggestions.length > 0 && (
+              <div
+                ref={dropdownRef}
+                className="absolute z-[100] top-full left-0 right-0 bg-white border-2 border-[#EF9B0C] rounded-[10px] mt-1 max-h-[300px] overflow-y-auto shadow-[0_10px_40px_rgba(0,0,0,0.15)]"
+              >
+                {suggestions.map((rubric, idx) => (
+                  <button
+                    key={rubric}
+                    ref={idx === highlightedIndex ? (el) => el?.scrollIntoView({ block: "nearest" }) : undefined}
+                    onClick={() => handleSelectSuggestion(rubric)}
+                    onMouseEnter={() => setHighlightedIndex(idx)}
+                    className={`w-full text-left px-4 py-3 text-sm cursor-pointer border-b border-[#e4e9eb] last:border-b-0 transition-colors text-[#1f2937] ${
+                      idx === highlightedIndex ? "bg-[#eef1f2]" : "hover:bg-[#eef1f2]"
+                    }`}
+                  >
+                    <HighlightMatch text={rubric} query={query} />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
         {selectedRubrics.length === 0 ? (
           <div className="py-16 px-5 text-center text-[#6b7280]">
             <div className="text-5xl mb-4">&#x1F50D;</div>
-            <p>Search and select rubrics above to find matching remedies</p>
+            <p>Search and select rubrics to find matching remedies</p>
           </div>
         ) : results.items.length === 0 ? (
           <div className="py-16 px-5 text-center text-[#6b7280]">
@@ -284,31 +307,18 @@ export default function Home() {
           </div>
         ) : (
           <>
-            {/* Banner row - "Analysis" label */}
-            <div
-              className="flex items-center py-4 text-white"
-              style={{
-                background:
-                  "linear-gradient(135deg, #065774 0%, #042B58 100%)",
-              }}
-            >
-              <div className="font-semibold px-5 text-[16px]">
-                Analysis
-              </div>
-              {selectedRubrics.length > 0 && (
-                <button
-                  onClick={() => setShowClearConfirm(true)}
-                  className="ml-auto mr-5 px-3 py-1 bg-[#dc2626] text-white border-none rounded-md text-xs font-medium cursor-pointer hover:bg-[#b91c1c] transition-colors"
-                  data-testid="clear-all-rubrics"
-                >
-                  Clear All ({selectedRubrics.length})
-                </button>
-              )}
-            </div>
-
-            {/* Filter bar - Remedies Found + Min score */}
+            {/* Filter bar - Analysis label + Remedies Found + Min score */}
             <div className={`flex items-center py-3 bg-[#eef1f2] border-b border-[#D3DCDE] ${isMobile ? "flex-wrap gap-2 px-3" : ""}`}>
-              {!isMobile && <div style={{ width: rubricColWidth, minWidth: 420, flexShrink: 0 }} />}
+              {!isMobile && (
+                <div className="font-semibold text-[#065774] text-[16px] px-5 whitespace-nowrap" style={{ width: rubricColWidth, minWidth: 420, flexShrink: 0 }}>
+                  Analysis
+                </div>
+              )}
+              {isMobile && (
+                <div className="font-semibold text-[#065774] text-[16px] px-5 whitespace-nowrap">
+                  Analysis
+                </div>
+              )}
               <div className="flex items-center gap-4 px-2">
                 <span className="font-medium text-[#065774] text-[16px] whitespace-nowrap">
                   Showing {displayed.length} of {results.totalCount}{" "}remedies
@@ -341,47 +351,31 @@ export default function Home() {
                 >
                   {minScore}
                 </span>
-                {minScore > 0 && (
-                  <button
-                    onClick={() => setMinScore(0)}
-                    className="px-3 py-1.5 bg-[#D3DCDE] text-[#065774] border-none rounded-md text-xs font-medium cursor-pointer hover:bg-[#c5cdd0]"
-                  >
-                    Reset
-                  </button>
-                )}
+                <button
+                  onClick={() => setMinScore(0)}
+                  className="px-3 py-1.5 bg-[#D3DCDE] text-[#065774] border-none rounded-md text-xs font-medium cursor-pointer hover:bg-[#c5cdd0]"
+                >
+                  Reset
+                </button>
               </div>
             </div>
 
             {/* Table */}
-            <div className="overflow-x-auto max-h-[70vh]">
+            <div ref={tableWrapRef} className="overflow-x-auto max-h-[70vh] relative">
+              {/* Single full-height resize handle overlay */}
+              <div
+                className="absolute top-0 bottom-0 w-[6px] cursor-col-resize z-30 group hover:bg-[#EF9B0C] transition-colors"
+                style={{ left: rubricColWidth - 3, pointerEvents: "auto" }}
+                onMouseDown={startResize}
+              />
               <table className="w-full border-collapse text-[13px]">
                 <thead>
                   <tr>
                     <th
-                      className="text-right bg-[#e4e9eb] px-5 py-2.5 font-semibold text-[#065774] sticky top-0 left-0 z-20 border-b border-[#e4e9eb] relative text-[16px]"
+                      className="text-right bg-[#e4e9eb] px-5 py-2.5 font-semibold text-[#065774] sticky top-0 left-0 z-20 border-b border-[#e4e9eb] text-[16px]"
                       style={{ width: rubricColWidth, minWidth: isMobile ? 100 : 420, maxWidth: 800 }}
                     >
                       Remedies
-                      <span
-                        className="absolute top-0 right-0 w-1 h-full cursor-col-resize hover:bg-[#EF9B0C] transition-colors"
-                        onMouseDown={(e) => {
-                          e.preventDefault();
-                          resizeRef.current = { startX: e.clientX, startWidth: rubricColWidth };
-                          const onMove = (ev: MouseEvent) => {
-                            if (!resizeRef.current) return;
-                            const diff = ev.clientX - resizeRef.current.startX;
-                            const newWidth = Math.max(200, Math.min(800, resizeRef.current.startWidth + diff));
-                            setSymColWidth(newWidth);
-                          };
-                          const onUp = () => {
-                            resizeRef.current = null;
-                            document.removeEventListener("mousemove", onMove);
-                            document.removeEventListener("mouseup", onUp);
-                          };
-                          document.addEventListener("mousemove", onMove);
-                          document.addEventListener("mouseup", onUp);
-                        }}
-                      />
                     </th>
                     {displayed.map((r) => (
                       <th
@@ -391,11 +385,7 @@ export default function Home() {
                           setDetailPanel({ type: "remedy", name: r.abbrev });
                         }
                         }
-                        onMouseEnter={(e) => {
-                          setHoveredRemedy(r.abbrev);
-                          const rect = e.currentTarget.getBoundingClientRect();
-                          setTooltipPos({ x: rect.left + rect.width / 2, y: rect.top - 6 });
-                        }}
+                        onMouseEnter={() => setHoveredRemedy(r.abbrev)}
                         onMouseLeave={() => setHoveredRemedy(null)}
                         className="px-1 pt-2.5 pb-[10px] font-semibold text-[#065774] sticky top-0 z-10 border-b border-[#e4e9eb] text-center cursor-pointer transition-colors"
                         style={{
@@ -418,9 +408,27 @@ export default function Home() {
                   {/* Score row */}
                   <tr>
                     <td className="px-5 py-2.5 font-semibold border-b-2 border-[#D3DCDE] text-[16px] sticky left-0 z-10" style={{ background: "linear-gradient(180deg, #f3f6f7 0%, #e9eef0 100%)" }}>
-                      <div className="flex justify-between">
+                      <div className="flex items-center">
                         <span className="text-[#065774]">Rubrics</span>
-                        <span>Score</span>
+                        <span className="ml-auto flex items-center gap-2">
+                          {selectedRubrics.length > 0 && (
+                            <button
+                              onClick={() => setShowClearConfirm(true)}
+                              className="inline-flex items-center gap-1.5 text-[#065774] text-sm font-medium cursor-pointer hover:text-[#042B58] transition-colors bg-transparent border-none p-0"
+                              data-testid="clear-all-rubrics"
+                            >
+                              Clear All ({selectedRubrics.length})
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M3 6h18" />
+                                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                                <line x1="10" y1="11" x2="10" y2="17" />
+                                <line x1="14" y1="11" x2="14" y2="17" />
+                              </svg>
+                            </button>
+                          )}
+                        </span>
+                        <span className="ml-2">Score</span>
                       </div>
                     </td>
                     {displayed.map((r) => {
@@ -499,7 +507,7 @@ export default function Home() {
                               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="4" r="2"/><circle cx="15" cy="4" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="9" cy="20" r="2"/><circle cx="15" cy="20" r="2"/></svg>
                             </span>
                             <span className="flex-1" style={isHidden ? { textDecoration: "line-through", color: "#9ca3af" } : undefined}>{sym}</span>
-                            <span className="text-[#9ca3af] text-[11px]">
+                            <span className="text-[#9ca3af] text-[15px]">
                               ({rubricRemedyCount})
                             </span>
                             <button
@@ -557,12 +565,13 @@ export default function Home() {
             </div>
           </>
         )}
+
       </div>
 
-      {/* Detail panel + Lecture panel side by side */}
+      {/* Detail panel + Lecture panel side by side - OUTSIDE the analysis panel */}
       {detailPanel && (
         <div className={`flex gap-5 mt-5 items-stretch ${isMobile ? "flex-col" : ""}`}>
-          <div className={`${isMobile ? "w-full" : "w-1/2"} flex-shrink-0 flex`}>
+          <div className={`${isMobile ? "w-full" : "w-1/2"} min-w-0 flex`}>
             <DetailPanel
               type={detailPanel.type}
               name={detailPanel.name}
@@ -578,7 +587,7 @@ export default function Home() {
             />
           </div>
           {detailPanel.type === "remedy" && (
-            <div className={`${isMobile ? "w-full" : "w-1/2"} flex-shrink-0 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden animate-slide-up`}>
+            <div className={`${isMobile ? "w-full" : "w-1/2"} min-w-0 bg-white rounded-[10px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden animate-slide-up`}>
               <div
                 className="px-5 py-3.5 text-white font-semibold"
                 style={{ background: "linear-gradient(135deg, #065774 0%, #042B58 100%)" }}
@@ -592,20 +601,6 @@ export default function Home() {
               />
             </div>
           )}
-        </div>
-      )}
-
-      {/* Remedy tooltip (fixed position to avoid overflow clipping) */}
-      {hoveredRemedy && (
-        <div
-          className="pointer-events-none fixed z-50 whitespace-nowrap bg-[#EF9B0C] text-[#065774] text-sm font-semibold px-3 py-1.5 rounded-md shadow-lg"
-          style={{
-            left: tooltipPos.x,
-            top: tooltipPos.y,
-            transform: "translate(-50%, -100%)",
-          }}
-        >
-          {remedies?.[hoveredRemedy] || hoveredRemedy}
         </div>
       )}
 
@@ -716,7 +711,7 @@ function DetailPanel({
   selectedPassage?: string | null;
 }) {
   return (
-    <div className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden animate-slide-up w-full">
+    <div className="bg-white rounded-[10px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] overflow-hidden animate-slide-up w-full">
       <div
         className="px-5 py-3.5 text-white font-semibold"
         style={{
