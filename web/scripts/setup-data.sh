@@ -24,11 +24,11 @@ echo "Copying split remedy data..."
 rm -rf "$PUBLIC_DATA/remedies"
 cp -r "$DATA_DIR/remedies" "$PUBLIC_DATA/remedies"
 
-# Copy default symptoms if it exists
-if [ -f "$PUBLIC_DATA/default-symptoms.json" ]; then
-  echo "default-symptoms.json already present."
-elif [ -f "$DATA_DIR/default-symptoms.json" ]; then
-  cp "$DATA_DIR/default-symptoms.json" "$PUBLIC_DATA/"
+# Copy default rubrics if it exists
+if [ -f "$PUBLIC_DATA/default-rubrics.json" ]; then
+  echo "default-rubrics.json already present."
+elif [ -f "$DATA_DIR/default-rubrics.json" ]; then
+  cp "$DATA_DIR/default-rubrics.json" "$PUBLIC_DATA/"
 fi
 
 # Copy Kent materia medica data
